@@ -18,6 +18,7 @@ public class HomePage extends AbstractPage<HomePage> {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         url = "http://google.com.vn";
+        PLog.info("URL: " + url);
     }
 
     @FindBy(id = "lst-ib")
