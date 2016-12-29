@@ -27,6 +27,7 @@ public class HomePage extends AbstractPage<HomePage> {
     WebElement searchButton;
 
     public void search(String text) {
+        PLog.info("Search with text: " + text);
         searchField.sendKeys(text);
         searchButton.click();
     }

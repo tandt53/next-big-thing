@@ -3,7 +3,6 @@ package com.thetan.automation.example;
 import com.thetan.automation.example.pages.SearchResultPage;
 import com.thetan.automation.example.utils.Log;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -36,9 +35,9 @@ public class SearchResultTest extends AbstractTestcase {
 
     @Test
     public void checkResultCount() {
-        Log.startTestCase("checkResultCount");
+        TLog.info("$$$$$$$$$$$$$$$$$$ checkResultCount $$$$$$$$$$$$$$$$$");
 //        Assert.assertEquals(searchResultPage.getResultCount(), "Khoảng 320.000.000 kết quả (0,75 giây) ");
-        Log.endTestCase("setup");
+        TLog.info("$$$$$$$$$$$$$$$$$$  setup  $$$$$$$$$$$$$$$$$$$$$$");
 
     }
 }
