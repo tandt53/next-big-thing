@@ -31,10 +31,10 @@ public class HomePageTest extends AbstractTestcase {
 
     @Test
     public void checkDriver() {
-        TLog.info("checkDriver");
+        TLog.startTestCase("checkDriver");
         homePage.open()
                 .search("Checking");
 
-        TLog.info("checkDriver");
+        TLog.endTestCase("checkDriver");
     }
 }

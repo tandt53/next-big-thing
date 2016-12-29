@@ -16,7 +16,7 @@ public class AbstractPage<TPage extends AbstractPage> {
 
     public WebDriver driver;
 
-    public Logger PLog = new Log(((TPage)AbstractPage.this).getClass()).Log;
+    public Log PLog = new Log(((TPage)AbstractPage.this).getClass());
 
     public AbstractPage(WebDriver driver) {
         this.driver = driver;
