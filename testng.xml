@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel test suite" parallel="tests">
+
+    <!--Search Page-->
+    <parameter name="invalidCity" value="asdfs"/>
+    <parameter name="validCity" value="london"/>
+    <parameter name="businessclass" value="Business"/>
+    <parameter name="economyclass" value="Economy"/>
+
+    <!--Member registration page-->
+    <parameter name="minLengthPassword" value="12345"/>
+    <parameter name="spaceInPassword" value="123 456"/>
+    <parameter name="invalidFormatName" value="12@"/>
+    <parameter name="nameWithSpaceOnly" value="           "/>
+    <parameter name="oneCharName" value="a"/>
+    <parameter name="maxLengthName" value="This string is to check max length in textbox"/>
+    <parameter name="maxLengthPhone" value="0123456789123456"/>
+    <parameter name="invalidFormatPhone" value="123abc"/>
+    <parameter name="phoneWithSpace" value="123 456 234"/>
+    <parameter name="withoutAtEmail" value="Alyssagmail.com"/>
+    <parameter name="doubleAtEmail" value="Alyssa@@gmail.com"/>
+    <parameter name="maxLengthEmail" value="CheckingMaximumOfEmailAdressLessThan51Characters@gmail.com"/>
+    <parameter name="specialCharEmail01" value="_abc@gmail.com"/>
+    <parameter name="specialCharEmail02" value="abc%@gmail.com"/>
+    <parameter name="withoutLocalPartEmail" value="@gmail.com"/>
+    <parameter name="maxLengthLocalPartEmail"
+               value="1234567890qazwsxedcrfvtgbyhn_ujmiklo0987654321aaaaaam@gmail.com"/>
+    <parameter name="withoutDotEmail" value="alyssamilano@gmail"/>
+    <parameter name="emailWith3Dots" value="alyssamilano@mail.company.com.vn"/>
+    <parameter name="specialCharDomainEmail" value="alyssamilano@mail.!com"/>
+    <parameter name="firstSpecialCharDomainEmail" value="alyssamilano@_mail_.com.!vn_"/>
+    <parameter name="3CharsInDomainEmail" value="alyssamilano@com"/>
+    <parameter name="maxLengthDomainEmail" value="alyssamilano@com.123456789012345678901234567890123456789012345"/>
+    <parameter name="maxLengthDomainEmailSetSuccess" value="alyssamilano@com.123456789012345678901234567890123"/>
+    <parameter name="icNumberLength1" value="1"/>
+    <parameter name="icNumberLength4" value="1234"/>
+    <parameter name="maxLengthIcNumber"
+               value="MaximumLengthOfIcNumber01MaximumLengthOfIcNumber02MaximumLengthOfIcNumber03"/>
+    <parameter name="maxLengthFrequentFlyerNumber"
+               value="MaximumLengthOfFrequentlyFlyer01MaximumLengthOfFrequentlyFlyer02"/>
+    <parameter name="maxLengthPostalCode" value="12345678912345678"/>
+    <parameter name="invalidPostalCode" value="POSTAL CODE"/>
+    <parameter name="minLengthText" value="   "/>
+    <parameter name="maxLengthText"
+               value="This is to check maximum length of characters for city. There should not contain any special character"/>
+    <parameter name="invalidAccount" value="invalid@gmail.com,123456"/>
+    <parameter name="validAccount" value="tcsvn.qa01@gmail.com,welcome!"/>
+    <!--////////////////////////////////////////////////////-->
+
+    <!--For change password page-->
+    <parameter name="wrongOldPassword" value="12345678,welcome!!,welcome!!"/>
+    <parameter name="5charNewPassword" value="welcome!,12345,12345"/>
+    <parameter name="UppercasePassword" value="welcome!,C1233556,C1233556"/>
+    <parameter name="NoUppercasePassword" value="welcome!,c1234567,c1234567"/>
+    <parameter name="validPassword" value="welcome!,welcome!,welcome!"/>
+    <parameter name="minLengthPassport" value="1234"/>
+    <parameter name="maxLengthPassport" value="ThisIsToCheckingMinLengthOfPassportNumber0123456789"/>
+
+    <parameter name="minLengthIcNumber" value="1"/>
+    <parameter name="maxLengthIcNumber" value="ThisIsToCheckingMinLengthOfPassportNumber0123456789"/>
+    <parameter name="maxLengthFrequentFlyNumber" value="ThisIsToCheckingMinLengthOfPassportNumber0123456789"/>
+    <!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+
+    <!--this is for testing on CHROME -->
+    <test name="Chrome Test">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <!--<class name="com.tcsvn.mfl.test.frontend.searchcriteria.SearchCriteriaTest2"></class>-->
+            <class name="com.thetan.automation.example.SearchResultTest">
+            </class>
+
+        </classes>
+    </test>
+
+    <!--this is for testing on FIREFOX -->
+    <!--<test name="Firefox Test">-->
+    <!--<parameter name="browser" value="FireFox"/>-->
+    <!--<classes>-->
+    <!--<class name="com.tcsvn.mfl.test.frontend.searchcriteria.SearchCriteriaTest"/>-->
+    <!--</classes>-->
+    <!--</test>-->
+
+    <!--this is for testing on IE -->
+    <!--<test name="Internet Explorer Test">-->
+    <!--<parameter name="browser" value="IE"/>-->
+    <!--<classes>-->
+    <!--&lt;!&ndash;<class name="com.tcsvn.mfl.test.temp.AirNewZealandTest"/>&ndash;&gt;-->
+    <!--<class name="com.tcsvn.mfl.test.frontend.searchcriteria.SearchCriteriaTest"/>-->
+    <!--</classes>-->
+    <!--</test>-->
+</suite>
