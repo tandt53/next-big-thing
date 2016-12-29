@@ -8,7 +8,7 @@ public class Constants {
 	public static final String BROWSER_IE = "IE";
 	public static final String BROWSER_SAFARI = "Safari";
 	// link
-	public static final String urlLink = "http://47.88.219.247/";
-	public static final String invalidLink = "http://10.1.2.34:8080/cms/";
+	public static final String urlLink = "http://google.com.vn/";
+	public static final String invalidLink = "google.com";
 
 }

@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
  */
 public class AbstractTestcase<TTest extends AbstractTestcase> {
 
-    public Logger TLog = new Log(((TTest)AbstractTestcase.this).getClass()).Log;
+    public Log TLog = new Log(((TTest)AbstractTestcase.this).getClass());
 
     public WebDriver getDriver(String browser) {
         Injector injector = Guice.createInjector(new WebDriverInjector());
