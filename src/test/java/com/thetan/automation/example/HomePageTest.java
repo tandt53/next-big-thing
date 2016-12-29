@@ -14,7 +14,6 @@ import org.testng.annotations.Test;
 public class HomePageTest extends AbstractTestcase {
 
     WebDriver driver;
-
     HomePage homePage;
 
     @BeforeTest
