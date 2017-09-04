@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DependencyInjectionExample.iml" filepath="$PROJECT_DIR$/DependencyInjectionExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/automation-practice.iml" filepath="$PROJECT_DIR$/automation-practice.iml" />
     </modules>
   </component>
 </project>
