@@ -1,7 +1,6 @@
 package com.thetan.automation.example;
 
 import com.thetan.automation.example.pages.SearchResultPage;
-import com.thetan.automation.example.utils.Log;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -12,7 +11,7 @@ import org.testng.annotations.Test;
 /**
  * Created by thetan.do on 12/28/2016.
  */
-public class SearchResultTest extends AbstractTestcase {
+public class SearchResultTest extends BaseTest {
 
     WebDriver driver;
     SearchResultPage searchResultPage;
