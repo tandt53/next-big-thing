@@ -1,13 +1,12 @@
 package com.thetan.automation.example;
 
 import com.thetan.automation.example.utils.Log;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 /**
  * Created by thetan.do on 12/28/2016.
  */
-public class AbstractPage<TPage extends AbstractPage> {
+public class BasePage<TPage extends BasePage> {
 
     /**
      * default url
@@ -16,9 +15,9 @@ public class AbstractPage<TPage extends AbstractPage> {
 
     public WebDriver driver;
 
-    public Log PLog = new Log(((TPage)AbstractPage.this).getClass());
+    public Log PLog = new Log(((TPage)BasePage.this).getClass());
 
-    public AbstractPage(WebDriver driver) {
+    public BasePage(WebDriver driver) {
         this.driver = driver;
     }
 

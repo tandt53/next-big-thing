@@ -3,9 +3,6 @@ package com.thetan.automation.example;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.thetan.automation.example.utils.Log;
-import org.apache.log4j.Logger;
-import org.junit.Rule;
-import org.junit.rules.TestName;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -15,9 +12,9 @@ import java.lang.reflect.Method;
 /**
  * Created by thetan.do on 12/28/2016.
  */
-public class AbstractTestcase<TTest extends AbstractTestcase> {
+public class BaseTest<TTest extends BaseTest> {
 
-    public Log TLog = new Log(((TTest)AbstractTestcase.this).getClass());
+    public Log TLog = new Log(((TTest) BaseTest.this).getClass());
     public String testName;
 
     public WebDriver getDriver(String browser) {
@@ -29,13 +26,13 @@ public class AbstractTestcase<TTest extends AbstractTestcase> {
     }
 
     @BeforeMethod
-    public void setupMethod(Method method){
+    public void setupMethod(Method method) {
         testName = method.getName();
         TLog.startTestCase(testName);
     }
 
     @AfterMethod
-    public void teardownMethod(Method method){
+    public void teardownMethod(Method method) {
         TLog.endTestCase(testName);
     }
 }
