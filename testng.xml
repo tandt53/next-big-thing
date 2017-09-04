@@ -67,7 +67,7 @@
         <parameter name="browser" value="Chrome"/>
         <classes>
             <!--<class name="com.tcsvn.mfl.test.frontend.searchcriteria.SearchCriteriaTest2"></class>-->
-            <class name="com.thetan.automation.example.SearchResultTest">
+            <class name="com.thetan.automation.example.test.SearchResultTest">
             </class>
 
         </classes>

@@ -1,5 +1,6 @@
-package com.thetan.automation.example;
+package com.thetan.automation.example.test;
 
+import com.thetan.automation.example.BaseTest;
 import com.thetan.automation.example.pages.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
