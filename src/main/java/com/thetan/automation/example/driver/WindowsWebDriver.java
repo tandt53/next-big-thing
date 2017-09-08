@@ -25,21 +25,21 @@ public class WindowsWebDriver extends AbstractWebDriver {
 
     protected void firefoxDriver() {
         System.out.println("Windows Firefox Driver");
-        firefoxDriverPath = new String(".//references//geckodriver.exe");
+        firefoxDriverPath = new String(".//res//driver//win//geckodriver.exe");
         System.setProperty(KEY_FIREFOX, firefoxDriverPath);
         driver = new FirefoxDriver();
     }
 
     protected void chromeDriver() {
         System.out.println("Windows Chrome Driver");
-        chromeDriverPath = new String(".//references//chromedriver.exe");
+        chromeDriverPath = new String(".//res//driver//win//chromedriver.exe");
         System.setProperty(KEY_CHROME, chromeDriverPath);
         driver = new ChromeDriver();
     }
 
     protected void edgeDriver() {
         System.out.println("Windows Edge Driver");
-        ieDriverPath = new String(".//references//MicrosoftWebDriver.exe");
+        ieDriverPath = new String(".//res//driver//win//MicrosoftWebDriver.exe");
         System.setProperty(KEY_EDGE, ieDriverPath);
         driver = new EdgeDriver();
     }
