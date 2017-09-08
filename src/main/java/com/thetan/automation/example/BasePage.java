@@ -15,7 +15,7 @@ public class BasePage<TPage extends BasePage> {
 
     public WebDriver driver;
 
-    public Log PLog = new Log(((TPage)BasePage.this).getClass());
+    public Log PLog = new Log(((TPage) BasePage.this).getClass());
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -41,7 +41,7 @@ public class BasePage<TPage extends BasePage> {
     /**
      * wait time in milliseconds
      */
-    public void waitSafety(long time){
+    public void waitSafety(long time) {
         try {
             Thread.sleep(time);
         } catch (InterruptedException e) {
@@ -53,7 +53,8 @@ public class BasePage<TPage extends BasePage> {
      * close page and quit driver
      */
     public void close() {
-        driver.close();
-        driver.quit();
+//        driver.close();
+//        if (driver != null)
+            driver.quit();
     }
 }

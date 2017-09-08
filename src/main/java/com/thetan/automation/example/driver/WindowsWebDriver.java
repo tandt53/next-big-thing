@@ -13,7 +13,6 @@ public class WindowsWebDriver extends AbstractWebDriver {
     WebDriver driver = null;
 
     public WebDriver getDriver(String browser) {
-
         if (browser.equals(Constants.BROWSER_CHROME))
             chromeDriver();
         if (browser.equals(Constants.BROWSER_FIREFOX))

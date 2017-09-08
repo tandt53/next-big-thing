@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.File;
+import java.io.IOException;
+
 /**
  * Created by thetan.do on 12/24/2016.
  */
@@ -19,18 +22,34 @@ public class LinuxWebDriver extends AbstractWebDriver {
         return driver;
     }
 
-    protected void firefoxDriver() {
-        System.out.println("Windows Firefox Driver");
-        firefoxDriverPath = new String(".//res//driver//lin//geckodriver.exe");
-        System.setProperty(KEY_FIREFOX, firefoxDriverPath);
-        driver = new FirefoxDriver();
+    protected void firefoxDriver()  {
+        try {
+            System.out.println("Linux Firefox Driver");
+            File classpathRoot = new File(System.getProperty("user.dir"));
+            File driverDir = new File(classpathRoot, "./res/driver/");
+            File driverExe = new File(driverDir.getCanonicalPath(), "./lin/geckodriver");
+            firefoxDriverPath = new String(driverExe.getAbsolutePath());
+            System.setProperty(KEY_FIREFOX, firefoxDriverPath);
+            driver = new FirefoxDriver();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 
     protected void chromeDriver() {
-        System.out.println("Windows Chrome Driver");
-        chromeDriverPath = new String(".//res//driver//win//chromedriver.exe");
-        System.setProperty(KEY_CHROME, chromeDriverPath);
-        driver = new ChromeDriver();
+        try {
+            System.out.println("L Chrome Driver");
+            File classpathRoot = new File(System.getProperty("user.dir"));
+            File driverDir = new File(classpathRoot, "./res/driver/");
+            File driverExe = new File(driverDir.getCanonicalPath(), "./lin/chromedriver");
+            chromeDriverPath =  new String(driverExe.getAbsolutePath());
+            System.setProperty(KEY_CHROME, chromeDriverPath);
+            driver = new ChromeDriver();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 
     protected void edgeDriver() {

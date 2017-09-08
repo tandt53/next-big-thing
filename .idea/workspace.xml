@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfb515a5-10d8-4f78-82ab-3610c308cc58" name="Default" comment="update abstract class">
+    <list default="true" id="cfb515a5-10d8-4f78-82ab-3610c308cc58" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/AbstractPage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/AbstractTestcase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/pages/HomePage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/pages/SearchResultPage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/com/thetan/automation/example/HomePageTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/com/thetan/automation/example/SearchResultTest.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/WebDriverSelector.class" afterPath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/WebDriverSelector.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/driver/AbstractWebDriver.class" afterPath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/driver/AbstractWebDriver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/driver/LinuxWebDriver.class" afterPath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/driver/LinuxWebDriver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/driver/WindowsWebDriver.class" afterPath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/driver/WindowsWebDriver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BasePage.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BasePage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BaseTest.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BaseTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverSelector.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverSelector.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/AbstractWebDriver.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/AbstractWebDriver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/LinuxWebDriver.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/LinuxWebDriver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/WindowsWebDriver.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/WindowsWebDriver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/pages/HomePage.java" afterPath="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/pages/HomePage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/HomePageTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/HomePageTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/SearchResultTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/SearchResultTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testng.xml" afterPath="$PROJECT_DIR$/testng.xml" />
     </list>
     <ignored path="DependencyInjectionExample.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,21 +43,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WindowsWebDriver.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WindowsWebDriver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/WindowsWebDriver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="22" column="22" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="22" selection-end-column="22" />
+            <state relative-caret-position="425">
+              <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LinuxWebDriver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LinuxWebDriver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/LinuxWebDriver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+            <state relative-caret-position="323">
+              <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,38 +68,18 @@
       <file leaf-file-name="testng.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testng.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
-              <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+            <state relative-caret-position="95">
+              <caret line="65" column="9" lean-forward="false" selection-start-line="65" selection-start-column="9" selection-end-line="73" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MacWebDriver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/MacWebDriver.java">
+      <file leaf-file-name="Log.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/utils/Log.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/utils/Constants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebDriverInjector.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverInjector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="437">
+              <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -90,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="22" column="46" lean-forward="false" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+              <caret line="23" column="47" lean-forward="false" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -99,21 +98,8 @@
       <file leaf-file-name="WebDriverSelector.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverSelector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-              <folding>
-                <element signature="e#503#504#0" expanded="true" />
-                <element signature="e#563#564#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractWebDriver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/AbstractWebDriver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+            <state relative-caret-position="342">
+              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -122,8 +108,43 @@
       <file leaf-file-name="SearchResultTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/SearchResultTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="374">
+              <caret line="39" column="34" lean-forward="true" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+              <folding>
+                <element signature="e#901#902#0" expanded="true" />
+                <element signature="e#941#942#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BasePage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BasePage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="689">
+              <caret line="55" column="18" lean-forward="false" selection-start-line="55" selection-start-column="18" selection-end-line="56" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomePage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/thetan/automation/example/pages/HomePage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomePageTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/HomePageTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -154,9 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/thetan/di/example/page/BasePage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/thetan/di/example/driver/DriverSelector.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/thetan/di/example/driver/WindowsDriverSelector.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thetan/di/example/driver/MacDriverSelector.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thetan/di/example/driver/LinuxDriverSelector.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thetan/di/example/driver/WebDriverSelector.java" />
@@ -195,14 +213,19 @@
         <option value="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/pages/HomePage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/HomePageTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/SearchResultTest.java" />
-        <option value="$PROJECT_DIR$/testng.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/AbstractTestcase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/AbstractPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BasePAge.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BasePage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/WindowsWebDriver.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/LinuxWebDriver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverSelector.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BaseTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/SearchResultTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/HomePageTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/pages/HomePage.java" />
+        <option value="$PROJECT_DIR$/testng.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BasePage.java" />
       </list>
     </option>
   </component>
@@ -216,8 +239,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="165" />
     <option name="y" value="160" />
-    <option name="width" value="1271" />
-    <option name="height" value="925" />
+    <option name="width" value="1867" />
+    <option name="height" value="1092" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -235,9 +258,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,20 +282,6 @@
             <path>
               <item name="automation-practice" type="b2602c69:ProjectViewProjectNode" />
               <item name="automation-practice" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="driver" type="462c0819:PsiDirectoryNode" />
-              <item name="lin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="automation-practice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="automation-practice" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="driver" type="462c0819:PsiDirectoryNode" />
-              <item name="win" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="automation-practice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="automation-practice" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -304,6 +313,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="example" type="462c0819:PsiDirectoryNode" />
               <item name="driver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="automation-practice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="automation-practice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="automation-practice" type="b2602c69:ProjectViewProjectNode" />
@@ -337,7 +355,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -739,43 +757,50 @@
       <option name="project" value="LOCAL" />
       <updated>1504863001761</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update abstract class">
+      <created>1504864719602</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1504864719602</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2016.12.29 at 18h 21m 26s.xml">
-      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2016.12.29 at 18h 21m 50s.xml">
-      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2016.12.29 at 18h 22m 26s.xml">
-      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2016.12.29 at 18h 23m 03s.xml">
-      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2016.12.29 at 18h 24m 02s.xml">
-      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2016.12.29 at 18h 25m 01s.xml">
-      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2016.12.29 at 18h 25m 18s.xml">
-      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2016.12.29 at 22h 03m 41s.xml">
-      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2017.09.08 at 16h 57m 11s.xml">
       <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
     </history-entry>
     <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2017.09.08 at 16h 58m 16s.xml">
       <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2017.09.08 at 16h 59m 34s.xml">
+      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2017.09.08 at 16h 59m 53s.xml">
+      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2017.09.08 at 17h 00m 24s.xml">
+      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2017.09.08 at 17h 32m 18s.xml">
+      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2017.09.08 at 17h 32m 55s.xml">
+      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2017.09.08 at 17h 33m 34s.xml">
+      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2017.09.08 at 17h 34m 24s.xml">
+      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="D__workspace_DependencyInjectionExample_automation-framework_testng_xml - 2017.09.08 at 17h 34m 46s.xml">
+      <configuration name="D:/workspace/DependencyInjectionExample/automation-framework/testng.xml" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="55" y="-4" width="1865" height="1084" extended-state="6" />
+    <frame x="165" y="160" width="1867" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -786,8 +811,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37775445" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35047218" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -796,8 +821,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -834,14 +859,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverInjector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/thetan/automation/example/HomePageTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverSelectorProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -970,23 +987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/utils/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BasePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverInjector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -1011,18 +1011,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testng.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/AbstractWebDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        <state relative-caret-position="380">
+          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/SearchResultTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverSelector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="342">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/utils/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1030,45 +1038,71 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="22" column="46" lean-forward="false" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverSelector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-          <folding>
-            <element signature="e#503#504#0" expanded="true" />
-            <element signature="e#563#564#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/AbstractWebDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/WindowsWebDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="22" column="22" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="22" selection-end-column="22" />
+          <caret line="23" column="47" lean-forward="false" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/LinuxWebDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+        <state relative-caret-position="323">
+          <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/HomePageTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/thetan/automation/example/pages/HomePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testng.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="65" column="9" lean-forward="false" selection-start-line="65" selection-start-column="9" selection-end-line="73" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BasePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="689">
+          <caret line="55" column="18" lean-forward="false" selection-start-line="55" selection-start-column="18" selection-end-line="56" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/SearchResultTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="39" column="34" lean-forward="true" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+          <folding>
+            <element signature="e#901#902#0" expanded="true" />
+            <element signature="e#941#942#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/WindowsWebDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
