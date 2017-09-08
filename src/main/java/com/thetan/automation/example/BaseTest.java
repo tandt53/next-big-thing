@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 
 /**
@@ -17,7 +18,7 @@ public class BaseTest<TTest extends BaseTest> {
     public Log TLog = new Log(((TTest) BaseTest.this).getClass());
     public String testName;
 
-    public WebDriver getDriver(String browser) {
+    public WebDriver getDriver(String browser) throws IOException {
         Injector injector = Guice.createInjector(new WebDriverInjector());
         WebDriverSelector driverSelector = injector.getInstance(WebDriverSelector.class);
         WebDriver driver = driverSelector.getDriver(browser);
