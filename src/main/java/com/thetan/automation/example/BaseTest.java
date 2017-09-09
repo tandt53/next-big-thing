@@ -22,7 +22,8 @@ public class BaseTest<TTest extends BaseTest> {
         Injector injector = Guice.createInjector(new WebDriverInjector());
         WebDriverSelector driverSelector = injector.getInstance(WebDriverSelector.class);
         WebDriver driver = driverSelector.getDriver(browser);
-        driver.manage().window().maximize();
+        if (!browser.contains("Mobile"))
+            driver.manage().window().maximize();
         return driver;
     }
 
