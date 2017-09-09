@@ -4,15 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.thetan.di.example</groupId>
-    <artifactId>com.thetan.di.example</artifactId>
+    <groupId>com.thetan.automation.example</groupId>
+    <artifactId>com.thetan.automation.example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>LATEST</version>
+            <version>3.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>5.0.0-BETA8</version>
         </dependency>
 
         <dependency>

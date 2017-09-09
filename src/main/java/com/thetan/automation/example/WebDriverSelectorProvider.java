@@ -1,10 +1,10 @@
 package com.thetan.automation.example;
 
 import com.google.inject.Provider;
-import com.thetan.automation.example.driver.WindowsWebDriver;
 import com.thetan.automation.example.driver.AbstractWebDriver;
 import com.thetan.automation.example.driver.LinuxWebDriver;
 import com.thetan.automation.example.driver.MacWebDriver;
+import com.thetan.automation.example.driver.WindowsWebDriver;
 
 /**
  * Created by thetan.do on 12/24/2016.

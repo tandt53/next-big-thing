@@ -30,7 +30,7 @@ public class HomePage extends BasePage<HomePage> {
     public void search(String text) {
         PLog.info("Search with text: " + text);
         searchField.sendKeys(text);
-        searchButton.click();
+        searchField.submit();
     }
 
 }

@@ -23,4 +23,12 @@ public class MacWebDriver extends AbstractWebDriver {
 
     protected void safariDriver() {
     }
+
+    protected void androidDriver() {
+
+    }
+
+    protected void iOsDriver() {
+
+    }
 }

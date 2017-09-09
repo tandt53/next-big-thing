@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 /**
  * Created by thetan.do on 12/28/2016.
  */
@@ -19,7 +21,7 @@ public class SearchResultTest extends BaseTest {
 
     @BeforeTest
     @Parameters("browser")
-    public void setup(String browser) {
+    public void setup(String browser) throws IOException {
 
         driver = getDriver(browser);
 

@@ -63,23 +63,24 @@
     <!--///////////////////////////////////////////////////////////////////////////////////////////////-->
 
     <!--this is for testing on CHROME -->
-    <test name="Chrome Test">
-        <parameter name="browser" value="Chrome"/>
-        <classes>
-            <!--<class name="com.tcsvn.mfl.test.frontend.searchcriteria.SearchCriteriaTest2"></class>-->
-            <class name="com.thetan.automation.example.test.SearchResultTest">
-            </class>
+    <!--<test name="Chrome Test">-->
+        <!--<parameter name="browser" value="Chrome"/>-->
+        <!--<classes>-->
+            <!--&lt;!&ndash;<class name="com.tcsvn.mfl.test.frontend.searchcriteria.SearchCriteriaTest2"></class>&ndash;&gt;-->
+            <!--<class name="com.thetan.automation.example.test.SearchResultTest">-->
+            <!--</class>-->
 
-        </classes>
-    </test>
+        <!--</classes>-->
+    <!--</test>-->
 
     <!--this is for testing on FIREFOX -->
-    <!--<test name="Firefox Test">-->
-    <!--<parameter name="browser" value="FireFox"/>-->
-    <!--<classes>-->
-    <!--<class name="com.tcsvn.mfl.test.frontend.searchcriteria.SearchCriteriaTest"/>-->
-    <!--</classes>-->
-    <!--</test>-->
+    <test name="Firefox Test">
+        <parameter name="browser" value="FireFox"/>
+        <classes>
+            <class name="com.thetan.automation.example.test.SearchResultTest">
+            </class>
+        </classes>
+    </test>
 
     <!--this is for testing on IE -->
     <!--<test name="Internet Explorer Test">-->
