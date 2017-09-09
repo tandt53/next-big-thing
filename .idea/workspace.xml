@@ -2,67 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfb515a5-10d8-4f78-82ab-3610c308cc58" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_3_2_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_digester_commons_digester_1_8_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_validator_commons_validator_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_appium_java_client_5_0_0_BETA8.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_1_9_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_launcher_1_9_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openpnp_opencv_3_2_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_8_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_8_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_8_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_8_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_8_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_testng_testng_6_11.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_testng_testng_6_10.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/references/MicrosoftWebDriver.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/references/chromedriver.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/references/geckodriver.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/AbstractPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/AbstractTestcase.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/pages/HomePage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/pages/SearchResultPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/com/thetan/automation/example/HomePageTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/com/thetan/automation/example/SearchResultTest.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/WebDriverSelector.class" afterPath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/WebDriverSelector.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/driver/AbstractWebDriver.class" afterPath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/driver/AbstractWebDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/driver/LinuxWebDriver.class" afterPath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/driver/LinuxWebDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/driver/MacWebDriver.class" afterPath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/driver/MacWebDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/driver/WindowsWebDriver.class" afterPath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/driver/WindowsWebDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/utils/Constants.class" afterPath="$PROJECT_DIR$/target/classes/com/thetan/automation/example/utils/Constants.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/automation-practice.iml" afterPath="$PROJECT_DIR$/automation-practice.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BasePage.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BasePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BaseTest.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/BaseTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverInjector.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverInjector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverSelector.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverSelector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverSelectorProvider.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/WebDriverSelectorProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/AbstractWebDriver.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/AbstractWebDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/LinuxWebDriver.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/LinuxWebDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/MacWebDriver.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/MacWebDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/WindowsWebDriver.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/driver/WindowsWebDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/utils/Constants.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/utils/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/utils/Log.java" afterPath="$PROJECT_DIR$/src/main/java/com/thetan/automation/example/utils/Log.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/pages/HomePage.java" afterPath="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/pages/HomePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/pages/SearchResultPage.java" afterPath="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/pages/SearchResultPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/HomePageTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/HomePageTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/SearchResultTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/thetan/automation/example/test/SearchResultTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/log4j.properties" afterPath="$PROJECT_DIR$/target/classes/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testng.xml" afterPath="$PROJECT_DIR$/testng.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_beust_jcommander_1_48.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_beust_jcommander_1_64.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_5.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_3.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_6.xml" />
     </list>
     <ignored path="DependencyInjectionExample.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -695,7 +635,21 @@
       <option name="project" value="LOCAL" />
       <updated>1504531460051</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update abstract class">
+      <created>1504919006754</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1504919006754</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update abstract class">
+      <created>1504920451225</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1504920451225</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1035,6 +989,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="49" lean-forward="false" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
