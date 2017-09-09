@@ -2,6 +2,8 @@ package com.thetan.automation.example.driver;
 
 import com.thetan.automation.example.utils.Constants;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -11,6 +13,7 @@ import java.net.URL;
 
 public class MobileDriver extends AbstractWebDriver {
     private WebDriver driver = null;
+    private static AppiumDriverLocalService service;
 
     public WebDriver getDriver(String browser) throws IOException {
         if (browser.equals(Constants.MOBILE_ANDROID)) {
@@ -41,6 +44,13 @@ public class MobileDriver extends AbstractWebDriver {
 
     protected void androidDriver() {
         try {
+            service = AppiumDriverLocalService.buildDefaultService();
+            service.start();
+
+            if (service == null || !service.isRunning()) {
+                throw new AppiumServerHasNotBeenStartedLocallyException(
+                        "An appium server node is not started!");
+            }
             File classpathRoot = new File(System.getProperty("user.dir"));
             File appDir = new File(classpathRoot, "./apps/");
             File app = new File(appDir.getCanonicalPath(), "ebxgo.apk");

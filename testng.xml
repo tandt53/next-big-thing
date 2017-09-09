@@ -64,13 +64,13 @@
 
     <!--this is for testing on CHROME -->
     <!--<test name="Chrome Test">-->
-        <!--<parameter name="browser" value="Chrome"/>-->
-        <!--<classes>-->
-            <!--&lt;!&ndash;<class name="com.tcsvn.mfl.test.frontend.searchcriteria.SearchCriteriaTest2"></class>&ndash;&gt;-->
-            <!--<class name="com.thetan.automation.example.test.SearchResultTest">-->
-            <!--</class>-->
+    <!--<parameter name="browser" value="Chrome"/>-->
+    <!--<classes>-->
+    <!--&lt;!&ndash;<class name="com.tcsvn.mfl.test.frontend.searchcriteria.SearchCriteriaTest2"></class>&ndash;&gt;-->
+    <!--<class name="com.thetan.automation.example.test.SearchResultTest">-->
+    <!--</class>-->
 
-        <!--</classes>-->
+    <!--</classes>-->
     <!--</test>-->
 
     <!--this is for testing on FIREFOX -->
@@ -84,10 +84,10 @@
 
     <!--this is for testing on IE -->
     <!--<test name="Internet Explorer Test">-->
-    <!--<parameter name="browser" value="IE"/>-->
-    <!--<classes>-->
-    <!--&lt;!&ndash;<class name="com.tcsvn.mfl.test.temp.AirNewZealandTest"/>&ndash;&gt;-->
-    <!--<class name="com.tcsvn.mfl.test.frontend.searchcriteria.SearchCriteriaTest"/>-->
-    <!--</classes>-->
+        <!--<parameter name="browser" value="Mobile AndroidE"/>-->
+        <!--<classes>-->
+            <!--&lt;!&ndash;<class name="com.tcsvn.mfl.test.temp.AirNewZealandTest"/>&ndash;&gt;-->
+            <!--<class name="com.thetan.automation.example.test.ConnectScreenTest"/>-->
+        <!--</classes>-->
     <!--</test>-->
 </suite>
