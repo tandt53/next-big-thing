@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by thetan.do on 12/24/2016.
  */
-public class MacWebDriver extends AbstractWebDriver {
+public class MacWebDriver extends BaseWebDriver {
     WebDriver driver = null;
 
     public WebDriver getDriver(String browser) {

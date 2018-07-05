@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * Created by thetan.do on 12/24/2016.
  */
-public class WindowsWebDriver extends AbstractWebDriver {
+public class WindowsWebDriver extends BaseWebDriver {
     private WebDriver driver = null;
 
     public WebDriver getDriver(String browser) {
