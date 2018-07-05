@@ -16,16 +16,12 @@ import java.io.IOException;
  */
 public class SearchResultTest extends BaseTest {
 
-    WebDriver driver;
     SearchResultPage searchResultPage;
 
     @BeforeTest
     @Parameters("browser")
     public void setup(String browser) throws IOException {
-
-        driver = getDriver(browser);
-
-        searchResultPage = new SearchResultPage(driver);
+        searchResultPage = new SearchResultPage();
         searchResultPage.open("Checking");
         searchResultPage.waitSafety(1000);
 

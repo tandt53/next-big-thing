@@ -11,12 +11,9 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class HomePage extends BasePage<HomePage> {
 
-    WebDriver driver;
 
-    public HomePage(WebDriver driver) {
-        super(driver);
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public HomePage() {
+        super();
         url = "http://google.com.vn";
         PLog.info("URL: " + url);
     }
