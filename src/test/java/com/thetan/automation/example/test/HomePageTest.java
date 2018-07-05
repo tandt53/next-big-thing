@@ -19,10 +19,8 @@ public class HomePageTest extends BaseTest {
     HomePage homePage;
 
     @BeforeTest
-    @Parameters("browser")
-    public void setup(String browser) throws IOException {
-        driver = getDriver(browser);
-        homePage = new HomePage(driver);
+    public void setup() throws IOException {
+        homePage = new HomePage();
     }
 
     @AfterTest

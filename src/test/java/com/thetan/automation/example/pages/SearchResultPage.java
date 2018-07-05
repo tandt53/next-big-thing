@@ -11,19 +11,15 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class SearchResultPage extends BasePage<SearchResultPage> {
 
-    WebDriver driver;
-
     @FindBy(id = "resultStats")
     WebElement result;
 
-    public SearchResultPage(WebDriver driver) {
-        super(driver);
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public SearchResultPage() {
+        super();
     }
 
     public SearchResultPage open(String textToSearch){
-        new HomePage(driver).open().search(textToSearch);
+        new HomePage().open().search(textToSearch);
         return this;
     }
 

@@ -1,7 +1,9 @@
 package com.thetan.automation.example;
 
+import com.thetan.automation.example.driver.Driver;
 import com.thetan.automation.example.utils.Log;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 /**
  * Created by thetan.do on 12/28/2016.
@@ -17,8 +19,9 @@ public class BasePage<TPage extends BasePage> {
 
     public Log PLog = new Log(((TPage) BasePage.this).getClass());
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
+    public BasePage() {
+        this.driver = Driver.initDriver();
+        PageFactory.initElements(driver, this);
     }
 
     /**
@@ -54,7 +57,7 @@ public class BasePage<TPage extends BasePage> {
      */
     public void close() {
 //        driver.close();
-//        if (driver != null)
+        if (driver != null)
             driver.quit();
     }
 }
