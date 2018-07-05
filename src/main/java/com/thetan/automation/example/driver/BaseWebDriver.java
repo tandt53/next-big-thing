@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  * Created by thetan.do on 12/24/2016.
  */
-public abstract class AbstractWebDriver {
+public abstract class BaseWebDriver {
     // keys
     public static String KEY_CHROME = "webdriver.chrome.driver";
     public static String KEY_FIREFOX = "webdriver.gecko.driver";

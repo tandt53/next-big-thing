@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class MobileDriver extends AbstractWebDriver {
+public class MobileDriver extends BaseWebDriver {
     private WebDriver driver = null;
     private static AppiumDriverLocalService service;
 

@@ -2,6 +2,8 @@ package com.thetan.automation.example;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.thetan.automation.example.driver.provider.WebDriverInjector;
+import com.thetan.automation.example.driver.provider.WebDriverSelector;
 import com.thetan.automation.example.utils.Log;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
