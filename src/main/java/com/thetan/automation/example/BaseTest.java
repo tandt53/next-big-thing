@@ -4,7 +4,6 @@ import com.google.common.base.Strings;
 import com.thetan.automation.example.utils.Constants;
 import com.thetan.automation.example.utils.LoadConfig;
 import com.thetan.automation.example.utils.Log;
-import com.thetan.automation.example.utils.Sessions;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -29,15 +28,6 @@ public class BaseTest<TTest extends BaseTest> {
 
 	@BeforeSuite
 	public void setupSuite() {
-		String platformName = System.getProperty("platformname");
-		Properties CONFIG = LoadConfig.loadConfig();
-		if (Strings.isNullOrEmpty(platformName)) {
-			platformName = CONFIG.getProperty("app.platformName");
-		}
-		
-		if (platformName.equals(Constants.MOBILE_HYBRID_ANDROID)) {
-			Sessions.start(); // start session for all test
-		}
 	}
 
 	@BeforeMethod
@@ -53,6 +43,5 @@ public class BaseTest<TTest extends BaseTest> {
 	
 	@AfterSuite
 	public void teardownSuite() {
-		Sessions.end(); // ending session when all test finished
 	}
 }
