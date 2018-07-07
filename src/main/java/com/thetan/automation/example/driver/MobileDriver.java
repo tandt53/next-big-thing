@@ -16,11 +16,11 @@ public class MobileDriver extends BaseWebDriver {
     private static AppiumDriverLocalService service;
 
     public WebDriver getDriver(String browser) throws IOException {
-        if (browser.equals(Constants.MOBILE_ANDROID)) {
+        if (browser.equals(Constants.MOBILE_NATIVE_ANDROID)) {
             androidDriver();
         }
 
-        if (browser.equals(Constants.MOBILE_IOS)) {
+        if (browser.equals(Constants.MOBILE_NATIVE_IOS)) {
             iOsDriver();
         }
         return null;

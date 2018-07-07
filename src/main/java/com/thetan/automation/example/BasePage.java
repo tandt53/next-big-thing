@@ -20,7 +20,7 @@ public class BasePage<TPage extends BasePage> {
     public Log PLog = new Log(((TPage) BasePage.this).getClass());
 
     public BasePage() {
-        this.driver = Driver.initDriver();
+        this.driver = Driver.initWebDriver();
         PageFactory.initElements(driver, this);
     }
 
