@@ -11,8 +11,6 @@ import com.thetan.automation.example.driver.provider.WebDriverInjector;
 import com.thetan.automation.example.driver.provider.WebDriverSelector;
 import com.thetan.automation.example.utils.LoadConfig;
 
-import io.appium.java_client.AppiumDriver;
-
 public class Driver {
 	
 	public static WebDriver initWebDriver() {
@@ -34,14 +32,14 @@ public class Driver {
 		return driverSelector.getDriver(browser);
 	}
 	
-	@SuppressWarnings("unchecked")
-	public static AppiumDriver<WebElement> initMobileDriver() {
-		try {
-			return BaseMobileDriver.getDriver();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
+//	@SuppressWarnings("unchecked")
+//	public static AppiumDriver<WebElement> initMobileDriver() {
+//		try {
+//			return BaseMobileDriver.getDriver();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
 }
