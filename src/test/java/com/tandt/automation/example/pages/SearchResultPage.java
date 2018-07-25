@@ -1,10 +1,9 @@
-package com.thetan.automation.example.pages;
+package com.tandt.automation.example.pages;
 
-import com.thetan.automation.example.BasePage;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+
+import com.tandt.automation.example.BasePage;
 
 /**
  * Created by thetan.do on 12/28/2016.

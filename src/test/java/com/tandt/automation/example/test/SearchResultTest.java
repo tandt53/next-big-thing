@@ -1,8 +1,8 @@
-package com.thetan.automation.example.test;
+package com.tandt.automation.example.test;
 
-import com.thetan.automation.example.BaseTest;
-import com.thetan.automation.example.pages.SearchResultPage;
-import org.openqa.selenium.WebDriver;
+import com.tandt.automation.example.BaseTest;
+import com.tandt.automation.example.pages.SearchResultPage;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -14,7 +14,7 @@ import java.io.IOException;
 /**
  * Created by thetan.do on 12/28/2016.
  */
-public class SearchResultTest extends BaseTest {
+public class SearchResultTest extends BaseTest<SearchResultTest> {
 
     SearchResultPage searchResultPage;
 
