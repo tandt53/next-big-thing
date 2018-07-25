@@ -1,11 +1,10 @@
-package com.thetan.automation.example.test;
+package com.tandt.automation.example.test;
 
-import com.thetan.automation.example.BaseTest;
-import com.thetan.automation.example.pages.HomePage;
-import org.openqa.selenium.WebDriver;
+import com.tandt.automation.example.BaseTest;
+import com.tandt.automation.example.pages.HomePage;
+
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -13,9 +12,8 @@ import java.io.IOException;
 /**
  * Created by thetan.do on 12/28/2016.
  */
-public class HomePageTest extends BaseTest {
+public class HomePageTest extends BaseTest<HomePageTest> {
 
-    WebDriver driver;
     HomePage homePage;
 
     @BeforeTest
@@ -32,6 +30,12 @@ public class HomePageTest extends BaseTest {
     public void checkDriver() {
         homePage.open()
                 .search("Checking");
+        try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     @Test

@@ -1,3 +1,4 @@
+package com.tandt.automation.example.test;
 //package com.thetan.automation.example.test;
 //
 //import org.testng.annotations.BeforeClass;
