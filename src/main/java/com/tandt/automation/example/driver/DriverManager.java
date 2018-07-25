@@ -10,11 +10,13 @@ import com.tandt.automation.example.driver.provider.WebDriverInjector;
 import com.tandt.automation.example.driver.provider.WebDriverSelector;
 import com.tandt.automation.example.utils.LoadConfig;
 
-public class Driver {
+public class DriverManager {
 
-	public static WebDriver driver;
+	private static WebDriver driver;
+	
+	public static ThreadLocal<WebDriver> webDriver;
 
-	public static WebDriver initWebDriver() {
+	public static WebDriver setDriver() {
 
 		if (driver != null) {
 			return driver;
@@ -22,7 +24,7 @@ public class Driver {
 		
 		String browser = LoadConfig.getConfigBrowser();
 		try {
-			driver = getDriver(browser);
+			driver = initDriver(browser);
 			driver.manage().window().maximize();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -31,9 +33,13 @@ public class Driver {
 		return driver;
 	}
 
-	private static WebDriver getDriver(String browser) throws IOException {
+	private static WebDriver initDriver(String browser) throws IOException {
 		Injector injector = Guice.createInjector(new WebDriverInjector());
 		WebDriverSelector driverSelector = injector.getInstance(WebDriverSelector.class);
 		return driverSelector.getDriver(browser);
+	}
+	
+	public WebDriver getDriver() {
+		return webDriver.get();
 	}
 }
