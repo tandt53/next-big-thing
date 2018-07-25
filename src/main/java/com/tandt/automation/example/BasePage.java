@@ -1,6 +1,6 @@
 package com.tandt.automation.example;
 
-import com.tandt.automation.example.driver.Driver;
+import com.tandt.automation.example.driver.DriverManager;
 import com.tandt.automation.example.utils.Log;
 
 import org.openqa.selenium.WebDriver;
@@ -21,7 +21,7 @@ public class BasePage<TPage extends BasePage<?>> implements ElementSupplier {
 	public Log PLog = new Log(((TPage) BasePage.this).getClass());
 
     public BasePage() {
-        this.driver = Driver.initWebDriver();
+        this.driver = DriverManager.setDriver();
 //        PageFactory.initElements(driver, this);
         initElements(this);
     }
