@@ -1,10 +1,10 @@
-package com.thetan.automation.example.driver.provider;
+package com.tandt.automation.example.driver.provider;
 
 import com.google.inject.Provider;
-import com.thetan.automation.example.driver.BaseWebDriver;
-import com.thetan.automation.example.driver.LinuxWebDriver;
-import com.thetan.automation.example.driver.MacWebDriver;
-import com.thetan.automation.example.driver.WindowsWebDriver;
+import com.tandt.automation.example.driver.BaseWebDriver;
+import com.tandt.automation.example.driver.LinuxWebDriver;
+import com.tandt.automation.example.driver.MacWebDriver;
+import com.tandt.automation.example.driver.WindowsWebDriver;
 
 /**
  * Created by thetan.do on 12/24/2016.
@@ -12,6 +12,7 @@ import com.thetan.automation.example.driver.WindowsWebDriver;
 public class WebDriverSelectorProvider implements Provider<BaseWebDriver> {
     private static String os = System.getProperty("os.name").toLowerCase();
 
+    @Override
     public BaseWebDriver get() {
 
         BaseWebDriver abstractWebDriver = null;

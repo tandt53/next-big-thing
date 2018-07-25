@@ -1,4 +1,4 @@
-package com.thetan.automation.example;
+package com.tandt.automation.example;
 
 import org.openqa.selenium.WebElement;
 

@@ -1,14 +1,14 @@
-package com.thetan.automation.example;
+package com.tandt.automation.example;
 
-import com.thetan.automation.example.driver.Driver;
-import com.thetan.automation.example.utils.Log;
+import com.tandt.automation.example.driver.Driver;
+import com.tandt.automation.example.utils.Log;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
 /**
  * Created by thetan.do on 12/28/2016.
  */
-public class BasePage<TPage extends BasePage> {
+public class BasePage<TPage extends BasePage<?>> implements ElementSupplier {
 
     /**
      * default url
@@ -17,11 +17,13 @@ public class BasePage<TPage extends BasePage> {
 
     public WebDriver driver;
 
-    public Log PLog = new Log(((TPage) BasePage.this).getClass());
+    @SuppressWarnings("unchecked")
+	public Log PLog = new Log(((TPage) BasePage.this).getClass());
 
     public BasePage() {
         this.driver = Driver.initWebDriver();
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
+        initElements(this);
     }
 
     /**
@@ -36,7 +38,8 @@ public class BasePage<TPage extends BasePage> {
     /**
      * open page with a specific url
      */
-    private TPage open(String url) {
+    @SuppressWarnings("unchecked")
+	private TPage open(String url) {
         driver.get(url);
         return (TPage) this;
     }

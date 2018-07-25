@@ -1,4 +1,4 @@
-package com.thetan.automation.example.utils;
+package com.tandt.automation.example.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;

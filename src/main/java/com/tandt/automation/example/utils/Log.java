@@ -1,4 +1,4 @@
-package com.thetan.automation.example.utils;
+package com.tandt.automation.example.utils;
 
 import org.apache.log4j.Logger;
 
@@ -9,7 +9,7 @@ public class Log {
 
     public Logger Log;
 
-    public Log(Class clazz) {
+    public Log(Class<?> clazz) {
         Log = Logger.getLogger(clazz);
     }
 

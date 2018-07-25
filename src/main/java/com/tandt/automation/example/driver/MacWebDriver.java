@@ -1,4 +1,4 @@
-package com.thetan.automation.example.driver;
+package com.tandt.automation.example.driver;
 
 import org.openqa.selenium.WebDriver;
 
