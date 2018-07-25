@@ -1,7 +1,8 @@
-package com.thetan.automation.example.driver.provider;
+package com.tandt.automation.example.driver.provider;
 
 import com.google.inject.Inject;
-import com.thetan.automation.example.driver.BaseWebDriver;
+import com.tandt.automation.example.driver.BaseWebDriver;
+
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class WebDriverSelector {
     BaseWebDriver abstractWebDriver;
 
     @Inject
-    public WebDriverSelector(BaseWebDriver abstractWebDriver/*, String browser*/){
+    public WebDriverSelector(BaseWebDriver abstractWebDriver){
         this.abstractWebDriver = abstractWebDriver;
     }
 

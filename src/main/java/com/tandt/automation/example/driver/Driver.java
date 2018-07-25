@@ -1,20 +1,25 @@
-package com.thetan.automation.example.driver;
+package com.tandt.automation.example.driver;
 
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.thetan.automation.example.driver.provider.WebDriverInjector;
-import com.thetan.automation.example.driver.provider.WebDriverSelector;
-import com.thetan.automation.example.utils.LoadConfig;
+import com.tandt.automation.example.driver.provider.WebDriverInjector;
+import com.tandt.automation.example.driver.provider.WebDriverSelector;
+import com.tandt.automation.example.utils.LoadConfig;
 
 public class Driver {
-	
+
+	public static WebDriver driver;
+
 	public static WebDriver initWebDriver() {
-		WebDriver driver = null;
+
+		if (driver != null) {
+			return driver;
+		}
+		
 		String browser = LoadConfig.getConfigBrowser();
 		try {
 			driver = getDriver(browser);
@@ -22,7 +27,7 @@ public class Driver {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		return driver;
 	}
 
@@ -31,15 +36,4 @@ public class Driver {
 		WebDriverSelector driverSelector = injector.getInstance(WebDriverSelector.class);
 		return driverSelector.getDriver(browser);
 	}
-	
-//	@SuppressWarnings("unchecked")
-//	public static AppiumDriver<WebElement> initMobileDriver() {
-//		try {
-//			return BaseMobileDriver.getDriver();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
 }

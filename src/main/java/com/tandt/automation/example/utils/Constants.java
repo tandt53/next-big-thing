@@ -1,4 +1,4 @@
-package com.thetan.automation.example.utils;
+package com.tandt.automation.example.utils;
 
 public class Constants {
 	

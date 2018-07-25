@@ -1,7 +1,7 @@
-package com.thetan.automation.example.driver.provider;
+package com.tandt.automation.example.driver.provider;
 
 import com.google.inject.AbstractModule;
-import com.thetan.automation.example.driver.BaseWebDriver;
+import com.tandt.automation.example.driver.BaseWebDriver;
 
 /**
  * Created by thetan.do on 12/24/2016.
