@@ -9,14 +9,14 @@ import com.aventstack.extentreports.reporter.configuration.Protocol;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.tandt.automation.example.utils.Constants;
 
-import org.testng.*;
-import org.testng.xml.XmlSuite;
-
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.*;
+
+import org.testng.*;
+import org.testng.xml.XmlSuite;
 
 /**
  * @author Carl Cocchiaro
@@ -68,12 +68,17 @@ public class ExtentTestNGIReporterListener implements IReporter {
 			directory.mkdirs();
 		}
 
-		ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(Constants.REPORT_PATH + suite.getName() + ".html");
+		String htmlReportPath = Constants.REPORT_PATH + suite.getName() + ".html";
+		File htmlReport = new File(htmlReportPath);
+		if(htmlReport.exists())
+			htmlReport.delete();
+		
+		ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(htmlReportPath);
 
 		// report attributes
 		htmlReporter.config().setDocumentTitle(suite.getName().replace("_", " "));
 		htmlReporter.config().setReportName(suite.getName().replace("_", " "));
-		htmlReporter.config().setChartVisibilityOnOpen(true);
+		htmlReporter.config().setChartVisibilityOnOpen(false);
 		htmlReporter.config().setTheme(Theme.STANDARD);
 		htmlReporter.config().setEncoding("UTF-8");
 		htmlReporter.config().setProtocol(Protocol.HTTPS);
@@ -270,5 +275,6 @@ public class ExtentTestNGIReporterListener implements IReporter {
 
 		return "<br/>\n" + writer.toString().replace(System.lineSeparator(), "<br/>\n");
 	}
+
 
 }
