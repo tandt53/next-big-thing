@@ -2,39 +2,46 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Parallel test suite" parallel="tests">
 
-    <!--Search Page-->
-    <parameter name="invalidCity" value="asdfs"/>
-    <parameter name="validCity" value="london"/>
-    <parameter name="businessclass" value="Business"/>
-    <parameter name="economyclass" value="Economy"/>
+	<listeners>
+		<listener
+			class-name="com.tandt.automation.example.report.ExtentTestNGIReporterListener"></listener>
+		<listener
+			class-name="com.tandt.automation.example.report.TestNG_ConsoleRunner"></listener>
+	</listeners>
+	<!--Search Page -->
+	<parameter name="invalidCity" value="asdfs" />
+	<parameter name="validCity" value="london" />
+	<parameter name="businessclass" value="Business" />
+	<parameter name="economyclass" value="Economy" />
 
 
-    <!--this is for testing on CHROME -->
-    <!--<test name="Chrome Test">-->
-    <!--<parameter name="browser" value="Chrome"/>-->
-    <!--<classes>-->
-    <!--&lt;!&ndash;<class name="com.tcsvn.mfl.test.frontend.searchcriteria.SearchCriteriaTest2"></class>&ndash;&gt;-->
-    <!--<class name="com.thetan.automation.example.test.SearchResultTest">-->
-    <!--</class>-->
+	<!--this is for testing on CHROME -->
+	<!--<test name="Chrome Test"> -->
+	<!--<parameter name="browser" value="Chrome"/> -->
+	<!--<classes> -->
+	<!--&lt;!&ndash;<class name="com.tcsvn.mfl.test.frontend.searchcriteria.SearchCriteriaTest2"></class>&ndash;&gt; -->
+	<!--<class name="com.thetan.automation.example.test.SearchResultTest"> -->
+	<!--</class> -->
 
-    <!--</classes>-->
-    <!--</test>-->
+	<!--</classes> -->
+	<!--</test> -->
 
-    <!--this is for testing on FIREFOX -->
-    <test name="Firefox Test">
-        <parameter name="browser" value="FireFox"/>
-        <classes>
-            <class name="com.thetan.automation.example.test.SearchResultTest">
-            </class>
-        </classes>
-    </test>
+	<!--this is for testing on FIREFOX -->
+	<test name="Firefox Test">
+		<parameter name="browser" value="FireFox" />
+		<classes>
+			<class
+				name="com.tandt.automation.example.test.HomePageTest">
+			</class>
+		</classes>
+	</test>
 
-    <!--this is for testing on IE -->
-    <!--<test name="Internet Explorer Test">-->
-        <!--<parameter name="browser" value="Mobile AndroidE"/>-->
-        <!--<classes>-->
-            <!--&lt;!&ndash;<class name="com.tcsvn.mfl.test.temp.AirNewZealandTest"/>&ndash;&gt;-->
-            <!--<class name="com.thetan.automation.example.test.ConnectScreenTest"/>-->
-        <!--</classes>-->
-    <!--</test>-->
+	<!--this is for testing on IE -->
+	<!--<test name="Internet Explorer Test"> -->
+	<!--<parameter name="browser" value="Mobile AndroidE"/> -->
+	<!--<classes> -->
+	<!--&lt;!&ndash;<class name="com.tcsvn.mfl.test.temp.AirNewZealandTest"/>&ndash;&gt; -->
+	<!--<class name="com.thetan.automation.example.test.ConnectScreenTest"/> -->
+	<!--</classes> -->
+	<!--</test> -->
 </suite>
