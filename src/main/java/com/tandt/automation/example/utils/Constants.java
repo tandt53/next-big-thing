@@ -15,5 +15,17 @@ public class Constants {
 	// link
 	public static final String urlLink = "http://google.com.vn/";
 	public static final String invalidLink = "google.com";
+	
+	
+	public static String DEF_BROWSER = null;
+    public static String DEF_PLATFORM = null;
+    public static String DEF_ENVIRONMENT = null;
+    public static String SUITE_NAME = null;
+    
+	public static final String TEST_OUTPUT_PATH = "test-output/";
+    public static final String LOGFILE_PATH = TEST_OUTPUT_PATH + "Logs/";
+    public static final String REPORT_PATH = TEST_OUTPUT_PATH + "Reports/";
+    public static final String REPORT_CONFIG_FILE = "src/main/resources/extent-config.xml";
+
 
 }
