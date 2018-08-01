@@ -2,12 +2,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Parallel test suite" parallel="tests">
 
-	<listeners>
-		<listener
-			class-name="com.tandt.automation.example.report.ExtentTestNGIReporterListener"></listener>
-		<listener
-			class-name="com.tandt.automation.example.report.TestNG_ConsoleRunner"></listener>
-	</listeners>
 	<!--Search Page -->
 	<parameter name="invalidCity" value="asdfs" />
 	<parameter name="validCity" value="london" />
