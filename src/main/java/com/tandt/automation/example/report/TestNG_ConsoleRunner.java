@@ -8,8 +8,10 @@ import com.relevantcodes.extentreports.DisplayOrder;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import com.tandt.automation.example.BasePage;
 import com.tandt.automation.example.driver.DriverManager;
 import com.tandt.automation.example.utils.Constants;
+import com.tandt.automation.example.utils.Log;
 
 import java.io.*;
 import java.text.DateFormat;
@@ -25,6 +27,8 @@ import java.util.Properties;
  *
  */
 public class TestNG_ConsoleRunner extends TestListenerAdapter {
+	
+	private Log TLog = new Log(this.getClass());
 	private static String logFile = null;
 
 	public static Properties CONFIG = null;
@@ -220,6 +224,7 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 		if (logFile != null) {
 			writeTestngLog(logFile, line);
 		}
+		TLog.info(line);
 	}
 
 	/**
