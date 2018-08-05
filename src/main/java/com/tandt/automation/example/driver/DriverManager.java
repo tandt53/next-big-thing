@@ -19,7 +19,7 @@ public class DriverManager {
 
 	private static WebDriver driver;
 
-	public static WebDriver setDriver() {
+	public static WebDriver initDriver() {
 
 		if (driver != null) {
 			return driver;
@@ -27,16 +27,16 @@ public class DriverManager {
 
 		String browser = LoadConfig.getConfigBrowser();
 		try {
-			driver = initDriver(browser);
+			driver = setDriver(browser);
 			driver.manage().window().maximize();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		return driver;
 	}
 
-	private static WebDriver initDriver(String browser) throws IOException {
+	private static WebDriver setDriver(String browser) throws IOException {
 		Injector injector = Guice.createInjector(new WebDriverInjector());
 		WebDriverSelector driverSelector = injector.getInstance(WebDriverSelector.class);
 		return driverSelector.getDriver(browser);

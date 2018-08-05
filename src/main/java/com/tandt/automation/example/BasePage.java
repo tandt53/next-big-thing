@@ -21,8 +21,7 @@ public class BasePage<TPage extends BasePage<?>> implements ElementSupplier {
 	public Log PLog = new Log(((TPage) BasePage.this).getClass());
 
     public BasePage() {
-        this.driver = DriverManager.setDriver();
-//        PageFactory.initElements(driver, this);
+        this.driver = DriverManager.getDriver();
         initElements(this);
     }
 
@@ -59,7 +58,6 @@ public class BasePage<TPage extends BasePage<?>> implements ElementSupplier {
      * close page and quit driver
      */
     public void close() {
-//        driver.close();
         if (driver != null)
             driver.quit();
     }

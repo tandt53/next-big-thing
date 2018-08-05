@@ -1,5 +1,6 @@
 package com.tandt.automation.example;
 
+import com.tandt.automation.example.driver.DriverManager;
 import com.tandt.automation.example.utils.Log;
 
 import org.testng.annotations.AfterMethod;
@@ -16,10 +17,14 @@ public class BaseTest<TTest extends BaseTest<?>> {
 
 	@SuppressWarnings("unchecked")
 	public Log TLog = new Log(((TTest) BaseTest.this).getClass());
-	public String testName;
+	private String testName;
 
 	@BeforeSuite
 	public void setupSuite() {
+		// Initialize components
+		// 1. WebDriver
+		// 2. Start new session of Appium if needed
+		DriverManager.initDriver();
 	}
 
 	@BeforeMethod
