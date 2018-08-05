@@ -1,12 +1,9 @@
 package com.tandt.automation.example.report;
 
-import org.testng.IResultMap;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
-import org.testng.util.Strings;
 
-import com.aventstack.extentreports.Status;
 import com.relevantcodes.extentreports.DisplayOrder;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -24,7 +21,7 @@ import java.util.Properties;
 /**
  * @author Carl Cocchiaro
  *
- *         TestNG Listener Utility Class
+ *     TestNG Listener Utility Class
  *
  */
 public class TestNG_ConsoleRunner extends TestListenerAdapter {
@@ -42,12 +39,18 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	@Override
 	public void onStart(ITestContext testContext) {
 		super.onStart(testContext);
-		
+
 		String reportPath = Constants.REPORT_PATH + "report.html";
 		File report = new File(reportPath);
-		if(report.exists())
+		if (report.exists())
 			report.delete();
-		
+
+		if (logFile == null) {
+			logFile = Constants.LOGFILE_PATH + testContext.getSuite().getName() + "-"
+					+ new SimpleDateFormat("MM.dd.yy.HH.mm.ss").format(new Date()) + ".log";
+		}
+
+		log(testContext.getName() + " STARTED");
 		extent = new ExtentReports(reportPath, true, DisplayOrder.NEWEST_FIRST);
 
 	}
@@ -59,10 +62,12 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onFinish(ITestContext testContext) {
-		log("\nTotal Passed = " + getPassedTests().size() + ", Total Failed = " + getFailedTests().size()
-				+ ", Total Skipped = " + getSkippedTests().size() + "\n");
+		log("Total Passed = " + getPassedTests().size() + ", Total Failed = " + getFailedTests().size()
+				+ ", Total Skipped = " + getSkippedTests().size());
 
 		super.onFinish(testContext);
+		log(testContext.getName() + " FINISHED");
+
 		extent.flush();
 		extent.close();
 	}
@@ -74,16 +79,11 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onTestStart(ITestResult tr) {
-		if (logFile == null) {
-//            logFile = Constants.LOGFILE_PATH + Constants.SUITE_NAME + "-" + new SimpleDateFormat("MM.dd.yy.HH.mm.ss").format(new Date()) + ".log";
-			logFile = Constants.LOGFILE_PATH + tr.getTestContext().getSuite().getName() + "-"
-					+ new SimpleDateFormat("MM.dd.yy.HH.mm.ss").format(new Date()) + ".log";
-		}
 
-		log("\n---------------------------------- Test '" + tr.getName() + getTestDescription(tr)
-				+ "' ----------------------------------\n");
-		log(tr.getStartMillis(), "START-> " + tr.getName() + "\n");
-		log("    ***Test Parameters = " + getTestParams(tr) + "\n");
+		log("---------------------------------- Test '" + tr.getName() + getTestDescription(tr)
+				+ "' ----------------------------------");
+		log(tr.getStartMillis(), "START: " + tr.getName());
+		log("Parameters: " + getTestParams(tr));
 
 		super.onTestStart(tr);
 	}
@@ -95,9 +95,8 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onTestSuccess(ITestResult tr) {
-		log("    ***Result = PASSED\n");
-		log(tr.getEndMillis(), "END  -> " + tr.getName());
-		log("\n---\n");
+		log("Result: PASSED");
+		log(tr.getEndMillis(), "END: " + tr.getName());
 
 		super.onTestSuccess(tr);
 		buildTestNodes(tr, LogStatus.PASS);
@@ -110,13 +109,14 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onTestFailure(ITestResult tr) {
+		
+		log("Result: FAILED");
+		
 		if (!getTestMessage(tr).equals("")) {
-			log(getTestMessage(tr) + "\n");
+			log("Message: " + getTestMessage(tr));
 		}
 
-		log("    ***Result = FAILED\n");
-		log(tr.getEndMillis(), "END  -> " + tr.getInstanceName() + "." + tr.getName());
-		log("\n---\n");
+		log(tr.getEndMillis(), "END: " + tr.getInstanceName() + "." + tr.getName());
 
 		takeScreenShot(tr.getMethod().getMethodName());
 		super.onTestFailure(tr);
@@ -131,12 +131,11 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	@Override
 	public void onTestSkipped(ITestResult tr) {
 		if (!getTestMessage(tr).equals("")) {
-			log(getTestMessage(tr) + "\n");
+			log(getTestMessage(tr));
 		}
 
-		log("    ***Result = SKIPPED\n");
-		log(tr.getEndMillis(), "END  -> " + tr.getInstanceName() + "." + tr.getName());
-		log("\n---\n");
+		log("Result: SKIPPED");
+		log(tr.getEndMillis(), "END " + tr.getInstanceName() + "." + tr.getName());
 
 		takeScreenShot(tr.getMethod().getMethodName());
 		super.onTestSkipped(tr);
@@ -171,12 +170,11 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	@Override
 	public void onConfigurationFailure(ITestResult tr) {
 		if (!getTestMessage(tr).equals("")) {
-			log(getTestMessage(tr) + "\n");
+			log(getTestMessage(tr));
 		}
 
-		log("    ***Result = CONFIGURATION FAILED\n");
-		log(tr.getEndMillis(), "END CONFIG -> " + tr.getInstanceName() + "." + tr.getName());
-		log("\n---\n");
+		log("Result CONFIGURATION FAILED\n");
+		log(tr.getEndMillis(), "END CONFIG " + tr.getInstanceName() + "." + tr.getName());
 
 		super.onConfigurationFailure(tr);
 	}
@@ -188,10 +186,11 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onConfigurationSkip(ITestResult tr) {
-		log(getTestMessage(tr));
-		log("    ***Result = CONFIGURATION SKIPPED\n");
-		log(tr.getEndMillis(), "END CONFIG -> " + tr.getInstanceName() + "." + tr.getName());
-		log("\n---\n");
+		if (!getTestMessage(tr).equals("")) {
+			log(getTestMessage(tr));
+		}
+		log("Result CONFIGURATION SKIPPED");
+		log(tr.getEndMillis(), "END CONFIG " + tr.getInstanceName() + "." + tr.getName());
 
 		super.onConfigurationSkip(tr);
 	}
@@ -321,16 +320,9 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 
 			BufferedWriter writer = new BufferedWriter(new FileWriter(logFile, true));
 
-			if (line.contains("START") || line.contains("END")) {
-				writer.append("[" + dateFormat.format(date) + "] " + line);
-
-			}
-
-			else {
-				writer.append(line);
-			}
-
-			writer.newLine();
+			if (line.equals(""))
+				line = "empty";
+			writer.append("[" + dateFormat.format(date) + "] " + line + "\n");
 			writer.close();
 		}
 
@@ -340,8 +332,6 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	}
 
 	private void buildTestNodes(ITestResult result, LogStatus status) {
-//		ExtentTest test;
-
 		test = extent.startTest(result.getMethod().getMethodName());
 
 		test.setStartedTime(getTime(result.getStartMillis()));
@@ -349,24 +339,22 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 
 		long executionTime = result.getEndMillis() - result.getStartMillis();
 
-		test.log(status, "Execution time:  " + executionTime + " ms");
+		test.log(status, "Execution time: " + executionTime + " ms");
 		test.log(status, "Class: " + result.getTestClass().toString());
 
 		for (String group : result.getMethod().getGroups())
 			test.assignCategory(group);
 
 		if (result.getThrowable() != null) {
-			test.log(status,
-					test.addScreenCapture(/*Constants.REPORT_PATH + */result.getMethod().getMethodName() + ".png"));
+			test.log(status, test.addScreenCapture(result.getMethod().getMethodName() + ".png"));
 			System.out.println("Screenshot is " + Constants.REPORT_PATH + result.getMethod().getMethodName() + ".png");
 			test.log(status, result.getThrowable());
-
 		} else {
 			test.log(status, "Test " + status.toString().toLowerCase() + "ed");
 		}
 
 		extent.endTest(test);
-		
+
 		extent.flush();
 	}
 
