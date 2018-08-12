@@ -23,11 +23,11 @@ import java.util.Properties;
 /**
  * @author Carl Cocchiaro
  *
- *     TestNG Listener Utility Class
+ *         TestNG Listener Utility Class
  *
  */
 public class TestNG_ConsoleRunner extends TestListenerAdapter {
-	
+
 	private Log TLog = new Log(this.getClass());
 	private static String logFile = null;
 
@@ -54,9 +54,8 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 					+ new SimpleDateFormat("MM.dd.yy.HH.mm.ss").format(new Date()) + ".log";
 		}
 
-		log(testContext.getName() + " STARTED");
+		TLog.info(testContext.getName() + " STARTED");
 		extent = new ExtentReports(reportPath, true, DisplayOrder.NEWEST_FIRST);
-
 	}
 
 	/**
@@ -66,11 +65,10 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onFinish(ITestContext testContext) {
-		log("Total Passed = " + getPassedTests().size() + ", Total Failed = " + getFailedTests().size()
-				+ ", Total Skipped = " + getSkippedTests().size());
-
 		super.onFinish(testContext);
-		log(testContext.getName() + " FINISHED");
+		TLog.info("Total Passed = " + getPassedTests().size() + ", Total Failed = " + getFailedTests().size()
+				+ ", Total Skipped = " + getSkippedTests().size());
+		TLog.info(testContext.getName() + " FINISHED");
 
 		extent.flush();
 		extent.close();
@@ -83,13 +81,8 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onTestStart(ITestResult tr) {
-
-		log("---------------------------------- Test '" + tr.getName() + getTestDescription(tr)
-				+ "' ----------------------------------");
-		log(tr.getStartMillis(), "START: " + tr.getName());
-		log("Parameters: " + getTestParams(tr));
-
 		super.onTestStart(tr);
+		TLog.startTestCase(tr.getName(), getTestDescription(tr), getTestParams(tr));
 	}
 
 	/**
@@ -99,10 +92,8 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onTestSuccess(ITestResult tr) {
-		log("Result: PASSED");
-		log(tr.getEndMillis(), "END: " + tr.getName());
-
 		super.onTestSuccess(tr);
+		TLog.endTestCase(tr.getName(), "PASSED");
 		buildTestNodes(tr, LogStatus.PASS);
 	}
 
@@ -113,17 +104,9 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onTestFailure(ITestResult tr) {
-		
-		log("Result: FAILED");
-		
-		if (!getTestMessage(tr).equals("")) {
-			log("Message: " + getTestMessage(tr));
-		}
-
-		log(tr.getEndMillis(), "END: " + tr.getInstanceName() + "." + tr.getName());
-
-		takeScreenShot(tr.getMethod().getMethodName());
 		super.onTestFailure(tr);
+		takeScreenShot(tr.getMethod().getMethodName());
+		TLog.endTestCase(tr.getName(), "FAILED", getTestMessage(tr));
 		buildTestNodes(tr, LogStatus.FAIL);
 	}
 
@@ -134,15 +117,9 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onTestSkipped(ITestResult tr) {
-		if (!getTestMessage(tr).equals("")) {
-			log(getTestMessage(tr));
-		}
-
-		log("Result: SKIPPED");
-		log(tr.getEndMillis(), "END " + tr.getInstanceName() + "." + tr.getName());
-
-		takeScreenShot(tr.getMethod().getMethodName());
 		super.onTestSkipped(tr);
+		TLog.endTestCase(tr.getName(), "SKIPPED", getTestMessage(tr));
+		takeScreenShot(tr.getMethod().getMethodName());
 		buildTestNodes(tr, LogStatus.SKIP);
 	}
 
@@ -173,14 +150,8 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onConfigurationFailure(ITestResult tr) {
-		if (!getTestMessage(tr).equals("")) {
-			log(getTestMessage(tr));
-		}
-
-		log("Result CONFIGURATION FAILED\n");
-		log(tr.getEndMillis(), "END CONFIG " + tr.getInstanceName() + "." + tr.getName());
-
 		super.onConfigurationFailure(tr);
+		TLog.configurationError(tr.getInstanceName(), tr.getName(), "FAILED");
 	}
 
 	/**
@@ -190,41 +161,8 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onConfigurationSkip(ITestResult tr) {
-		if (!getTestMessage(tr).equals("")) {
-			log(getTestMessage(tr));
-		}
-		log("Result CONFIGURATION SKIPPED");
-		log(tr.getEndMillis(), "END CONFIG " + tr.getInstanceName() + "." + tr.getName());
-
 		super.onConfigurationSkip(tr);
-	}
-
-	/**
-	 * log method
-	 *
-	 * @param dateMillis
-	 * @param line
-	 */
-	public void log(long dateMillis, String line) {
-		System.out.format("%s: %s%n", String.valueOf(new Date(dateMillis)), line);
-
-		if (logFile != null) {
-			writeTestngLog(logFile, line);
-		}
-	}
-
-	/**
-	 * log method
-	 *
-	 * @param line
-	 */
-	public void log(String line) {
-		System.out.format("%s%n", line);
-
-		if (logFile != null) {
-			writeTestngLog(logFile, line);
-		}
-		TLog.info(line);
+		TLog.configurationError(tr.getInstanceName(), tr.getName(), "SKIPPED");
 	}
 
 	/**
