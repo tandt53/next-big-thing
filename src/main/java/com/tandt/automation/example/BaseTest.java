@@ -30,12 +30,10 @@ public class BaseTest<TTest extends BaseTest<?>> {
 	@BeforeMethod
 	public void setupMethod(Method method) {
 		testName = method.getName();
-		TLog.startTestCase(testName);
 	}
 
 	@AfterMethod
 	public void teardownMethod(Method method) {
-		TLog.endTestCase(testName);
 	}
 	
 	@AfterSuite

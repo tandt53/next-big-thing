@@ -44,21 +44,18 @@ public class BasePage<TPage extends BasePage<?>> implements ElementSupplier {
     }
 
     /**
-     * wait time in milliseconds
-     */
-    public void waitSafety(long time) {
-        try {
-            Thread.sleep(time);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
      * close page and quit driver
      */
     public void close() {
         if (driver != null)
             driver.quit();
+    }
+    
+    /**
+     * getTitle 
+     * @return title of page
+     */
+    public String getPageTitel() {
+    	return driver.getTitle();
     }
 }
