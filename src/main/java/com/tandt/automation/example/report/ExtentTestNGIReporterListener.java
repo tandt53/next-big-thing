@@ -204,31 +204,23 @@ public class ExtentTestNGIReporterListener implements IReporter {
 
 				if (!getTestParams(result).isEmpty()) {
 					test.log(Status.INFO, "TEST DATA = [" + getTestParams(result) + "]");
-					System.out.println("Come here 1 ");
 				}
 
 				if (result.getThrowable() != null) {
-					System.out.println("Come here 2 ");
 					test.log(Status.INFO, "EXCEPTION = [" + result.getThrowable().getMessage() + "]");
 					test.log(Status.INFO, "SCREENSHOT",
 							MediaEntityBuilder.createScreenCaptureFromPath(
 									System.getProperty("user.dir") + "/" + bitmapDir + result.getName() + ".png")
 									.build());
-					System.out.println("Current directory is " + System.getProperty("user.dir"));
-					System.out.println("Screenshot is from " + bitmapDir + result.getName() + ".png");
-//					test.log(Status.INFO, test.addScreenCaptureFromPath(result.getTestContext().getName()));
 
 					if (!getTestParams(result).isEmpty()) {
-						System.out.println("Come here 3 ");
 						// must capture screenshot to include in report
 						if (result.getAttribute("testBitmap") != null) {
 							test.log(Status.INFO, "SCREENSHOT",
 									MediaEntityBuilder
 											.createScreenCaptureFromPath(bitmapDir + result.getAttribute("testBitmap"))
 											.build());
-							System.out.println("Come here 4 ");
 						}
-						System.out.println("Come here 5 ");
 						test.log(Status.INFO, "STACKTRACE" + getStrackTrace(result));
 					}
 				}
