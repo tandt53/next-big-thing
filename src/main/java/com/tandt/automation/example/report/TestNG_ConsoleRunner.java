@@ -34,7 +34,8 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	private static Log log = new Log(TestNG_ConsoleRunner.class);
 
 	/**
-	 * onStart method
+	 * onStart method is execute when TEST (refer <test> tag in testng.xml) is
+	 * started
 	 *
 	 * @param testContext
 	 */
@@ -46,29 +47,23 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 		File report = new File(reportPath);
 		if (report.exists())
 			report.delete();
-
 		extent = new ExtentReports(reportPath, true, DisplayOrder.NEWEST_FIRST);
 
-		log.info("START TEST: " + testContext.getName());
-
+		onStart(testContext.getName());
 	}
 
 	/**
-	 * onFinish method
+	 * onFinish method is execute when TEST (refer <test> tag in testng.xml) is
+	 * finised
 	 *
 	 * @param testContext
 	 */
 	@Override
 	public void onFinish(ITestContext testContext) {
-
 		super.onFinish(testContext);
 		extent.flush();
 		extent.close();
-		
-		log.info("Total Passed = " + getPassedTests().size());
-		log.info("Total Failed = " + getFailedTests().size());
-		log.info("Total Skipped = " + getSkippedTests().size());
-		log.info("END TEST: " + testContext.getName());
+		onFinish(testContext.getName(), getPassedTests().size(), getFailedTests().size(), getSkippedTests().size());
 	}
 
 	/**
@@ -78,10 +73,8 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onTestStart(ITestResult tr) {
-		log.info("START-> " + tr.getName());
-		log.info("Test Parameters = " + getTestParams(tr));
-
 		super.onTestStart(tr);
+		startTestCase(tr.getName(), getTestDescription(tr), getTestParams(tr));
 	}
 
 	/**
@@ -91,10 +84,9 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onTestSuccess(ITestResult tr) {
-		log.info("Result = PASSED");
-		log.info("END  -> " + tr.getName());
 		super.onTestSuccess(tr);
 		buildTestNodes(tr, LogStatus.PASS);
+		endTestCase(getTestName(tr), "PASSED");
 	}
 
 	/**
@@ -104,16 +96,10 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onTestFailure(ITestResult tr) {
-		if (!getTestMessage(tr).equals("")) {
-			log.info(getTestMessage(tr));
-		}
-
-		log.info("Result = FAILED");
-		log.info("END  -> " + tr.getInstanceName() + "." + tr.getName());
-
 		takeScreenShot(tr.getMethod().getMethodName());
 		super.onTestFailure(tr);
 		buildTestNodes(tr, LogStatus.FAIL);
+		endTestCase(getTestName(tr), "FAILED", getTestMessage(tr), getStackTrace(tr));
 	}
 
 	/**
@@ -123,16 +109,10 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onTestSkipped(ITestResult tr) {
-		if (!getTestMessage(tr).equals("")) {
-			log.info(getTestMessage(tr));
-		}
-
-		log.info("Result = SKIPPED");
-		log.info("END  -> " + tr.getInstanceName() + "." + tr.getName());
-
 		takeScreenShot(tr.getMethod().getMethodName());
 		super.onTestSkipped(tr);
 		buildTestNodes(tr, LogStatus.SKIP);
+		endTestCase(getTestName(tr), "SKIPPED", getTestMessage(tr), getStackTrace(tr));
 	}
 
 	/**
@@ -162,14 +142,8 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onConfigurationFailure(ITestResult tr) {
-		if (!getTestMessage(tr).equals("")) {
-			log.info(getTestMessage(tr));
-		}
-
-		log.info("Result = CONFIGURATION FAILED");
-		log.info("END CONFIG -> " + tr.getInstanceName() + "." + tr.getName());
-
 		super.onConfigurationFailure(tr);
+		endTestCase(getTestName(tr), "CONFIGURATION FAILED", getTestMessage(tr), getStackTrace(tr));
 	}
 
 	/**
@@ -179,11 +153,28 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 */
 	@Override
 	public void onConfigurationSkip(ITestResult tr) {
-		log.info(getTestMessage(tr));
-		log.info("Result = CONFIGURATION SKIPPED");
-		log.info("END CONFIG -> " + tr.getInstanceName() + "." + tr.getName());
 
 		super.onConfigurationSkip(tr);
+		endTestCase(getTestName(tr), "CONFIGURATION SKIPPED", getTestMessage(tr), getStackTrace(tr));
+	}
+
+	private String[] getStackTrace(ITestResult tr) {
+		StackTraceElement[] stackTraces = tr.getThrowable().getStackTrace();
+		String[] stackTraceLogs = new String[stackTraces.length];
+		for (int index = 0; index < stackTraces.length; index++) {
+			stackTraceLogs[index] = stackTraces[index].toString();
+		}
+		return stackTraceLogs;
+	}
+
+	/**
+	 * getTestName method
+	 * 
+	 * @param tr
+	 * @return String
+	 */
+	public String getTestName(ITestResult tr) {
+		return tr.getName();
 	}
 
 	/**
@@ -245,7 +236,7 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 	 * @param tr
 	 * @return String
 	 */
-	public String getTestDescription(ITestResult tr) {
+	private String getTestDescription(ITestResult tr) {
 		String message = "";
 
 		try {
@@ -259,47 +250,6 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 		}
 
 		return message;
-	}
-
-	/**
-	 * writeTestngLog method
-	 *
-	 * @param logFile
-	 * @param line
-	 */
-	public void writeTestngLog(String logFile, String line) {
-		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-		Date date = new Date();
-		File directory = new File(Constants.LOGFILE_PATH);
-		File file = new File(logFile);
-
-		try {
-			if (!directory.exists()) {
-				directory.mkdirs();
-			}
-
-			else if (!file.exists()) {
-				file.createNewFile();
-			}
-
-			BufferedWriter writer = new BufferedWriter(new FileWriter(logFile, true));
-
-			if (line.contains("START") || line.contains("END")) {
-				writer.append("[" + dateFormat.format(date) + "] " + line);
-
-			}
-
-			else {
-				writer.append(line);
-			}
-
-			writer.newLine();
-			writer.close();
-		}
-
-		catch (IOException e) {
-			// do nothing...
-		}
 	}
 
 	private void buildTestNodes(ITestResult result, LogStatus status) {
@@ -337,6 +287,33 @@ public class TestNG_ConsoleRunner extends TestListenerAdapter {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTimeInMillis(millis);
 		return calendar.getTime();
+	}
+
+	private void startTestCase(String testName, String description, String params) {
+		log.info("------------------------- Started Test '" + testName + "' -------------------------");
+		log.info("Decription: " + description);
+		log.info("Parameters: " + params);
+	}
+
+	private void endTestCase(String testName, String result) {
+		log.info("Result: " + result);
+		log.info("------------------------- Ended Test '" + testName + "' -------------------------");
+	}
+
+	private void endTestCase(String testName, String result, String testMessage, String[] stackTrace) {
+		log.info("Result: " + result);
+		log.info("Message: " + testMessage);
+		log.error(stackTrace);
+		log.info("------------------------- Ended Test '" + testName + "' -------------------------");
+	}
+
+	private void onStart(String test) {
+		log.info("***** START TEST: " + test);
+	}
+
+	private void onFinish(String name, int pass, int fail, int skip) {
+		log.info("***** END TEST: " + name + " (" + "PASSED: " + pass + "; " + "FAILED: " + fail + "; " + "SKIPPED: "
+				+ skip + ")");
 	}
 
 }
