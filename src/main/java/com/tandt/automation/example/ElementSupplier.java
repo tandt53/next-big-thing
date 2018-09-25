@@ -19,12 +19,6 @@ public interface ElementSupplier {
 				if (field.isAnnotationPresent(HtmlElement.class)) {
 					LocatorType type = getLocatorType(field);
 					String value = getLocatortValue(field);
-					System.out.println("getClass: " + field.getClass());
-					System.out.println("getName: " + field.getName());
-					System.out.println("getType: " + field.getType());
-					System.out.println("getDeclaringClass: " + field.getDeclaringClass());
-					System.out.println("getGenericType: " + field.getGenericType());
-					System.out.println("getDeclaredAnnotations: " + field.getDeclaredAnnotations());
 
 					if (type != null && value != null) {
 						Object object = Class.forName(field.getType().toString().replace("class ", ""))
