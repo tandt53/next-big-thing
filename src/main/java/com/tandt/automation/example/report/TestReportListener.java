@@ -25,13 +25,13 @@ import java.util.Properties;
  *         TestNG Listener Utility Class
  *
  */
-public class TestNG_ConsoleRunner extends TestListenerAdapter {
+public class TestReportListener extends TestListenerAdapter {
 
 	public static Properties CONFIG = null;
 	private ExtentReports extent;
 	private ExtentTest test;
 
-	private static Log log = new Log(TestNG_ConsoleRunner.class);
+	private static Log log = new Log(TestReportListener.class);
 
 	/**
 	 * onStart method is execute when TEST (refer <test> tag in testng.xml) is

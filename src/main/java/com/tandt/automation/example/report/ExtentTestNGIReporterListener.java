@@ -91,7 +91,7 @@ public class ExtentTestNGIReporterListener implements IReporter {
 		extent.setSystemInfo("Browser", Constants.DEF_BROWSER);
 		extent.setSystemInfo("Environment", Constants.DEF_ENVIRONMENT);
 		extent.setSystemInfo("Platform", Constants.DEF_PLATFORM);
-		extent.setSystemInfo("OS Version", System.getProperty("os.version"));
+		extent.setSystemInfo("OS Version", System.getProperty("os.name"));
 		extent.setSystemInfo("Java Version", System.getProperty("java.version"));
 		extent.setSystemInfo("Selenium Version", seleniumRev);
 
@@ -249,7 +249,7 @@ public class ExtentTestNGIReporterListener implements IReporter {
 	 * @throws Exception
 	 */
 	private String getTestParams(ITestResult tr) throws Exception {
-		TestNG_ConsoleRunner runner = new TestNG_ConsoleRunner();
+		TestReportListener runner = new TestReportListener();
 
 		return runner.getTestParams(tr);
 	}
