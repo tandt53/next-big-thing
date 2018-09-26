@@ -93,7 +93,7 @@
 						<property>
 							<name>listener</name>
 							<value>com.tandt.automation.example.report.ExtentTestNGIReporterListener,
-								com.tandt.automation.example.report.TestNG_ConsoleRunner</value>
+								com.tandt.automation.example.report.TestReportListener</value>
 						</property>
 						<property>
 							<name>reporter</name>

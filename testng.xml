@@ -10,7 +10,7 @@
 
 	<listeners>
 		<listener
-			class-name="com.tandt.automation.example.report.TestNG_ConsoleRunner"></listener>
+			class-name="com.tandt.automation.example.report.TestReportListener"></listener>
 	</listeners>
 
 	<!--this is for testing on CHROME -->
