@@ -1,10 +1,10 @@
 package com.tandt.automation.example.pages;
 
 import com.tandt.automation.example.BasePage;
-import com.tandt.automation.example.annotations.HtmlElement;
-import com.tandt.automation.example.element.LocatorType;
-import com.tandt.automation.example.element.TextInput;
 
+import com.tandt.automation.example.annotations.FindElement;
+import com.tandt.automation.example.element.BaseElement;
+import com.tandt.automation.example.element.LocatorType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -20,9 +20,8 @@ public class HomePage extends BasePage<HomePage> {
         PLog.info("URL: " + url);
     }
 
-//    @FindBy(id = "lst-ib")
-    @HtmlElement(type=LocatorType.ID, value="lst-ib")
-    TextInput searchField;
+    @FindElement(type = LocatorType.XPATH, value = "//*[@class='gLFyf gsfi']")
+    BaseElement searchField;
 
     @FindBy(id = "_fZl")
     WebElement searchButton;

@@ -1,20 +1,19 @@
 package com.tandt.automation.example.annotations;
 
+import com.tandt.automation.example.element.LocatorType;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.tandt.automation.example.element.LocatorType;
-
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.TYPE})
-
-public @interface HtmlElement {
-	LocatorType type();
+public @interface FindElement {
+    LocatorType type();
 
     String value();
-    
+
     String id() default "";
 
     String name() default "";
