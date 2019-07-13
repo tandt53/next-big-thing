@@ -31,4 +31,7 @@ public interface BaseElement {
     void submit();
 
     WebElement waitUntil(Function<By, ExpectedCondition<WebElement>> conditionVisibility);
+
+    BaseElement getElement(String... eventName);
+
 }
