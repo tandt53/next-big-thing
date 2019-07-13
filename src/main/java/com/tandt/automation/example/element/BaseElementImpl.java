@@ -205,4 +205,10 @@ public class BaseElementImpl extends By implements WaitStrategy, BaseElement {
     }
 
 
+    @Override
+    public BaseElement getElement(String... eventName) {
+        this.locatorValue = String.format(this.locatorValue, eventName);
+        initElement(getLocatorType(), getLocatorValue());
+        return this;
+    }
 }
