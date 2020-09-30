@@ -5,6 +5,7 @@ import com.tandt.automation.example.BasePage;
 import com.tandt.automation.example.annotations.FindElement;
 import com.tandt.automation.example.element.BaseElement;
 import com.tandt.automation.example.element.LocatorType;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -28,7 +29,7 @@ public class HomePage extends BasePage<HomePage> {
 
     public void search(String text) {
         PLog.info("Search with text: " + text);
-        searchField.setText(text);
+        searchField.setText(Keys.SHIFT, text);
         searchField.submit();
     }
 

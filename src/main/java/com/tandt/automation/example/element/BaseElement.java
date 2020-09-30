@@ -10,7 +10,7 @@ import java.util.function.Function;
 public interface BaseElement {
 
     @Clocking
-    void setText(String text);
+    void setText(CharSequence... text);
 
     @Clocking
     String getText();

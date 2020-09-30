@@ -104,7 +104,7 @@ public class BaseElementImpl extends By implements WaitStrategy, BaseElement {
     }
 
     @Override
-    public void setText(String text) throws TimeoutException {
+    public void setText(CharSequence... text) throws TimeoutException {
         waitUntil(Conditions.CONDITION_VISIBILITY).sendKeys(text);
 //		waitUntil(Conditions.CONDITION_VISIBILITY).sendKeys(text);
 
