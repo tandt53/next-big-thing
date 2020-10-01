@@ -101,8 +101,8 @@
                         </property>
                         <property>
                             <name>listener</name>
-                            <value>com.tandt.automation.example.report.ExtentTestNGIReporterListener,
-                                com.tandt.automation.example.report.TestReportListener
+                            <value>com.tandt.automation.web.test.web.report.ExtentTestNGIReporterListener,
+                                com.tandt.automation.web.test.web.report.TestReportListener
                             </value>
                         </property>
                         <property>

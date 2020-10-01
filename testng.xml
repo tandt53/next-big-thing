@@ -10,7 +10,7 @@
 
 	<listeners>
 		<listener
-			class-name="com.tandt.automation.example.report.TestReportListener"></listener>
+			class-name="com.tandt.automation.web.test.web.report.TestReportListener"></listener>
 	</listeners>
 
 	<!--this is for testing on CHROME -->
@@ -21,7 +21,7 @@
 	<test name="Firefox Test">
 		<parameter name="browser" value="FireFox" />
 		<classes>
-			<class name="com.tandt.automation.example.test.HomePageTest">
+			<class name="HomePageTest">
 			</class>
 		</classes>
 	</test>
