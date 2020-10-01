@@ -1,4 +1,4 @@
-package com.tandt.automation.example.refactor.drivermanager;
+package com.tandt.automation.example.drivermanager;
 
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +18,7 @@ public abstract class DriverManager {
 
     public abstract WebDriver getDriver(URL remoteAddress, Capabilities caps);
 
-    protected String getOS() {
+    protected String currentOS() {
         String os = System.getProperty("os.name").toLowerCase();
         if (os.contains("win")) {
             return Constants.OS_WIN;

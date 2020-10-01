@@ -1,4 +1,4 @@
-package com.tandt.automation.example.refactor.drivermanager;
+package com.tandt.automation.example.drivermanager;
 
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
@@ -6,8 +6,9 @@ import org.openqa.selenium.remote.service.DriverService;
 
 import java.net.URL;
 
-public class SafariDriverManager extends DriverManager {
-    protected static String KEY_SAFARI = "please add safari driver here";
+public class EdgeDriverManager extends DriverManager{
+
+    protected static String KEY_EDGE = "webdriver.edge.driver";
 
     @Override
     public WebDriver getDriver() {

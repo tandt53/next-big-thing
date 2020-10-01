@@ -1,10 +1,10 @@
-package com.tandt.automation.example.refactor;
+package com.tandt.automation.example;
 
 import com.tandt.automation.example.annotations.FindElement;
+import com.tandt.automation.example.element.Element;
+import com.tandt.automation.example.element.ElementInvocationHandler;
 import com.tandt.automation.example.element.LocatorType;
-import com.tandt.automation.example.refactor.element.Element;
-import com.tandt.automation.example.refactor.element.ElementInvocationHandler;
-import com.tandt.automation.example.refactor.element.model.ElementInfo;
+import com.tandt.automation.example.element.model.ElementInfo;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 

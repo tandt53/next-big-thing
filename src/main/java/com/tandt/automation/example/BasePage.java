@@ -1,28 +1,30 @@
 package com.tandt.automation.example;
 
-import com.tandt.automation.example.driver.DriverManager;
 import com.tandt.automation.example.utils.Log;
-
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by thetan.do on 12/28/2016.
  */
-public class BasePage<TPage extends BasePage<?>> implements ElementSupplier {
+public class BasePage<TPage extends BasePage<?>> {
 
     /**
      * default url
      */
     public String url;
 
-    public WebDriver driver;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected final int DEFAULT_TIMEOUT = 30;
 
     @SuppressWarnings("unchecked")
-	public Log PLog = new Log(((TPage) BasePage.this).getClass());
+    public Log PLog = new Log(((TPage) BasePage.this).getClass());
 
-    public BasePage() {
-        this.driver = DriverManager.getDriver();
-        initElements(this);
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(this.driver, DEFAULT_TIMEOUT);
+        PageFactory.initElements(this, this.driver, this.wait);
     }
 
     /**
@@ -38,7 +40,7 @@ public class BasePage<TPage extends BasePage<?>> implements ElementSupplier {
      * open page with a specific url
      */
     @SuppressWarnings("unchecked")
-	private TPage open(String url) {
+    private TPage open(String url) {
         driver.get(url);
         return (TPage) this;
     }
@@ -50,12 +52,13 @@ public class BasePage<TPage extends BasePage<?>> implements ElementSupplier {
         if (driver != null)
             driver.quit();
     }
-    
+
     /**
-     * getTitle 
+     * getTitle
+     *
      * @return title of page
      */
     public String getPageTitel() {
-    	return driver.getTitle();
+        return driver.getTitle();
     }
 }

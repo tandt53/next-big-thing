@@ -1,7 +1,7 @@
-package com.tandt.automation.example.refactor.element;
+package com.tandt.automation.example.element;
 
 import com.tandt.automation.example.Conditions;
-import com.tandt.automation.example.refactor.element.model.ElementInfo;
+import com.tandt.automation.example.element.model.ElementInfo;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.FluentWait;

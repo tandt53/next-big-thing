@@ -1,4 +1,4 @@
-package com.tandt.automation.example.refactor.element.model;
+package com.tandt.automation.example.element.model;
 
 import com.tandt.automation.example.element.LocatorType;
 

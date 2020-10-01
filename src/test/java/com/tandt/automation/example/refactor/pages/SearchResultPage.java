@@ -1,7 +1,7 @@
 package com.tandt.automation.example.refactor.pages;
 
-import com.tandt.automation.example.refactor.BasePage;
-import com.tandt.automation.example.refactor.PageFactory;
+import com.tandt.automation.example.BasePage;
+import com.tandt.automation.example.PageFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

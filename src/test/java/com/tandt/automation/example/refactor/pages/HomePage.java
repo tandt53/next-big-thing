@@ -1,10 +1,10 @@
 package com.tandt.automation.example.refactor.pages;
 
-import com.tandt.automation.example.refactor.BasePage;
+import com.tandt.automation.example.BasePage;
 import com.tandt.automation.example.annotations.FindElement;
-import com.tandt.automation.example.refactor.element.Element;
+import com.tandt.automation.example.element.Element;
 import com.tandt.automation.example.element.LocatorType;
-import com.tandt.automation.example.refactor.PageFactory;
+import com.tandt.automation.example.PageFactory;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
