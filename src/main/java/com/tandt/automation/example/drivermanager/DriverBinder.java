@@ -1,4 +1,4 @@
-package com.tandt.automation.example.refactor.drivermanager;
+package com.tandt.automation.example.drivermanager;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;

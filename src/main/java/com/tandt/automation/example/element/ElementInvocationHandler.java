@@ -1,8 +1,7 @@
-package com.tandt.automation.example.refactor.element;
+package com.tandt.automation.example.element;
 
 import com.tandt.automation.example.annotations.Clocking;
-import com.tandt.automation.example.element.LocatorType;
-import com.tandt.automation.example.refactor.element.model.ElementInfo;
+import com.tandt.automation.example.element.model.ElementInfo;
 import com.tandt.automation.example.utils.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;

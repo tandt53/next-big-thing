@@ -12,7 +12,6 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Protocol;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.tandt.automation.example.driver.DriverManager;
 import com.tandt.automation.example.utils.Constants;
 import com.tandt.automation.example.utils.Log;
 
@@ -162,7 +161,7 @@ public class TestReportListener extends TestListenerAdapter {
 	 * 
 	 */
 	private void takeScreenShot(String testName) {
-		DriverManager.takeScreenShot(testName);
+//		DriverManager.takeScreenShot(testName);
 	}
 
 	/**

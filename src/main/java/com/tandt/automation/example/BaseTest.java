@@ -1,6 +1,6 @@
 package com.tandt.automation.example;
 
-import com.tandt.automation.example.refactor.drivermanager.DriverManagerFactory;
+import com.tandt.automation.example.drivermanager.DriverManagerFactory;
 import com.tandt.automation.example.utils.Log;
 
 import org.openqa.selenium.WebDriver;
@@ -27,7 +27,7 @@ public class BaseTest<TTest extends BaseTest<?>> {
 		// Initialize components
 		// 1. WebDriver
 		// 2. Start new session of Appium if needed
-		driver = DriverManagerFactory.getManager("chrome");
+		driver = DriverManagerFactory.getDriver("chrome");
 	}
 
 	@BeforeMethod

@@ -1,4 +1,4 @@
-package com.tandt.automation.example.refactor.drivermanager;
+package com.tandt.automation.example.drivermanager;
 
 public class Constants {
 

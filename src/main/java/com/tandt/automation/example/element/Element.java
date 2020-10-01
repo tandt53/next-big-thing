@@ -1,4 +1,4 @@
-package com.tandt.automation.example.refactor.element;
+package com.tandt.automation.example.element;
 
 import com.tandt.automation.example.annotations.Clocking;
 import org.openqa.selenium.*;

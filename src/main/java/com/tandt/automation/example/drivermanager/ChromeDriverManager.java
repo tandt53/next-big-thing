@@ -1,9 +1,8 @@
-package com.tandt.automation.example.refactor.drivermanager;
+package com.tandt.automation.example.drivermanager;
 
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.service.DriverService;
 
 import java.io.File;
@@ -11,24 +10,24 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FirefoxDriverManager extends DriverManager {
+public class ChromeDriverManager extends DriverManager {
 
-    protected static String KEY_FIREFOX = "webdriver.gecko.driver";
+    protected static String KEY_CHROME = "webdriver.chrome.driver";
     private static Map<String, String> driverExeFileMap;
 
     static {
         driverExeFileMap = new HashMap<>();
-        driverExeFileMap.put(Constants.OS_LIN, "geckodriver");
-        driverExeFileMap.put(Constants.OS_MAC, "geckodriver");
-        driverExeFileMap.put(Constants.OS_WIN, "geckodriver.exe");
+        driverExeFileMap.put(Constants.OS_LIN, "chromedriver");
+        driverExeFileMap.put(Constants.OS_MAC, "chromedriver");
+        driverExeFileMap.put(Constants.OS_WIN, "chromedriver.exe");
     }
 
     @Override
     public WebDriver getDriver() {
-        String os = getOS();
+        String os = currentOS();
         File driverExe = new File(System.getProperty("user.dir"), "/res/driver/" + os + "/" + driverExeFileMap.get(os));
-        System.setProperty(KEY_FIREFOX, driverExe.getAbsolutePath());
-        return new FirefoxDriver();
+        System.setProperty(KEY_CHROME, driverExe.getAbsolutePath());
+        return new ChromeDriver();
     }
 
     @Override
