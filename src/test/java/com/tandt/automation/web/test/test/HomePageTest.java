@@ -1,6 +1,6 @@
 package com.tandt.automation.web.test.test;
 
-import com.tandt.automation.web.test.web.BaseTest;
+import com.tandt.automation.web.BaseTest;
 import com.tandt.automation.web.test.pages.HomePage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
