@@ -10,7 +10,7 @@
 
 	<listeners>
 		<listener
-			class-name="com.tandt.automation.web.test.web.report.TestReportListener"></listener>
+			class-name="com.tandt.automation.web.report.TestReportListener"></listener>
 	</listeners>
 
 	<!--this is for testing on CHROME -->

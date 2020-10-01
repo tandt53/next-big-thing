@@ -1,7 +1,7 @@
 package com.tandt.automation.web.test.pages;
 
-import com.tandt.automation.web.test.web.BasePage;
-import com.tandt.automation.web.test.web.PageFactory;
+import com.tandt.automation.web.BasePage;
+import com.tandt.automation.web.PageFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
