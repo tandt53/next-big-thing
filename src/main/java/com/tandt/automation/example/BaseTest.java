@@ -1,8 +1,9 @@
 package com.tandt.automation.example;
 
-import com.tandt.automation.example.driver.DriverManager;
+import com.tandt.automation.example.refactor.drivermanager.DriverManagerFactory;
 import com.tandt.automation.example.utils.Log;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
@@ -19,12 +20,14 @@ public class BaseTest<TTest extends BaseTest<?>> {
 	public Log TLog = new Log(((TTest) BaseTest.this).getClass());
 	private String testName;
 
+	protected WebDriver driver;
+
 	@BeforeSuite
 	public void setupSuite() {
 		// Initialize components
 		// 1. WebDriver
 		// 2. Start new session of Appium if needed
-		DriverManager.initDriver();
+		driver = DriverManagerFactory.getManager("chrome");
 	}
 
 	@BeforeMethod

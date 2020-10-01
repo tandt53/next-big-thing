@@ -1,7 +1,7 @@
 package com.tandt.automation.example.utils;
 
-import org.apache.log4j.Logger;
-import org.testng.ITestResult;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Created by thetan.do on 12/28/2016.
@@ -11,7 +11,7 @@ public class Log {
 	public Logger Log;
 
 	public Log(Class<?> clazz) {
-		Log = Logger.getLogger(clazz);
+		Log = LogManager.getLogger(clazz);
 	}
 
 	public void info(String message) {
