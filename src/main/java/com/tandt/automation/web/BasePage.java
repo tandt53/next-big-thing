@@ -1,8 +1,11 @@
 package com.tandt.automation.web;
 
+import com.tandt.automation.web.drivermanager.DriverManager;
 import com.tandt.automation.web.utils.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import  com.tandt.automation.web.PageFactory;
 
 /**
  * Created by thetan.do on 12/28/2016.
@@ -15,6 +18,7 @@ public class BasePage<TPage extends BasePage<?>> {
     public String url;
 
     protected WebDriver driver;
+
     protected WebDriverWait wait;
     protected final int DEFAULT_TIMEOUT = 30;
 
@@ -24,7 +28,13 @@ public class BasePage<TPage extends BasePage<?>> {
     public BasePage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(this.driver, DEFAULT_TIMEOUT);
-        PageFactory.initElements(this, this.driver, this.wait);
+        PageFactory.initElements(this, this.wait);
+    }
+
+    public BasePage(DriverManager driver) {
+        this.driver = driver.getDriver();
+        this.wait = new WebDriverWait(this.driver, DEFAULT_TIMEOUT);
+        PageFactory.initElements(this, this.wait);
     }
 
     /**
@@ -58,7 +68,7 @@ public class BasePage<TPage extends BasePage<?>> {
      *
      * @return title of page
      */
-    public String getPageTitel() {
+    public String getPageTitle() {
         return driver.getTitle();
     }
 }

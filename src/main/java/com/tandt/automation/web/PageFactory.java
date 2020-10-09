@@ -1,11 +1,10 @@
 package com.tandt.automation.web;
 
-import com.tandt.automation.web.element.Element;
-import com.tandt.automation.web.element.model.ElementInfo;
 import com.tandt.automation.web.annotations.FindElement;
+import com.tandt.automation.web.element.Element;
 import com.tandt.automation.web.element.ElementInvocationHandler;
 import com.tandt.automation.web.element.LocatorType;
-import org.openqa.selenium.WebDriver;
+import com.tandt.automation.web.element.model.ElementInfo;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.reflect.Field;
@@ -13,7 +12,7 @@ import java.lang.reflect.Proxy;
 
 public class PageFactory {
 
-    public static <T extends BasePage<?>> void initElements(final T page, WebDriver driver, WebDriverWait wait){
+    public static <T extends BasePage<?>> void initElements(final T page, WebDriverWait wait){
         try {
             Class<?> objectClass = page.getClass();
             for (Field field : objectClass.getDeclaredFields()) {
@@ -30,7 +29,7 @@ public class PageFactory {
                         elementInfo.setLocatorValue(value);
 
                         Object baseElement = (Element) Proxy.newProxyInstance(Element.class.getClassLoader(),
-                                new Class[]{Element.class}, new ElementInvocationHandler(elementInfo, driver, wait));
+                                new Class[]{Element.class}, new ElementInvocationHandler(elementInfo, wait));
                         field.set(page, baseElement);
                     }
                 }

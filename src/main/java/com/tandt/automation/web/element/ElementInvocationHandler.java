@@ -1,10 +1,10 @@
 package com.tandt.automation.web.element;
 
-import com.tandt.automation.web.element.model.ElementInfo;
 import com.tandt.automation.web.annotations.Clocking;
+import com.tandt.automation.web.element.model.ElementInfo;
 import com.tandt.automation.web.utils.Log;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
@@ -19,8 +19,8 @@ public class ElementInvocationHandler implements InvocationHandler {
     private Element baseElement;
     Log log = new Log(Element.class);
 
-    public ElementInvocationHandler(ElementInfo elementInfo, WebDriver driver, WebDriverWait wait) {
-        baseElement = new ElementImpl(elementInfo, driver, wait);
+    public ElementInvocationHandler(ElementInfo elementInfo, WebDriverWait wait) {
+        baseElement = new ElementImpl(elementInfo, wait);
     }
 
     // ******************************

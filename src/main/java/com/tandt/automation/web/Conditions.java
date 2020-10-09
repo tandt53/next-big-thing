@@ -1,12 +1,12 @@
 package com.tandt.automation.web;
 
-import java.util.List;
-import java.util.function.Function;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
+import java.util.function.Function;
 
 public class Conditions {
 

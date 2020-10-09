@@ -1,10 +1,10 @@
 package com.tandt.automation.web.test.pages;
 
-import com.tandt.automation.web.element.Element;
 import com.tandt.automation.web.BasePage;
-import com.tandt.automation.web.annotations.FindElement;
-import com.tandt.automation.web.element.LocatorType;
 import com.tandt.automation.web.PageFactory;
+import com.tandt.automation.web.annotations.FindElement;
+import com.tandt.automation.web.element.Element;
+import com.tandt.automation.web.element.LocatorType;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,12 +16,21 @@ import org.openqa.selenium.support.FindBy;
 public class HomePage extends BasePage<HomePage> {
 
 
+//    @Inject
     public HomePage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(this, driver, wait);
+        PageFactory.initElements(this, wait);
         url = "http://google.com.vn";
         PLog.info("URL: " + url);
     }
+
+//    @Inject
+//    public HomePage(DriverManager driverManager) {
+//        super(driverManager.getDriver());
+//        PageFactory.initElements(this, wait);
+//        url = "http://google.com.vn";
+//        PLog.info("URL: " + url);
+//    }
 
     @FindElement(type = LocatorType.XPATH, value = "//*[@class='gLFyf gsfi']")
     Element searchField;

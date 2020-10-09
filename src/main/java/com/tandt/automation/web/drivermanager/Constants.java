@@ -10,4 +10,5 @@ public class Constants {
     public static final String DRIVER_TYPE_FIREFOX = "firefox";
     public static final String DRIVER_TYPE_SAFARI = "safari";
     public static final String DRIVER_TYPE_EDGE = "edge";
+    public static final String DRIVER_TYPE_REMOTE = "remote";
 }
