@@ -16,7 +16,6 @@ public class ElementImpl implements Element {
 
     private By locator;
     private ElementInfo elementInfo;
-    private WebDriver driver;
     private WebDriverWait wait;
 
     public void setElementInfo(ElementInfo elementInfo) {
@@ -27,45 +26,43 @@ public class ElementImpl implements Element {
         return elementInfo;
     }
 
-    public ElementImpl(ElementInfo elementInfo, WebDriver driver, WebDriverWait wait) {
+    public ElementImpl(ElementInfo elementInfo, WebDriverWait wait) {
         this.elementInfo = elementInfo;
-        this.driver = driver;
         this.wait = wait;
         initElement();
-
     }
 
     private void initElement() {
         switch (this.elementInfo.getLocatorType()) {
-            case LocatorType.ID:
+            case ID:
                 locator = By.id(this.elementInfo.getLocatorValue());
                 break;
 
-            case LocatorType.CSS_SELECTOR:
+            case CSS_SELECTOR:
                 locator = By.cssSelector(this.elementInfo.getLocatorValue());
                 break;
 
-            case LocatorType.CLASS_NAME:
+            case CLASS_NAME:
                 locator = By.className(this.elementInfo.getLocatorValue());
                 break;
 
-            case LocatorType.XPATH:
+            case XPATH:
                 locator = By.xpath(this.elementInfo.getLocatorValue());
                 break;
 
-            case LocatorType.LINK_TEXT:
+            case LINK_TEXT:
                 locator = By.linkText(this.elementInfo.getLocatorValue());
                 break;
 
-            case LocatorType.TAG_NAME:
+            case TAG_NAME:
                 locator = By.tagName(this.elementInfo.getLocatorValue());
                 break;
 
-            case LocatorType.PARTIAL_LINK_TEXT:
+            case PARTIAL_LINK_TEXT:
                 locator = By.partialLinkText(this.elementInfo.getLocatorValue());
                 break;
 
-            case LocatorType.NAME:
+            case NAME:
                 locator = By.name(this.elementInfo.getLocatorValue());
                 break;
 

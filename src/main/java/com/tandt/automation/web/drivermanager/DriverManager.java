@@ -16,7 +16,7 @@ public abstract class DriverManager {
 
     public abstract WebDriver getDriver(DriverService service, Capabilities caps);
 
-    public abstract WebDriver getDriver(URL remoteAddress, Capabilities caps);
+    public abstract WebDriver getDriver(String browser, URL remoteAddress, Capabilities caps);
 
     protected String currentOS() {
         String os = System.getProperty("os.name").toLowerCase();

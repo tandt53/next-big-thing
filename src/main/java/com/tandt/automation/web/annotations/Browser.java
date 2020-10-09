@@ -1,8 +1,7 @@
 package com.tandt.automation.web.annotations;
 
 
-
-import com.tandt.automation.web.element.LocatorType;
+import com.tandt.automation.web.utils.Constants;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,9 +10,13 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.TYPE})
-public @interface FindElement {
-    LocatorType type();
+public @interface Browser {
 
-    String value();
+    String value() default Constants.BROWSER_CHROME;
 
+    String remoteUrl() default "";
+
+    String capabilities() default "";
+
+    String service() default "";
 }
