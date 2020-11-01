@@ -4,9 +4,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.tandt.automation.example</groupId>
-    <artifactId>com.tandt.automation.example</artifactId>
+    <groupId>com.tandt53</groupId>
+    <artifactId>automation</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>data-provider</module>
+        <module>core-mobile</module>
+        <module>core-web</module>
+        <module>common</module>
+        <module>core-mobile</module>
+        <module>core-db</module>
+        <module>core-test</module>
+        <module>integration</module>
+        <module>core-api</module>
+        <module>core-mobile</module>
+        <module>tesst</module>
+        <module>core-mobile</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -23,7 +38,7 @@
         <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
-            <version>3.0</version>
+            <version>4.2.2</version>
         </dependency>
 
         <dependency>
@@ -101,8 +116,8 @@
                         </property>
                         <property>
                             <name>listener</name>
-                            <value>com.tandt.automation.web.report.ExtentTestNGIReporterListener,
-                                com.tandt.automation.web.report.TestReportListener
+                            <value>com.tandt.automation.ExtentTestNGIReporterListener,
+                                com.tandt.automation.TestReportListener
                             </value>
                         </property>
                         <property>
