@@ -1,8 +1,8 @@
 package com.tandt53.automation.web.element;
 
+import com.tandt53.automation.common.Log;
 import com.tandt53.automation.web.annotations.Clocking;
 import com.tandt53.automation.web.element.model.ElementInfo;
-import com.tandt53.automation.web.utils.Log;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.reflect.InvocationHandler;
