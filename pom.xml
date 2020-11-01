@@ -19,7 +19,6 @@
         <module>integration</module>
         <module>core-api</module>
         <module>core-mobile</module>
-        <module>tesst</module>
         <module>core-mobile</module>
     </modules>
 
