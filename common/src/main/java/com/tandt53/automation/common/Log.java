@@ -1,4 +1,4 @@
-package com.tandt53.automation.web.utils;
+package com.tandt53.automation.common;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

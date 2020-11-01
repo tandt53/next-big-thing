@@ -1,6 +1,6 @@
 package com.tandt53.automation.web;
 
-import com.tandt53.automation.web.utils.Log;
+import com.tandt53.automation.common.Log;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.safari.SafariOptions;
 import org.testng.annotations.AfterMethod;

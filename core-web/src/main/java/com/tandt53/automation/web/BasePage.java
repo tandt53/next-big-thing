@@ -1,7 +1,7 @@
 package com.tandt53.automation.web;
 
+import com.tandt53.automation.common.Log;
 import com.tandt53.automation.web.drivermanager.DriverManager;
-import com.tandt53.automation.web.utils.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
