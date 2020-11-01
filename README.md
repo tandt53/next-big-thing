@@ -27,7 +27,6 @@ If you want to contact me you can reach me at <tandt53@hotmail.com>.
 ## License
 <!--- If you're not sure which open license to use see https://choosealicense.com/--->
 
-This project uses the following license: [<license_name>](<link>).
-
+This project uses the following license: [Apache-2.0 License ](https://github.com/tandt53/next-big-thing/blob/master/LICENSE).
 
 Refer readme template [here](https://github.com/scottydocs/README-template.md)
