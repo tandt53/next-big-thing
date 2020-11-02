@@ -1,0 +1,32 @@
+{
+  "env": {
+    "qc": {
+      "bill" : {
+        "tid": "bill",
+        "mid" : "bill",
+        "ChannelCode" : "bill",
+        "merchantCode" : "bill"
+      },
+      "voucher" : {
+        "tid": "voucher",
+        "mid" : "voucher",
+        "ChannelCode" : "voucher",
+        "merchantCode" : "voucher"
+      }
+    },
+    "uat": {
+      "bill" : {
+        "tid": "bill",
+        "mid" : "bill",
+        "ChannelCode" : "bill",
+        "merchantCode" : "bill"
+      },
+      "voucher" : {
+        "tid": "voucher",
+        "mid" : "voucher",
+        "ChannelCode" : "voucher",
+        "merchantCode" : "voucher"
+      }
+    }
+  }
+}
