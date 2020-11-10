@@ -40,7 +40,7 @@ public class HomeChromeTest extends BaseTest<HomeChromeTest> {
     public void teardown() {
         homePage.close();
 
-        driver.initDriver().quit();
+        driver.getDriver().quit();
     }
 
     @Test
