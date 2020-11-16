@@ -17,43 +17,12 @@ public class JsonParserTest {
     private String filePath = System.getProperty("user.dir") + "/dev-data/configEnv.json";
     private String jsonPath = "env.qc.bill.tid";
 
-    private String jsonString = "{\n" +
-            "  \"env\": {\n" +
-            "    \"qc\": {\n" +
-            "      \"bill\" : {\n" +
-            "        \"tid\": \"bill\",\n" +
-            "        \"mid\" : \"bill\",\n" +
-            "        \"ChannelCode\" : \"bill\",\n" +
-            "        \"merchantCode\" : \"bill\"\n" +
-            "      },\n" +
-            "      \"voucher\" : {\n" +
-            "        \"tid\": \"voucher\",\n" +
-            "        \"mid\" : \"voucher\",\n" +
-            "        \"ChannelCode\" : \"voucher\",\n" +
-            "        \"merchantCode\" : \"voucher\"\n" +
-            "      }\n" +
-            "    },\n" +
-            "    \"uat\": {\n" +
-            "      \"bill\" : {\n" +
-            "        \"tid\": \"bill\",\n" +
-            "        \"mid\" : \"bill\",\n" +
-            "        \"ChannelCode\" : \"bill\",\n" +
-            "        \"merchantCode\" : \"bill\"\n" +
-            "      },\n" +
-            "      \"voucher\" : {\n" +
-            "        \"tid\": \"voucher\",\n" +
-            "        \"mid\" : \"voucher\",\n" +
-            "        \"ChannelCode\" : \"voucher\",\n" +
-            "        \"merchantCode\" : \"voucher\"\n" +
-            "      }\n" +
-            "    }\n" +
-            "  }\n" +
-            "}";
+    private String jsonString = "";
 
     @Test
     public void testReadFile() {
 
-        String jsonFile = System.getProperty("user.dir") + "/res/data/leadTest.json";
+        String jsonFile = System.getProperty("user.dir") + "/dev-data/leadTest.json";
         String jsonPath = "tests[0].input.general";
         LeadGeneral leadGeneral;
         try {

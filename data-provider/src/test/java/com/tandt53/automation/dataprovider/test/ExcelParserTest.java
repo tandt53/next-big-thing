@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class ExcelParserTest {
 
-    private static String excelFilePath = System.getProperty("user.dir") + "/API_template_20190109.xlsx";
+    private static String excelFilePath = System.getProperty("user.dir") + "/dev-data/API_template_20190109.xlsx";
     private Log log = new Log(ExcelParserTest.class);
 
     @BeforeClass
