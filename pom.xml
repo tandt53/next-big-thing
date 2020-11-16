@@ -26,6 +26,7 @@
 
     <dependencyManagement>
         <dependencies>
+
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-java</artifactId>
@@ -37,7 +38,6 @@
                 <artifactId>guice</artifactId>
                 <version>4.2.2</version>
             </dependency>
-
 
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
@@ -60,12 +60,6 @@
                 <scope>provided</scope>
             </dependency>
 
-            <!-- Extents report v2.40.2 -->
-<!--            <dependency>-->
-<!--                <groupId>com.relevantcodes</groupId>-->
-<!--                <artifactId>extentreports</artifactId>-->
-<!--                <version>2.40.2</version>-->
-<!--            </dependency>-->
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
@@ -88,6 +82,15 @@
                 <groupId>com.google.code.gson</groupId>
                 <artifactId>gson</artifactId>
                 <version>2.8.6</version>
+            </dependency>
+
+
+            <!-- core-api -->
+            <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>4.10.0-RC1</version>
             </dependency>
 
         </dependencies>
