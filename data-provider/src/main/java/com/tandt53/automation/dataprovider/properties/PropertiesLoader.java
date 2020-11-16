@@ -2,15 +2,59 @@ package com.tandt53.automation.dataprovider.properties;
 
 import com.tandt53.automation.dataprovider.exceptions.PropertiesException;
 
-public interface PropertiesLoader {
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Properties;
 
-    void loadFromProperties(String filePath) throws PropertiesException;
+public class PropertiesLoader {
 
-    void loadFromXml(String filePath) throws PropertiesException;
+    public Object getProperty(String filePath, String key) throws PropertiesException {
+        if (key == null || key.isEmpty()) {
+            throw new PropertiesException("Key is required to get property value");
+        }
 
-    Object getProperty(String key) throws PropertiesException;
+        if (filePath == null || filePath.isEmpty()) {
+            throw new PropertiesException("Properties file should not be null or empty");
+        }
 
-    void setProperties(String key, String value) throws PropertiesException;
+        try {
+            Properties props;
+            FileInputStream fs = new FileInputStream(filePath);
+            props = new Properties();
+            props.load(fs);
+            return props.get(key);
+        } catch (IOException e) {
+            throw new PropertiesException(e.getMessage());
+        }
+    }
 
-    void saveProperties(String file, String comment);
+    public Object getPropertyFromXml(String filePath, String key) throws PropertiesException {
+        if (key == null || key.isEmpty()) {
+            throw new PropertiesException("Key is required to get property value");
+        }
+
+        if (filePath == null || filePath.isEmpty()) {
+            throw new PropertiesException("Properties file should not be null or empty");
+        }
+
+        try {
+            Properties props;
+            FileInputStream fs = new FileInputStream(filePath);
+            props = new Properties();
+            props.loadFromXML(fs);
+            return props.get(key);
+        } catch (IOException e) {
+            throw new PropertiesException(e.getMessage());
+        }
+
+    }
+
+    public static void saveProperties(Properties props, String filePath, String comment) {
+        try {
+            props.store(new FileWriter(filePath), comment);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
