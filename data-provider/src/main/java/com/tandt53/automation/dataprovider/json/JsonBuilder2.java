@@ -77,6 +77,10 @@ public class JsonBuilder2 {
         jsonElement.getAsJsonObject().add(node, createJsonElement(jsonElement.getAsJsonObject().get(node), index, path, 1, key, value));
     }
 
+    public void addJson(String parentKey, JsonElement element){
+        // implement code here
+    }
+
     private JsonElement createJsonElement(JsonElement jsonElement,
                                           int curNodeIndex,
                                           String[] path,

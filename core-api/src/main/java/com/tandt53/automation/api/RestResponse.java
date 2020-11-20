@@ -6,6 +6,7 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
+import com.tandt53.automation.api.path.JsonPath;
 import com.tandt53.automation.dataprovider.json.JsonParser;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
@@ -29,6 +30,15 @@ public class RestResponse {
 
     public <T> T get(String jsonPath, Class<T> t) throws IOException {
         return JsonParser.fromJsonStringToObject(responseBody.string(), jsonPath, t);
+    }
+
+    // save response body into a file
+    public void save(String filePath){
+
+    }
+
+    public JsonPath jsonPath() throws IOException {
+        return new JsonPath(responseBody.string());
     }
 
 //    public <T> T convert(Type type) throws IOException {
