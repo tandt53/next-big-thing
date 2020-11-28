@@ -41,6 +41,10 @@ public class RestResponse {
         return new JsonPath(responseBody.string());
     }
 
+    public String body() throws IOException {
+        return this.response.body().string();
+    }
+
 //    public <T> T convert(Type type) throws IOException {
 //        Gson gson = new Gson();
 //        TypeAdapter<?> adapter = gson.getAdapter(TypeToken.get(type));

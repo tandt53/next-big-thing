@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Client {
     private static final int DEFAULT_TIMEOUT = -1;
-    private static final int DEFAULT_CALL_TIMEOUT = 30;
+    private static final int DEFAULT_CALL_TIMEOUT = 30000;
     private final TimeUnit TIME_UNIT = TimeUnit.MILLISECONDS;
 
     private OkHttpClient.Builder builder;
@@ -36,7 +36,7 @@ public class Client {
 
     }
 
-    public void createClient() throws NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+    public OkHttpClient createClient() throws NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
 
         builder.followRedirects(isFollowRedirects);
         if (connectTimeout != DEFAULT_TIMEOUT) {
@@ -65,7 +65,7 @@ public class Client {
         }
         // If we don't set this reference, there's no way to clean shutdown persistent connections.
         builder.connectionPool(new ConnectionPool());
-        client = builder.build();
+        return builder.build();
     }
 
     public void addInterceptor(Interceptor interceptor) {
@@ -104,8 +104,8 @@ public class Client {
         }
     }
 
-    public RestResponse send(RestRequest request) throws IOException {
-        return new RestResponse(client.newCall(request.createRequest()).execute());
+    public RestResponse send(RestRequest request) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+        return new RestResponse(createClient().newCall(request.createRequest()).execute());
     }
 
 }
