@@ -8,13 +8,15 @@ import java.util.regex.Pattern;
 
 public class RequestUrl {
 
-    HttpUrl.Builder builder;
+    private HttpUrl.Builder builder;
+    public static final int EMPTY_PORT = -1;
 
     public RequestUrl(String protocol, String host, int port) {
         builder = new HttpUrl.Builder();
         builder.scheme(protocol)
-                .host(host)
-                .port(port);
+                .host(host);
+        if (port != EMPTY_PORT)
+            builder.port(port);
     }
 
     public RequestUrl(String fullHostString) throws UrlException {
@@ -79,14 +81,21 @@ public class RequestUrl {
             builder.setQueryParameter(key, value);
     }
 
-    public void removeQueryParameter(String key, boolean isEncoded){
+    public void removeQueryParameter(String key, boolean isEncoded) {
         if (isEncoded)
             builder.removeAllEncodedQueryParameters(key);
         else
             builder.removeAllQueryParameters(key);
     }
 
-    public HttpUrl createHttpUrl(){
+    public HttpUrl createHttpUrl() {
         return builder.build();
+    }
+
+    public void addPath(String pathSegment, boolean isEncoded) {
+        if(isEncoded)
+            builder.addEncodedPathSegments(pathSegment);
+        else
+            builder.addPathSegments(pathSegment);
     }
 }

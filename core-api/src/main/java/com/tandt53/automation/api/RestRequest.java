@@ -1,23 +1,18 @@
 package com.tandt53.automation.api;
 
-import okhttp3.HttpUrl;
 import okhttp3.Request;
 
 public class RestRequest {
 
     private Request.Builder builder;
-    private HttpUrl url;
-    private String host;
-    private String path;
-    private String method;
 
     public Request createRequest() {
         return builder.build();
     }
 
-    public RestRequest(HttpUrl httpUrl) {
+    public RestRequest(RequestUrl httpUrl) {
         builder = new Request.Builder();
-        builder.url(httpUrl);
+        builder.url(httpUrl.createHttpUrl());
     }
 
     public void header(RestHeader headers) {
