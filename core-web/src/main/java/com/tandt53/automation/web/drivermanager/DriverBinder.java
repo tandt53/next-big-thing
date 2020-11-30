@@ -9,18 +9,18 @@ import org.openqa.selenium.WebDriver;
 public class DriverBinder extends AbstractModule {
     @Override
     protected void configure() {
-//        bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_CHROME)).to(ChromeDriverManager.class);
-        bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_FIREFOX)).to(ChromeDriverManager.class);
+        bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_CHROME)).to(ChromeDriverManager.class);
+        bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_FIREFOX)).to(FirefoxDriverManager.class);
         bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_SAFARI)).to(SafariDriverManager.class);
         bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_EDGE)).to(ChromeDriverManager.class);
         bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_REMOTE)).to(RemoteDriverManager.class);
     }
 
-    @Provides
-    @Named("chrome")
-    public WebDriver getName(ChromeDriverManager object) {
-        return object.initDriver();
-    }
+//    @Provides
+//    @Named("chrome")
+//    public WebDriver getName(ChromeDriverManager object) {
+//        return object.initDriver();
+//    }
 
 //    @Provides
 //    @Named("remote")
@@ -28,21 +28,21 @@ public class DriverBinder extends AbstractModule {
 //        return object.getDriver(browser, remoteAddress, caps);
 //    }
 
-    @Provides
-    @Named("remote")
-    public WebDriver getName(RemoteDriverManager object) {
-        return object.initDriver();
-    }
+//    @Provides
+//    @Named("remote")
+//    public WebDriver getName(RemoteDriverManager object) {
+//        return object.initDriver();
+//    }
 
-    @Provides
-    @Named("firefox")
-    public WebDriver getName(FirefoxDriverManager object) {
-        return object.initDriver();
-    }
+//    @Provides
+//    @Named("firefox")
+//    public WebDriver getName(FirefoxDriverManager object) {
+//        return object.initDriver();
+//    }
 
-    @Provides
-    @Named("chrome")
-    public DriverManager getManager() {
-        return new ChromeDriverManager();
-    }
+//    @Provides
+//    @Named("chrome")
+//    public DriverManager getManager() {
+//        return new ChromeDriverManager();
+//    }
 }

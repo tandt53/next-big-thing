@@ -2,6 +2,8 @@ package com.tandt53.automation.web.test.test;
 
 import com.tandt53.automation.web.BaseTest;
 import com.tandt53.automation.web.BrowserFactory;
+import com.tandt53.automation.web.annotations.Chrome;
+import com.tandt53.automation.web.annotations.FireFox;
 import com.tandt53.automation.web.annotations.Safari;
 import com.tandt53.automation.web.drivermanager.DriverManager;
 import com.tandt53.automation.web.test.pages.HomePage;
@@ -18,11 +20,11 @@ public class HomeChromeAnnotationTest extends BaseTest<HomeChromeAnnotationTest>
 
     HomePage homePage;
 
-    @Safari
+    @FireFox
     protected DriverManager driver;
 
     public HomeChromeAnnotationTest() throws IllegalAccessException, MalformedURLException {
-        BrowserFactory.initPages(this);
+//        BrowserFactory.initPages(this);
     }
 
     @BeforeTest
@@ -33,7 +35,6 @@ public class HomeChromeAnnotationTest extends BaseTest<HomeChromeAnnotationTest>
     @AfterTest
     public void teardown() {
         homePage.close();
-
         driver.getDriver().quit();
     }
 

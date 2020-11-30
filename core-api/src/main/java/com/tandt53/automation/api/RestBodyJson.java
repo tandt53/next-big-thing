@@ -55,6 +55,6 @@ public class RestBodyJson extends RestBody {
 
     @Override
     public RequestBody createBody() {
-        return RequestBody.create(builder.print(), getType());
+        return RequestBody.create(getType(), builder.print());
     }
 }

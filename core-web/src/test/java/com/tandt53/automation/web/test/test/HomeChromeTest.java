@@ -22,12 +22,12 @@ public class HomeChromeTest extends BaseTest<HomeChromeTest> {
 
     HomePage homePage;
 
-    @Safari
+//    @Safari
     protected DriverManager driver;
 
     public HomeChromeTest() throws IllegalAccessException {
-//        driver = DriverManagerFactory.getDriverManager("remote");
-        BrowserFactory.initPages(this);
+        driver = DriverManagerFactory.getDriverManager("chrome");
+//        BrowserFactory.initPages(this);
     }
 
     @BeforeTest

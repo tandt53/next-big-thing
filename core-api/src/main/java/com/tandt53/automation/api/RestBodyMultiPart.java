@@ -24,7 +24,7 @@ public class RestBodyMultiPart extends RestBody {
     }
 
     public void addPart(String key, String value, String filePath, String mediaType) {
-        builder.addFormDataPart(key, value, RequestBody.create(new File(filePath), MediaType.parse(mediaType)));
+        builder.addFormDataPart(key, value, RequestBody.create(MediaType.parse(mediaType), new File(filePath)));
     }
 
     public void setType(String type) {

@@ -27,7 +27,8 @@ public class FirefoxDriverManager extends DriverManager {
         String os = currentOS();
         File driverExe = new File(System.getProperty("user.dir"), "/res/driver/" + os + "/" + driverExeFileMap.get(os));
         System.setProperty(KEY_FIREFOX, driverExe.getAbsolutePath());
-        return new FirefoxDriver();
+        driver.set(new FirefoxDriver());
+        return getDriver();
     }
 
     @Override
@@ -46,7 +47,7 @@ public class FirefoxDriverManager extends DriverManager {
     }
 
     @Override
-    public WebDriver initDriver(String browser, URL remoteAddress, Capabilities caps) {
+    public WebDriver initDriver( URL remoteAddress, Capabilities caps) {
         return null;
     }
 }

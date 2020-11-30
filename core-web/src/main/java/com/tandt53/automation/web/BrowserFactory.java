@@ -23,19 +23,16 @@ public class BrowserFactory {
         Class<?> objectClass = t.getClass();
         for (Field field : objectClass.getDeclaredFields()) {
             field.setAccessible(true);
+            Injector injector = Guice.createInjector(new DriverBinder());
+            Object driver = null;
             if (field.isAnnotationPresent(Chrome.class)) {
-                Injector injector = Guice.createInjector(new DriverBinder());
-                Object driver = injector.getInstance(Key.get(field.getType(), Names.named(Constants.DRIVER_TYPE_CHROME)));
-                field.set(t, driver);
-            }else if (field.isAnnotationPresent(FireFox.class)) {
-                Injector injector = Guice.createInjector(new DriverBinder());
-                Object driver = injector.getInstance(Key.get(field.getType(), Names.named(Constants.DRIVER_TYPE_FIREFOX)));
-                field.set(t, driver);
-            }else if (field.isAnnotationPresent(Safari.class)) {
-                Injector injector = Guice.createInjector(new DriverBinder());
-                Object driver = injector.getInstance(Key.get(field.getType(), Names.named(Constants.DRIVER_TYPE_SAFARI)));
-                field.set(t, driver);
+                driver = injector.getInstance(Key.get(field.getType(), Names.named(Constants.DRIVER_TYPE_CHROME)));
+            } else if (field.isAnnotationPresent(FireFox.class)) {
+                driver = injector.getInstance(Key.get(field.getType(), Names.named(Constants.DRIVER_TYPE_FIREFOX)));
+            } else if (field.isAnnotationPresent(Safari.class)) {
+                driver = injector.getInstance(Key.get(field.getType(), Names.named(Constants.DRIVER_TYPE_SAFARI)));
             }
+            field.set(t, driver);
         }
     }
 }

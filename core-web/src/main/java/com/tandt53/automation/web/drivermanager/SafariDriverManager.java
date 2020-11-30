@@ -13,7 +13,7 @@ public class SafariDriverManager extends DriverManager {
     @Override
     public WebDriver initDriver() {
         driver.set(new SafariDriver());
-        return driver.get();
+        return getDriver();
     }
 
     @Override
@@ -32,7 +32,7 @@ public class SafariDriverManager extends DriverManager {
     }
 
     @Override
-    public WebDriver initDriver(String browser, URL remoteAddress, Capabilities caps) {
+    public WebDriver initDriver(URL remoteAddress, Capabilities caps) {
         return null;
     }
 }
