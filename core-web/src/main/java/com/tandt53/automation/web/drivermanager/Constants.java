@@ -16,7 +16,8 @@ public class Constants {
     public static final String DRIVER_TYPE_SAFARI = "safari";
     public static final String DRIVER_TYPE_EDGE = "edge";
     public static final String DRIVER_TYPE_REMOTE = "remote";
-
+    public static final String ENV_LOCAL = "local";
+    public static final String ENV_REMOTE = "remote";
     public static final String DOT = ".";
 
     // capabilities

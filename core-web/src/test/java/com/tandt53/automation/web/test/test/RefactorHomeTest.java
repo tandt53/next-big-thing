@@ -1,5 +1,6 @@
 package com.tandt53.automation.web.test.test;
 
+import com.tandt53.automation.common.CommonException;
 import com.tandt53.automation.web.BaseTest;
 import com.tandt53.automation.web.BrowserFactory;
 import com.tandt53.automation.web.annotations.Safari;
@@ -13,6 +14,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * Created by thetan.do on 12/28/2016.
@@ -29,7 +31,7 @@ public class RefactorHomeTest extends BaseTest<RefactorHomeTest> {
     }
 
     @BeforeTest
-    public void setup()  {
+    public void setup() throws MalformedURLException {
         String propertyFile = System.getProperty("config");
         Caps caps;
         if (propertyFile != null && propertyFile.isEmpty())
@@ -37,9 +39,13 @@ public class RefactorHomeTest extends BaseTest<RefactorHomeTest> {
         else
             caps = new Caps();
 
-        driver = DriverManagerFactory.getDriverManager(caps.getCapability(Constants.CAPABILITY_BROWSER).toString());
+        driver = DriverManagerFactory.getDriverManager(caps);
 
-        homePage = new HomePage(driver.initDriver(caps.getCapabilities()));
+        try {
+            homePage = new HomePage(driver.initDriver(new URL("https://google.com"), caps.getCapabilities()));
+        } catch (CommonException e) {
+            e.printStackTrace();
+        }
     }
 
     @AfterTest

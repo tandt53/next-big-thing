@@ -1,5 +1,6 @@
 package com.tandt53.automation.web.drivermanager;
 
+import com.tandt53.automation.common.CommonException;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.service.DriverService;
@@ -23,7 +24,7 @@ public abstract class DriverManager {
 
     public abstract WebDriver initDriver(DriverService service, Capabilities caps);
 
-    public abstract WebDriver initDriver(URL remoteAddress, Capabilities caps) throws MalformedURLException;
+    public abstract WebDriver initDriver(URL remoteAddress, Capabilities caps) throws MalformedURLException, CommonException;
 
     protected String currentOS() {
         String os = System.getProperty("os.name").toLowerCase();
