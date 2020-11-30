@@ -5,11 +5,13 @@ import com.tandt53.automation.dataprovider.exceptions.PropertiesException;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 public class PropertiesLoader {
 
-    public Object getProperty(String filePath, String key) throws PropertiesException {
+    public static Object getProperty(String filePath, String key) throws PropertiesException {
         if (key == null || key.isEmpty()) {
             throw new PropertiesException("Key is required to get property value");
         }
@@ -29,7 +31,7 @@ public class PropertiesLoader {
         }
     }
 
-    public Object getPropertyFromXml(String filePath, String key) throws PropertiesException {
+    public static Object getPropertyFromXml(String filePath, String key) throws PropertiesException {
         if (key == null || key.isEmpty()) {
             throw new PropertiesException("Key is required to get property value");
         }
@@ -44,6 +46,28 @@ public class PropertiesLoader {
             props = new Properties();
             props.loadFromXML(fs);
             return props.get(key);
+        } catch (IOException e) {
+            throw new PropertiesException(e.getMessage());
+        }
+
+    }
+
+    public static Map<String, Object> getMap(String filePath) throws PropertiesException {
+        if (filePath == null || filePath.isEmpty()) {
+            throw new PropertiesException("Properties file should not be null or empty");
+        }
+
+        try {
+            Map<String, Object> map = new HashMap<>();
+            Properties props;
+            FileInputStream fs = new FileInputStream(filePath);
+            props = new Properties();
+            props.load(fs);
+
+            for (String name : props.stringPropertyNames())
+                map.put(name, props.getProperty(name));
+
+            return map;
         } catch (IOException e) {
             throw new PropertiesException(e.getMessage());
         }

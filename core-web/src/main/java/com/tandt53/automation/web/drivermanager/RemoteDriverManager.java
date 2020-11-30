@@ -1,15 +1,19 @@
 package com.tandt53.automation.web.drivermanager;
 
 import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.service.DriverService;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RemoteDriverManager extends DriverManager {
     static String KEY_SAFARI = "webdriver.safari.driver";
@@ -38,7 +42,12 @@ public class RemoteDriverManager extends DriverManager {
 
     @Override
     public WebDriver initDriver(Capabilities capabilities) {
-        return null;
+        String url = capabilities.getCapability(Constants.CAPABILITY_REMOTE_HOST).toString();
+        MutableCapabilities cap = new MutableCapabilities();
+        cap.setCapability(Constants.CAPABILITY_REMOTE_HOST, url);
+        capabilities.merge(cap);
+        remoteWebDriver = new RemoteWebDriver(capabilities);
+        return remoteWebDriver;
     }
 
     @Override
@@ -47,30 +56,10 @@ public class RemoteDriverManager extends DriverManager {
     }
 
     @Override
-    public WebDriver initDriver(String browser, URL remoteAddress, Capabilities caps) {
-        switch (browser) {
-            case "safari":
-                System.setProperty(KEY_SAFARI, "/usr/bin/safaridriver");
-                break;
-            case "chrome":
-                String os = currentOS();
-                File driverExe = new File(System.getProperty("user.dir"), "/res/driver/" + os + "/" + driverExeFileMap.get(os));
-                System.setProperty(KEY_CHROME, driverExe.getAbsolutePath());
-                break;
-            case "firefox":
-                os = currentOS();
-                driverExe = new File(System.getProperty("user.dir"), "/res/driver/" + os + "/" + driverExeFileMap.get(os));
-                System.setProperty(KEY_FIREFOX, driverExe.getAbsolutePath());
-                break;
-            case "edge":
-                os = currentOS();
-                driverExe = new File(System.getProperty("user.dir"), "/res/driver/" + os + "/" + driverExeFileMap.get(os));
-                System.setProperty(KEY_EDGE, driverExe.getAbsolutePath());
-                break;
-        }
-        caps = new DesiredCapabilities();
-        ((DesiredCapabilities) caps).setBrowserName(browser);
-        remoteWebDriver = new RemoteWebDriver(remoteAddress, caps);
+    public WebDriver initDriver(URL remoteAddress, Capabilities caps) throws MalformedURLException {
+        String url = caps.getCapability(Constants.CAPABILITY_REMOTE_HOST).toString();
+        remoteWebDriver = new RemoteWebDriver(new URL(url), caps);
         return remoteWebDriver;
     }
+
 }

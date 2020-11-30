@@ -31,7 +31,7 @@ public class EdgeDriverManager extends DriverManager{
     }
 
     @Override
-    public WebDriver initDriver(String browser, URL remoteAddress, Capabilities caps) {
+    public WebDriver initDriver( URL remoteAddress, Capabilities caps) {
         return null;
     }
 }

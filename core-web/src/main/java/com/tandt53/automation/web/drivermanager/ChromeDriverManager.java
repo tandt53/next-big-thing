@@ -3,6 +3,7 @@ package com.tandt53.automation.web.drivermanager;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.service.DriverService;
 
 import java.io.File;
@@ -27,7 +28,8 @@ public class ChromeDriverManager extends DriverManager {
         String os = currentOS();
         File driverExe = new File(System.getProperty("user.dir"), "/res/driver/" + os + "/" + driverExeFileMap.get(os));
         System.setProperty(KEY_CHROME, driverExe.getAbsolutePath());
-        return new ChromeDriver();
+        driver.set(new ChromeDriver());
+        return getDriver();
     }
 
     @Override
@@ -37,7 +39,9 @@ public class ChromeDriverManager extends DriverManager {
 
     @Override
     public WebDriver initDriver(Capabilities capabilities) {
-        return null;
+        System.setProperty(KEY_CHROME, capabilities.getCapability(Constants.CAPABILITY_DRIVER_PATH).toString());
+        driver.set(new ChromeDriver( capabilities));
+        return getDriver();
     }
 
     @Override
@@ -46,7 +50,7 @@ public class ChromeDriverManager extends DriverManager {
     }
 
     @Override
-    public WebDriver initDriver(String browser, URL remoteAddress, Capabilities caps) {
+    public WebDriver initDriver( URL remoteAddress, Capabilities caps) {
         return null;
     }
 }

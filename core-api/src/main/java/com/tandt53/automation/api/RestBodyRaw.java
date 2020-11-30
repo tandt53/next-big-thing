@@ -25,6 +25,6 @@ public class RestBodyRaw extends RestBody {
 
     @Override
     public RequestBody createBody() {
-        return RequestBody.create(body, type);
+        return RequestBody.create(type, body);
     }
 }

@@ -4,6 +4,7 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.service.DriverService;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public abstract class DriverManager {
@@ -22,7 +23,7 @@ public abstract class DriverManager {
 
     public abstract WebDriver initDriver(DriverService service, Capabilities caps);
 
-    public abstract WebDriver initDriver(String browser, URL remoteAddress, Capabilities caps);
+    public abstract WebDriver initDriver(URL remoteAddress, Capabilities caps) throws MalformedURLException;
 
     protected String currentOS() {
         String os = System.getProperty("os.name").toLowerCase();
