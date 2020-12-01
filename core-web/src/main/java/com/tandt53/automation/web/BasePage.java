@@ -1,9 +1,12 @@
 package com.tandt53.automation.web;
 
+import com.tandt53.automation.common.CommonException;
 import com.tandt53.automation.common.Log;
 import com.tandt53.automation.web.drivermanager.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.net.MalformedURLException;
 
 /**
  * Created by thetan.do on 12/28/2016.
@@ -29,7 +32,7 @@ public class BasePage<TPage extends BasePage<?>> {
         PageFactory.initElements(this, this.wait);
     }
 
-    public BasePage(DriverManager driver) {
+    public BasePage(DriverManager driver) throws MalformedURLException, CommonException {
         this.driver = driver.initDriver();
         this.wait = new WebDriverWait(this.driver, DEFAULT_TIMEOUT);
         PageFactory.initElements(this, this.wait);

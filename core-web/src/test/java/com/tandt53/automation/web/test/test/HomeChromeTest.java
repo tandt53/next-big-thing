@@ -1,5 +1,6 @@
 package com.tandt53.automation.web.test.test;
 
+import com.tandt53.automation.common.CommonException;
 import com.tandt53.automation.web.BaseTest;
 import com.tandt53.automation.web.BrowserFactory;
 import com.tandt53.automation.web.annotations.Safari;
@@ -31,7 +32,7 @@ public class HomeChromeTest extends BaseTest<HomeChromeTest> {
     }
 
     @BeforeTest
-    public void setup() throws IOException {
+    public void setup() throws IOException, CommonException {
 //        homePage = new HomePage(driver.initDriver("safari", new URL("http://10.124.56.123:4444/wd/hub"), new SafariOptions()));
         homePage = new HomePage(driver.initDriver());
     }

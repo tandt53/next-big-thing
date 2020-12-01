@@ -33,8 +33,8 @@ public class BaseTest<TTest extends BaseTest<?>> {
 		// 2. Start new session of Appium if needed
 //		driver = DriverManagerFactory.getDriver("safari");
 
-		MutableCapabilities caps = new SafariOptions();
-		caps.getBrowserName();
+//		MutableCapabilities caps = new SafariOptions();
+//		caps.getBrowserName();
 //		driver = DriverManagerFactory.getDriver("safari","http://10.124.56.123:4444/wd/hub","remote", caps);
 	}
 

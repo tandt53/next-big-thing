@@ -5,11 +5,7 @@ import com.tandt53.automation.dataprovider.properties.PropertiesLoader;
 import com.tandt53.automation.web.drivermanager.Constants;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
-import org.openqa.selenium.remote.DesiredCapabilities;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static com.tandt53.automation.web.drivermanager.Constants.capabilities;
@@ -17,40 +13,23 @@ import static com.tandt53.automation.web.drivermanager.Constants.capabilities;
 
 public class Caps {
 
-    private static final String DEFAULT_CONFIG_FILE = "configs/browser.properties";
-    private String propertyFile;
-    private Map<String, Object> caps;
+    private static final String DEFAULT_CONFIG_FILE = "configs/web.properties";
 
-    public Caps() {
-        this.propertyFile = DEFAULT_CONFIG_FILE;
-        load();
-    }
+    public static Capabilities loadCaps(){
+        String propertyFile = System.getProperty("config");
+        if(propertyFile ==null || propertyFile.isEmpty()){
+            propertyFile = DEFAULT_CONFIG_FILE;
+        }
+        Map<String, Object> caps;
 
-    public Caps(String propertyFile) {
-        this.propertyFile = propertyFile;
-        load();
-    }
-
-    public void load() {
         try {
-            caps = PropertiesLoader.getMap(this.propertyFile);
+            caps = PropertiesLoader.getMap(propertyFile);
         } catch (PropertiesException e) {
-            System.out.println("Unable to find config file at " + this.propertyFile + ". Default empty caps will be loaded.");
+            System.out.println("Unable to find config file at " + propertyFile + ". Default empty caps will be loaded.");
             caps = new HashMap<>();
             e.printStackTrace();
         }
-    }
 
-    public Object getCapability(String key) {
-        return caps.get(key);
-    }
-
-    public void setCapability(String key, String value) {
-        caps.put(key, value);
-    }
-
-
-    public Capabilities getCapabilities() {
         for(String key : capabilities){
             String value = System.getProperty(key);
             if(value != null && !value.isEmpty()){
@@ -59,7 +38,24 @@ public class Caps {
         }
 
         return new MutableCapabilities(caps);
+
     }
 
+    public static String getBrowser() throws PropertiesException {
+        String propertyFile = System.getProperty("config");
+        if(propertyFile ==null || propertyFile.isEmpty()){
+            propertyFile = DEFAULT_CONFIG_FILE;
+        }
+
+        return PropertiesLoader.getProperty(propertyFile, Constants.CAPABILITY_BROWSER).toString();
+    }
+
+    public static String getEnv() throws PropertiesException {
+        String propertyFile = System.getProperty("config");
+        if(propertyFile ==null || propertyFile.isEmpty()){
+            propertyFile = DEFAULT_CONFIG_FILE;
+        }
+        return PropertiesLoader.getProperty(propertyFile, Constants.CAPABILITY_ENV).toString();
+    }
 
 }

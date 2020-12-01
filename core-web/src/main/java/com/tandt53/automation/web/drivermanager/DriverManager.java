@@ -16,7 +16,7 @@ public abstract class DriverManager {
         return driver.get();
     }
 
-    public abstract WebDriver initDriver();
+    public abstract WebDriver initDriver() throws CommonException, MalformedURLException;
 
     public abstract WebDriver initDriver(DriverService service);
 
