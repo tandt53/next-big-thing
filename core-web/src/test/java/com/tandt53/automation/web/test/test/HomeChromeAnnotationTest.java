@@ -1,5 +1,6 @@
 package com.tandt53.automation.web.test.test;
 
+import com.tandt53.automation.common.CommonException;
 import com.tandt53.automation.web.BaseTest;
 import com.tandt53.automation.web.BrowserFactory;
 import com.tandt53.automation.web.annotations.Chrome;
@@ -28,7 +29,7 @@ public class HomeChromeAnnotationTest extends BaseTest<HomeChromeAnnotationTest>
     }
 
     @BeforeTest
-    public void setup() {
+    public void setup() throws MalformedURLException, CommonException {
         homePage = new HomePage(driver.initDriver());
     }
 

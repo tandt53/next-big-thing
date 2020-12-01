@@ -2,9 +2,6 @@ package com.tandt53.automation.web.test.test;
 
 import com.tandt53.automation.common.CommonException;
 import com.tandt53.automation.web.BaseTest;
-import com.tandt53.automation.web.BrowserFactory;
-import com.tandt53.automation.web.annotations.Safari;
-import com.tandt53.automation.web.drivermanager.Constants;
 import com.tandt53.automation.web.drivermanager.DriverManager;
 import com.tandt53.automation.web.drivermanager.DriverManagerFactory;
 import com.tandt53.automation.web.drivermanager.options.Caps;
@@ -19,33 +16,22 @@ import java.net.URL;
 /**
  * Created by thetan.do on 12/28/2016.
  */
-public class RefactorHomeTest extends BaseTest<RefactorHomeTest> {
+public class RemoteWebDriverTest extends BaseTest<RemoteWebDriverTest> {
 
     HomePage homePage;
 
-//    @Safari
+    //    @Safari
     protected DriverManager driver;
 
-    public RefactorHomeTest() throws IllegalAccessException, MalformedURLException {
-//        BrowserFactory.initPages(this);
+    public RemoteWebDriverTest() throws IllegalAccessException {
     }
 
     @BeforeTest
-    public void setup() throws MalformedURLException {
-        String propertyFile = System.getProperty("config");
-        Caps caps;
-        if (propertyFile != null && propertyFile.isEmpty())
-            caps = new Caps(propertyFile);
-        else
-            caps = new Caps();
+    public void setup() throws MalformedURLException, CommonException {
 
-        driver = DriverManagerFactory.getDriverManager(caps);
+        driver = DriverManagerFactory.getDriverManager();
 
-        try {
-            homePage = new HomePage(driver.initDriver(new URL("https://google.com"), caps.getCapabilities()));
-        } catch (CommonException e) {
-            e.printStackTrace();
-        }
+        homePage = new HomePage(driver.initDriver());
     }
 
     @AfterTest

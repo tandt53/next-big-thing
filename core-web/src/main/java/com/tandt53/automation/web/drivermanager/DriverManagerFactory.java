@@ -4,7 +4,9 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.name.Names;
+import com.tandt53.automation.dataprovider.exceptions.PropertiesException;
 import com.tandt53.automation.web.drivermanager.options.Caps;
+import org.openqa.selenium.Capabilities;
 
 public class DriverManagerFactory {
 
@@ -23,15 +25,21 @@ public class DriverManagerFactory {
         return m;
     }
 
-    public static DriverManager getDriverManager(Caps caps) {
-        Injector injector = Guice.createInjector(new DriverBinder());
-        String browser = caps.getCapability(Constants.CAPABILITY_BROWSER).toString();
-        String named = caps.getCapability(Constants.CAPABILITY_ENV).toString();
-        if (browser != null && !browser.isEmpty()) {
-            named = named + Constants.DOT + browser;
+    public static DriverManager getDriverManager() {
+        try{
+            Injector injector = Guice.createInjector(new DriverBinder());
+            String browser = Caps.getBrowser();
+            String named = Caps.getEnv();
+            if (browser != null && !browser.isEmpty()) {
+                named = named + Constants.DOT + browser;
+            }
+            DriverManager m = injector.getInstance((Key.get(DriverManager.class, Names.named(named))));
+            manager.set(m);
+            return m;
+        } catch (PropertiesException e){
+            e.printStackTrace();
         }
-        DriverManager m = injector.getInstance((Key.get(DriverManager.class, Names.named(named))));
-        manager.set(m);
-        return m;
+        return null;
+
     }
 }

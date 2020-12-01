@@ -2,8 +2,8 @@ package com.tandt53.automation.web.drivermanager;
 
 import com.tandt53.automation.common.CommonException;
 import com.tandt53.automation.common.Utils;
+import com.tandt53.automation.web.drivermanager.options.Caps;
 import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.service.DriverService;
@@ -28,8 +28,12 @@ public class RemoteDriverManager extends DriverManager {
     }
 
     @Override
-    public WebDriver initDriver() {
-        return null;
+    public WebDriver initDriver() throws CommonException, MalformedURLException {
+        Capabilities caps = Caps.loadCaps();
+        String url = Utils.parse(caps.getCapability(Constants.CAPABILITY_REMOTE_HOST).toString());
+        driver.set(new RemoteWebDriver(new URL(url), caps));
+        return getDriver();
+
     }
 
     @Override
@@ -50,7 +54,6 @@ public class RemoteDriverManager extends DriverManager {
     @Override
     public WebDriver initDriver(URL remoteAddress, Capabilities caps) throws MalformedURLException, CommonException {
         String url = Utils.parse(caps.getCapability(Constants.CAPABILITY_REMOTE_HOST).toString());
-        System.out.println(url);
         driver.set(new RemoteWebDriver(new URL(url), caps));
         return getDriver();
 
