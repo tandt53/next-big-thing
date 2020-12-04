@@ -1,10 +1,9 @@
 package com.tandt53.automation.web.drivermanager;
 
+import com.tandt53.automation.web.drivermanager.options.CapabilityManager;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.service.DriverService;
-
-import java.net.URL;
+import org.openqa.selenium.edge.EdgeDriver;
 
 public class EdgeDriverManager extends DriverManager{
 
@@ -12,26 +11,10 @@ public class EdgeDriverManager extends DriverManager{
 
     @Override
     public WebDriver initDriver() {
-        return null;
+        Capabilities caps = CapabilityManager.loadCaps();
+        System.setProperty(KEY_EDGE, caps.getCapability(Constants.CAPABILITY_DRIVER_PATH).toString());
+        driver.set(new EdgeDriver(caps));
+        return getDriver();
     }
 
-    @Override
-    public WebDriver initDriver(DriverService service) {
-        return null;
-    }
-
-    @Override
-    public WebDriver initDriver(Capabilities capabilities) {
-        return null;
-    }
-
-    @Override
-    public WebDriver initDriver(DriverService service, Capabilities caps) {
-        return null;
-    }
-
-    @Override
-    public WebDriver initDriver( URL remoteAddress, Capabilities caps) {
-        return null;
-    }
 }

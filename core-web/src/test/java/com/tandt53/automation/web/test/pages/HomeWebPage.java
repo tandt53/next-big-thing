@@ -1,6 +1,6 @@
 package com.tandt53.automation.web.test.pages;
 
-import com.tandt53.automation.web.BasePage;
+import com.tandt53.automation.web.BaseWebPage;
 import com.tandt53.automation.web.PageFactory;
 import com.tandt53.automation.web.annotations.FindElement;
 import com.tandt53.automation.web.element.Element;
@@ -10,29 +10,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static com.tandt53.automation.web.element.model.WaitStrategy.VISIBILITY;
+
 /**
  * Created by thetan.do on 12/28/2016.
  */
-public class HomePage extends BasePage<HomePage> {
+public class HomeWebPage extends BaseWebPage<HomeWebPage> {
 
 
-//    @Inject
-    public HomePage(WebDriver driver) {
+    public HomeWebPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(this, wait);
+        PageFactory.initElements(this, this.driver);
         url = "http://google.com.vn";
         PLog.info("URL: " + url);
     }
 
-//    @Inject
-//    public HomePage(DriverManager driverManager) {
-//        super(driverManager.getDriver());
-//        PageFactory.initElements(this, wait);
-//        url = "http://google.com.vn";
-//        PLog.info("URL: " + url);
-//    }
-
-    @FindElement(type = LocatorType.XPATH, value = "//*[@class='gLFyf gsfi']")
+    @FindElement(type = LocatorType.XPATH, value = "//*[@class='gLFyf gsfi']", waitUntil = VISIBILITY)
     Element searchField;
 
     @FindBy(id = "_fZl")

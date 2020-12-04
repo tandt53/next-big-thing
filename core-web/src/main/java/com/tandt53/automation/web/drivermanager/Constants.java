@@ -1,7 +1,5 @@
 package com.tandt53.automation.web.drivermanager;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,7 +13,6 @@ public class Constants {
     public static final String DRIVER_TYPE_FIREFOX = "firefox";
     public static final String DRIVER_TYPE_SAFARI = "safari";
     public static final String DRIVER_TYPE_EDGE = "edge";
-    public static final String DRIVER_TYPE_REMOTE = "remote";
     public static final String ENV_LOCAL = "local";
     public static final String ENV_REMOTE = "remote";
     public static final String DOT = ".";
@@ -58,6 +55,8 @@ public class Constants {
             CAPABILITY_PERF_LOGGING_PREFS,
             CAPABILITY_WINDOW_TYPES);
 
+    public static final String DEFAULT_CONFIG_FILE = "configs/web.properties";
+    public static final String CLI_PARAM_CONFIG_WEB = "config.web";
 
 
 }

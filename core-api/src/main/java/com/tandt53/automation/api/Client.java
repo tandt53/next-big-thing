@@ -1,6 +1,9 @@
 package com.tandt53.automation.api;
 
-import okhttp3.*;
+import okhttp3.Authenticator;
+import okhttp3.ConnectionPool;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
 
 import javax.net.ssl.*;
 import java.io.IOException;
@@ -8,8 +11,6 @@ import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
@@ -32,9 +33,9 @@ public class Client {
         builder.callTimeout(callTimeout, TIME_UNIT);
     }
 
-    public void setInterceptor() {
-
-    }
+//    public void setInterceptor() {
+//
+//    }
 
     public OkHttpClient createClient() throws NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
 
@@ -78,30 +79,6 @@ public class Client {
 
     public void authenticator(Authenticator authenticator) {
         builder.authenticator(authenticator);
-    }
-
-    private static SSLSocketFactory createInsecureSslSocketFactory() {
-        try {
-            SSLContext context = SSLContext.getInstance("TLS");
-            TrustManager permissive = new X509TrustManager() {
-                @Override
-                public void checkClientTrusted(X509Certificate[] chain, String authType)
-                        throws CertificateException {
-                }
-                @Override
-                public void checkServerTrusted(X509Certificate[] chain, String authType)
-                        throws CertificateException {
-                }
-                @Override
-                public X509Certificate[] getAcceptedIssuers() {
-                    return null;
-                }
-            };
-            context.init(null, new TrustManager[] { permissive }, null);
-            return context.getSocketFactory();
-        } catch (Exception e) {
-            throw new AssertionError(e);
-        }
     }
 
     public RestResponse send(RestRequest request) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {

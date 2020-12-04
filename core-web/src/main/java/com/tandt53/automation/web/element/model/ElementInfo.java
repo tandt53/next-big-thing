@@ -7,6 +7,15 @@ public class ElementInfo {
     private String name;
     private LocatorType locatorType;
     private String locatorValue;
+    private WaitStrategy strategy;
+
+    public WaitStrategy getStrategy() {
+        return strategy;
+    }
+
+    public void setStrategy(WaitStrategy strategy) {
+        this.strategy = strategy;
+    }
 
     public String getName() {
         return name;

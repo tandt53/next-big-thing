@@ -1,18 +1,11 @@
 package com.tandt53.automation.api;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonIOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonToken;
 import com.tandt53.automation.api.path.JsonPath;
 import com.tandt53.automation.dataprovider.json.JsonParser;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 
 public class RestResponse {
     private Response response;
