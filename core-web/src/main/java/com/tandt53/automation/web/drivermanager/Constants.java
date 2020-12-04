@@ -20,6 +20,7 @@ public class Constants {
     // capabilities
     public static final String CAPABILITY_ENV = "env";
     public static final String CAPABILITY_OS = "os";
+    public static final String CAPABILITY_OS_VERSION = "os_version";
     public static final String CAPABILITY_REMOTE_HOST = "remote_url";
     public static final String CAPABILITY_BROWSER = "browser";
     public static final String CAPABILITY_BROWSER_VERSION = "browser_version";
@@ -39,6 +40,7 @@ public class Constants {
 
     public static final List<String> capabilities = Arrays.asList(CAPABILITY_ENV,
             CAPABILITY_OS,
+            CAPABILITY_OS_VERSION,
             CAPABILITY_BROWSER,
             CAPABILITY_BROWSER_VERSION,
             CAPABILITY_DRIVER_PATH,

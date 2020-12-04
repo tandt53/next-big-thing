@@ -33,10 +33,6 @@ public class Client {
         builder.callTimeout(callTimeout, TIME_UNIT);
     }
 
-//    public void setInterceptor() {
-//
-//    }
-
     public OkHttpClient createClient() throws NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
 
         builder.followRedirects(isFollowRedirects);
