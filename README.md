@@ -1,3 +1,5 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a19d9bd42536436da05e28ef33b4f220)](https://www.codacy.com/gh/tandt53/next-big-thing/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tandt53/next-big-thing&amp;utm_campaign=Badge_Grade)
+
 # NEXT-BIG-THING 
 The project is a collection of modules that allows every Automation Test Engineer (ATE) to create/maintain automated test cases.
 
