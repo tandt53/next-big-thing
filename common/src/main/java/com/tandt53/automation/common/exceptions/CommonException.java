@@ -1,4 +1,4 @@
-package com.tandt53.automation.common;
+package com.tandt53.automation.common.exceptions;
 
 public class CommonException extends Exception{
 

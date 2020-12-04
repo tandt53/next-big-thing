@@ -5,14 +5,15 @@ import com.tandt53.automation.web.element.Element;
 import com.tandt53.automation.web.element.ElementInvocationHandler;
 import com.tandt53.automation.web.element.LocatorType;
 import com.tandt53.automation.web.element.model.ElementInfo;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import com.tandt53.automation.web.element.model.WaitStrategy;
+import org.openqa.selenium.WebDriver;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Proxy;
 
 public class PageFactory {
 
-    public static <T extends BasePage<?>> void initElements(final T page, WebDriverWait wait){
+    public static <T extends BaseWebPage<?>> void initElements(final T page, WebDriver driver) {
         try {
             Class<?> objectClass = page.getClass();
             for (Field field : objectClass.getDeclaredFields()) {
@@ -21,15 +22,16 @@ public class PageFactory {
                     LocatorType type = getLocatorType(field);
                     String value = getLocatorValue(field);
                     String name = field.getName();
-
+                    WaitStrategy waitUntil = getWaitStrategy(field);
                     if (type != null && value != null) {
                         ElementInfo elementInfo = new ElementInfo();
                         elementInfo.setName(name);
                         elementInfo.setLocatorType(type);
                         elementInfo.setLocatorValue(value);
+                        elementInfo.setStrategy(waitUntil);
 
                         Object baseElement = (Element) Proxy.newProxyInstance(Element.class.getClassLoader(),
-                                new Class[]{Element.class}, new ElementInvocationHandler(elementInfo, wait));
+                                new Class[]{Element.class}, new ElementInvocationHandler(elementInfo, driver));
                         field.set(page, baseElement);
                     }
                 }
@@ -37,6 +39,10 @@ public class PageFactory {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static WaitStrategy getWaitStrategy(Field field) {
+        return field.getAnnotation(FindElement.class).waitUntil();
     }
 
     private static String getLocatorValue(Field field) {

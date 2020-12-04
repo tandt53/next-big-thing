@@ -10,9 +10,11 @@ import java.util.function.Function;
 
 public class Conditions {
 
-    public static final Function<By, ExpectedCondition<WebElement>> CONDITION_VISIBILITY = ExpectedConditions::visibilityOfElementLocated;
-    public static final Function<By, ExpectedCondition<WebElement>> CONDITION_CLICKABLE = ExpectedConditions::elementToBeClickable;
-    public static final Function<By, ExpectedCondition<Boolean>> CONDITION_INVISIBILITY = ExpectedConditions::invisibilityOfElementLocated;
-    public static final Function<By, ExpectedCondition<WebElement>> CONDITION_PRESENCE_OF_ELEMENT = ExpectedConditions::presenceOfElementLocated;
-    public static final Function<By, ExpectedCondition<List<WebElement>>> CONDITION_PRESENCE_OF_ALL_ELEMENT = ExpectedConditions::visibilityOfAllElementsLocatedBy;
+    public static final Function<By, ExpectedCondition<WebElement>> VISIBILITY = ExpectedConditions::visibilityOfElementLocated;
+    public static final Function<By, ExpectedCondition<WebElement>> CLICKABLE = ExpectedConditions::elementToBeClickable;
+    public static final Function<By, ExpectedCondition<Boolean>> INVISIBILITY = ExpectedConditions::invisibilityOfElementLocated;
+    public static final Function<By, ExpectedCondition<WebElement>> PRESENCE = ExpectedConditions::presenceOfElementLocated;
+    public static final Function<By, ExpectedCondition<List<WebElement>>> PRESENCE_ALL = ExpectedConditions::presenceOfAllElementsLocatedBy;
+    public static final Function<By, ExpectedCondition<List<WebElement>>> VISIBILITY_ALL = ExpectedConditions::visibilityOfAllElementsLocatedBy;
+
 }

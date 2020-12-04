@@ -1,17 +1,13 @@
 package com.tandt53.automation.web;
 
-import com.tandt53.automation.common.CommonException;
 import com.tandt53.automation.common.Log;
-import com.tandt53.automation.web.drivermanager.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.net.MalformedURLException;
 
 /**
  * Created by thetan.do on 12/28/2016.
  */
-public class BasePage<TPage extends BasePage<?>> {
+public class BaseWebPage<TPage extends BaseWebPage<?>> {
 
     /**
      * default url
@@ -24,19 +20,14 @@ public class BasePage<TPage extends BasePage<?>> {
     protected final int DEFAULT_TIMEOUT = 30;
 
     @SuppressWarnings("unchecked")
-    public Log PLog = new Log(((TPage) BasePage.this).getClass());
+    public Log PLog = new Log(((TPage) BaseWebPage.this).getClass());
 
-    public BasePage(WebDriver driver) {
+    public BaseWebPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(this.driver, DEFAULT_TIMEOUT);
-        PageFactory.initElements(this, this.wait);
+        PageFactory.initElements(this, this.driver);
     }
 
-    public BasePage(DriverManager driver) throws MalformedURLException, CommonException {
-        this.driver = driver.initDriver();
-        this.wait = new WebDriverWait(this.driver, DEFAULT_TIMEOUT);
-        PageFactory.initElements(this, this.wait);
-    }
 
     /**
      * open default page with url is not null

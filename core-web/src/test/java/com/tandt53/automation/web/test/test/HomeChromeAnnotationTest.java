@@ -1,13 +1,10 @@
 package com.tandt53.automation.web.test.test;
 
-import com.tandt53.automation.common.CommonException;
+import com.tandt53.automation.common.exceptions.CommonException;
 import com.tandt53.automation.web.BaseTest;
-import com.tandt53.automation.web.BrowserFactory;
-import com.tandt53.automation.web.annotations.Chrome;
-import com.tandt53.automation.web.annotations.FireFox;
 import com.tandt53.automation.web.annotations.Safari;
 import com.tandt53.automation.web.drivermanager.DriverManager;
-import com.tandt53.automation.web.test.pages.HomePage;
+import com.tandt53.automation.web.test.pages.HomeWebPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -19,18 +16,17 @@ import java.net.MalformedURLException;
  */
 public class HomeChromeAnnotationTest extends BaseTest<HomeChromeAnnotationTest> {
 
-    HomePage homePage;
+    HomeWebPage homePage;
 
-    @FireFox
+    @Safari
     protected DriverManager driver;
 
-    public HomeChromeAnnotationTest() throws IllegalAccessException, MalformedURLException {
-//        BrowserFactory.initPages(this);
+    public HomeChromeAnnotationTest() throws IllegalAccessException {
     }
 
     @BeforeTest
     public void setup() throws MalformedURLException, CommonException {
-        homePage = new HomePage(driver.initDriver());
+        homePage = new HomeWebPage(driver.initDriver());
     }
 
     @AfterTest

@@ -3,7 +3,7 @@ package com.tandt53.automation.web.element;
 import com.tandt53.automation.common.Log;
 import com.tandt53.automation.web.annotations.Clocking;
 import com.tandt53.automation.web.element.model.ElementInfo;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebDriver;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
@@ -18,8 +18,8 @@ public class ElementInvocationHandler implements InvocationHandler {
     private Element baseElement;
     Log log = new Log(Element.class);
 
-    public ElementInvocationHandler(ElementInfo elementInfo, WebDriverWait wait) {
-        baseElement = new ElementImpl(elementInfo, wait);
+    public ElementInvocationHandler(ElementInfo elementInfo, WebDriver driver) {
+        baseElement = new ElementImpl(elementInfo, driver);
     }
 
     // ******************************
@@ -42,6 +42,8 @@ public class ElementInvocationHandler implements InvocationHandler {
             Instant end = Instant.now();
 
             log.info("Method " + method.getName() + " on element " + ((ElementImpl) baseElement).getElementInfo().getName()
+                    + " executed in " + Duration.between(start, end).toMillis() + " ms.");
+            System.out.println("Method " + method.getName() + " on element " + ((ElementImpl) baseElement).getElementInfo().getName()
                     + " executed in " + Duration.between(start, end).toMillis() + " ms.");
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             // TODO Auto-generated catch block

@@ -1,19 +1,15 @@
 package com.tandt53.automation.web.test.test;
 
-import com.tandt53.automation.common.CommonException;
+import com.tandt53.automation.common.exceptions.CommonException;
 import com.tandt53.automation.web.BaseTest;
-import com.tandt53.automation.web.BrowserFactory;
-import com.tandt53.automation.web.annotations.Safari;
 import com.tandt53.automation.web.drivermanager.DriverManager;
 import com.tandt53.automation.web.drivermanager.DriverManagerFactory;
-import com.tandt53.automation.web.test.pages.HomePage;
-import org.openqa.selenium.safari.SafariOptions;
+import com.tandt53.automation.web.test.pages.HomeWebPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.net.URL;
 
 /**
  * Created by thetan.do on 12/28/2016.
@@ -21,20 +17,17 @@ import java.net.URL;
 public class HomeChromeTest extends BaseTest<HomeChromeTest> {
 
 
-    HomePage homePage;
+    HomeWebPage homePage;
 
-//    @Safari
     protected DriverManager driver;
 
     public HomeChromeTest() throws IllegalAccessException {
         driver = DriverManagerFactory.getDriverManager("chrome");
-//        BrowserFactory.initPages(this);
     }
 
     @BeforeTest
     public void setup() throws IOException, CommonException {
-//        homePage = new HomePage(driver.initDriver("safari", new URL("http://10.124.56.123:4444/wd/hub"), new SafariOptions()));
-        homePage = new HomePage(driver.initDriver());
+        homePage = new HomeWebPage(driver.initDriver());
     }
 
     @AfterTest

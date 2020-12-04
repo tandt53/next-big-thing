@@ -2,20 +2,24 @@ package com.tandt53.automation.web.element;
 
 import com.tandt53.automation.web.Conditions;
 import com.tandt53.automation.web.element.model.ElementInfo;
+import com.tandt53.automation.web.element.model.WaitStrategy;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.function.Function;
 
 public class ElementImpl implements Element {
 
     private By locator;
     private ElementInfo elementInfo;
+    private Function<By, ExpectedCondition<WebElement>> waitForElement = Conditions.PRESENCE; // default wait strategy
+    private Function<By, ExpectedCondition<List<WebElement>>> waitForListElement = Conditions.PRESENCE_ALL; // default wait strategy
+    private WebDriver driver;
     private WebDriverWait wait;
 
     public void setElementInfo(ElementInfo elementInfo) {
@@ -26,13 +30,32 @@ public class ElementImpl implements Element {
         return elementInfo;
     }
 
-    public ElementImpl(ElementInfo elementInfo, WebDriverWait wait) {
+    public ElementImpl(ElementInfo elementInfo, WebDriver driver) {
         this.elementInfo = elementInfo;
-        this.wait = wait;
-        initElement();
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, 10000);
+        initLocator();
+        initWaitStrategy();
     }
 
-    private void initElement() {
+    private void initWaitStrategy() {
+        WaitStrategy waitStrategy = this.elementInfo.getStrategy();
+        if (waitStrategy != null)
+
+            switch (waitStrategy) {
+                case VISIBILITY:
+                    this.waitForElement = Conditions.VISIBILITY;
+                    this.waitForListElement = Conditions.VISIBILITY_ALL;
+                    break;
+
+                case PRESENCE:
+                    this.waitForElement = Conditions.PRESENCE;
+                    this.waitForListElement = Conditions.PRESENCE_ALL;
+                    break;
+            }
+    }
+
+    private void initLocator() {
         switch (this.elementInfo.getLocatorType()) {
             case ID:
                 locator = By.id(this.elementInfo.getLocatorValue());
@@ -75,17 +98,11 @@ public class ElementImpl implements Element {
 
     @Override
     public List<WebElement> findElements(final SearchContext searchContext) {
-        return waitUntilAll(Conditions.CONDITION_PRESENCE_OF_ALL_ELEMENT);
+        return waitUntilAll(Conditions.PRESENCE_ALL);
     }
 
-    public List<WebElement> waitUntilAll(final Function<By, ExpectedCondition<List<WebElement>>> condition) {
-        try {
-            return waitUntilAll(condition);
-        } catch (NoSuchElementException | TimeoutException e1) {
-            System.out.println("Unable to find the element: " + this.elementInfo.getName());
-            e1.printStackTrace();
-        }
-        return null;
+    private List<WebElement> waitUntilAll(final Function<By, ExpectedCondition<List<WebElement>>> condition) {
+        return waitUntilAll(condition);
     }
 
     private List<WebElement> waitUntilAll(final Function<By, ExpectedCondition<List<WebElement>>> condition, long timeout) {
@@ -98,112 +115,132 @@ public class ElementImpl implements Element {
 
     @Override
     public void setText(CharSequence... text) {
-        waitUntil(Conditions.CONDITION_VISIBILITY).sendKeys(text);
+        waitUntil(this.waitForElement.apply(getLocator())).sendKeys(text);
     }
 
     @Override
     public String getText() {
-        return waitUntil(Conditions.CONDITION_VISIBILITY).getText();
+        return waitUntil(this.waitForElement.apply(getLocator())).getText();
     }
 
     @Override
     public String getText(long timeout) {
-        return waitUntil(Conditions.CONDITION_VISIBILITY, timeout).getText();
+        return waitUntil(this.waitForElement.apply(getLocator()), timeout).getText();
     }
 
     @Override
     public String getText(Element element) {
-        waitUntil(Conditions.CONDITION_VISIBILITY);
-        return getText();
+        return waitUntil(this.waitForElement.apply(getLocator())).getText();
     }
 
     @Override
     public void click() {
-        waitUntil(Conditions.CONDITION_VISIBILITY).click();
+        waitUntil(this.waitForElement.apply(getLocator())).click();
     }
 
     @Override
     public void click(long timeout) {
-        waitUntil(Conditions.CONDITION_VISIBILITY, timeout).click();
+        waitUntil(this.waitForElement.apply(getLocator()), timeout).click();
     }
 
     @Override
     public void clearText() {
-        waitUntil(Conditions.CONDITION_VISIBILITY).clear();
+        waitUntil(this.waitForElement.apply(getLocator())).clear();
     }
 
     @Override
     public void clearText(long timeout) {
-        waitUntil(Conditions.CONDITION_VISIBILITY, timeout).clear();
+        waitUntil(this.waitForElement.apply(getLocator()), timeout).clear();
     }
 
     @Override
     public boolean isDisplayed() {
-        return waitUntil(Conditions.CONDITION_VISIBILITY).isDisplayed();
+        return waitUntil(this.waitForElement.apply(getLocator())).isDisplayed();
     }
 
     @Override
     public boolean isDisplayed(long timeout) {
-        return waitUntil(Conditions.CONDITION_VISIBILITY, timeout).isDisplayed();
+        return waitUntil(this.waitForElement.apply(getLocator()), timeout).isDisplayed();
     }
 
     @Override
     public void submit() {
-        waitUntil(Conditions.CONDITION_VISIBILITY).submit();
+        waitUntil(this.waitForElement.apply(getLocator())).submit();
     }
 
     @Override
     public String getAttributeValue(String attribute) {
-        return waitUntil(Conditions.CONDITION_VISIBILITY).getAttribute(attribute);
+        return waitUntil(this.waitForElement.apply(getLocator())).getAttribute(attribute);
     }
 
     @Override
     public String getTagName() {
-        return waitUntil(Conditions.CONDITION_VISIBILITY).getTagName();
+        return waitUntil(this.waitForElement.apply(getLocator())).getTagName();
     }
 
     @Override
     public boolean isEnabled() {
-        return waitUntil(Conditions.CONDITION_VISIBILITY).isEnabled();
+        return waitUntil(this.waitForElement.apply(getLocator())).isEnabled();
     }
 
     @Override
     public boolean isSelected() {
-        return waitUntil(Conditions.CONDITION_VISIBILITY).isSelected();
+        return waitUntil(this.waitForElement.apply(getLocator())).isSelected();
     }
 
     @Override
     public Point getLocation() {
-        return waitUntil(Conditions.CONDITION_VISIBILITY).getLocation();
+        return waitUntil(this.waitForElement.apply(getLocator())).getLocation();
     }
 
     @Override
     public Dimension getSize() {
-        return waitUntil(Conditions.CONDITION_VISIBILITY).getSize();
+        return waitUntil(this.waitForElement.apply(getLocator())).getSize();
     }
 
     @Override
     public Rectangle getRect() {
-        return waitUntil(Conditions.CONDITION_VISIBILITY).getRect();
+        return waitUntil(this.waitForElement.apply(getLocator())).getRect();
     }
 
     @Override
     public String getCssValue(String propertyName) {
-        return waitUntil(Conditions.CONDITION_VISIBILITY).getCssValue(propertyName);
+        return waitUntil(this.waitForElement.apply(getLocator())).getCssValue(propertyName);
     }
 
     @Override
     public Element getElement(String... eventName) {
         this.elementInfo.setLocatorValue(String.format(this.elementInfo.getLocatorValue(), eventName));
-        initElement();
+        initLocator();
         return this;
     }
 
-    private <T> T waitUntil(final Function<By, ExpectedCondition<T>> condition, long timeout) {
-        return getWait(timeout).until(condition.apply(getLocator()));
+    private <T> T waitUntil(ExpectedCondition<T> condition, long timeout) {
+        return getWait(timeout).until(condition);
     }
 
-    public <T> T waitUntil(final Function<By, ExpectedCondition<T>> condition) {
-        return wait.until(condition.apply(getLocator()));
+    private <T> T waitUntil(ExpectedCondition<T> condition) {
+        return wait.until(condition);
+    }
+
+    private class WaitFor {
+
+        private ExpectedCondition<Boolean> state;
+        private ExpectedCondition<WebElement> element;
+        private ExpectedCondition<List<WebElement>> listElements;
+
+        public ExpectedCondition<WebElement> visibility() {
+            return ExpectedConditions.visibilityOfElementLocated(getLocator());
+        }
+
+        public ExpectedCondition<WebElement> clickable() {
+            return ExpectedConditions.elementToBeClickable(getLocator());
+        }
+
+        public ExpectedCondition<WebElement> presence() {
+            return ExpectedConditions.presenceOfElementLocated(getLocator());
+        }
+
+
     }
 }

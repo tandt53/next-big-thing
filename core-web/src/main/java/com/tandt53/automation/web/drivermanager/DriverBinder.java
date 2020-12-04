@@ -1,10 +1,7 @@
 package com.tandt53.automation.web.drivermanager;
 
 import com.google.inject.AbstractModule;
-import com.google.inject.Provides;
-import com.google.inject.name.Named;
 import com.google.inject.name.Names;
-import org.openqa.selenium.WebDriver;
 
 import static com.tandt53.automation.web.drivermanager.Constants.*;
 

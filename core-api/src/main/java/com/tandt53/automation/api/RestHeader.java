@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class RestHeader {
 
-    Headers.Builder builder;
+    private Headers.Builder builder;
 
     public RestHeader() {
         builder = new Headers.Builder();
