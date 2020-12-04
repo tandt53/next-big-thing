@@ -26,10 +26,10 @@ public class HomeWebPage extends BaseWebPage<HomeWebPage> {
     }
 
     @FindElement(type = LocatorType.XPATH, value = "//*[@class='gLFyf gsfi']", waitUntil = VISIBILITY)
-    Element searchField;
+    private Element searchField;
 
     @FindBy(id = "_fZl")
-    WebElement searchButton;
+    private WebElement searchButton;
 
     public void search(String text) {
         PLog.info("Search with text: " + text);

@@ -2,7 +2,6 @@ package com.tandt53.automation.web.drivermanager.options;
 
 import com.tandt53.automation.dataprovider.exceptions.PropertiesException;
 import com.tandt53.automation.dataprovider.properties.PropertiesLoader;
-import com.tandt53.automation.web.drivermanager.Constants;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 
@@ -60,9 +59,9 @@ public class CapabilityManager {
         }
 
         try {
-            return PropertiesLoader.getProperty(propertyFile, Constants.CAPABILITY_BROWSER).toString();
+            return PropertiesLoader.getProperty(propertyFile, CAPABILITY_BROWSER).toString();
         } catch (PropertiesException e) {
-            return Constants.DRIVER_TYPE_CHROME;
+            return DRIVER_TYPE_CHROME;
         }
 
     }
@@ -73,9 +72,9 @@ public class CapabilityManager {
             propertyFile = DEFAULT_CONFIG_FILE;
         }
         try {
-            return PropertiesLoader.getProperty(propertyFile, Constants.CAPABILITY_ENV).toString();
+            return PropertiesLoader.getProperty(propertyFile, CAPABILITY_ENV).toString();
         } catch (PropertiesException e) {
-            return Constants.ENV_LOCAL;
+            return ENV_LOCAL;
         }
     }
 

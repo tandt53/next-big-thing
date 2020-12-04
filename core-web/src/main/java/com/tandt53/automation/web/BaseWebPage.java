@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by thetan.do on 12/28/2016.
  */
-public class BaseWebPage<TPage extends BaseWebPage<?>> {
+public class BaseWebPage<TPage extends BaseWebPage> {
 
     /**
      * default url
