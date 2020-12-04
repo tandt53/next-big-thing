@@ -96,18 +96,9 @@ public class ElementImpl implements Element {
         return this.wait.withTimeout(Duration.ofSeconds(timeout));
     }
 
-    @Override
-    public List<WebElement> findElements(final SearchContext searchContext) {
-        return waitUntilAll(Conditions.PRESENCE_ALL);
-    }
-
-    private List<WebElement> waitUntilAll(final Function<By, ExpectedCondition<List<WebElement>>> condition) {
-        return waitUntilAll(condition);
-    }
-
-    private List<WebElement> waitUntilAll(final Function<By, ExpectedCondition<List<WebElement>>> condition, long timeout) {
-        return getWait(timeout).until(condition.apply(getLocator()));
-    }
+//    private List<WebElement> waitUntilAll(long timeout) {
+//        return getWait(timeout).until(waitForListElement.apply(getLocator()));
+//    }
 
     public By getLocator() {
         return locator;
@@ -214,6 +205,17 @@ public class ElementImpl implements Element {
         initLocator();
         return this;
     }
+
+    @Override
+    public List<WebElement> getElements() {
+        return waitUntil(this.waitForListElement.apply(getLocator()));
+    }
+
+    @Override
+    public List<WebElement> getElements(long timeout) {
+        return waitUntil(this.waitForListElement.apply(getLocator()), timeout);
+    }
+
 
     private <T> T waitUntil(ExpectedCondition<T> condition, long timeout) {
         return getWait(timeout).until(condition);

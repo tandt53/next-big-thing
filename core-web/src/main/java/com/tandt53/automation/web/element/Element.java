@@ -64,7 +64,11 @@ public interface Element {
     @Clocking
     String getCssValue(String propertyName);
 
-    List<WebElement> findElements(SearchContext searchContext);
-
     Element getElement(String... eventName);
+
+    @Clocking
+    List<WebElement> getElements();
+
+    @Clocking
+    List<WebElement> getElements(long timeout);
 }

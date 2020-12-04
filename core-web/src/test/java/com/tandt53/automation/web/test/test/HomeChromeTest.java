@@ -17,7 +17,7 @@ import java.io.IOException;
 public class HomeChromeTest extends BaseTest<HomeChromeTest> {
 
 
-    HomeWebPage homePage;
+    private HomeWebPage homePage;
 
     protected DriverManager driver;
 

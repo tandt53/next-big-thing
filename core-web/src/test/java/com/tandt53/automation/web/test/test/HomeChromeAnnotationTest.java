@@ -16,7 +16,7 @@ import java.net.MalformedURLException;
  */
 public class HomeChromeAnnotationTest extends BaseTest<HomeChromeAnnotationTest> {
 
-    HomeWebPage homePage;
+    private HomeWebPage homePage;
 
     @Safari
     protected DriverManager driver;
