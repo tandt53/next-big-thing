@@ -1,6 +1,4 @@
-package com.tandt53.automation.web.element.model;
-
-import com.tandt53.automation.web.element.LocatorType;
+package com.tandt53.automation.mobile.element;
 
 public class ElementInfo {
 

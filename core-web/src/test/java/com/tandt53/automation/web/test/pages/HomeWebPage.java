@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static com.tandt53.automation.web.element.model.WaitStrategy.VISIBILITY;
+import static com.tandt53.automation.web.element.WaitStrategy.VISIBILITY;
 
 /**
  * Created by thetan.do on 12/28/2016.

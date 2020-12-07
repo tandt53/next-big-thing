@@ -17,9 +17,6 @@ public interface Element {
     String getText(long timeout);
 
     @Clocking
-    String getText(Element element);
-
-    @Clocking
     void click();
 
     @Clocking
@@ -64,7 +61,7 @@ public interface Element {
     @Clocking
     String getCssValue(String propertyName);
 
-    Element getElement(String... eventName);
+    Element formatLocatorValue(String... eventName);
 
     @Clocking
     List<WebElement> getElements();

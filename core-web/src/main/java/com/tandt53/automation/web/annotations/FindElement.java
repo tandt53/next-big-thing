@@ -2,7 +2,7 @@ package com.tandt53.automation.web.annotations;
 
 
 import com.tandt53.automation.web.element.LocatorType;
-import com.tandt53.automation.web.element.model.WaitStrategy;
+import com.tandt53.automation.web.element.WaitStrategy;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,8 +1,6 @@
 package com.tandt53.automation.web.element;
 
 import com.tandt53.automation.web.Conditions;
-import com.tandt53.automation.web.element.model.ElementInfo;
-import com.tandt53.automation.web.element.model.WaitStrategy;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,6 +20,9 @@ public class ElementImpl implements Element {
     private WebDriver driver;
     private WebDriverWait wait;
 
+    ElementImpl() {
+    }
+
     public void setElementInfo(ElementInfo elementInfo) {
         this.elementInfo = elementInfo;
     }
@@ -33,7 +34,7 @@ public class ElementImpl implements Element {
     public ElementImpl(ElementInfo elementInfo, WebDriver driver) {
         this.elementInfo = elementInfo;
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, 10000);
+        this.wait = new WebDriverWait(this.driver, 10000);
         initLocator();
         initWaitStrategy();
     }
@@ -96,22 +97,18 @@ public class ElementImpl implements Element {
         return this.wait.withTimeout(Duration.ofSeconds(timeout));
     }
 
-//    private List<WebElement> waitUntilAll(long timeout) {
-//        return getWait(timeout).until(waitForListElement.apply(getLocator()));
-//    }
-
     public By getLocator() {
         return locator;
     }
 
     @Override
     public void setText(CharSequence... text) {
-        waitUntil(this.waitForElement.apply(getLocator())).sendKeys(text);
+        getElement().sendKeys(text);
     }
 
     @Override
     public String getText() {
-        return waitUntil(this.waitForElement.apply(getLocator())).getText();
+        return getElement().getText();
     }
 
     @Override
@@ -120,87 +117,82 @@ public class ElementImpl implements Element {
     }
 
     @Override
-    public String getText(Element element) {
-        return waitUntil(this.waitForElement.apply(getLocator())).getText();
-    }
-
-    @Override
     public void click() {
-        waitUntil(this.waitForElement.apply(getLocator())).click();
+        getElement().click();
     }
 
     @Override
     public void click(long timeout) {
-        waitUntil(this.waitForElement.apply(getLocator()), timeout).click();
+        getElement(timeout).click();
     }
 
     @Override
     public void clearText() {
-        waitUntil(this.waitForElement.apply(getLocator())).clear();
+        getElement().clear();
     }
 
     @Override
     public void clearText(long timeout) {
-        waitUntil(this.waitForElement.apply(getLocator()), timeout).clear();
+        getElement(timeout).clear();
     }
 
     @Override
     public boolean isDisplayed() {
-        return waitUntil(this.waitForElement.apply(getLocator())).isDisplayed();
+        return getElement().isDisplayed();
     }
 
     @Override
     public boolean isDisplayed(long timeout) {
-        return waitUntil(this.waitForElement.apply(getLocator()), timeout).isDisplayed();
+        return getElement(timeout).isDisplayed();
     }
 
     @Override
     public void submit() {
-        waitUntil(this.waitForElement.apply(getLocator())).submit();
+        getElement().submit();
     }
 
     @Override
     public String getAttributeValue(String attribute) {
-        return waitUntil(this.waitForElement.apply(getLocator())).getAttribute(attribute);
+        return getElement().getAttribute(attribute);
     }
 
     @Override
     public String getTagName() {
-        return waitUntil(this.waitForElement.apply(getLocator())).getTagName();
+        return getElement().getTagName();
     }
 
     @Override
     public boolean isEnabled() {
-        return waitUntil(this.waitForElement.apply(getLocator())).isEnabled();
+        return getElement().isEnabled();
     }
 
     @Override
     public boolean isSelected() {
-        return waitUntil(this.waitForElement.apply(getLocator())).isSelected();
+        return getElement().isSelected();
     }
 
     @Override
     public Point getLocation() {
-        return waitUntil(this.waitForElement.apply(getLocator())).getLocation();
+        return getElement().getLocation();
     }
 
     @Override
     public Dimension getSize() {
-        return waitUntil(this.waitForElement.apply(getLocator())).getSize();
+        return getElement().getSize();
     }
 
     @Override
     public Rectangle getRect() {
-        return waitUntil(this.waitForElement.apply(getLocator())).getRect();
+        return getElement().getRect();
     }
 
     @Override
     public String getCssValue(String propertyName) {
-        return waitUntil(this.waitForElement.apply(getLocator())).getCssValue(propertyName);
+        return getElement().getCssValue(propertyName);
     }
 
     @Override
-    public Element getElement(String... eventName) {
+    public Element formatLocatorValue(String... eventName) {
         this.elementInfo.setLocatorValue(String.format(this.elementInfo.getLocatorValue(), eventName));
         initLocator();
         return this;
@@ -216,6 +208,13 @@ public class ElementImpl implements Element {
         return waitUntil(this.waitForListElement.apply(getLocator()), timeout);
     }
 
+    private WebElement getElement() {
+        return waitUntil(this.waitForElement.apply(getLocator()));
+    }
+
+    private WebElement getElement(long timeout) {
+        return waitUntil(this.waitForElement.apply(getLocator()), timeout);
+    }
 
     private <T> T waitUntil(ExpectedCondition<T> condition, long timeout) {
         return getWait(timeout).until(condition);

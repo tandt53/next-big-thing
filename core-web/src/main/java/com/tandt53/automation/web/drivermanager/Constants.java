@@ -16,6 +16,9 @@ public class Constants {
     public static final String ENV_LOCAL = "local";
     public static final String ENV_REMOTE = "remote";
     public static final String DOT = ".";
+    public static final String CLI_PARAMETER_PREFIX_WEB = "web";
+    public static final String DEFAULT_CONFIG_FILE = "configs/web.properties";
+    public static final String CLI_PARAM_CONFIG_WEB = "config.web";
 
     // capabilities
     public static final String CAPABILITY_ENV = "env";
@@ -38,7 +41,7 @@ public class Constants {
     public static final String CAPABILITY_PERF_LOGGING_PREFS = "perfLoggingPrefs";
     public static final String CAPABILITY_WINDOW_TYPES = "windowTypes";
 
-    public static final List<String> capabilities = Arrays.asList(CAPABILITY_ENV,
+    public static final List<String> cliParameters = Arrays.asList(CAPABILITY_ENV,
             CAPABILITY_OS,
             CAPABILITY_OS_VERSION,
             CAPABILITY_BROWSER,
@@ -57,8 +60,7 @@ public class Constants {
             CAPABILITY_PERF_LOGGING_PREFS,
             CAPABILITY_WINDOW_TYPES);
 
-    public static final String DEFAULT_CONFIG_FILE = "configs/web.properties";
-    public static final String CLI_PARAM_CONFIG_WEB = "config.web";
+
 
 
 }

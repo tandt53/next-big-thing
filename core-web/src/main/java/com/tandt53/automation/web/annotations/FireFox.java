@@ -9,11 +9,4 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.TYPE})
 public @interface FireFox {
 
-//    String value() default Constants.BROWSER_CHROME;
-//
-//    String remoteUrl() default "";
-//
-//    String capabilities() default "";
-//
-//    String service() default "";
 }

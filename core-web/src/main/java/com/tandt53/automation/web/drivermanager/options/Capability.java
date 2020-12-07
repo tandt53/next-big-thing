@@ -28,6 +28,16 @@ public class Capability {
         }
     }
 
+    public Capability(List<String> listOfPropertiesKeys, String prefix) {
+        map = new HashMap<>();
+        for (String key : listOfPropertiesKeys) {
+            String value = System.getProperty(key);
+            if (value != null && !value.isEmpty() && key.startsWith(prefix)) {
+                map.put(key.substring(prefix.length()), value);
+            }
+        }
+    }
+
     public Map<String, Object> getMap() {
         return this.map;
     }
