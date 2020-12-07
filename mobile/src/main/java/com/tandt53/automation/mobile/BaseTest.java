@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
  * Created by thetan.do on 12/28/2016.
  */
 
-public class BaseTest<TTest extends BaseTest<?>> {
+public class BaseTest<TTest extends BaseTest> {
 
 	@SuppressWarnings("unchecked")
 	public Log TLog = new Log(((TTest) BaseTest.this).getClass());

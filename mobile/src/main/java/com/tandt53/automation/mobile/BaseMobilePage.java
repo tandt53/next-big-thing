@@ -26,7 +26,7 @@ import static java.time.Duration.ofSeconds;
 /**
  * Created by thetan.do on 12/28/2016.
  */
-public class BaseMobilePage<TPage extends BaseMobilePage<?>> {
+public class BaseMobilePage<TPage extends BaseMobilePage> {
 
     /**
      * default url
@@ -326,14 +326,14 @@ public class BaseMobilePage<TPage extends BaseMobilePage<?>> {
     /**
      * @param _direction : name of action want to scroll: down, up,
      */
-    public void scroll_ios(String _direction) {
+    public void scrollIos(String _direction) {
         driver.executeScript("mobile: scroll", ImmutableMap.of("direction", _direction));
     }
 
     protected void clickToPointOffElement(Point elementLocation) {
         TouchAction action = new TouchAction(driver);
-        action.press(PointOption.point(elementLocation.getX(), elementLocation.getY()))
-                .waitAction(WaitOptions.waitOptions(ofSeconds(1))).release().perform();
+        action.press(point(elementLocation.getX(), elementLocation.getY()))
+                .waitAction(waitOptions(ofSeconds(1))).release().perform();
     }
 
     protected void longPressToElement(MobileElement mobileElement) throws InterruptedException {
@@ -357,7 +357,7 @@ public class BaseMobilePage<TPage extends BaseMobilePage<?>> {
         System.out.println("Width is " + getWidth + "   ------   " + "Height is " + getHeight);
         System.out.println("point of action is: (" + x + "," + y + ")");
         TouchAction touchAction = new TouchAction(driver);
-        touchAction.tap(PointOption.point(x, y)).perform();
+        touchAction.tap(point(x, y)).perform();
     }
 
     /*
