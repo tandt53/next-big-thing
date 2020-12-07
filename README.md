@@ -25,7 +25,7 @@ Thanks to the following people who have contributed to this project:
 
 ## Contact
 
-If you want to contact me you can reach me at <tandt53@hotmail.com>.
+If you want to contact me you can reach me at <tandt53@hotmail.com>
 
 ## License
 <!--- If you're not sure which open license to use see https://choosealicense.com/--->
