@@ -10,10 +10,6 @@ import org.openqa.selenium.WebElement;
 public class MyApplicationPage extends BaseMobilePage {
     private AppiumDriver<WebElement> driver;
 
-    public MyApplicationPage(AppiumDriver driver) {
-        super(driver);
-    }
-
     @FindElement(type = LocatorType.ID, value="edtUsername")
     private MobileElement edtUsername;
 
@@ -28,6 +24,11 @@ public class MyApplicationPage extends BaseMobilePage {
 
     @FindElement(type = LocatorType.ID, value="txtErrorMessage")
     private MobileElement txtErrorMessage;
+
+    public MyApplicationPage(AppiumDriver driver) {
+        super(driver);
+        this.driver = driver;
+    }
 
     public void login(String username, String password, boolean isCheck){
         edtUsername.setText(username);

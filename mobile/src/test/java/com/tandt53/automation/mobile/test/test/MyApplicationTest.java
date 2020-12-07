@@ -13,14 +13,16 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 
 public class MyApplicationTest extends BaseTest {
-    public MyApplicationTest() throws IllegalAccessException {
 
-    }
 
     @Android
     private MobileDriverManager driverManager;
 
-    MyApplicationPage page;
+    private MyApplicationPage page;
+
+    public MyApplicationTest() throws IllegalAccessException {
+
+    }
 
     @BeforeClass
     public void setupClass() throws PropertiesException, CommonException, MalformedURLException {

@@ -2,9 +2,6 @@ package com.tandt53.automation.mobile.drivermanager.options;
 
 import com.tandt53.automation.dataprovider.exceptions.PropertiesException;
 import com.tandt53.automation.dataprovider.properties.PropertiesLoader;
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.MutableCapabilities;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.tandt53.automation.mobile.drivermanager.Constants.*;
 
