@@ -21,9 +21,9 @@ public class CapabilityManager {
         return inputCaps.get();
     }
 
-    public static Capabilities loadCaps() {
+    public static Capability loadCaps() {
 
-        String propertyFile = System.getProperty("config");
+        String propertyFile = System.getProperty("config.mobile");
         if (propertyFile == null || propertyFile.isEmpty()) {
             propertyFile = DEFAULT_CONFIG_FILE;
         }
@@ -40,14 +40,14 @@ public class CapabilityManager {
         }
 
         // load properties from command line arguments
-        capFromCommandLine = new Capability(capabilities);
+        capFromCommandLine = new Capability(cliParameters, CLI_PARAMETER_PREFIX_WEB);
 
 
         // load properties from extra code
         finalCaps.set(capFromFile.addCapability(capFromCommandLine)
                 .addCapability(capFromExtraCode));
 
-        return new MutableCapabilities(finalCaps.get().getMap());
+        return finalCaps.get();
 
     }
 

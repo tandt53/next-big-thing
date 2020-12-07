@@ -12,16 +12,17 @@
         <module>common</module>
         <module>core-web</module>
         <module>data-provider</module>
-        <module>core-mobile</module>
         <module>core-db</module>
-        <module>core-test</module>
-        <module>integration</module>
         <module>core-api</module>
+        <module>cucumber-junit</module>
+        <module>mobile</module>
+
     </modules>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <cucumberFamilyVersion>6.9.0</cucumberFamilyVersion>
     </properties>
 
     <dependencyManagement>
@@ -93,6 +94,31 @@
                 <version>3.14.2</version>
             </dependency>
 
+            <!-- cucumber-junit -->
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-core</artifactId>
+                <version>${cucumberFamilyVersion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>5.6.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-picocontainer</artifactId>
+                <version>${cucumberFamilyVersion}</version>
+            </dependency>
+
+            <!-- core-mobile -->
+            <dependency>
+                <groupId>io.appium</groupId>
+                <artifactId>java-client</artifactId>
+                <version>7.4.1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -108,6 +134,12 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
             </plugin>
 
         </plugins>

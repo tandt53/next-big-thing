@@ -4,8 +4,8 @@ import com.tandt53.automation.web.annotations.FindElement;
 import com.tandt53.automation.web.element.Element;
 import com.tandt53.automation.web.element.ElementInvocationHandler;
 import com.tandt53.automation.web.element.LocatorType;
-import com.tandt53.automation.web.element.model.ElementInfo;
-import com.tandt53.automation.web.element.model.WaitStrategy;
+import com.tandt53.automation.web.element.ElementInfo;
+import com.tandt53.automation.web.element.WaitStrategy;
 import org.openqa.selenium.WebDriver;
 
 import java.lang.reflect.Field;
