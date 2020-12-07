@@ -10,7 +10,7 @@ import com.tandt53.automation.web.annotations.FireFox;
 import com.tandt53.automation.web.annotations.Safari;
 import com.tandt53.automation.web.drivermanager.Constants;
 import com.tandt53.automation.web.drivermanager.DriverBinder;
-import com.tandt53.automation.web.drivermanager.options.CapabilityManager;
+import com.tandt53.automation.web.drivermanager.CapabilityManager;
 import org.openqa.selenium.WebDriver;
 
 import java.lang.reflect.Field;

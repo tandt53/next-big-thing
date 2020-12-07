@@ -1,9 +1,7 @@
-package com.tandt53.automation.web.drivermanager.options;
+package com.tandt53.automation.web.drivermanager;
 
 import com.tandt53.automation.dataprovider.exceptions.PropertiesException;
 import com.tandt53.automation.dataprovider.properties.PropertiesLoader;
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.MutableCapabilities;
 
 import static com.tandt53.automation.web.drivermanager.Constants.*;
 
