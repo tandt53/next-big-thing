@@ -4,7 +4,6 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.name.Names;
-import com.tandt53.automation.web.drivermanager.options.CapabilityManager;
 
 public class DriverManagerFactory {
 

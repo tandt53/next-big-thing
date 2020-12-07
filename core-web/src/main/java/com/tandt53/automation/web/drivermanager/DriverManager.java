@@ -13,6 +13,6 @@ public abstract class DriverManager {
         return driver.get();
     }
 
-    public abstract WebDriver initDriver() throws CommonException, MalformedURLException;
+    public abstract WebDriver initDriver() throws MalformedURLException, CommonException;
 
 }

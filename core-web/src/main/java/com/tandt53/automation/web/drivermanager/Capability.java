@@ -1,4 +1,4 @@
-package com.tandt53.automation.web.drivermanager.options;
+package com.tandt53.automation.web.drivermanager;
 
 import com.tandt53.automation.dataprovider.exceptions.PropertiesException;
 import com.tandt53.automation.dataprovider.properties.PropertiesLoader;

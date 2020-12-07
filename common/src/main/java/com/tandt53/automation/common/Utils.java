@@ -11,14 +11,14 @@ public class Utils {
     /**
      * This method is
      * - Check string contain System environment (pattern ${varName})
-     * - Get value from System Varirables
+     * - Get value from System Variables
      * - Replace pattern String by that value
      *
      * @param text
      * @return
      * @throws CommonException
      */
-    public static String parse(String text) throws CommonException {
+    public static String parseVariables(String text) throws CommonException {
         String regex = "\\$\\{([^\\\\$\\\\]+)\\}";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
