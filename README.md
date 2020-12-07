@@ -4,14 +4,14 @@
 The project is a collection of modules that allows every Automation Test Engineer (ATE) to create/maintain automated test cases.
 
 Modules are:
-  - common
-  - core-web 
-  - core-mobile
-  - core-api
-  - core-db
-  - core-test
-  - data-provider
-  - integration
+-  common
+-  core-web 
+-  core-mobile
+-  core-api
+-  core-db
+-  core-test
+-  data-provider
+-  integration
 
 ## Prerequisites
 
