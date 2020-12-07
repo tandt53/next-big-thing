@@ -3,24 +3,23 @@
 # NEXT-BIG-THING 
 The project is a collection of modules that allows every Automation Test Engineer (ATE) to create/maintain automated test cases.
 
-Modules are
-- common
-- core-web 
-- core-mobile
-- core-api
-- core-db
-- core-test
-- data-provider
-- integration
+Modules are:
+  - common
+  - core-web 
+  - core-mobile
+  - core-api
+  - core-db
+  - core-test
+  - data-provider
+  - integration
 
 ## Prerequisites
-
 
 ## Contributors
 
 Thanks to the following people who have contributed to this project:
 
-* [@tandt53](https://github.com/tandt53) 
+  * [@tandt53](https://github.com/tandt53) 
 
 ## Contact
 
