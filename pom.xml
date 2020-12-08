@@ -16,6 +16,7 @@
         <module>core-api</module>
         <module>cucumber-junit</module>
         <module>mobile</module>
+        <module>testng</module>
     </modules>
 
     <properties>
@@ -117,6 +118,12 @@
                 <groupId>io.appium</groupId>
                 <artifactId>java-client</artifactId>
                 <version>7.4.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>7.3.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
