@@ -7,7 +7,7 @@ import com.tandt53.automation.mobile.element.LocatorType;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 
-public class MyApplicationPage extends BaseMobilePage {
+public class MyApplicationPage extends BaseMobilePage<MyApplicationPage> {
     private AppiumDriver<WebElement> driver;
 
     @FindElement(type = LocatorType.ID, value="edtUsername")
@@ -25,7 +25,7 @@ public class MyApplicationPage extends BaseMobilePage {
     @FindElement(type = LocatorType.ID, value="txtErrorMessage")
     private MobileElement txtErrorMessage;
 
-    public MyApplicationPage(AppiumDriver driver) {
+    public MyApplicationPage(AppiumDriver<WebElement> driver) {
         super(driver);
         this.driver = driver;
     }

@@ -16,7 +16,6 @@
         <module>core-api</module>
         <module>cucumber-junit</module>
         <module>mobile</module>
-
     </modules>
 
     <properties>

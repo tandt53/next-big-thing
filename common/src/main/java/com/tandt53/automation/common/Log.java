@@ -36,7 +36,7 @@ public class Log {
 	
 	public void error(String[] messages) {
 		for (String msg : messages) {
-			Log.error(msg.toString());
+			Log.error(msg);
 		}
 	}
 

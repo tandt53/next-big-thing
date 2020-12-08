@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 
-public class MyApplicationTest extends BaseTest {
+public class MyApplicationTest extends BaseTest<MyApplicationTest> {
 
 
     @Android
