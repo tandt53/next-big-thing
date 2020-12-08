@@ -1,8 +1,6 @@
 package com.tandt53.automation.mobile.drivermanager;
 
 import com.tandt53.automation.dataprovider.exceptions.PropertiesException;
-import com.tandt53.automation.mobile.drivermanager.options.Capability;
-import com.tandt53.automation.mobile.drivermanager.options.CapabilityManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebElement;

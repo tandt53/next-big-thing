@@ -2,7 +2,6 @@ package com.tandt53.automation.mobile;
 
 import com.tandt53.automation.mobile.annotations.FindElement;
 import com.tandt53.automation.mobile.element.*;
-import com.tandt53.automation.mobile.element.MobileElement;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 

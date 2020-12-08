@@ -12,10 +12,8 @@ import com.tandt53.automation.mobile.drivermanager.MobileDriverBinder;
 import java.lang.reflect.Field;
 
 
-public class BrowserFactory {
+public class MobileFactory {
 
-//    @Inject
-//    private WebDriver driver;
 
     public static <T extends BaseTest<?>> void initPages(final T t) throws IllegalAccessException {
         Class<?> objectClass = t.getClass();
