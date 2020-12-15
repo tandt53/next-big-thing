@@ -9,8 +9,8 @@ import okhttp3.RequestBody;
 
 public class RestBodyJson extends RestBody {
 
-    private final String DEFAULT_TYPE = "application/json; charset=utf-8";
-    private String type = DEFAULT_TYPE;
+    private final String _TYPE = "application/json; charset=utf-8";
+    private String type = _TYPE;
 
     private JsonBuilder2 builder;
 

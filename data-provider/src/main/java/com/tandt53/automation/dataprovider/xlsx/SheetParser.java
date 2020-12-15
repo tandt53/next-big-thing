@@ -25,7 +25,7 @@ public class SheetParser {
     }
 
     private void configSheet() {
-        sheet.setDefaultColumnWidth(15);
+        sheet.setColumnWidth(15, 15);
         sheet.setDefaultRowHeightInPoints(30f);
     }
 

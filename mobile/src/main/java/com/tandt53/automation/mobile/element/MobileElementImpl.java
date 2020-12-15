@@ -17,9 +17,9 @@ public class MobileElementImpl implements MobileElement {
 
     private By locator;
     private ElementInfo elementInfo;
-    private final int DEFAULT_TIMEOUT = 10;
-    private Function<By, ExpectedCondition<WebElement>> waitForElement = Conditions.PRESENCE; // default wait strategy
-    private Function<By, ExpectedCondition<List<WebElement>>> waitForListElement = Conditions.PRESENCE_ALL; // default wait strategy
+    private final int _TIMEOUT = 10;
+    private Function<By, ExpectedCondition<WebElement>> waitForElement = Conditions.PRESENCE; //  wait strategy
+    private Function<By, ExpectedCondition<List<WebElement>>> waitForListElement = Conditions.PRESENCE_ALL; //  wait strategy
     private AppiumDriver<WebElement> driver;
     private WebDriverWait wait;
 
@@ -37,7 +37,7 @@ public class MobileElementImpl implements MobileElement {
     public MobileElementImpl(ElementInfo elementInfo, AppiumDriver<WebElement> driver) {
         this.elementInfo = elementInfo;
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
+        this.wait = new WebDriverWait(driver, _TIMEOUT);
         initLocator();
         initWaitStrategy();
     }

@@ -29,12 +29,10 @@ public class ElementInvocationHandler implements InvocationHandler {
 
         Object returnObj = null;
         try {
-            // If the annotation is not present, just redirect the method call to its
-            // origin...
+            // If the annotation is not present, just redirect the method call to its origin...
             if (!method.isAnnotationPresent(Clocking.class)) {
                 return method.invoke(baseElement, args);
             }
-
             // ... otherwise log the execution time of it.
             Instant start = Instant.now();
             returnObj = method.invoke(baseElement, args);
@@ -42,11 +40,8 @@ public class ElementInvocationHandler implements InvocationHandler {
 
             log.info("Method " + method.getName() + " on element " + ((ElementImpl) baseElement).getElementInfo().getName()
                     + " executed in " + Duration.between(start, end).toMillis() + " ms.");
-            System.out.println("Method " + method.getName() + " on element " + ((ElementImpl) baseElement).getElementInfo().getName()
-                    + " executed in " + Duration.between(start, end).toMillis() + " ms.");
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-            // TODO Auto-generated catch block
-//			e.printStackTrace();
+			e.getCause().printStackTrace();
         }
         return returnObj;
     }

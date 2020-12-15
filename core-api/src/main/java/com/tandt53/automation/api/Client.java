@@ -15,8 +15,8 @@ import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 public class Client {
-    private static final int DEFAULT_TIMEOUT = -1;
-    private static final int DEFAULT_CALL_TIMEOUT = 30000;
+    private static final int _TIMEOUT = -1;
+    private static final int _CALL_TIMEOUT = 30000;
     private final TimeUnit TIME_UNIT = TimeUnit.MILLISECONDS;
 
     private OkHttpClient.Builder builder;
@@ -24,9 +24,9 @@ public class Client {
 
     private boolean isFollowRedirects = true;
     private boolean isAllowInsecure = false;
-    public int connectTimeout = DEFAULT_TIMEOUT;
-    private int readTimeout = DEFAULT_TIMEOUT;
-    private long callTimeout = DEFAULT_CALL_TIMEOUT;
+    public int connectTimeout = _TIMEOUT;
+    private int readTimeout = _TIMEOUT;
+    private long callTimeout = _CALL_TIMEOUT;
 
     public Client() {
         this.builder = new OkHttpClient.Builder();
@@ -36,11 +36,11 @@ public class Client {
     public OkHttpClient createClient() throws NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
 
         builder.followRedirects(isFollowRedirects);
-        if (connectTimeout != DEFAULT_TIMEOUT) {
+        if (connectTimeout != _TIMEOUT) {
             builder.connectTimeout(connectTimeout, TIME_UNIT);
         }
 
-        if (readTimeout != DEFAULT_TIMEOUT) {
+        if (readTimeout != _TIMEOUT) {
             builder.readTimeout(readTimeout, TIME_UNIT);
         }
 
@@ -49,7 +49,7 @@ public class Client {
             trustManagerFactory.init((KeyStore) null);
             TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
             if (trustManagers.length != 1 || !(trustManagers[0] instanceof X509TrustManager)) {
-                throw new IllegalStateException("Unexpected default trust managers:"
+                throw new IllegalStateException("Unexpected  trust managers:"
                         + Arrays.toString(trustManagers));
             }
             X509TrustManager trustManager = (X509TrustManager) trustManagers[0];

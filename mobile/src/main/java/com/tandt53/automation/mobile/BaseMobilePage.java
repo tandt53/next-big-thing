@@ -28,7 +28,7 @@ import static java.time.Duration.ofSeconds;
 public class BaseMobilePage<TPage extends BaseMobilePage> {
 
     /**
-     * default url
+     *  url
      */
     public String url;
 
@@ -42,7 +42,7 @@ public class BaseMobilePage<TPage extends BaseMobilePage> {
     }
 
     /**
-     * open default page with url is not null
+     * open  page with url is not null
      */
     public TPage open() {
         if (url != null)

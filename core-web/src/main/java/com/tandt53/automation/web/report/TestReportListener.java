@@ -331,7 +331,7 @@
 //		case 3:
 //			status = Status.SKIP;
 //			break;
-//		default:
+//		:
 //			status = Status.INFO;
 //			break;
 //		}

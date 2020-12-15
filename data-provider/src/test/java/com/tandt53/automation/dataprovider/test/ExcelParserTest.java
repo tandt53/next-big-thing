@@ -387,6 +387,8 @@ public class ExcelParserTest {
         } catch (ConditionsException e) {
             e.printStackTrace();
             Assert.assertTrue(false);
+        } catch(IndexOutOfBoundsException e){
+
         }
 
         try {

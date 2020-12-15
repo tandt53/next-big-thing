@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>testng</artifactId>
+    <artifactId>common-test</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -18,9 +18,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
-
 </project>

@@ -7,8 +7,8 @@ import okhttp3.RequestBody;
 import java.io.File;
 
 public class RestBodyMultiPart extends RestBody {
-    private final MediaType DEFAULT_MEDIA_TYPE = MultipartBody.FORM;
-    private MediaType type = DEFAULT_MEDIA_TYPE;
+    private final MediaType _MEDIA_TYPE = MultipartBody.FORM;
+    private MediaType type = _MEDIA_TYPE;
     private MultipartBody.Builder builder;
 
     public RestBodyMultiPart() {
