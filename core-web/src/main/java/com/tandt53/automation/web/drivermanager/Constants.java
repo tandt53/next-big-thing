@@ -13,7 +13,7 @@ public class Constants {
     public static final String ENV_REMOTE = "remote";
     public static final String DOT = ".";
     public static final String CLI_PARAMETER_PREFIX_WEB = "web";
-    public static final String DEFAULT_CONFIG_FILE = "configs/web.properties";
+    public static final String _CONFIG_FILE = "configs/web.properties";
     public static final String CLI_PARAM_CONFIG_WEB = "config.web";
 
     // capabilities

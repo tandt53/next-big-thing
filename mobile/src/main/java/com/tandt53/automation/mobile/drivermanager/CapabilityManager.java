@@ -27,7 +27,7 @@ public class CapabilityManager {
 
         String propertyFile = System.getProperty(CLI_PARAM_CONFIG_MOBILE);
         if (propertyFile == null || propertyFile.isEmpty()) {
-            propertyFile = DEFAULT_CONFIG_FILE;
+            propertyFile = _CONFIG_FILE;
         }
 
         Capability capFromFile;
@@ -37,7 +37,7 @@ public class CapabilityManager {
         try {
             capFromFile = new Capability(propertyFile);
         } catch (PropertiesException e) {
-            System.out.println("Unable to find config file at " + propertyFile + ". Default empty caps will be loaded.");
+            System.out.println("Unable to find config file at " + propertyFile + ".  empty caps will be loaded.");
             capFromFile = new Capability();
         }
 
@@ -57,7 +57,7 @@ public class CapabilityManager {
         // Get parameter from command line
         String propertyFile = System.getProperty(CLI_PARAM_CONFIG_MOBILE);
         if (propertyFile == null || propertyFile.isEmpty()) {
-            propertyFile = DEFAULT_CONFIG_FILE;
+            propertyFile = _CONFIG_FILE;
         }
 
         try {

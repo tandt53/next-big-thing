@@ -12,7 +12,7 @@ public class Constants {
 
     // config files
     public static final String CLI_PARAM_CONFIG_MOBILE = "config.mobile"; // Value of this param is the path of mobile.properties file
-    public static final String DEFAULT_CONFIG_FILE = "configs/mobile.properties";
+    public static final String _CONFIG_FILE = "configs/mobile.properties";
 
     // These properties are keys in config file
     // Common appium capability

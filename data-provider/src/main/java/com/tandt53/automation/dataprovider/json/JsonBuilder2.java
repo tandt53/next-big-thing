@@ -19,7 +19,6 @@ public class JsonBuilder2 {
                 isRootTypeJsonObject = false;
                 break;
             case ROOT_TYPE_JSON_OBJECT:
-            default:
                 jsonElement = new JsonObject();
         }
     }

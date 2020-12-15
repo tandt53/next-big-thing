@@ -10,14 +10,16 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import static com.tandt53.automation.mobile.element.LocatorType.ID;
+import static com.tandt53.automation.mobile.element.WaitStrategy.VISIBILITY;
+
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.TYPE})
 public @interface FindElement {
-    LocatorType type() default ID;
+    LocatorType type()  default ID;
 
     String value();
 
-    WaitStrategy waitUntil() default WaitStrategy.VISIBILITY;
+    WaitStrategy waitUntil()  default VISIBILITY;
 
 }

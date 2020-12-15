@@ -10,27 +10,27 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BaseWebPage<TPage extends BaseWebPage> {
 
     /**
-     * default url
+     *  url
      */
     public String url;
 
     protected WebDriver driver;
 
     protected WebDriverWait wait;
-    protected final int DEFAULT_TIMEOUT = 30;
+    protected final int _TIMEOUT = 30;
 
     @SuppressWarnings("unchecked")
     public Log PLog = new Log(((TPage) BaseWebPage.this).getClass());
 
     public BaseWebPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(this.driver, DEFAULT_TIMEOUT);
+        this.wait = new WebDriverWait(this.driver, _TIMEOUT);
         PageFactory.initElements(this, this.driver);
     }
 
 
     /**
-     * open default page with url is not null
+     * open  page with url is not null
      */
     public TPage open() {
         if (url != null)

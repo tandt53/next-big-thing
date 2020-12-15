@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class ExcelParser {
 
@@ -109,7 +110,7 @@ public class ExcelParser {
     }
 
     // get all value in `targetColumnName` that match `conditions`
-    public ArrayList<String> getAllValues(String sheetName, Conditions conditions, String targetColumnName) throws CellNotFoundException, RowNotFoundException, WorksheetNotFoundException, WorkbookNotFoundException, ConditionsException {
+    public List<String> getAllValues(String sheetName, Conditions conditions, String targetColumnName) throws CellNotFoundException, RowNotFoundException, WorksheetNotFoundException, WorkbookNotFoundException, ConditionsException {
         ArrayList<String> cellValues = new ArrayList<>();
 
         SheetParser sheetParser = new SheetParser(workbookParser.getSheet(sheetName));
