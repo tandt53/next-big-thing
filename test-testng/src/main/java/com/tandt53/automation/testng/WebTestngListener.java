@@ -1,6 +1,6 @@
 package com.tandt53.automation.testng;
 
-import com.tandt53.automation.common.Log;
+import com.tandt53.common.Log;
 import com.tandt53.commontest.model.ResultType;
 import com.tandt53.commontest.model.TestCase;
 import com.tandt53.commontest.model.TestResult;
