@@ -2,10 +2,9 @@ package com.tandt53.api.test;
 
 import com.tandt53.api.Client;
 import com.tandt53.api.RequestUrl;
-import com.tandt53.api.RestRequest;
+import com.tandt53.api.Request;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 
 import java.io.IOException;
 import java.security.KeyManagementException;
@@ -16,7 +15,7 @@ public class PostmanEcho {
 
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        Request.Builder requestBuilder = new Request.Builder();
+        okhttp3.Request.Builder requestBuilder = new okhttp3.Request.Builder();
         HttpUrl.Builder urlBuilder = new HttpUrl.Builder();
 
         urlBuilder.scheme("https").host("postman-echo.com");
@@ -33,7 +32,7 @@ public class PostmanEcho {
         url.addQueryParameter("foo1", "bar", false);
         url.addQueryParameter("foo2", "bar2", false);
 
-        RestRequest request = new RestRequest(url);
+        Request request = new Request(url);
         System.out.println(client.send(request).body());
 
     }

@@ -2,16 +2,15 @@ package com.tandt53.api;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 
 import java.io.File;
 
-public class RestBodyMultiPart extends RestBody {
+public class RequestBodyMultiPart extends RequestBody {
     private final MediaType _MEDIA_TYPE = MultipartBody.FORM;
     private MediaType type = _MEDIA_TYPE;
     private MultipartBody.Builder builder;
 
-    public RestBodyMultiPart() {
+    public RequestBodyMultiPart() {
         builder = new MultipartBody.Builder();
     }
 
@@ -24,7 +23,7 @@ public class RestBodyMultiPart extends RestBody {
     }
 
     public void addPart(String key, String value, String filePath, String mediaType) {
-        builder.addFormDataPart(key, value, RequestBody.create(MediaType.parse(mediaType), new File(filePath)));
+        builder.addFormDataPart(key, value, okhttp3.RequestBody.create(MediaType.parse(mediaType), new File(filePath)));
     }
 
     public void setType(String type) {
@@ -36,7 +35,7 @@ public class RestBodyMultiPart extends RestBody {
     }
 
     @Override
-    public RequestBody createBody() {
+    public okhttp3.RequestBody createBody() {
         builder.setType(type);
         return builder.build();
     }
