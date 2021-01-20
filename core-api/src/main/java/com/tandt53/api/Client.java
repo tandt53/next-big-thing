@@ -77,8 +77,8 @@ public class Client {
         builder.authenticator(authenticator);
     }
 
-    public RestResponse send(RestRequest request) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
-        return new RestResponse(createClient().newCall(request.createRequest()).execute());
+    public Response send(Request request) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+        return new Response(createClient().newCall(request.createRequest()).execute());
     }
 
 }

@@ -1,21 +1,19 @@
 package com.tandt53.api;
 
-import okhttp3.Request;
+public class Request {
 
-public class RestRequest {
+    private okhttp3.Request.Builder builder;
 
-    private Request.Builder builder;
-
-    public Request createRequest() {
+    public okhttp3.Request createRequest() {
         return builder.build();
     }
 
-    public RestRequest(RequestUrl httpUrl) {
-        builder = new Request.Builder();
+    public Request(RequestUrl httpUrl) {
+        builder = new okhttp3.Request.Builder();
         builder.url(httpUrl.createHttpUrl());
     }
 
-    public void header(RestHeader headers) {
+    public void header(RequestHeader headers) {
         builder.headers(headers.createHeaders());
     }
 
@@ -27,19 +25,19 @@ public class RestRequest {
         builder.delete();
     }
 
-    public void delete(RestBody body) {
+    public void delete(RequestBody body) {
         builder.delete(body.createBody());
     }
 
-    public void post(RestBody body) {
+    public void post(RequestBody body) {
         builder.post(body.createBody());
     }
 
-    public void patch(RestBody body) {
+    public void patch(RequestBody body) {
         builder.patch(body.createBody());
     }
 
-    public void put(RestBody body) {
+    public void put(RequestBody body) {
         builder.put(body.createBody());
     }
 

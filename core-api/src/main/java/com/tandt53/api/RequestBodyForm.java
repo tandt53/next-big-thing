@@ -1,14 +1,13 @@
 package com.tandt53.api;
 
 import okhttp3.FormBody;
-import okhttp3.RequestBody;
 
-public class RestBodyForm extends RestBody {
+public class RequestBodyForm extends RequestBody {
 
     private FormBody.Builder builder;
 
 
-    public RestBodyForm() {
+    public RequestBodyForm() {
         builder = new FormBody.Builder();
     }
 
@@ -21,7 +20,7 @@ public class RestBodyForm extends RestBody {
     }
 
     @Override
-    public RequestBody createBody() {
+    public okhttp3.RequestBody createBody() {
         return builder.build();
     }
 }

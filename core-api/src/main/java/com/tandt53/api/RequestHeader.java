@@ -4,11 +4,11 @@ import okhttp3.Headers;
 
 import java.util.Map;
 
-public class RestHeader {
+public class RequestHeader {
 
     private Headers.Builder builder;
 
-    public RestHeader() {
+    public RequestHeader() {
         builder = new Headers.Builder();
     }
 

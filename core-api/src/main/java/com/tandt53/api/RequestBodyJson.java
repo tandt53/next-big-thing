@@ -5,28 +5,27 @@ import com.tandt53.dataprovider.exceptions.JsonElementNotFoundException;
 import com.tandt53.dataprovider.json.JsonBuilder2;
 import com.tandt53.dataprovider.json.JsonRootType;
 import okhttp3.MediaType;
-import okhttp3.RequestBody;
 
-public class RestBodyJson extends RestBody {
+public class RequestBodyJson extends RequestBody {
 
     private final String _TYPE = "application/json; charset=utf-8";
     private String type = _TYPE;
 
     private JsonBuilder2 builder;
 
-    public RestBodyJson() {
+    public RequestBodyJson() {
         builder = new JsonBuilder2();
     }
 
-    public RestBodyJson(JsonRootType jsonRootType) {
+    public RequestBodyJson(JsonRootType jsonRootType) {
         builder = new JsonBuilder2(jsonRootType);
     }
 
-    public RestBodyJson(JsonObject jsonElement) {
+    public RequestBodyJson(JsonObject jsonElement) {
         builder = new JsonBuilder2(jsonElement);
     }
 
-    public RestBodyJson(String body) {
+    public RequestBodyJson(String body) {
         builder = new JsonBuilder2(body);
     }
 
@@ -54,7 +53,7 @@ public class RestBodyJson extends RestBody {
     }
 
     @Override
-    public RequestBody createBody() {
-        return RequestBody.create(getType(), builder.print());
+    public okhttp3.RequestBody createBody() {
+        return okhttp3.RequestBody.create(getType(), builder.print());
     }
 }

@@ -1,9 +1,8 @@
 package com.tandt53.api;
 
 import okhttp3.MediaType;
-import okhttp3.RequestBody;
 
-public class RestBodyRaw extends RestBody {
+public class RequestBodyRaw extends RequestBody {
     private String body;
     private MediaType type;
 
@@ -24,7 +23,7 @@ public class RestBodyRaw extends RestBody {
     }
 
     @Override
-    public RequestBody createBody() {
-        return RequestBody.create(type, body);
+    public okhttp3.RequestBody createBody() {
+        return okhttp3.RequestBody.create(type, body);
     }
 }

@@ -21,11 +21,11 @@ public class RequestUrl {
 
     public RequestUrl(String fullHostString) throws UrlException {
         if (fullHostString == null || fullHostString.isEmpty()) {
-            throw new UrlException("fullHostString should not be null or empty");
+            throw new UrlException("URL should not be null or empty");
         }
 
         Pattern p1 = Pattern.compile("^(http.*)\\:\\/\\/(.+)\\:([0-9]+)"); // protocol, host and port
-        Pattern p2 = p1.compile("^(http.*)\\:\\/\\/(.[^:]+)$"); // protocol, host, without port
+        Pattern p2 = Pattern.compile("^(http.*)\\:\\/\\/(.[^:]+)$"); // protocol, host, without port
 
         Matcher m1 = p1.matcher(fullHostString);
         Matcher m2 = p2.matcher(fullHostString);
@@ -41,7 +41,7 @@ public class RequestUrl {
             protocol = m2.group(1);
             host = m2.group(2);
         } else {
-            throw new UrlException("fullHostString should contain protocol, host and optional port");
+            throw new UrlException("URL should contain protocol, host and port (optional)");
         }
         builder = new HttpUrl.Builder();
         builder.scheme(protocol);

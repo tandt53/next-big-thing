@@ -211,18 +211,18 @@ public class WebTestngListener extends TestListenerAdapter {
     /**
      * getTestMessage method
      *
-     * @param tr
+     * @param result
      * @return String
      */
-    public String getTestMessage(ITestResult tr) {
+    public String getTestMessage(ITestResult result) {
         boolean found = false;
 
-        if (tr != null && tr.getThrowable() != null) {
+        if (result != null && result.getThrowable() != null) {
             found = true;
         }
 
         if (found) {
-            return tr.getThrowable().getMessage() == null ? "" : tr.getThrowable().getMessage();
+            return result.getThrowable().getMessage() == null ? "" : result.getThrowable().getMessage();
         } else {
             return "";
         }

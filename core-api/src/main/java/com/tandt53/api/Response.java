@@ -2,16 +2,15 @@ package com.tandt53.api;
 
 import com.tandt53.api.path.JsonPath;
 import com.tandt53.dataprovider.json.JsonParser;
-import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 import java.io.IOException;
 
-public class RestResponse {
-    private Response response;
+public class Response {
+    private okhttp3.Response response;
     private ResponseBody responseBody;
 
-    public RestResponse(Response response) {
+    public Response(okhttp3.Response response) {
         this.response = response;
         this.responseBody = response.body();
 
