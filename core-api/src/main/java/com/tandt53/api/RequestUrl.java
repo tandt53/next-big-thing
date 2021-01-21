@@ -9,7 +9,8 @@ import java.util.regex.Pattern;
 public class RequestUrl {
 
     private HttpUrl.Builder builder;
-    public static final int EMPTY_PORT = -1;
+    private static final int EMPTY_PORT = -1;
+    private boolean isEncoded = false;
 
     public RequestUrl(String protocol, String host, int port) {
         builder = new HttpUrl.Builder();
@@ -52,7 +53,15 @@ public class RequestUrl {
 
     }
 
-    public void addQueryParameter(String key, String value, boolean isEncoded) {
+    public boolean isEncoded() {
+        return isEncoded;
+    }
+
+    public void setEncoded(boolean encoded) {
+        isEncoded = encoded;
+    }
+
+    public void addQueryParameter(String key, String value) {
         if (isEncoded) {
             builder.addEncodedQueryParameter(key, value);
         } else {
@@ -60,28 +69,28 @@ public class RequestUrl {
         }
     }
 
-    public void addUsername(String username, boolean isEncoded) {
+    public void addUsername(String username) {
         if (isEncoded)
             builder.encodedUsername(username);
         else
             builder.username(username);
     }
 
-    public void addPassword(String password, boolean isEncoded) {
+    public void addPassword(String password) {
         if (isEncoded)
             builder.encodedPassword(password);
         else
             builder.password(password);
     }
 
-    public void setQueryParameter(String key, String value, boolean isEncoded) {
+    public void setQueryParameter(String key, String value) {
         if (isEncoded)
             builder.setEncodedQueryParameter(key, value);
         else
             builder.setQueryParameter(key, value);
     }
 
-    public void removeQueryParameter(String key, boolean isEncoded) {
+    public void removeQueryParameter(String key) {
         if (isEncoded)
             builder.removeAllEncodedQueryParameters(key);
         else
@@ -92,7 +101,7 @@ public class RequestUrl {
         return builder.build();
     }
 
-    public void addPath(String pathSegment, boolean isEncoded) {
+    public void addPath(String pathSegment) {
         if(isEncoded)
             builder.addEncodedPathSegments(pathSegment);
         else

@@ -28,9 +28,9 @@ public class PostmanEcho {
 
         Client client = new Client();
         RequestUrl url = new RequestUrl("https", "postman-echo.com", RequestUrl.EMPTY_PORT);
-        url.addPath("get", false);
-        url.addQueryParameter("foo1", "bar", false);
-        url.addQueryParameter("foo2", "bar2", false);
+        url.addPath("get");
+        url.addQueryParameter("foo1", "bar");
+        url.addQueryParameter("foo2", "bar2");
 
         Request request = new Request(url);
         System.out.println(client.send(request).body());
