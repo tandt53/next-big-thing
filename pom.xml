@@ -20,6 +20,7 @@
         <module>common-test</module>
         <module>test-junit</module>
         <module>jacoco-summary</module>
+        <module>functions</module>
     </modules>
 
     <properties>
