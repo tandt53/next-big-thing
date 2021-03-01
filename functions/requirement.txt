@@ -1,5 +1,5 @@
 Some functions
-- ${vars.global(variableName)}
-- ${vars.local(variableName)}
+- ${global_vars(variableName)}
+- ${local_vars(variableName)}
 - ${func_name(singleArg)}
 - ${func_name(multiArg01, multiArg02)}
