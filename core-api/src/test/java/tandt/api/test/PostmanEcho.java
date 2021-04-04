@@ -1,10 +1,10 @@
 package tandt.api.test;
 
-import tandt.api.Client;
-import tandt.api.RequestUrl;
-import tandt.api.Request;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
+import tandt.api.Client;
+import tandt.api.Request;
+import tandt.api.RequestUrl;
 
 import java.io.IOException;
 import java.security.KeyManagementException;

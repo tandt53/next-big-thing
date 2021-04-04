@@ -1,9 +1,9 @@
 package tandt.mobile;
 
-import tandt.mobile.annotations.FindElement;
-import tandt.mobile.element.*;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
+import tandt.mobile.annotations.FindElement;
+import tandt.mobile.element.*;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Proxy;

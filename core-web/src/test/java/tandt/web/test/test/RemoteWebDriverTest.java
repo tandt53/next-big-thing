@@ -1,13 +1,13 @@
 package tandt.web.test.test;
 
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 import tandt.common.exceptions.CommonException;
 import tandt.web.BaseTest;
 import tandt.web.drivermanager.DriverManager;
 import tandt.web.drivermanager.DriverManagerFactory;
 import tandt.web.test.pages.HomeWebPage;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 

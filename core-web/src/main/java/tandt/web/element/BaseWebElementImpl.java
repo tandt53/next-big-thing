@@ -1,10 +1,10 @@
 package tandt.web.element;
 
-import tandt.web.Conditions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import tandt.web.Conditions;
 
 import java.util.List;
 import java.util.function.Function;

@@ -1,6 +1,5 @@
 package tandt.mobile.element;
 
-import tandt.mobile.Conditions;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import org.openqa.selenium.*;
@@ -8,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import tandt.mobile.Conditions;
 
 import java.time.Duration;
 import java.util.List;

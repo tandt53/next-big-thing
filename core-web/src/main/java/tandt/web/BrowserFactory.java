@@ -5,13 +5,13 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.name.Names;
-import tandt.web.drivermanager.Constants;
+import org.openqa.selenium.WebDriver;
 import tandt.web.annotations.Chrome;
 import tandt.web.annotations.FireFox;
 import tandt.web.annotations.Safari;
-import tandt.web.drivermanager.DriverBinder;
 import tandt.web.drivermanager.CapabilityManager;
-import org.openqa.selenium.WebDriver;
+import tandt.web.drivermanager.Constants;
+import tandt.web.drivermanager.DriverBinder;
 
 import java.lang.reflect.Field;
 

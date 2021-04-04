@@ -1,8 +1,8 @@
 package tandt.web;
 
-import tandt.common.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import tandt.common.Log;
 
 /**
  * Created by thetan.do on 12/28/2016.

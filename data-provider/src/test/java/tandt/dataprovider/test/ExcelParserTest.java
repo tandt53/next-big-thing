@@ -1,12 +1,12 @@
 package tandt.dataprovider.test;
 
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import tandt.common.Log;
 import tandt.dataprovider.exceptions.*;
 import tandt.dataprovider.xlsx.Conditions;
 import tandt.dataprovider.xlsx.ExcelParser;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
 public class ExcelParserTest {
 

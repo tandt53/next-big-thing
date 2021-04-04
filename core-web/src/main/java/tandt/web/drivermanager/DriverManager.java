@@ -1,9 +1,9 @@
 package tandt.web.drivermanager;
 
-import tandt.common.exceptions.CommonException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import tandt.common.exceptions.CommonException;
 
 import java.io.File;
 import java.net.MalformedURLException;

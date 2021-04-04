@@ -1,9 +1,9 @@
 package tandt.mobile.element;
 
-import tandt.common.Log;
-import tandt.mobile.annotations.Clocking;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
+import tandt.common.Log;
+import tandt.mobile.annotations.Clocking;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;

@@ -1,10 +1,10 @@
 package tandt.api;
 
 import com.google.gson.JsonObject;
+import okhttp3.MediaType;
 import tandt.dataprovider.exceptions.JsonElementNotFoundException;
 import tandt.dataprovider.json.JsonBuilder2;
 import tandt.dataprovider.json.JsonRootType;
-import okhttp3.MediaType;
 
 public class RequestBodyJson extends RequestBody {
 

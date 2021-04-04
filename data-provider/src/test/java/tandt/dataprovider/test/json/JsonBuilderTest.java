@@ -1,11 +1,11 @@
 package tandt.dataprovider.test.json;
 
-import tandt.dataprovider.json.JsonBuilder;
-import tandt.dataprovider.json.JsonBuilder2;
-import tandt.dataprovider.exceptions.JsonElementNotFoundException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import tandt.dataprovider.exceptions.JsonElementNotFoundException;
+import tandt.dataprovider.json.JsonBuilder;
+import tandt.dataprovider.json.JsonBuilder2;
 
 public class JsonBuilderTest {
     /**

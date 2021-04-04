@@ -1,12 +1,8 @@
 package tandt.web;
 
-import tandt.web.annotations.FindElement;
-import tandt.web.element.BaseWebElement;
-import tandt.web.element.ElementInvocationHandler;
-import tandt.web.element.LocatorType;
-import tandt.web.element.ElementInfo;
-import tandt.web.element.WaitStrategy;
 import org.openqa.selenium.WebDriver;
+import tandt.web.annotations.FindElement;
+import tandt.web.element.*;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Proxy;

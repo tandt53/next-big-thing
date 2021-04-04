@@ -1,8 +1,8 @@
 package tandt.commontest.model;
 
-import tandt.commontest.exceptions.TestException;
 import lombok.Getter;
 import lombok.Setter;
+import tandt.commontest.exceptions.TestException;
 
 import java.util.ArrayList;
 import java.util.List;
