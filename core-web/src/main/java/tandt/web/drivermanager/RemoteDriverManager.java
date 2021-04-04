@@ -1,10 +1,10 @@
 package tandt.web.drivermanager;
 
-import tandt.common.Utils;
-import tandt.common.exceptions.CommonException;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import tandt.common.Utils;
+import tandt.common.exceptions.CommonException;
 
 import java.net.MalformedURLException;
 import java.net.URL;

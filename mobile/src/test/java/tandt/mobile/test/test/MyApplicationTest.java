@@ -1,14 +1,14 @@
 package tandt.mobile.test.test;
 
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import tandt.common.exceptions.CommonException;
 import tandt.dataprovider.exceptions.PropertiesException;
 import tandt.mobile.BaseTest;
 import tandt.mobile.annotations.Android;
-import tandt.mobile.test.pages.MyApplicationPage;
 import tandt.mobile.drivermanager.MobileDriverManager;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import tandt.mobile.test.pages.MyApplicationPage;
 
 import java.net.MalformedURLException;
 

@@ -2,9 +2,9 @@ package tandt.dataprovider.test;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import tandt.dataprovider.json.JsonParser;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import tandt.dataprovider.json.JsonParser;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

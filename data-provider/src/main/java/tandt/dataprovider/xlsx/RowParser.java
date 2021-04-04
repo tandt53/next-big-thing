@@ -1,8 +1,8 @@
 package tandt.dataprovider.xlsx;
 
-import tandt.dataprovider.exceptions.CellNotFoundException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import tandt.dataprovider.exceptions.CellNotFoundException;
 
 import java.util.ArrayList;
 import java.util.Iterator;

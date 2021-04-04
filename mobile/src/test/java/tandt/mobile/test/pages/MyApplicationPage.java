@@ -1,11 +1,11 @@
 package tandt.mobile.test.pages;
 
-import tandt.mobile.BaseMobilePage;
-import tandt.mobile.element.BaseMobileElement;
-import tandt.mobile.element.LocatorType;
-import tandt.mobile.annotations.FindElement;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
+import tandt.mobile.BaseMobilePage;
+import tandt.mobile.annotations.FindElement;
+import tandt.mobile.element.BaseMobileElement;
+import tandt.mobile.element.LocatorType;
 
 public class MyApplicationPage extends BaseMobilePage<MyApplicationPage> {
     private AppiumDriver<WebElement> driver;

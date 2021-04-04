@@ -1,8 +1,8 @@
 package tandt.api;
 
+import okhttp3.ResponseBody;
 import tandt.api.path.JsonPath;
 import tandt.dataprovider.json.JsonParser;
-import okhttp3.ResponseBody;
 
 import java.io.IOException;
 

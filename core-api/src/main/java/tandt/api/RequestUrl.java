@@ -1,7 +1,7 @@
 package tandt.api;
 
-import tandt.api.exceptions.UrlException;
 import okhttp3.HttpUrl;
+import tandt.api.exceptions.UrlException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

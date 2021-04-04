@@ -1,8 +1,8 @@
 package tandt.web.element;
 
+import org.openqa.selenium.WebDriver;
 import tandt.common.Log;
 import tandt.web.annotations.Clocking;
-import org.openqa.selenium.WebDriver;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;

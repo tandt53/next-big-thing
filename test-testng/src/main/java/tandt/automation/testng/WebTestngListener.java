@@ -1,13 +1,13 @@
 package tandt.automation.testng;
 
+import org.testng.ITestContext;
+import org.testng.ITestResult;
+import org.testng.TestListenerAdapter;
 import tandt.common.Log;
 import tandt.commontest.model.ResultType;
 import tandt.commontest.model.TestCase;
 import tandt.commontest.model.TestResult;
 import tandt.commontest.model.TestSuite;
-import org.testng.ITestContext;
-import org.testng.ITestResult;
-import org.testng.TestListenerAdapter;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

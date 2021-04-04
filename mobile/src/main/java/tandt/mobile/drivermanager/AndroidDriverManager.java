@@ -1,10 +1,10 @@
 package tandt.mobile.drivermanager;
 
-import tandt.dataprovider.exceptions.PropertiesException;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import tandt.dataprovider.exceptions.PropertiesException;
 
 import java.net.MalformedURLException;
 import java.net.URL;
