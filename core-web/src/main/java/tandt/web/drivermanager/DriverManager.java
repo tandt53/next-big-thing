@@ -18,7 +18,6 @@ public abstract class DriverManager {
 
     public abstract WebDriver initDriver() throws MalformedURLException, CommonException;
 
-
     /**
      * This function will take screenshot
      *

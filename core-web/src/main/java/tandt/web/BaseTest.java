@@ -7,7 +7,7 @@ package tandt.web;
 public class BaseTest<TTest extends BaseTest<?>> {
 
 	public BaseTest() throws IllegalAccessException {
-		BrowserFactory.initPages(this);
+//		BrowserFactory.initPages(this);
 	}
 
 
