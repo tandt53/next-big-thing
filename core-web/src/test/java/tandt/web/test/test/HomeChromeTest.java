@@ -14,7 +14,7 @@ import java.io.IOException;
 /**
  * Created by thetan.do on 12/28/2016.
  */
-public class HomeChromeTest extends BaseTest<HomeChromeTest> {
+public class HomeChromeTest {
 
 
     private HomeWebPage homePage;

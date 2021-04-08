@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 /**
  * Created by thetan.do on 12/28/2016.
  */
-public class RemoteWebDriverTest extends BaseTest<RemoteWebDriverTest> {
+public class RemoteWebDriverTest {
 
     private HomeWebPage homePage;
 

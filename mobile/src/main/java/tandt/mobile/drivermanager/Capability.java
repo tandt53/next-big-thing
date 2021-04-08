@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Capability {
-    private Map<String, Object> map;
+    private Map<String, String> map;
 
     public Capability() {
         map = new HashMap<>();
@@ -38,15 +38,15 @@ public class Capability {
         }
     }
 
-    public Map<String, Object> getMap() {
+    public Map<String, String> getMap() {
         return this.map;
     }
 
-    public Object getValue(String key) {
+    public String getValue(String key) {
         return map.get(key);
     }
 
-    public Capability addMap(String key, Object value) {
+    public Capability addMap(String key, String value) {
         map.put(key, value);
         return this;
     }
@@ -56,7 +56,7 @@ public class Capability {
         return this;
     }
 
-    public Capability addMap(Map<String, Object> map) {
+    public Capability addMap(Map<String, String> map) {
         this.map.putAll(map);
         return this;
     }

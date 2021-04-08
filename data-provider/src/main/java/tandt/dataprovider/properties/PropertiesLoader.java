@@ -52,13 +52,13 @@ public class PropertiesLoader {
 
     }
 
-    public static Map<String, Object> getMap(String filePath) throws PropertiesException {
+    public static Map<String, String> getMap(String filePath) throws PropertiesException {
         if (filePath == null || filePath.isEmpty()) {
             throw new PropertiesException("Properties file should not be null or empty");
         }
 
         try {
-            Map<String, Object> map = new HashMap<>();
+            Map<String, String> map = new HashMap<>();
             Properties props;
             FileInputStream fs = new FileInputStream(filePath);
             props = new Properties();
