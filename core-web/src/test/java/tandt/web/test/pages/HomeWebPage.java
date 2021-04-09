@@ -1,13 +1,13 @@
 package tandt.web.test.pages;
 
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-import tandt.web.BaseWebPage;
-import tandt.web.PageFactory;
+//import tandt.web.page.BaseWebPage;
+import tandt.web.ElementFactory;
 import tandt.web.annotations.FindElement;
 import tandt.web.element.BaseWebElement;
 import tandt.web.element.LocatorType;
+import tandt.web.BaseWebPage;
 
 import static tandt.web.element.WaitStrategy.VISIBILITY;
 
@@ -16,12 +16,10 @@ import static tandt.web.element.WaitStrategy.VISIBILITY;
  */
 public class HomeWebPage extends BaseWebPage<HomeWebPage> {
 
-
-    public HomeWebPage(WebDriver driver) {
-        super(driver);
-        PageFactory.initElements(this, this.driver);
+    public HomeWebPage() {
+        super();
+        ElementFactory.initElements(this);
         url = "http://google.com.vn";
-        PLog.info("URL: " + url);
     }
 
     @FindElement(type = LocatorType.XPATH, value = "//*[@class='gLFyf gsfi']", waitUntil = VISIBILITY)
@@ -31,9 +29,13 @@ public class HomeWebPage extends BaseWebPage<HomeWebPage> {
     private org.openqa.selenium.WebElement searchButton;
 
     public void search(String text) {
-        PLog.info("Search with text: " + text);
+//        PLog.info("Search with text: " + text);
         searchField.setText(Keys.SHIFT, text);
         searchField.submit();
     }
 
+    @Override
+    protected String getUrl() {
+        return null;
+    }
 }

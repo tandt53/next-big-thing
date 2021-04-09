@@ -4,10 +4,10 @@ import com.google.inject.Inject;
 import tandt.dataprovider.exceptions.PropertiesException;
 import tandt.web.drivermanager.Constants;
 
-public class CapabilityManagerService implements ICapabilityManagerService{
+public class DefaultCapabilityService implements CapabilityService {
 
     @Inject
-    ICapability capability;
+    Capability capability;
 
     /**
      * load capability from config file or command line
@@ -18,27 +18,25 @@ public class CapabilityManagerService implements ICapabilityManagerService{
             propertyFile = Constants.WEB_CONFIG_FILE;
         }
 
-        ICapability capFromCommandLine;
         // load properties from file
         try {
             capability.addCapability(propertyFile);
         } catch (PropertiesException e) {
             System.out.println("Unable to find config file at " + propertyFile + ".  empty caps will be loaded.");
-            capability = new Capability();
+            capability = new DefaultCapability();
         }
 
         // load properties from command line arguments
         capability.addCapability(Constants.cliParameters, Constants.CLI_PARAMETER_PREFIX_WEB);
-
     }
 
     @Override
-    public ICapability getCapability() {
+    public Capability getCapability() {
         return capability;
     }
 
     @Override
-    public void addCapabilities(ICapability capability) {
+    public void addCapabilities(Capability capability) {
         this.capability.addCapability(capability);
     }
 
