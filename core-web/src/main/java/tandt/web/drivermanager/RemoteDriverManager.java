@@ -16,12 +16,11 @@ import java.net.URL;
 public class RemoteDriverManager extends DriverManager {
 
     @Inject
-    private CapabilityService service;
+    private Capability caps;
 
     @Override
     public WebDriver initDriver() throws CommonException, MalformedURLException {
-        Capability caps = service.getCapability();
-        String url = Utils.parseVariables(caps.getValue(Constants.CAPABILITY_REMOTE_HOST).toString());
+        String url = Utils.parseVariables(caps.getValue(Constants.CAPABILITY_REMOTE_HOST));
         driver.set(new RemoteWebDriver(new URL(url),new MutableCapabilities(caps.getCapabilities())));
         return getDriver();
     }

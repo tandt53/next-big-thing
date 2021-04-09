@@ -10,14 +10,13 @@ import tandt.web.capability.CapabilityService;
 public class FirefoxDriverManager extends DriverManager {
 
     @Inject
-    private CapabilityService service;
+    private Capability caps;
 
     protected static String KEY_FIREFOX = "webdriver.gecko.driver";
 
     @Override
     public WebDriver initDriver() {
-        Capability caps = service.getCapability();
-        System.setProperty(KEY_FIREFOX, caps.getValue(Constants.CAPABILITY_DRIVER_PATH).toString());
+        System.setProperty(KEY_FIREFOX, caps.getValue(Constants.CAPABILITY_DRIVER_PATH));
         driver.set(new FirefoxDriver(new MutableCapabilities(caps.getCapabilities())));
         return getDriver();
     }
