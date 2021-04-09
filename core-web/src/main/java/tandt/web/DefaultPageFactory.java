@@ -8,12 +8,12 @@ public class DefaultPageFactory implements PageFactory {
 
     private WebDriver driver;
     private Injector injector;
+
     @Inject
     public DefaultPageFactory(WebDriver driver, Injector injector) {
         this.driver = driver;
         this.injector = injector;
     }
-
 
     @Override
     public <TPage extends BaseWebPage<TPage>> TPage create(Class<? extends TPage> contract) {
