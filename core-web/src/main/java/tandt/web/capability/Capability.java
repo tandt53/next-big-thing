@@ -1,78 +1,29 @@
 package tandt.web.capability;
 
 import tandt.dataprovider.exceptions.PropertiesException;
-import tandt.dataprovider.properties.PropertiesLoader;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Capability implements ICapability {
-    private Map<String, String> map;
+public interface Capability {
 
-    public Capability() {
-        map = new HashMap<>();
-    }
+    Capability addCapability(String propertyFile) throws PropertiesException;
 
-    public ICapability addCapability(String propertiesFile) throws PropertiesException {
-        map = PropertiesLoader.getMap(propertiesFile);
-        return this;
-    }
+    Capability addCapability(List<String> listOfPropertiesKeys);
 
-    public ICapability addCapability(List<String> listOfPropertiesKeys) {
+    Capability addCapability(List<String> listOfPropertiesKeys, String prefix);
 
-        for (String key : listOfPropertiesKeys) {
-            String value = System.getProperty(key);
-            if (value != null && !value.isEmpty()) {
-                map.put(key, value);
-            }
-        }
-        return this;
-    }
+    Capability addCapability(Map<String, String> map);
 
-    public ICapability addCapability(List<String> listOfPropertiesKeys, String prefix) {
+    Capability addCapability(String key, String value);
 
-        for (String key : listOfPropertiesKeys) {
-            String value = System.getProperty(key);
-            if (value != null && !value.isEmpty() && key.startsWith(prefix)) {
-                map.put(key.substring(prefix.length()), value);
-            }
-        }
-        return this;
-    }
+    Capability addCapability(Capability capability);
 
-    @Override
-    public Map<String, String> getCapabilities() {
-        return this.map;
-    }
+    Map<String, String> getCapabilities();
 
-    @Override
-    public String getValue(String key) {
-        return map.get(key);
-    }
+    String getValue(String key);
 
-    @Override
-    public ICapability addCapability(String key, String value) {
-        map.put(key, value);
-        return this;
-    }
+    Capability remove(String key);
 
-    @Override
-    public ICapability remove(String key) {
-        map.remove(key);
-        return this;
-    }
 
-    @Override
-    public ICapability addCapability(Map<String, String> map) {
-        this.map.putAll(map);
-        return this;
-    }
-
-    @Override
-    public ICapability addCapability(ICapability capability) {
-        if (capability != null)
-            return this.addCapability(capability.getCapabilities());
-        return this;
-    }
 }

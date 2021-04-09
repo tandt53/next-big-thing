@@ -1,18 +1,15 @@
 package tandt.web.drivermanager;
 
 import com.google.inject.Guice;
-import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Key;
-import com.google.inject.name.Named;
 import com.google.inject.name.Names;
-import tandt.web.capability.ICapabilityManagerService;
-import tandt.web.modules.CoreModule;
+import tandt.web.DriverBinder;
+import tandt.web.capability.CapabilityService;
 
 public class DriverManagerFactory {
 
     private static ThreadLocal<DriverManager> manager = new ThreadLocal<>();
-
 
     /**
      * Init driver manager based on expected browser type: chrome, firefox, safari
@@ -29,8 +26,8 @@ public class DriverManagerFactory {
 
     public static DriverManager getDriverManager() {
         Injector injector;
-        injector = Guice.createInjector(new CoreModule());
-        ICapabilityManagerService service = injector.getInstance(ICapabilityManagerService.class);
+        injector = Guice.createInjector(new DriverBinder());
+        CapabilityService service = injector.getInstance(CapabilityService.class);
         service.loadCapabilities();
 
         String browser = service.getCapability().getValue("browser");

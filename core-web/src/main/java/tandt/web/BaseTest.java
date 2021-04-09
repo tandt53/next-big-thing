@@ -1,14 +1,16 @@
 package tandt.web;
 
+import com.google.inject.Inject;
+
 /**
- * Created by thetan.do on 12/28/2016.
+ * The base class for all test cases.
  */
+public class BaseTest {
 
-public class BaseTest<TTest extends BaseTest<?>> {
+    @Inject
+    private PageFactory _pageFactory;
 
-	public BaseTest() throws IllegalAccessException {
-//		BrowserFactory.initPages(this);
-	}
-
-
+    protected <TPage extends BaseWebPage<TPage>> TPage page(Class<? extends TPage> contract) {
+        return _pageFactory.create(contract);
+    }
 }

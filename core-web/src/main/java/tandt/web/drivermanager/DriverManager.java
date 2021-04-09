@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 
 public abstract class DriverManager {
 
-    protected ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    public static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public WebDriver getDriver() {
         return driver.get();

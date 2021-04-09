@@ -1,37 +1,35 @@
 package tandt.web;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import tandt.common.Log;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 /**
- * Created by thetan.do on 12/28/2016.
+ * The base class for all pages.
  */
-public class BaseWebPage<TPage extends BaseWebPage<?>> {
+public abstract class BaseWebPage<TPage extends BaseWebPage> {
 
     /**
-     *  url
+     * url
      */
     public String url;
 
-    protected WebDriver driver;
+    private WebDriver driver;
 
-    protected WebDriverWait wait;
-    protected final int _TIMEOUT = 30;
-
-    @SuppressWarnings("unchecked")
-    public Log PLog = new Log(((TPage) BaseWebPage.this).getClass());
-
-    public BaseWebPage(WebDriver driver) {
+    void setDriver(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(this.driver, _TIMEOUT);
-        PageFactory.initElements(this, this.driver);
     }
 
+    public WebElement findElement(By by) {
+        return driver.findElement(by);
+    }
 
-    /**
-     * open  page with url is not null
-     */
+    public List<WebElement> findElements(By by) {
+        return driver.findElements(by);
+    }
+
     public TPage open() {
         if (url != null)
             return open(url);
@@ -48,12 +46,18 @@ public class BaseWebPage<TPage extends BaseWebPage<?>> {
     }
 
     /**
-     * close page and quit driver
+     * When overridden in subclasses, releases all resources being used by the page if necessary.
      */
-    public void close() {
-        if (driver != null)
-            driver.quit();
+    public TPage close() {
+        driver.close();
+        driver = null;
+        return (TPage) this;
     }
+
+    /**
+     * When overridden in subclasses, returns exact url of the page.
+     */
+    protected abstract String getUrl();
 
     /**
      * getTitle

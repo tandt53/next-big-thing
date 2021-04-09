@@ -14,8 +14,8 @@ public class ElementInvocationHandler implements InvocationHandler {
     private BaseWebElement baseWebElement;
     Log log = new Log(BaseWebElement.class);
 
-    public ElementInvocationHandler(ElementInfo elementInfo, WebDriver driver) {
-        baseWebElement = new BaseWebElementImpl(elementInfo, driver);
+    public ElementInvocationHandler(ElementInfo elementInfo) {
+        baseWebElement = new BaseWebElementImpl(elementInfo);
     }
 
     @Override
