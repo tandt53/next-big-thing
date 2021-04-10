@@ -4,19 +4,20 @@ import com.google.inject.Inject;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import tandt.web.capability.Capability;
-import tandt.web.capability.CapabilityService;
+import ui.capability.Capability;
+import ui.capability.CapabilityService;
 
 public class EdgeDriverManager extends DriverManager{
 
     @Inject
-    private Capability caps;
+    private CapabilityService service;
 
     protected static String KEY_EDGE = "webdriver.edge.driver";
 
     @Override
     public WebDriver initDriver() {
-        System.setProperty(KEY_EDGE, caps.getValue(Constants.CAPABILITY_DRIVER_PATH));
+        Capability caps = service.getCapability();
+        System.setProperty(KEY_EDGE, caps.get(Constants.CAPABILITY_DRIVER_PATH));
         driver.set(new EdgeDriver(new MutableCapabilities(caps.getCapabilities())));
         return getDriver();
     }

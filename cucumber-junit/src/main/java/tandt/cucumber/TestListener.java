@@ -14,7 +14,6 @@ public class TestListener implements ConcurrentEventListener {
         publisher.registerHandlerFor(TestRunStarted.class, this::handleTestRunStarted);
         publisher.registerHandlerFor(TestRunFinished.class, this::handleTestRunFinished);
         publisher.registerHandlerFor(TestStepStarted.class, this::handleTestStepStarted);
-
     }
 
     private void handleTestStepStarted(TestStepStarted event) {

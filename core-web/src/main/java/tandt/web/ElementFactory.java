@@ -1,8 +1,11 @@
 package tandt.web;
 
 import tandt.web.annotations.FindElement;
-import tandt.web.element.*;
-//import tandt.web.page.BaseWebPage;
+import tandt.web.element.BaseWebElement;
+import tandt.web.element.ElementInvocationHandler;
+import tandt.web.element.WebElementInfo;
+import tandt.web.element.WebLocatorType;
+import ui.element.WaitStrategy;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Proxy;
@@ -15,19 +18,19 @@ public class ElementFactory {
             for (Field field : objectClass.getDeclaredFields()) {
                 field.setAccessible(true);
                 if (field.isAnnotationPresent(FindElement.class)) {
-                    LocatorType type = getLocatorType(field);
+                    WebLocatorType type = getLocatorType(field);
                     String value = getLocatorValue(field);
                     String name = field.getName();
                     WaitStrategy waitUntil = getWaitStrategy(field);
                     if (type != null && value != null) {
-                        ElementInfo elementInfo = new ElementInfo();
-                        elementInfo.setName(name);
-                        elementInfo.setLocatorType(type);
-                        elementInfo.setLocatorValue(value);
-                        elementInfo.setStrategy(waitUntil);
+                        WebElementInfo webElementInfo = new WebElementInfo();
+                        webElementInfo.setName(name);
+                        webElementInfo.setLocatorType(type);
+                        webElementInfo.setLocatorValue(value);
+                        webElementInfo.setStrategy(waitUntil);
 
                         Object baseElement = (BaseWebElement) Proxy.newProxyInstance(BaseWebElement.class.getClassLoader(),
-                                new Class[]{BaseWebElement.class}, new ElementInvocationHandler(elementInfo));
+                                new Class[]{BaseWebElement.class}, new ElementInvocationHandler(webElementInfo));
                         field.set(page, baseElement);
                     }
                 }
@@ -45,7 +48,7 @@ public class ElementFactory {
         return field.getAnnotation(FindElement.class).value();
     }
 
-    private static LocatorType getLocatorType(Field field) {
+    private static WebLocatorType getLocatorType(Field field) {
         return field.getAnnotation(FindElement.class).type();
     }
 }

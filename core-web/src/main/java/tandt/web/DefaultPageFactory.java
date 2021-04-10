@@ -19,7 +19,6 @@ public class DefaultPageFactory implements PageFactory {
     public <TPage extends BaseWebPage<TPage>> TPage create(Class<? extends TPage> contract) {
         TPage page = injector.getInstance(contract);
         page.setDriver(driver);
-        org.openqa.selenium.support.PageFactory.initElements(driver, page);
         return page;
     }
 }

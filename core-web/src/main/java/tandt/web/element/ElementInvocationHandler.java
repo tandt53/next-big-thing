@@ -1,6 +1,5 @@
 package tandt.web.element;
 
-import org.openqa.selenium.WebDriver;
 import tandt.common.Log;
 import tandt.web.annotations.Clocking;
 
@@ -14,8 +13,8 @@ public class ElementInvocationHandler implements InvocationHandler {
     private BaseWebElement baseWebElement;
     Log log = new Log(BaseWebElement.class);
 
-    public ElementInvocationHandler(ElementInfo elementInfo) {
-        baseWebElement = new BaseWebElementImpl(elementInfo);
+    public ElementInvocationHandler(WebElementInfo webElementInfo) {
+        baseWebElement = new BaseWebElementImpl(webElementInfo);
     }
 
     @Override
