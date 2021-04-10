@@ -8,16 +8,6 @@ public class Constants {
     Constants() {
     }
 
-    public static final String DRIVER_CHROME_LOCAL="chrome.local";
-    public static final String DRIVER_FIREFOX_LOCAL = "firefox.local";
-    public static final String DRIVER_SAFARI_LOCAL = "safari.local";
-    public static final String DRIVER_EDGE_LOCAL = "edge.local";
-    public static final String DRIVER_CHROME_REMOTE = "chrome.remote";
-    public static final String DRIVER_FIREFOX_REMOTE = "firefox.remote";
-    public static final String DRIVER_SAFARI_REMOTE = "safari.remote";
-    public static final String DRIVER_EDGE_REMOTE = "edge.remote";
-
-
     public static final String DRIVER_TYPE_CHROME = "chrome";
     public static final String DRIVER_TYPE_FIREFOX = "firefox";
     public static final String DRIVER_TYPE_SAFARI = "safari";
@@ -31,10 +21,10 @@ public class Constants {
     public static final String CLI_PARAM_CONFIG_WEB = "config.web"; // property define web config file from command line
 
     /**
-     * All capabilities in command line arguments must have prefix "web".
+     * All capabilities in command line arguments must have prefix "web.".
      * It avoids duplicate with mobile capabilities. Ex: browser, browser_version, etc.
      */
-    public static final String CLI_PARAMETER_PREFIX_WEB = "web";
+    public static final String CLI_PARAMETER_PREFIX_WEB = "web.";
     // capabilities
     public static final String CAPABILITY_ENV = "env";
     public static final String CAPABILITY_OS = "os";

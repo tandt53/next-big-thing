@@ -1,13 +1,13 @@
 package tandt.mobile.element;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tandt.mobile.Conditions;
+import tandt.mobile.drivermanager.MobileDriverManager;
+import ui.element.WaitStrategy;
 
 import java.time.Duration;
 import java.util.List;
@@ -16,34 +16,32 @@ import java.util.function.Function;
 public class BaseMobileElementImpl implements BaseMobileElement {
 
     private By locator;
-    private ElementInfo elementInfo;
+    private MobileElementInfo mobileElementInfo;
     private final int _TIMEOUT = 10;
     private Function<By, ExpectedCondition<WebElement>> waitForElement = Conditions.PRESENCE; //  wait strategy
     private Function<By, ExpectedCondition<List<WebElement>>> waitForListElement = Conditions.PRESENCE_ALL; //  wait strategy
-    private AppiumDriver<WebElement> driver;
     private WebDriverWait wait;
 
     BaseMobileElementImpl() {
     }
 
-    public void setElementInfo(ElementInfo elementInfo) {
-        this.elementInfo = elementInfo;
+    public void setElementInfo(MobileElementInfo mobileElementInfo) {
+        this.mobileElementInfo = mobileElementInfo;
     }
 
-    public ElementInfo getElementInfo() {
-        return elementInfo;
+    public MobileElementInfo getElementInfo() {
+        return mobileElementInfo;
     }
 
-    public BaseMobileElementImpl(ElementInfo elementInfo, AppiumDriver<WebElement> driver) {
-        this.elementInfo = elementInfo;
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, _TIMEOUT);
+    public BaseMobileElementImpl(MobileElementInfo mobileElementInfo) {
+        this.mobileElementInfo = mobileElementInfo;
+//        this.wait = new WebDriverWait(MobileDriverManager.driver.get(), _TIMEOUT);
         initLocator();
         initWaitStrategy();
     }
 
     private void initWaitStrategy() {
-        WaitStrategy waitStrategy = this.elementInfo.getStrategy();
+        WaitStrategy waitStrategy = this.mobileElementInfo.getStrategy();
         if (waitStrategy != null)
 
             switch (waitStrategy) {
@@ -60,55 +58,60 @@ public class BaseMobileElementImpl implements BaseMobileElement {
     }
 
     private void initLocator() {
-        switch (this.elementInfo.getLocatorType()) {
+        switch (this.mobileElementInfo.getLocatorType()) {
             case CLASS_NAME:
-                locator = MobileBy.className(this.elementInfo.getLocatorValue());
+                locator = MobileBy.className(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case ID:
-                locator = MobileBy.id(this.elementInfo.getLocatorValue());
+                locator = MobileBy.id(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case NAME:
-                locator = MobileBy.name(this.elementInfo.getLocatorValue());
+                locator = MobileBy.name(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case XPATH:
-                locator = MobileBy.xpath(this.elementInfo.getLocatorValue());
+                locator = MobileBy.xpath(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case ACCESSIBILITY_ID:
-                locator = MobileBy.AccessibilityId(this.elementInfo.getLocatorValue());
+                locator = MobileBy.AccessibilityId(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case IOS_PREDICATE:
-                locator = MobileBy.iOSNsPredicateString(this.elementInfo.getLocatorValue());
+                locator = MobileBy.iOSNsPredicateString(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case IOS_CLASS_CHAIN:
-                locator = MobileBy.iOSClassChain(this.elementInfo.getLocatorValue());
+                locator = MobileBy.iOSClassChain(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case ANDROID_UIAUTOMATOR:
-                locator = MobileBy.AndroidUIAutomator(this.elementInfo.getLocatorValue());
+                locator = MobileBy.AndroidUIAutomator(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case ANDROID_DATA_MATCHER:
-                locator = MobileBy.androidDataMatcher(this.elementInfo.getLocatorValue());
+                locator = MobileBy.androidDataMatcher(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case ANDROID_VIEW_MATCHER:
-                locator = MobileBy.androidViewMatcher(this.elementInfo.getLocatorValue());
+                locator = MobileBy.androidViewMatcher(this.mobileElementInfo.getLocatorValue());
                 break;
             case ANDROID_VIEW_TAG:
-                locator = MobileBy.AndroidViewTag(this.elementInfo.getLocatorValue());
+                locator = MobileBy.AndroidViewTag(this.mobileElementInfo.getLocatorValue());
                 break;
         }
     }
 
-    private FluentWait<WebDriver> getWait(long timeout) {
-        return this.wait.withTimeout(Duration.ofSeconds(timeout));
+    private WebDriverWait getWait(long timeout) {
+        wait =  new WebDriverWait(MobileDriverManager.driver.get(), timeout);
+        return wait;
     }
+
+//    private FluentWait<WebDriver> getWait(long timeout) {
+//        return this.wait.withTimeout(Duration.ofSeconds(timeout));
+//    }
 
     public By getLocator() {
         return locator;
@@ -206,7 +209,7 @@ public class BaseMobileElementImpl implements BaseMobileElement {
 
     @Override
     public BaseMobileElement formatLocatorValue(String... eventName) {
-        this.elementInfo.setLocatorValue(String.format(this.elementInfo.getLocatorValue(), eventName));
+        this.mobileElementInfo.setLocatorValue(String.format(this.mobileElementInfo.getLocatorValue(), eventName));
         initLocator();
         return this;
     }
@@ -244,7 +247,7 @@ public class BaseMobileElementImpl implements BaseMobileElement {
     }
 
     private <T> T waitUntil(ExpectedCondition<T> condition) {
-        return this.wait.until(condition);
+        return this.getWait(_TIMEOUT).until(condition);
     }
 
     private class WaitFor {

@@ -9,9 +9,20 @@ import java.net.MalformedURLException;
 
 public abstract class MobileDriverManager {
 
-    protected ThreadLocal<AppiumDriver<WebElement>> driver = new ThreadLocal<>();
+    public static ThreadLocal<AppiumDriver<WebElement>> driver = new ThreadLocal<>();
 
     public AppiumDriver<WebElement> getDriver() {
+        if (driver.get() == null) {
+            try {
+                initDriver();
+            } catch (CommonException e) {
+                e.printStackTrace();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (PropertiesException e) {
+                e.printStackTrace();
+            }
+        }
         return driver.get();
     }
 

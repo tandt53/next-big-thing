@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tandt.web.Conditions;
 import tandt.web.drivermanager.DriverManager;
+import ui.element.WaitStrategy;
 
 import java.util.List;
 import java.util.function.Function;
@@ -13,31 +14,30 @@ import java.util.function.Function;
 public class BaseWebElementImpl implements BaseWebElement {
 
     private By locator;
-    private ElementInfo elementInfo;
+    private WebElementInfo webElementInfo;
     private Function<By, ExpectedCondition<org.openqa.selenium.WebElement>> waitForElement = Conditions.PRESENCE; //  wait strategy
     private Function<By, ExpectedCondition<List<org.openqa.selenium.WebElement>>> waitForListElement = Conditions.PRESENCE_ALL; //  wait strategy
-//    private WebDriver driver;
     private long timeout = 5;
 
     BaseWebElementImpl() {
     }
 
-    public void setElementInfo(ElementInfo elementInfo) {
-        this.elementInfo = elementInfo;
+    public void setElementInfo(WebElementInfo webElementInfo) {
+        this.webElementInfo = webElementInfo;
     }
 
-    public ElementInfo getElementInfo() {
-        return elementInfo;
+    public WebElementInfo getElementInfo() {
+        return webElementInfo;
     }
 
-    public BaseWebElementImpl(ElementInfo elementInfo) {
-        this.elementInfo = elementInfo;
-        initLocator(this.elementInfo.getLocatorType(), this.elementInfo.getLocatorValue());
+    public BaseWebElementImpl(WebElementInfo webElementInfo) {
+        this.webElementInfo = webElementInfo;
+        initLocator(this.webElementInfo.getLocatorType(), this.webElementInfo.getLocatorValue());
         initWaitStrategy();
     }
 
     private void initWaitStrategy() {
-        WaitStrategy waitStrategy = this.elementInfo.getStrategy();
+        WaitStrategy waitStrategy = this.webElementInfo.getStrategy();
         if (waitStrategy != null)
 
             switch (waitStrategy) {
@@ -53,8 +53,8 @@ public class BaseWebElementImpl implements BaseWebElement {
             }
     }
 
-    private void initLocator(LocatorType locatorType, String locatorValue) {
-        switch (locatorType) {
+    private void initLocator(WebLocatorType webLocatorType, String locatorValue) {
+        switch (webLocatorType) {
             case ID:
                 locator = By.id(locatorValue);
                 break;
@@ -222,8 +222,8 @@ public class BaseWebElementImpl implements BaseWebElement {
 
     @Override
     public BaseWebElement formatLocatorValue(String... eventName) {
-        String newLocator = String.format(this.elementInfo.getLocatorValue(), eventName);
-        initLocator(this.elementInfo.getLocatorType(), newLocator);
+        String newLocator = String.format(this.webElementInfo.getLocatorValue(), eventName);
+        initLocator(this.webElementInfo.getLocatorType(), newLocator);
         return this;
     }
     private class WaitFor {

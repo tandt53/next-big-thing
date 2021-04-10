@@ -2,6 +2,7 @@ package tandt.web.capability;
 
 import tandt.dataprovider.exceptions.PropertiesException;
 import tandt.dataprovider.properties.PropertiesLoader;
+import ui.capability.Capability;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,12 +15,12 @@ public class DefaultCapability implements Capability {
         map = new HashMap<>();
     }
 
-    public Capability addCapability(String propertiesFile) throws PropertiesException {
+    public Capability add(String propertiesFile) throws PropertiesException {
         map = PropertiesLoader.getMap(propertiesFile);
         return this;
     }
 
-    public Capability addCapability(List<String> listOfPropertiesKeys) {
+    public Capability add(List<String> listOfPropertiesKeys) {
 
         for (String key : listOfPropertiesKeys) {
             String value = System.getProperty(key);
@@ -30,12 +31,12 @@ public class DefaultCapability implements Capability {
         return this;
     }
 
-    public Capability addCapability(List<String> listOfPropertiesKeys, String prefix) {
+    public Capability add(List<String> listOfPropertiesKeys, String prefix) {
 
         for (String key : listOfPropertiesKeys) {
-            String value = System.getProperty(key);
-            if (value != null && !value.isEmpty() && key.startsWith(prefix)) {
-                map.put(key.substring(prefix.length()), value);
+            String value = System.getProperty(prefix + key);
+            if (value != null && !value.isEmpty() ) {
+                map.put(key, value);
             }
         }
         return this;
@@ -47,12 +48,12 @@ public class DefaultCapability implements Capability {
     }
 
     @Override
-    public String getValue(String key) {
+    public String get(String key) {
         return map.get(key);
     }
 
     @Override
-    public Capability addCapability(String key, String value) {
+    public Capability add(String key, String value) {
         map.put(key, value);
         return this;
     }
@@ -64,15 +65,15 @@ public class DefaultCapability implements Capability {
     }
 
     @Override
-    public Capability addCapability(Map<String, String> map) {
+    public Capability add(Map<String, String> map) {
         this.map.putAll(map);
         return this;
     }
 
     @Override
-    public Capability addCapability(Capability capability) {
+    public Capability add(Capability capability) {
         if (capability != null)
-            return this.addCapability(capability.getCapabilities());
+            return this.add(capability.getCapabilities());
         return this;
     }
 }

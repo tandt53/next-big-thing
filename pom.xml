@@ -20,7 +20,7 @@
         <module>common-test</module>
         <module>test-junit</module>
         <module>jacoco-summary</module>
-        <module>functions</module>
+        <module>core-ui</module>
     </modules>
 
     <properties>
@@ -43,20 +43,13 @@
             <dependency>
                 <groupId>com.google.inject</groupId>
                 <artifactId>guice</artifactId>
-                <version>4.2.2</version>
+                <version>5.0.1</version>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-core</artifactId>
                 <version>2.13.3</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.testng</groupId>
-                <artifactId>testng</artifactId>
-                <version>7.1.0</version>
-                <scope>compile</scope>
             </dependency>
 
             <!-- Extents report v3.1.0 -->
@@ -107,6 +100,13 @@
                 <version>${cucumberFamilyVersion}</version>
             </dependency>
 
+
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-guice</artifactId>
+                <version>${cucumberFamilyVersion}</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/junit/junit -->
             <dependency>
                 <groupId>junit</groupId>
@@ -114,17 +114,11 @@
                 <version>4.13.1</version>
             </dependency>
 
-            <dependency>
-                <groupId>io.cucumber</groupId>
-                <artifactId>cucumber-picocontainer</artifactId>
-                <version>${cucumberFamilyVersion}</version>
-            </dependency>
-
             <!-- core-mobile -->
             <dependency>
                 <groupId>io.appium</groupId>
                 <artifactId>java-client</artifactId>
-                <version>7.4.1</version>
+                <version>7.5.1</version>
             </dependency>
 
             <dependency>
@@ -138,6 +132,12 @@
                 <artifactId>lombok</artifactId>
                 <version>1.18.16</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>30.1.1-jre</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -149,6 +149,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>

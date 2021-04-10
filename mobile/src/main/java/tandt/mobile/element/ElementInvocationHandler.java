@@ -1,7 +1,5 @@
 package tandt.mobile.element;
 
-import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.WebElement;
 import tandt.common.Log;
 import tandt.mobile.annotations.Clocking;
 
@@ -18,8 +16,8 @@ public class ElementInvocationHandler implements InvocationHandler {
     private BaseMobileElement baseMobileElement;
     Log log = new Log(BaseMobileElement.class);
 
-    public ElementInvocationHandler(ElementInfo elementInfo, AppiumDriver<WebElement> driver) {
-        baseMobileElement = new BaseMobileElementImpl(elementInfo, driver);
+    public ElementInvocationHandler(MobileElementInfo mobileElementInfo) {
+        baseMobileElement = new BaseMobileElementImpl(mobileElementInfo);
     }
 
     // ******************************
