@@ -15,11 +15,7 @@ public abstract class MobileDriverManager {
         if (driver.get() == null) {
             try {
                 initDriver();
-            } catch (CommonException e) {
-                e.printStackTrace();
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (PropertiesException e) {
+            } catch (CommonException | MalformedURLException | PropertiesException e) {
                 e.printStackTrace();
             }
         }

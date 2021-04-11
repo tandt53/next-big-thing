@@ -13,13 +13,13 @@ import java.net.MalformedURLException;
 public class BaseTest {
 
     @Inject
-    private PageFactory _pageFactory;
+    private PageFactory pageFactory;
 
     @Inject
     protected PageManager pageManager;
 
     protected void page() throws CommonException, PropertiesException, MalformedURLException {
-        _pageFactory.create();
+        pageFactory.create();
     }
 
 }

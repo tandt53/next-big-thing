@@ -43,8 +43,8 @@ public class MobileModule extends AbstractModule {
                 configFile = Constants.MOBILE_CONFIG_FILE;
             }
             Properties properties = new Properties();
-            try {
-                properties.load(new FileInputStream(configFile));
+            try (FileInputStream fileInputStream = new FileInputStream(configFile)) {
+                properties.load(fileInputStream);
             } catch (IOException e) {
                 e.printStackTrace();
             }

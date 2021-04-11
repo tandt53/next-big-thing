@@ -17,8 +17,6 @@ public class MobileDriverProvider implements Provider<MobileDriverManager> {
 
     @Override
     public MobileDriverManager get() {
-
-        System.out.println("Selector: " + selector.get());
         return injector.getInstance(Key.get(MobileDriverManager.class, Names.named(selector.get())));
     }
 }

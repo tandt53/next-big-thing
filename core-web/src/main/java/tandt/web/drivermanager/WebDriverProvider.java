@@ -23,7 +23,6 @@ public class WebDriverProvider implements Provider<WebDriver> {
     public WebDriver get() {
 
         try {
-            System.out.println("Selector: " + selector.get());
             return injector.getInstance(Key.get(DriverManager.class, Names.named(selector.get()))).initDriver();
         } catch (CommonException | MalformedURLException e) {
             e.printStackTrace();

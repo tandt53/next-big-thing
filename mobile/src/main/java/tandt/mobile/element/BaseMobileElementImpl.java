@@ -13,6 +13,8 @@ import java.time.Duration;
 import java.util.List;
 import java.util.function.Function;
 
+import static org.openqa.selenium.By.*;
+
 public class BaseMobileElementImpl implements BaseMobileElement {
 
     private By locator;
@@ -60,19 +62,19 @@ public class BaseMobileElementImpl implements BaseMobileElement {
     private void initLocator() {
         switch (this.mobileElementInfo.getLocatorType()) {
             case CLASS_NAME:
-                locator = MobileBy.className(this.mobileElementInfo.getLocatorValue());
+                locator = className(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case ID:
-                locator = MobileBy.id(this.mobileElementInfo.getLocatorValue());
+                locator = id(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case NAME:
-                locator = MobileBy.name(this.mobileElementInfo.getLocatorValue());
+                locator = name(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case XPATH:
-                locator = MobileBy.xpath(this.mobileElementInfo.getLocatorValue());
+                locator = xpath(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case ACCESSIBILITY_ID:
@@ -108,10 +110,6 @@ public class BaseMobileElementImpl implements BaseMobileElement {
         wait =  new WebDriverWait(MobileDriverManager.driver.get(), timeout);
         return wait;
     }
-
-//    private FluentWait<WebDriver> getWait(long timeout) {
-//        return this.wait.withTimeout(Duration.ofSeconds(timeout));
-//    }
 
     public By getLocator() {
         return locator;

@@ -29,6 +29,6 @@ public class MyApplicationTest2 extends BaseTest {
     @Test
     public void loginTest() {
         page.login("admin", "admin", true);
-        Assert.assertEquals("Login success", page.getMessage());
+        Assert.assertEquals(page.getMessage(), "Login success");
     }
 }

@@ -8,9 +8,9 @@ import com.google.inject.Inject;
 public class BaseTest {
 
     @Inject
-    private PageFactory _pageFactory;
+    private PageFactory pageFactory;
 
     protected <TPage extends BaseWebPage<TPage>> TPage page(Class<? extends TPage> contract) {
-        return _pageFactory.create(contract);
+        return pageFactory.create(contract);
     }
 }

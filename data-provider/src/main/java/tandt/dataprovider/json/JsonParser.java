@@ -17,7 +17,7 @@ public class JsonParser {
     public static <T> void fromObjectToJsonFile(T object, String filePath) throws IOException {
         Writer writer = new FileWriter(filePath);
         gson.toJson(object, writer);
-        writer.flush();;
+        writer.flush();
         writer.close();
     }
 

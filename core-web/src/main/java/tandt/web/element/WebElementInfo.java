@@ -17,10 +17,6 @@ public class WebElementInfo extends ElementInfo {
         this.setStrategy(elementInfo.getStrategy());
     }
 
-    private void init(String name, WebLocatorType type, String locatorValue, WaitStrategy strategy) {
-
-    }
-
     public WebLocatorType getLocatorType() {
         return webLocatorType;
     }

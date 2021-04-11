@@ -104,7 +104,7 @@ public class JsonBuilder2 {
                         curChildNodeIndex, path, curIndex, key, value));
                 return jsonElement.getAsJsonObject();
             }
-        } else if (jsonElement != null && jsonElement.isJsonArray()) {
+        } else if ( jsonElement.isJsonArray()) {
             JsonArray ja = jsonElement.getAsJsonArray();
 
             // if current node is the last node
@@ -249,24 +249,11 @@ public class JsonBuilder2 {
     }
 
     private JsonObject jsonObjectAddJsonElement(JsonObject jo, String key, JsonElement je) {
-//        if (jo == null)
-//            throw new JsonElementException()
-//        if(key == null || key.isEmpty())
-//            throw new JsonElementException()
-//        if(je == null)
-//            throw JsonElementException()
-
         jo.add(key, je);
         return jo;
     }
 
     private JsonObject jsonObjectAddMap(JsonObject jo, String key, Object value) {
-//        if (jo == null)
-//            throw new JsonElementException()
-//        if(key == null || key.isEmpty())
-//            throw new JsonElementException()
-//        if(value == null)
-//            throw JsonElementException()
         if (value instanceof Number) {
             jo.addProperty(key, (Number) value);
         } else if (value instanceof String) {
@@ -289,10 +276,6 @@ public class JsonBuilder2 {
     }
 
     private JsonArray jsonArrayAddValue(JsonArray ja, Object value) {
-        // if(ja == null)
-        // throw new JsonElementException();
-        // if(value == null)
-        // throw new JsonElementException();
 
         if (value instanceof Number) {
             ja.add(new JsonPrimitive((Number) value));

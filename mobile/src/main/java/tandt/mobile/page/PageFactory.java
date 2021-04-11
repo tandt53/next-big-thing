@@ -10,9 +10,5 @@ import java.net.MalformedURLException;
  */
 public interface PageFactory {
 
-//    <TPage extends BasePage<TPage>> TPage create(Class<? extends TPage> contract);
-
-//    <TPage extends BasePage<TPage>> TPage create(Class<? extends TPage> contract, AbstractModule module);
-
     void create() throws PropertiesException, CommonException, MalformedURLException;
 }

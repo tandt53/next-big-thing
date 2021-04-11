@@ -24,7 +24,7 @@ public class PageManager {
 
     private Injector injector;
 
-    public PageManager setBinder(PageBinder binder){
+    public <TBinder extends PageBinder> PageManager setBinder(TBinder binder){
         injector = Guice.createInjector(binder);
         return this;
     }
