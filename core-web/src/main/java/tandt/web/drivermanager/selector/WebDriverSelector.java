@@ -29,8 +29,8 @@ public class WebDriverSelector implements DriverSelector {
                 propertyFile = Constants.WEB_CONFIG_FILE;
             }
             Properties properties = new Properties();
-            try {
-                properties.load(new FileInputStream(propertyFile));
+            try (FileInputStream fileInputStream = new FileInputStream(propertyFile)) {
+                properties.load(fileInputStream);
                 targetedDriver = properties.getProperty(Constants.CAPABILITY_ENV) + "." + properties.getProperty(Constants.CAPABILITY_BROWSER);
             } catch (IOException e) {
                 targetedDriver = Constants.ENV_LOCAL + "." + Constants.DRIVER_TYPE_CHROME;

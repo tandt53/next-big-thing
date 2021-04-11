@@ -1,7 +1,7 @@
 package tandt.dataprovider.exceptions;
 
-public class PropertiesException extends Throwable {
-    public PropertiesException(String s) {
-        super(s);
+public class PropertiesException extends Exception {
+    public PropertiesException(String message) {
+        super(message);
     }
 }

@@ -170,7 +170,7 @@ public class JsonBuilder {
 
         int length = path.length;
 
-        if (jeCurNode != null && jeCurNode.isJsonObject()) {
+        if (jeCurNode.isJsonObject()) {
             JsonObject joCurNode = jeCurNode.getAsJsonObject();
             if (curLevel == length) {
                 throw new JsonElementNotFoundException("The last node should be an array.");
@@ -190,7 +190,7 @@ public class JsonBuilder {
             joCurNode.add(nextNode, jeDescendantNode); // add the nodes to the current node
             return joCurNode;
 
-        } else if (jeCurNode != null && jeCurNode.isJsonArray()) {
+        } else if (jeCurNode.isJsonArray()) {
             JsonArray jaCurNode = jeCurNode.getAsJsonArray();
 
             if (curLevel == length) {
@@ -244,7 +244,7 @@ public class JsonBuilder {
             }
         }
 
-        if (jsonElement != null && jsonElement.isJsonObject()) {
+        if (jsonElement.isJsonObject()) {
             if (curIndex == path.length) {
                 return addProperty(jsonElement.getAsJsonObject(), key, value);
             } else {
@@ -255,7 +255,7 @@ public class JsonBuilder {
                         curChildNodeIndex, path, curIndex, key, value));
                 return jsonElement.getAsJsonObject();
             }
-        } else if (jsonElement != null && jsonElement.isJsonArray()) {
+        } else if (jsonElement.isJsonArray()) {
             JsonArray ja = jsonElement.getAsJsonArray();
 
             // if current node is the last node
@@ -384,10 +384,7 @@ public class JsonBuilder {
         }
     }
 
-    private JsonElement add(JsonObject jsonObject, String key, Object value) throws JsonElementNotFoundException {
-        if (key.contains(".")) {
-//			throw new JsonElementNotFoundException("Parent key should not contain \".\" or \\[ or \\]");
-        }
+    private JsonElement add(JsonObject jsonObject, String key, Object value) {
         return addProperty(jsonObject, key, value);
     }
 
@@ -443,7 +440,7 @@ public class JsonBuilder {
             throw new JsonElementNotFoundException("Index should be equals or less than array's size.");
         }
 
-        if (ja != null && ja.size() != 0 && index < ja.size()) {
+        if ( ja.size() != 0 && index < ja.size()) {
             jo = ja.get(index).getAsJsonObject();
         }
 

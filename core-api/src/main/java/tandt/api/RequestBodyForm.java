@@ -16,7 +16,7 @@ public class RequestBodyForm extends RequestBody {
     }
 
     public void addEncoded(String name, String value){
-        builder.addEncoded(name, name);
+        builder.addEncoded(name, value);
     }
 
     @Override

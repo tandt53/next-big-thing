@@ -9,17 +9,17 @@ import java.net.MalformedURLException;
 
 public class DefaultPageFactory implements PageFactory {
 
-    private MobileDriverManager _driver;
+    private MobileDriverManager driver;
 
     @Inject
     public DefaultPageFactory(MobileDriverManager driver) {
-        _driver = driver;
+        driver = driver;
     }
 
 
     @Override
     public void create() throws PropertiesException, CommonException, MalformedURLException {
-        _driver.initDriver();
+        driver.initDriver();
     }
 
 }

@@ -20,9 +20,8 @@ public class PropertiesLoader {
             throw new PropertiesException("Properties file should not be null or empty");
         }
 
-        try {
+        try (FileInputStream fs = new FileInputStream(filePath)) {
             Properties props;
-            FileInputStream fs = new FileInputStream(filePath);
             props = new Properties();
             props.load(fs);
             return props.get(key);
@@ -40,9 +39,8 @@ public class PropertiesLoader {
             throw new PropertiesException("Properties file should not be null or empty");
         }
 
-        try {
+        try (FileInputStream fs = new FileInputStream(filePath)) {
             Properties props;
-            FileInputStream fs = new FileInputStream(filePath);
             props = new Properties();
             props.loadFromXML(fs);
             return props.get(key);
@@ -57,10 +55,9 @@ public class PropertiesLoader {
             throw new PropertiesException("Properties file should not be null or empty");
         }
 
-        try {
-            Map<String, String> map = new HashMap<>();
+        try (FileInputStream fs = new FileInputStream(filePath)) {
             Properties props;
-            FileInputStream fs = new FileInputStream(filePath);
+            Map<String, String> map = new HashMap<>();
             props = new Properties();
             props.load(fs);
 
@@ -75,8 +72,8 @@ public class PropertiesLoader {
     }
 
     public static void saveProperties(Properties props, String filePath, String comment) {
-        try {
-            props.store(new FileWriter(filePath), comment);
+        try (FileWriter fileWriter = new FileWriter(filePath)) {
+            props.store(fileWriter, comment);
         } catch (IOException e) {
             e.printStackTrace();
         }

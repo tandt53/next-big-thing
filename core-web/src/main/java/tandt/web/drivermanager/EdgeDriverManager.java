@@ -12,7 +12,7 @@ public class EdgeDriverManager extends DriverManager{
     @Inject
     private CapabilityService service;
 
-    protected static String KEY_EDGE = "webdriver.edge.driver";
+    private static String KEY_EDGE = "webdriver.edge.driver";
 
     @Override
     public WebDriver initDriver() {

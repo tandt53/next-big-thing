@@ -30,7 +30,7 @@ public class SheetParser {
         sheet.setDefaultRowHeightInPoints(30f);
     }
 
-    public Row getRow(int rowIndex, boolean isForSetValue) throws RowNotFoundException, WorksheetNotFoundException {
+    public Row getRow(int rowIndex, boolean isForSetValue) throws RowNotFoundException {
         Row row = this.sheet.getRow(rowIndex);
 
         if (row == null && isForSetValue) {

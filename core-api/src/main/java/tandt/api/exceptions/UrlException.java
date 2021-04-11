@@ -1,6 +1,6 @@
 package tandt.api.exceptions;
 
-public class UrlException extends Throwable{
+public class UrlException extends Exception{
 
     public UrlException() {
         super();
