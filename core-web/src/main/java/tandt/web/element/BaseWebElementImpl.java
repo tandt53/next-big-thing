@@ -1,6 +1,9 @@
 package tandt.web.element;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -90,7 +93,7 @@ public class BaseWebElementImpl implements BaseWebElement {
         }
     }
 
-    public org.openqa.selenium.WebElement waitUntil(final Function<By, ExpectedCondition<org.openqa.selenium.WebElement>> condition) throws java.util.NoSuchElementException, TimeoutException {
+    public org.openqa.selenium.WebElement waitUntil(final Function<By, ExpectedCondition<org.openqa.selenium.WebElement>> condition)  {
         return waitUntil(condition, timeout);
     }
 
@@ -109,15 +112,15 @@ public class BaseWebElementImpl implements BaseWebElement {
         return waitUntilAll(waitForListElement, timeout);
     }
 
-    private <V> V waitUntil(final Function<By, ExpectedCondition<V>> condition, long timeout) throws NoSuchElementException, TimeoutException {
+    private <V> V waitUntil(final Function<By, ExpectedCondition<V>> condition, long timeout){
         return getWait(timeout).until(condition.apply(getLocator()));
     }
 
-    public List<org.openqa.selenium.WebElement> waitUntilAll(final Function<By, ExpectedCondition<List<org.openqa.selenium.WebElement>>> condition) throws NoSuchElementException, TimeoutException {
+    public List<org.openqa.selenium.WebElement> waitUntilAll(final Function<By, ExpectedCondition<List<org.openqa.selenium.WebElement>>> condition) {
         return waitUntilAll(condition, timeout);
     }
 
-    private List<org.openqa.selenium.WebElement> waitUntilAll(final Function<By, ExpectedCondition<List<org.openqa.selenium.WebElement>>> condition, long timeout) throws NoSuchElementException, TimeoutException {
+    private List<org.openqa.selenium.WebElement> waitUntilAll(final Function<By, ExpectedCondition<List<org.openqa.selenium.WebElement>>> condition, long timeout)   {
         return getWait(timeout).until(condition.apply(getLocator()));
     }
 
@@ -153,7 +156,7 @@ public class BaseWebElementImpl implements BaseWebElement {
 
 
     @Override
-    public void click() throws TimeoutException {
+    public void click() {
         waitUntil(waitForElement).click();
     }
 

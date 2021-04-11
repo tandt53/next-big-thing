@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class WorkbookParser {
 
-    XSSFWorkbook workbook;
+    private XSSFWorkbook workbook;
 
     public WorkbookParser(){
         workbook = new XSSFWorkbook();
