@@ -1,7 +1,10 @@
 package tandt.mobile;
 
 import tandt.mobile.annotations.FindElement;
-import tandt.mobile.element.*;
+import tandt.mobile.element.BaseMobileElement;
+import tandt.mobile.element.ElementInvocationHandler;
+import tandt.mobile.element.MobileElementInfo;
+import tandt.mobile.element.MobileLocatorType;
 import tandt.mobile.page.BasePage;
 import ui.element.WaitStrategy;
 

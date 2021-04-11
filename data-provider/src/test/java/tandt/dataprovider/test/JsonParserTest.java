@@ -22,7 +22,7 @@ public class JsonParserTest {
     @Test
     public void testReadFile() {
 
-        String jsonFile = System.getProperty("user.dir") + "/dev-data/leadTest.json";
+        String jsonFile = System.getProperty("user.dir") + "/input/data/leadTest.json";
         String jsonPath = "tests[0].input.general";
         LeadGeneral leadGeneral;
         try {
@@ -49,9 +49,9 @@ public class JsonParserTest {
 
     @Test
     public void sampleTest() throws IOException {
-        System.out.println(JsonParser.fromJsonFileToObject(filePath, jsonPath, String.class));
-
-        System.out.println(JsonParser.fromJsonStringToObject(jsonString, jsonPath, String.class));
+//        System.out.println(JsonParser.fromJsonFileToObject(filePath, jsonPath, String.class));
+//
+//        System.out.println(JsonParser.fromJsonStringToObject(jsonString, jsonPath, String.class));
     }
 }
 
