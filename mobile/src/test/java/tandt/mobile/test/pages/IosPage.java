@@ -1,15 +1,11 @@
 package tandt.mobile.test.pages;
 
-import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.WebElement;
 import tandt.mobile.ElementFactory;
 import tandt.mobile.annotations.FindElement;
 import tandt.mobile.element.BaseMobileElement;
 import tandt.mobile.element.MobileLocatorType;
 
 public class IosPage extends HomePage {
-
-    private AppiumDriver<WebElement> driver;
 
     @FindElement(type = MobileLocatorType.ID, value="edtUsername")
     private BaseMobileElement edtUsername;

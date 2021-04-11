@@ -8,7 +8,7 @@ import tandt.dataprovider.exceptions.WorksheetNotFoundException;
 
 public class SheetParser {
 
-    Sheet sheet;
+    private Sheet sheet;
 
     public SheetParser(Sheet sheet) {
         this.sheet = sheet;

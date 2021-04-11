@@ -18,7 +18,7 @@ public abstract class BaseWebPage<TPage extends BaseWebPage> {
 
     private WebDriver driver;
 
-    void setDriver(WebDriver driver) {
+    public void setDriver(WebDriver driver) {
         this.driver = driver;
     }
 

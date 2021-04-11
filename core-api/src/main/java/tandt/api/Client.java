@@ -20,7 +20,6 @@ public class Client {
     private final TimeUnit TIME_UNIT = TimeUnit.MILLISECONDS;
 
     private OkHttpClient.Builder builder;
-    private OkHttpClient client;
 
     private boolean isFollowRedirects = true;
     private boolean isAllowInsecure = false;

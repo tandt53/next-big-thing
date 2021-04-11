@@ -9,7 +9,7 @@ import ui.capability.CapabilityService;
 public class WebCapabilityService implements CapabilityService {
 
     @Inject
-    Capability capability;
+    private Capability capability;
 
     /**
      * load capability from config file or command line
