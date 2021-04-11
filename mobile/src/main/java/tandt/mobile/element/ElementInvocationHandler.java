@@ -41,8 +41,6 @@ public class ElementInvocationHandler implements InvocationHandler {
 
             log.info("Method " + method.getName() + " on element " + ((BaseMobileElementImpl) baseMobileElement).getElementInfo().getName()
                     + " executed in " + Duration.between(start, end).toMillis() + " ms.");
-            System.out.println("Method " + method.getName() + " on element " + ((BaseMobileElementImpl) baseMobileElement).getElementInfo().getName()
-                    + " executed in " + Duration.between(start, end).toMillis() + " ms.");
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			e.printStackTrace();
         }

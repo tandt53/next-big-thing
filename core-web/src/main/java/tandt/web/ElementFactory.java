@@ -29,7 +29,7 @@ public class ElementFactory {
                         webElementInfo.setLocatorValue(value);
                         webElementInfo.setStrategy(waitUntil);
 
-                        Object baseElement = (BaseWebElement) Proxy.newProxyInstance(BaseWebElement.class.getClassLoader(),
+                        BaseWebElement baseElement = (BaseWebElement) Proxy.newProxyInstance(BaseWebElement.class.getClassLoader(),
                                 new Class[]{BaseWebElement.class}, new ElementInvocationHandler(webElementInfo));
                         field.set(page, baseElement);
                     }

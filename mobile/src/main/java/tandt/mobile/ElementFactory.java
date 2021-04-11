@@ -30,7 +30,7 @@ public class ElementFactory {
                         mobileElementInfo.setLocatorValue(value);
                         mobileElementInfo.setStrategy(waitUntil);
 
-                        Object baseElement = (BaseMobileElement) Proxy.newProxyInstance(BaseMobileElement.class.getClassLoader(),
+                        BaseMobileElement baseElement = (BaseMobileElement) Proxy.newProxyInstance(BaseMobileElement.class.getClassLoader(),
                                 new Class[]{BaseMobileElement.class}, new ElementInvocationHandler(mobileElementInfo));
                         field.set(page, baseElement);
                     }
