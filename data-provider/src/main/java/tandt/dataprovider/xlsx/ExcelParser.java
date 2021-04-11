@@ -80,7 +80,6 @@ public class ExcelParser {
     // set `valueToSet` to the `index -th` row and in `targetColumnName` that match `conditions`
     public <T> void setValue(String sheetName, Conditions conditions, int index, String targetColumnName, T valueToSet) throws WorksheetNotFoundException, ConditionsException, CellNotFoundException, RowNotFoundException, WorkbookNotFoundException {
         log.info("set value in sheet '" + sheetName + "' with index '" + index + "' into column '" + targetColumnName + "' with value '" + valueToSet + "'");
-        ArrayList<String> cellValues = new ArrayList<>();
 
         SheetParser sheetParser = new SheetParser(workbookParser.getSheet(sheetName));
 
@@ -135,7 +134,6 @@ public class ExcelParser {
 
     // set `valueToSet` to the all row and in `targetColumnName` that match `conditions`
     public <T> void setAllValues(String sheetName, Conditions conditions, String targetColumnName, T valueToSet) throws WorkbookNotFoundException, WorksheetNotFoundException, RowNotFoundException, CellNotFoundException, ConditionsException {
-        ArrayList<String> cellValues = new ArrayList<>();
 
         SheetParser sheetParser = new SheetParser(workbookParser.getSheet(sheetName));
 
