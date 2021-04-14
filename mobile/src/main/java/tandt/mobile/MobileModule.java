@@ -4,7 +4,6 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 import com.google.inject.Singleton;
 import com.google.inject.name.Names;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileDriver;
 import tandt.mobile.capability.Capability;
 import tandt.mobile.capability.CapabilityService;
@@ -14,7 +13,6 @@ import tandt.mobile.drivermanager.*;
 import tandt.mobile.page.DefaultPageFactory;
 import tandt.mobile.page.PageFactory;
 
-import javax.inject.Provider;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;

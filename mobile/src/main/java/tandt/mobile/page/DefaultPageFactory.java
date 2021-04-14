@@ -1,9 +1,6 @@
 package tandt.mobile.page;
 
 import com.google.inject.Inject;
-import com.google.inject.Injector;
-import tandt.mobile.drivermanager.DriverManager;
-import tandt.mobile.drivermanager.DriverManagerFactory;
 import tandt.mobile.page.pagemanager.PageBinder;
 import tandt.mobile.page.pagemanager.PageManager;
 
