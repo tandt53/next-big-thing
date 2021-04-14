@@ -20,7 +20,6 @@ public class WebTestngListener extends TestListenerAdapter {
     private List<TestCase> testCases;
     private TestCase testCase;
 
-
     @Override
     public void onTestStart(ITestResult result) {
         super.onTestStart(result);
