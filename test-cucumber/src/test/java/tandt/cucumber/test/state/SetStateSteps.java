@@ -6,7 +6,7 @@ import io.cucumber.java.en.Given;
 public class SetStateSteps {
 
     @Inject
-    KeywordState state;
+    private KeywordState state;
 
 
     @Given("I set state value is {string}")
