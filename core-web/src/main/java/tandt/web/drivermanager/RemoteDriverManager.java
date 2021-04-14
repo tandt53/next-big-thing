@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import tandt.common.Utils;
 import tandt.common.exceptions.CommonException;
+import tandt.web.exception.DriverInitException;
 import ui.capability.Capability;
 import ui.capability.CapabilityService;
 
@@ -19,11 +20,16 @@ public class RemoteDriverManager extends DriverManager {
     private CapabilityService service;
 
     @Override
-    public WebDriver initDriver() throws CommonException, MalformedURLException {
+    public WebDriver initDriver() {
         Capability caps = service.getCapability();
-        String url = Utils.parseVariables(caps.get(Constants.CAPABILITY_REMOTE_HOST));
-        driver.set(new RemoteWebDriver(new URL(url),new MutableCapabilities(caps.getCapabilities())));
-        return getDriver();
+        String url = null;
+        try {
+            url = Utils.parseVariables(caps.get(Constants.CAPABILITY_REMOTE_HOST));
+            driver.set(new RemoteWebDriver(new URL(url),new MutableCapabilities(caps.getCapabilities())));
+            return getDriver();
+        } catch (CommonException | MalformedURLException e) {
+            throw new DriverInitException("Unable to init driver", e.getCause());
+        }
     }
 
 }

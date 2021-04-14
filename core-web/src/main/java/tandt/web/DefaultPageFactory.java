@@ -2,23 +2,22 @@ package tandt.web;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import org.openqa.selenium.WebDriver;
+import tandt.web.drivermanager.DriverManagerFactory;
 
 public class DefaultPageFactory implements PageFactory {
 
-    private WebDriver driver;
+    private DriverManagerFactory driverManagerFactory;
     private Injector injector;
 
     @Inject
-    public DefaultPageFactory(WebDriver driver, Injector injector) {
-        this.driver = driver;
+    public DefaultPageFactory(DriverManagerFactory driverManagerFactory, Injector injector) {
+        this.driverManagerFactory = driverManagerFactory;
         this.injector = injector;
     }
 
     @Override
     public <TPage extends BaseWebPage<TPage>> TPage create(Class<? extends TPage> contract) {
-        TPage page = injector.getInstance(contract);
-        page.setDriver(driver);
-        return page;
+        driverManagerFactory.getDriverManager();
+        return injector.getInstance(contract);
     }
 }

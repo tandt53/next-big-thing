@@ -1,5 +1,6 @@
 package tandt.mobile.test.test;
 
+import com.google.inject.Inject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Guice;
@@ -7,6 +8,7 @@ import org.testng.annotations.Test;
 import tandt.common.exceptions.CommonException;
 import tandt.dataprovider.exceptions.PropertiesException;
 import tandt.mobile.MobileModule;
+import tandt.mobile.capability.Capability;
 import tandt.mobile.page.BaseTest;
 import tandt.mobile.test.pages.HomePage;
 import tandt.mobile.test.pages.HomePageBinder;
@@ -22,8 +24,7 @@ public class MyApplicationTest2 extends BaseTest {
     @BeforeClass
     public void setupClass() throws PropertiesException, CommonException, MalformedURLException {
         page();
-        pageManager.setBinder(new HomePageBinder());
-        page = pageManager.getPage(HomePage.class);
+        page = pageManager.getPage(HomePage.class, new HomePageBinder());
     }
 
     @Test
