@@ -12,13 +12,13 @@ import java.net.MalformedURLException;
 public class WebSteps extends PageFactory {
 
     @Inject
-    PageObject pageObject;
+    private PageObject pageObject;
 
     @Inject
-    HomePage homePage;
+    private HomePage homePage;
 
     @Inject
-    DriverHooks driver;
+    private DriverHooks driver;
 
     @Given("I go to {string}")
     public void iGoTo(String url) {

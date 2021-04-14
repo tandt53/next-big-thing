@@ -7,7 +7,7 @@ import org.junit.Assert;
 public class GetVarsSteps {
 
     @Inject
-    TestVariable vars;
+    private TestVariable vars;
 
     @When("I check variable in anther step definition class is equals to {string}")
     public void iCheckVarsInAntherStepDefinitionClassIsEqualsTo(String arg0) {

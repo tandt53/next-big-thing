@@ -7,7 +7,7 @@ import org.junit.Assert;
 public class GetStateSteps {
 
     @Inject
-    KeywordState state;
+    private KeywordState state;
 
     @When("I check state in anther step definition class is equals to {string}")
     public void iCheckStateInAntherStepDefinitionClassIsEqualsTo(String arg0) {

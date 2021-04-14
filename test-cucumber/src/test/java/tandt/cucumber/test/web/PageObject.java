@@ -7,7 +7,7 @@ import tandt.web.BaseWebPage;
 public class PageObject extends BaseWebPage<PageObject> {
 
     @Inject
-    KeywordState state;
+    private KeywordState state;
 
 
     public void openPage(String url){
