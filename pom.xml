@@ -10,17 +10,17 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>common</module>
+        <module>common-test</module>
+        <module>core-api</module>
+        <module>core-db</module>
+        <module>core-ui</module>
         <module>core-web</module>
         <module>data-provider</module>
-        <module>core-db</module>
-        <module>core-api</module>
-        <module>cucumber-junit</module>
-        <module>mobile</module>
-        <module>test-testng</module>
-        <module>common-test</module>
-        <module>test-junit</module>
         <module>jacoco-summary</module>
-        <module>core-ui</module>
+        <module>mobile</module>
+        <module>test-cucumber</module>
+        <module>test-junit</module>
+        <module>test-testng</module>
     </modules>
 
     <properties>
@@ -96,10 +96,15 @@
             <!-- cucumber-junit -->
             <dependency>
                 <groupId>io.cucumber</groupId>
-                <artifactId>cucumber-core</artifactId>
+                <artifactId>cucumber-junit</artifactId>
                 <version>${cucumberFamilyVersion}</version>
             </dependency>
 
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-java</artifactId>
+                <version>6.9.0</version>
+            </dependency>
 
             <dependency>
                 <groupId>io.cucumber</groupId>

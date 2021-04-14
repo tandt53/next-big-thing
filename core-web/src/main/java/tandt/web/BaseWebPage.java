@@ -3,6 +3,7 @@ package tandt.web;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import tandt.web.drivermanager.DriverManager;
 
 import java.util.List;
 
@@ -16,11 +17,11 @@ public abstract class BaseWebPage<TPage extends BaseWebPage> {
      */
     public String url;
 
-    private WebDriver driver;
+    private WebDriver driver = DriverManager.driver.get(); // DriverManager must be injected and initialized first
 
-    public void setDriver(WebDriver driver) {
-        this.driver = driver;
-    }
+//    public void setDriver(WebDriver driver) {
+//        this.driver = driver;
+//    }
 
     public WebElement findElement(By by) {
         return driver.findElement(by);
@@ -40,7 +41,7 @@ public abstract class BaseWebPage<TPage extends BaseWebPage> {
      * open page with a specific url
      */
     @SuppressWarnings("unchecked")
-    private TPage open(String url) {
+    public TPage open(String url) {
         driver.get(url);
         return (TPage) this;
     }
@@ -54,10 +55,6 @@ public abstract class BaseWebPage<TPage extends BaseWebPage> {
         return (TPage) this;
     }
 
-    /**
-     * When overridden in subclasses, returns exact url of the page.
-     */
-    protected abstract String getUrl();
 
     /**
      * getTitle
@@ -67,4 +64,5 @@ public abstract class BaseWebPage<TPage extends BaseWebPage> {
     public String getPageTitle() {
         return driver.getTitle();
     }
+
 }

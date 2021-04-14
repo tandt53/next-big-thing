@@ -1,12 +1,12 @@
 package tandt.web.drivermanager;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import tandt.common.exceptions.CommonException;
 
 import java.io.File;
-import java.net.MalformedURLException;
+import java.io.IOException;
 
 public abstract class DriverManager {
 
@@ -16,17 +16,18 @@ public abstract class DriverManager {
         return driver.get();
     }
 
-    public abstract WebDriver initDriver() throws MalformedURLException, CommonException;
+    public abstract WebDriver initDriver() ;
 
     /**
      * This function will take screenshot
      *
-     * @param fileWithPath
-     * @throws Exception
+     * @param imageName
+     * @exception IOException
      */
-    public void takeSnapShot(String fileWithPath) {
-        TakesScreenshot scrShot = ((TakesScreenshot) driver.get());
-        File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
-        File DestFile = new File(fileWithPath);
+    public void takeSnapShot(String imageName) throws IOException {
+        TakesScreenshot scrShot = (TakesScreenshot) driver.get();
+        File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
+        File destFile = new File(Constants.SCREENSHOT_PATH + "/" + imageName);
+        FileUtils.copyFile(srcFile, destFile);
     }
 }

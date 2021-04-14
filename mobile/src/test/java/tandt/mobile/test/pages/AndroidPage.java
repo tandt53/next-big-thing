@@ -1,5 +1,6 @@
 package tandt.mobile.test.pages;
 
+import com.google.inject.Inject;
 import tandt.mobile.ElementFactory;
 import tandt.mobile.annotations.FindElement;
 import tandt.mobile.element.BaseMobileElement;

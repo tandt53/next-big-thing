@@ -1,7 +1,6 @@
 package tandt.web.element;
 
 import ui.element.ElementInfo;
-import ui.element.WaitStrategy;
 
 public class WebElementInfo extends ElementInfo {
     private WebLocatorType webLocatorType;

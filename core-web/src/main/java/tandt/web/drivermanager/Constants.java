@@ -65,7 +65,10 @@ public class Constants {
             CAPABILITY_PERF_LOGGING_PREFS,
             CAPABILITY_WINDOW_TYPES);
 
-
+    public static final String TEST_OUTPUT_DIR = "TestResults";
+    public static final String LOGFILE_PATH = TEST_OUTPUT_DIR + "/Logs";
+    public static final String REPORT_PATH = TEST_OUTPUT_DIR + "/Reports";
+    public static final String SCREENSHOT_PATH = TEST_OUTPUT_DIR + "/Screenshots";
 
 
 }

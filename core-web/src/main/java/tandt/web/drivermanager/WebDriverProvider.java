@@ -6,10 +6,7 @@ import com.google.inject.Key;
 import com.google.inject.Provider;
 import com.google.inject.name.Names;
 import org.openqa.selenium.WebDriver;
-import tandt.common.exceptions.CommonException;
 import tandt.web.drivermanager.selector.WebDriverSelector;
-
-import java.net.MalformedURLException;
 
 public class WebDriverProvider implements Provider<WebDriver> {
 
@@ -21,12 +18,6 @@ public class WebDriverProvider implements Provider<WebDriver> {
 
     @Override
     public WebDriver get() {
-
-        try {
-            return injector.getInstance(Key.get(DriverManager.class, Names.named(selector.get()))).initDriver();
-        } catch (CommonException | MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return injector.getInstance(Key.get(DriverManager.class, Names.named(selector.get()))).initDriver();
     }
 }

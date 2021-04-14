@@ -16,7 +16,6 @@ import ui.element.WaitStrategy;
 public class HomeWebPage extends BaseWebPage<HomeWebPage> {
 
     public HomeWebPage() {
-//        super();
         ElementFactory.initElements(this);
         url = "http://google.com.vn";
     }
@@ -28,13 +27,8 @@ public class HomeWebPage extends BaseWebPage<HomeWebPage> {
     private org.openqa.selenium.WebElement searchButton;
 
     public void search(String text) {
-//        PLog.info("Search with text: " + text);
         searchField.setText(Keys.SHIFT, text);
         searchField.submit();
     }
 
-    @Override
-    protected String getUrl() {
-        return null;
-    }
 }
