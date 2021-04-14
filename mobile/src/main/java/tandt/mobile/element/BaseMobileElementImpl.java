@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tandt.mobile.Conditions;
-import tandt.mobile.drivermanager.MobileDriverManager;
+import tandt.mobile.drivermanager.DriverManager;
 import ui.element.WaitStrategy;
 
 import java.time.Duration;
@@ -107,7 +107,7 @@ public class BaseMobileElementImpl implements BaseMobileElement {
     }
 
     private WebDriverWait getWait(long timeout) {
-        wait =  new WebDriverWait(MobileDriverManager.driver.get(), timeout);
+        wait =  new WebDriverWait(DriverManager.driver.get(), timeout);
         return wait;
     }
 

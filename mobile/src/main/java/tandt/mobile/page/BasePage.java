@@ -1,7 +1,11 @@
 package tandt.mobile.page;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.inject.Inject;
+import com.google.inject.Injector;
+import com.google.inject.Provides;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import javafx.util.Pair;
@@ -11,6 +15,8 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import tandt.common.Log;
+import tandt.mobile.ElementFactory;
+import tandt.mobile.drivermanager.DriverManager;
 import tandt.mobile.element.BaseMobileElement;
 
 import java.util.HashMap;
@@ -28,22 +34,25 @@ import static java.time.Duration.ofSeconds;
 public abstract class BasePage<TPage extends BasePage> {
 
     /**
-     *  url
+     * url
      */
     public String url;
 
+    @Inject
+    protected MobileDriver mobileDriver;
+
     protected AppiumDriver<WebElement> driver;
+
+    //    @Inject
+    protected DriverManager driverManager;
 
     @SuppressWarnings("unchecked")
     public Log PLog = new Log(((TPage) BasePage.this).getClass());
 
-    public void setDriver(AppiumDriver<WebElement> driver){
-        this.driver = driver;
+    public BasePage() {
+        ElementFactory.initElements(this);
+        driver = (AppiumDriver<WebElement>) mobileDriver;
     }
-
-//    public BaseMobilePage() {
-//        PageFactory.initElements(this);
-//    }
 
     /**
      * open  page with url is not null

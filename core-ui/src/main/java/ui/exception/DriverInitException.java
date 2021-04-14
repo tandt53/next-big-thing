@@ -1,4 +1,4 @@
-package tandt.web.exception;
+package ui.exception;
 
 public class DriverInitException extends RuntimeException{
 

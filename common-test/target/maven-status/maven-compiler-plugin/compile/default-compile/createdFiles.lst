@@ -1,9 +1,0 @@
-tandt/commontest/model/TestCase.class
-tandt/commontest/model/TestSuite.class
-tandt/commontest/model/Meta.class
-tandt/commontest/model/TestStep.class
-tandt/commontest/model/ResultType.class
-tandt/commontest/exceptions/TestException.class
-tandt/commontest/model/TestResult.class
-tandt/commontest/model/ExpectedResult.class
-tandt/commontest/TestManager.class
