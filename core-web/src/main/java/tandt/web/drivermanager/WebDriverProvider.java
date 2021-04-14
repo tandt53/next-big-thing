@@ -11,10 +11,10 @@ import tandt.web.drivermanager.selector.WebDriverSelector;
 public class WebDriverProvider implements Provider<WebDriver> {
 
     @Inject
-    WebDriverSelector selector;
+    private WebDriverSelector selector;
 
     @Inject
-    Injector injector;
+    private Injector injector;
 
     @Override
     public WebDriver get() {

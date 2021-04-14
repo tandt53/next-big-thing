@@ -20,10 +20,6 @@ public abstract class BaseWebPage<TPage extends BaseWebPage> {
     @Inject
     protected WebDriver driver; // DriverManager must be injected and initialized first
 
-//    public void setDriver(WebDriver driver) {
-//        this.driver = driver;
-//    }
-
     public WebElement findElement(By by) {
         return driver.findElement(by);
     }

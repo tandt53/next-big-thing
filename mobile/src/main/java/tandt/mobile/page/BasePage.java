@@ -14,7 +14,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import tandt.common.Log;
 import tandt.mobile.ElementFactory;
-import tandt.mobile.drivermanager.DriverManager;
 import tandt.mobile.element.BaseMobileElement;
 
 import java.util.HashMap;
@@ -40,9 +39,6 @@ public abstract class BasePage<TPage extends BasePage> {
     protected MobileDriver mobileDriver;
 
     protected AppiumDriver<WebElement> driver;
-
-    //    @Inject
-    protected DriverManager driverManager;
 
     @SuppressWarnings("unchecked")
     public Log PLog = new Log(((TPage) BasePage.this).getClass());
