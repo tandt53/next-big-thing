@@ -1,25 +1,30 @@
 package tandt.mobile.page;
 
 import com.google.inject.Inject;
-import tandt.common.exceptions.CommonException;
-import tandt.dataprovider.exceptions.PropertiesException;
-import tandt.mobile.drivermanager.MobileDriverManager;
-
-import java.net.MalformedURLException;
+import com.google.inject.Injector;
+import tandt.mobile.drivermanager.DriverManager;
+import tandt.mobile.drivermanager.DriverManagerFactory;
+import tandt.mobile.page.pagemanager.PageBinder;
+import tandt.mobile.page.pagemanager.PageManager;
 
 public class DefaultPageFactory implements PageFactory {
 
-    private MobileDriverManager driver;
+    @Inject
+    protected PageManager pageManager;
 
     @Inject
-    public DefaultPageFactory(MobileDriverManager driver) {
-        driver = driver;
+    public DefaultPageFactory(PageManager pageManager) {
+        this.pageManager = pageManager;
     }
 
+
+//    @Override
+//    public void create() {
+//        driverManagerFactory.getDriverManager();
+//    }
 
     @Override
-    public void create() throws PropertiesException, CommonException, MalformedURLException {
-        driver.initDriver();
+    public <TPage extends BasePage, TBinder extends PageBinder> TPage create(Class<TPage> page, TBinder pageBinder) {
+        return pageManager.getPage(page, pageBinder);
     }
-
 }

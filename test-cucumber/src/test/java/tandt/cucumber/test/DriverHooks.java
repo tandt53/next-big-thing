@@ -1,21 +1,21 @@
 package tandt.cucumber.test;
 
 import com.google.inject.Inject;
+import com.google.inject.Injector;
 import io.cucumber.guice.ScenarioScoped;
-import tandt.common.exceptions.CommonException;
-import tandt.web.drivermanager.DriverManagerFactory;
-
-import java.net.MalformedURLException;
+import org.openqa.selenium.WebDriver;
 
 @ScenarioScoped
 public class DriverHooks {
 
 
     @Inject
-    private DriverManagerFactory webDriver;
+    private Injector injector;
 
-    public void iOpenBrowser() throws MalformedURLException, CommonException {
-        webDriver.getDriverManager();
+    private WebDriver driver;
+
+    public void iOpenBrowser() {
+        driver = injector.getInstance(WebDriver.class);
     }
 
     public void mobile(){

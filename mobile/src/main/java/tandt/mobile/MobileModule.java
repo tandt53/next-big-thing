@@ -4,6 +4,8 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 import com.google.inject.Singleton;
 import com.google.inject.name.Names;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileDriver;
 import tandt.mobile.capability.Capability;
 import tandt.mobile.capability.CapabilityService;
 import tandt.mobile.capability.DefaultCapability;
@@ -12,6 +14,7 @@ import tandt.mobile.drivermanager.*;
 import tandt.mobile.page.DefaultPageFactory;
 import tandt.mobile.page.PageFactory;
 
+import javax.inject.Provider;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -25,10 +28,11 @@ public class MobileModule extends AbstractModule {
         bind(Capability.class).to(DefaultCapability.class).in(Scopes.SINGLETON);
         bind(PageFactory.class).to(DefaultPageFactory.class);
         bind(CapabilityService.class).to(MobileCapabilityService.class).in(Scopes.SINGLETON);
-        bind(MobileDriverManager.class).toProvider(MobileDriverProvider.class).in(Scopes.SINGLETON);
+//        bind(DriverManager.class).toProvider(DriverProvider.class).in(Scopes.SINGLETON);
+        bind(MobileDriver.class).toProvider(DriverProvider.class).in(Scopes.SINGLETON);
 
-        bind(MobileDriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_ANDROID)).to(AndroidDriverManager.class);
-        bind(MobileDriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_IOS)).to(IosDriverManager.class);
+        bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_ANDROID)).to(AndroidDriverManager.class);
+        bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_IOS)).to(IosDriverManager.class);
 
         bind(String.class).annotatedWith(Names.named(Constants.CAPABILITY_PLATFORM_NAME)).toInstance(getProperties());
     }

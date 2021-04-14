@@ -14,10 +14,11 @@ public class PageManager {
     @Named("platformName")
     private String platform;
 
+    @Inject
     private Injector injector;
 
     public <TPage extends BasePage, TBinder extends PageBinder> TPage getPage(Class<TPage> page, TBinder binder) {
-        injector = Guice.createInjector(binder);
-        return (TPage) injector.getInstance((Key.get(page, Names.named(platform))));
+        Injector childInjector =injector.createChildInjector(binder);
+        return (TPage) childInjector.getInstance((Key.get(page, Names.named(platform))));
     }
 }

@@ -4,6 +4,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 import com.google.inject.Singleton;
 import com.google.inject.name.Names;
+import org.openqa.selenium.WebDriver;
 import tandt.web.capability.DefaultCapability;
 import tandt.web.capability.WebCapabilityService;
 import tandt.web.drivermanager.*;
@@ -22,6 +23,7 @@ public class WebModule extends AbstractModule {
     protected void configure() {
         bind(Capability.class).to(DefaultCapability.class).in(Scopes.SINGLETON);
         bind(PageFactory.class).to(DefaultPageFactory.class);
+        bind(WebDriver.class).toProvider(WebDriverProvider.class).in(Scopes.SINGLETON);
         bind(CapabilityService.class).to(WebCapabilityService.class).in(Scopes.SINGLETON);
         bind(DriverSelector.class).to(WebDriverSelector.class).in(Scopes.SINGLETON);
 

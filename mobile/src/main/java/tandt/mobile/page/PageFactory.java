@@ -1,14 +1,13 @@
 package tandt.mobile.page;
 
-import tandt.common.exceptions.CommonException;
-import tandt.dataprovider.exceptions.PropertiesException;
-
-import java.net.MalformedURLException;
+import tandt.mobile.page.pagemanager.PageBinder;
 
 /**
  * Provides a method for creating instance of page.
  */
 public interface PageFactory {
 
-    void create() throws PropertiesException, CommonException, MalformedURLException;
+//    void create();
+
+    <TPage extends BasePage , TBinder extends PageBinder> TPage create(Class<TPage> page, TBinder pageBinder);
 }

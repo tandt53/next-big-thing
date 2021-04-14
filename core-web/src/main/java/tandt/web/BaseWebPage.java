@@ -1,9 +1,9 @@
 package tandt.web;
 
+import com.google.inject.Inject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import tandt.web.drivermanager.DriverManager;
 
 import java.util.List;
 
@@ -17,7 +17,8 @@ public abstract class BaseWebPage<TPage extends BaseWebPage> {
      */
     public String url;
 
-    private WebDriver driver = DriverManager.driver.get(); // DriverManager must be injected and initialized first
+    @Inject
+    protected WebDriver driver; // DriverManager must be injected and initialized first
 
 //    public void setDriver(WebDriver driver) {
 //        this.driver = driver;

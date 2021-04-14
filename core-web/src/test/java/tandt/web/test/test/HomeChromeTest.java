@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import tandt.web.BaseTest;
 import tandt.web.WebModule;
 import tandt.web.test.pages.HomeWebPage;
+import tandt.web.test.pages.SearchResultPage;
 import ui.capability.Capability;
 
 /**
@@ -18,6 +19,7 @@ import ui.capability.Capability;
 public class HomeChromeTest extends BaseTest {
 
     private HomeWebPage homePage;
+    private SearchResultPage searchResultPage;
 
     @Inject
     Capability capability;
@@ -25,6 +27,7 @@ public class HomeChromeTest extends BaseTest {
     @BeforeTest
     public void setup() {
         homePage = page(HomeWebPage.class);
+        searchResultPage = page(SearchResultPage.class);
     }
 
     @AfterTest
