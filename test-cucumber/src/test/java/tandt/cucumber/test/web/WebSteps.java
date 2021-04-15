@@ -1,14 +1,13 @@
 package tandt.cucumber.test.web;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.support.PageFactory;
-import tandt.common.exceptions.CommonException;
 import tandt.cucumber.test.DriverHooks;
 
-import java.net.MalformedURLException;
-
+@Singleton
 public class WebSteps extends PageFactory {
 
     @Inject
@@ -31,8 +30,9 @@ public class WebSteps extends PageFactory {
     }
 
     @Given("I open browser")
-    public void iOpenBrowser() throws MalformedURLException, CommonException {
+    public void iOpenBrowser()  {
         driver.iOpenBrowser();
     }
+
 
 }

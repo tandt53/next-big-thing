@@ -16,11 +16,11 @@
         <module>core-ui</module>
         <module>core-web</module>
         <module>data-provider</module>
-        <module>jacoco-summary</module>
         <module>mobile</module>
         <module>test-cucumber</module>
         <module>test-junit</module>
         <module>test-testng</module>
+        <module>jacoco-summary</module>
     </modules>
 
     <properties>
