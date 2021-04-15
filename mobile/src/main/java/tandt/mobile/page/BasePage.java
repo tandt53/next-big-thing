@@ -6,7 +6,6 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
-import javafx.util.Pair;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
@@ -222,16 +221,16 @@ public abstract class BasePage<TPage extends BasePage> {
     }
 
     public void scrollDown() {
-        new TouchAction<>(driver).press(getOffset().getKey()).waitAction().moveTo(getOffset().getValue()).release()
+        new TouchAction<>(driver).press(getOffset().get("start")).waitAction().moveTo(getOffset().get("end")).release()
                 .perform();
     }
 
     public void scrollUp() {
-        new TouchAction<>(driver).press(getOffset().getValue()).waitAction().moveTo(getOffset().getKey()).release()
+        new TouchAction<>(driver).press(getOffset().get("end")).waitAction().moveTo(getOffset().get("start")).release()
                 .perform();
     }
 
-    private Pair<PointOption, PointOption> getOffset() {
+    private Map<String, PointOption> getOffset() {
 
         // The viewing size of the device
         Dimension size = driver.manage().window().getSize();
@@ -243,7 +242,10 @@ public abstract class BasePage<TPage extends BasePage> {
         // x position set to mid-screen horizontally
         int startx = size.width / 2;
 
-        return new Pair<>(point(startx, starty), point(startx, endy));
+        Map<String, PointOption> map = new HashMap<>();
+        map.put("start", point(startx, starty));
+        map.put("end", point(startx, endy));
+        return map;
     }
 
     public void switchContextToWebView() {

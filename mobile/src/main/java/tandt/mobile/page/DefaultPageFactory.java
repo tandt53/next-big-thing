@@ -6,7 +6,7 @@ import tandt.mobile.page.pagemanager.PageManager;
 
 public class DefaultPageFactory implements PageFactory {
 
-    @Inject
+//    @Inject
     protected PageManager pageManager;
 
     @Inject

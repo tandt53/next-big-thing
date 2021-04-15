@@ -17,7 +17,6 @@ public class MyApplicationTest2 extends BaseTest {
 
     @BeforeClass
     public void setupClass()  {
-//        page();
         page = page(HomePage.class, new HomePageBinder());
     }
 
