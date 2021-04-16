@@ -43,7 +43,7 @@ public abstract class EventDispatcher<T extends Event> {
             try {
                 listener.onEvent(buildEvent(eventType, eventData));
             } catch (Exception e) {
-                evenLog.error("Listener threw exception for event " + eventType);
+                evenLog.error("Listener threw tandt.cucumber.test.exception for event " + eventType);
             }
         });
     }
