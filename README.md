@@ -4,8 +4,7 @@
 
 The project is a collection of modules that allows every Automation Test Engineer (ATE) to create/maintain automated test cases.
 
-Modules are:
-
+Modules:
 - common
 - core-web
 - core-mobile
@@ -32,8 +31,11 @@ If you want to contact me you can reach me at <dothetan.040490@gmail.com>
 
 This project uses the following license: [Apache-2.0 License](https://github.com/tandt53/next-big-thing/blob/master/LICENSE).
 
-Refer readme template [here](https://github.com/scottydocs/README-template.md)
+## Special thanks
+- JetBrains Open Source license
+- BrowserStack Open Source program
 
-Thanks to JetBrains Open Source license for sponsor
-
-![](jetbrains.svg)
+[comment]: <> (<img src="images/jetbrains.svg" width="324" height="324">)
+[comment]: <> (<img src="images/browserstack.png" width="324" height="324">)
+![](images/jetbrains.svg)
+![](images/browserstack.png)
