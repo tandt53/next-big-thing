@@ -11,7 +11,7 @@ import tandt.web.element.WebLocatorType;
  */
 public class SearchResultPage extends BaseWebPage<SearchResultPage> {
 
-    @FindElement(type = WebLocatorType.ID, value = "resultStats")
+    @FindElement(type = WebLocatorType.ID, value = "result-stats")
     private BaseWebElement result;
 
     public SearchResultPage() {
@@ -21,7 +21,6 @@ public class SearchResultPage extends BaseWebPage<SearchResultPage> {
     public SearchResultPage open(String textToSearch){
         return this;
     }
-
 
     public String getResultCount(){
         return result.getText();
