@@ -11,11 +11,11 @@ Modules:
 - mobile
 - core-api
 - core-db
-- core-test
+- common-test
 - data-provider
-- integration
-
-
+- test-cucumber
+- test-junit
+- test-testng
 
 
 ## License
