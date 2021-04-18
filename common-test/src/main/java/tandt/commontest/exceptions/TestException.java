@@ -1,6 +1,6 @@
 package tandt.commontest.exceptions;
 
-public class TestException extends Exception{
+public class TestException extends RuntimeException {
 
     public TestException() {
         super();
