@@ -7,7 +7,5 @@ import tandt.mobile.page.pagemanager.PageBinder;
  */
 public interface PageFactory {
 
-//    void create();
-
     <TPage extends BasePage , TBinder extends PageBinder> TPage create(Class<TPage> page, TBinder pageBinder);
 }

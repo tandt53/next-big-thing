@@ -1,6 +1,7 @@
 package tandt.web.drivermanager;
 
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -10,6 +11,7 @@ import ui.capability.CapabilityService;
 public class EdgeDriverManager extends DriverManager{
 
     @Inject
+    @Named("web")
     private CapabilityService service;
 
     private static String KEY_EDGE = "webdriver.edge.driver";

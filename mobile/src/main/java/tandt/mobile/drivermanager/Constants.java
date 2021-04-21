@@ -32,7 +32,6 @@ public class Constants {
     public static final String CAPABILITY_DEVICE_UDID = "udid";
     public static final String CAPABILITY_OTHER_APPS = "otherApps";
     public static final String CAPABILITY_NO_RESET = "noReset";
-    public static final String CAPABILITY_ = "noReset";
     public static final String CAPABILITY_FULL_RESET = "fullReset";
 
     // Properties from command line parameter
@@ -43,7 +42,10 @@ public class Constants {
             CAPABILITY_PLATFORM_VERSION,
             CAPABILITY_DEVICE_NAME,
             CAPABILITY_DEVICE_UDID,
-            CAPABILITY_APP_PATH);
+            CAPABILITY_APP_PATH,
+            CAPABILITY_OTHER_APPS,
+            CAPABILITY_NO_RESET,
+            CAPABILITY_FULL_RESET);
 
 
 }

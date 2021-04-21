@@ -1,6 +1,7 @@
 package tandt.web.drivermanager;
 
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -17,6 +18,7 @@ import java.net.URL;
 public class RemoteDriverManager extends DriverManager {
 
     @Inject
+    @Named("web")
     private CapabilityService service;
 
     @Override

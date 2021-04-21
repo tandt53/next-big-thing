@@ -1,6 +1,7 @@
 package tandt.web.drivermanager;
 
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -10,9 +11,10 @@ import ui.capability.CapabilityService;
 public class FirefoxDriverManager extends DriverManager {
 
     @Inject
+    @Named("web")
     private CapabilityService service;
 
-    protected static String KEY_FIREFOX = "webdriver.gecko.driver";
+    protected static final String KEY_FIREFOX = "webdriver.gecko.driver";
 
     @Override
     public WebDriver initDriver() {

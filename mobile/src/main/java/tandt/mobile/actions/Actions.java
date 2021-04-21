@@ -1,5 +1,5 @@
 package tandt.mobile.actions;
 
-public class Actions {
+public interface Actions {
 
 }

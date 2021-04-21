@@ -4,14 +4,16 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.Provider;
+import com.google.inject.name.Named;
 import com.google.inject.name.Names;
 import org.openqa.selenium.WebDriver;
-import tandt.web.drivermanager.selector.WebDriverSelector;
+import ui.driverselector.DriverSelector;
 
 public class WebDriverProvider implements Provider<WebDriver> {
 
     @Inject
-    private WebDriverSelector selector;
+    @Named("web")
+    private DriverSelector selector;
 
     @Inject
     private Injector injector;

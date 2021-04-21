@@ -19,7 +19,7 @@ public class BaseMobileElementImpl implements BaseMobileElement {
 
     private By locator;
     private MobileElementInfo mobileElementInfo;
-    private final int _TIMEOUT = 10;
+    private static final int TIMEOUT = 10;
     private Function<By, ExpectedCondition<WebElement>> waitForElement = Conditions.PRESENCE; //  wait strategy
     private Function<By, ExpectedCondition<List<WebElement>>> waitForListElement = Conditions.PRESENCE_ALL; //  wait strategy
     private WebDriverWait wait;
@@ -37,7 +37,6 @@ public class BaseMobileElementImpl implements BaseMobileElement {
 
     public BaseMobileElementImpl(MobileElementInfo mobileElementInfo) {
         this.mobileElementInfo = mobileElementInfo;
-//        this.wait = new WebDriverWait(MobileDriverManager.driver.get(), _TIMEOUT);
         initLocator();
         initWaitStrategy();
     }
@@ -107,7 +106,7 @@ public class BaseMobileElementImpl implements BaseMobileElement {
     }
 
     private WebDriverWait getWait(long timeout) {
-        wait =  new WebDriverWait(DriverManager.driver.get(), timeout);
+        wait = new WebDriverWait(DriverManager.driver.get(), timeout);
         return wait;
     }
 
@@ -245,7 +244,7 @@ public class BaseMobileElementImpl implements BaseMobileElement {
     }
 
     private <T> T waitUntil(ExpectedCondition<T> condition) {
-        return this.getWait(_TIMEOUT).until(condition);
+        return this.getWait(TIMEOUT).until(condition);
     }
 
     private class WaitFor {

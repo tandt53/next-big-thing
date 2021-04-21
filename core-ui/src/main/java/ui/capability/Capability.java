@@ -1,29 +1,38 @@
 package ui.capability;
 
-import tandt.dataprovider.exceptions.PropertiesException;
-
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 
-public interface Capability {
+public abstract class Capability {
+    protected Map<String, String> caps = new HashMap<>();
 
-    Capability add(String propertyFile) throws PropertiesException;
+    public abstract Capability load();
 
-    Capability add(List<String> listOfPropertiesKeys);
+    public Map<String, String> getCapabilities() {
+        return caps;
+    }
 
-    Capability add(List<String> listOfPropertiesKeys, String prefix);
+    public Capability add(String key, String value) {
+        caps.put(key, value);
+        return this;
+    }
 
-    Capability add(Map<String, String> map);
+    public Capability add(Map<String, String> capability) {
+        caps.putAll(capability);
+        return this;
+    }
 
-    Capability add(String key, String value);
+    public Capability add(Capability capability) {
+        add(capability.getCapabilities());
+        return this;
+    }
 
-    Capability add(Capability capability);
+    public Capability remove(String key) {
+        caps.remove(key);
+        return this;
+    }
 
-    Map<String, String> getCapabilities();
-
-    String get(String key);
-
-    Capability remove(String key);
-
-
+    public  String get(String key){
+        return caps.get(key);
+    }
 }

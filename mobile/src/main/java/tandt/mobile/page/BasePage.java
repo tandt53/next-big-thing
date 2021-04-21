@@ -42,7 +42,7 @@ public abstract class BasePage<TPage extends BasePage> {
     @SuppressWarnings("unchecked")
     public Log PLog = new Log(((TPage) BasePage.this).getClass());
 
-    public BasePage() {
+    protected BasePage() {
         ElementFactory.initElements(this);
         driver = (AppiumDriver<WebElement>) mobileDriver;
     }

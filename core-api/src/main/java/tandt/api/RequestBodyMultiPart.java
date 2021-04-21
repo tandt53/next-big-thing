@@ -6,8 +6,8 @@ import okhttp3.MultipartBody;
 import java.io.File;
 
 public class RequestBodyMultiPart extends RequestBody {
-    private final MediaType _MEDIA_TYPE = MultipartBody.FORM;
-    private MediaType type = _MEDIA_TYPE;
+    private static final MediaType MEDIA_TYPE = MultipartBody.FORM;
+    private MediaType type = MEDIA_TYPE;
     private MultipartBody.Builder builder;
 
     public RequestBodyMultiPart() {
