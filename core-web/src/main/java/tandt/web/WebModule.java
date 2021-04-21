@@ -5,7 +5,8 @@ import com.google.inject.Scopes;
 import com.google.inject.Singleton;
 import com.google.inject.name.Names;
 import org.openqa.selenium.WebDriver;
-import tandt.web.capability.DefaultCapability;
+import tandt.web.capability.CliArgumentsCapability;
+import tandt.web.capability.PropertiesFileCapability;
 import tandt.web.capability.WebCapabilityService;
 import tandt.web.drivermanager.*;
 import tandt.web.drivermanager.selector.WebDriverSelector;
@@ -21,11 +22,12 @@ public class WebModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        bind(Capability.class).to(DefaultCapability.class).in(Scopes.SINGLETON);
+        bind(Capability.class).annotatedWith(Names.named("web.cli-args")).to(CliArgumentsCapability.class).in(Scopes.SINGLETON);
+        bind(Capability.class).annotatedWith(Names.named("web.properties")).to(PropertiesFileCapability.class).in(Scopes.SINGLETON);
+        bind(CapabilityService.class).annotatedWith(Names.named("web")).to(WebCapabilityService.class).in(Scopes.SINGLETON);
         bind(PageFactory.class).to(DefaultPageFactory.class);
         bind(WebDriver.class).toProvider(WebDriverProvider.class).in(Scopes.SINGLETON);
-        bind(CapabilityService.class).to(WebCapabilityService.class).in(Scopes.SINGLETON);
-        bind(DriverSelector.class).to(WebDriverSelector.class).in(Scopes.SINGLETON);
+        bind(DriverSelector.class).annotatedWith(Names.named("web")).to(WebDriverSelector.class).in(Scopes.SINGLETON);
 
         bind(DriverManager.class).annotatedWith(Names.named(DRIVER_TYPE_CHROME)).to(ChromeDriverManager.class).in(Scopes.SINGLETON);
         bind(DriverManager.class).annotatedWith(Names.named(DRIVER_TYPE_FIREFOX)).to(FirefoxDriverManager.class).in(Scopes.SINGLETON);

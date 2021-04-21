@@ -1,12 +1,13 @@
 package tandt.mobile.drivermanager;
 
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import tandt.mobile.capability.Capability;
-import tandt.mobile.capability.CapabilityService;
+import ui.capability.Capability;
+import ui.capability.CapabilityService;
 import ui.exception.DriverInitException;
 
 import java.net.MalformedURLException;
@@ -14,6 +15,7 @@ import java.net.URL;
 
 public class IosDriverManager extends DriverManager {
     @Inject
+    @Named("mobile")
     private CapabilityService service;
 
     @Override

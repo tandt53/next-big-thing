@@ -11,7 +11,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import tandt.cucumber.test.exception.TakeScreenshotException;
-import tandt.web.drivermanager.Constants;
 
 import java.io.File;
 import java.io.IOException;

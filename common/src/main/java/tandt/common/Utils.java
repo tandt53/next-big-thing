@@ -8,6 +8,8 @@ import java.util.regex.Pattern;
 
 public class Utils {
 
+    private Utils(){}
+
     /**
      * This method is
      * - Check string contain System environment (pattern ${varName})

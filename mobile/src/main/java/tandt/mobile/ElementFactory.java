@@ -13,6 +13,8 @@ import java.lang.reflect.Proxy;
 
 public class ElementFactory {
 
+    private ElementFactory(){}
+
     public static <T extends BasePage<?>> void initElements(final T page) {
         try {
             Class<?> objectClass = page.getClass();

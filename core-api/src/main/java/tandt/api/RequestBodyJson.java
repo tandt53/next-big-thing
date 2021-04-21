@@ -8,8 +8,8 @@ import tandt.dataprovider.json.JsonRootType;
 
 public class RequestBodyJson extends RequestBody {
 
-    private final String _TYPE = "application/json; charset=utf-8";
-    private String type = _TYPE;
+    private static final String TYPE = "application/json; charset=utf-8";
+    private String type = TYPE;
 
     private JsonBuilder2 builder;
 

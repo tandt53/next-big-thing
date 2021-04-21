@@ -6,19 +6,12 @@ import tandt.mobile.page.pagemanager.PageManager;
 
 public class DefaultPageFactory implements PageFactory {
 
-//    @Inject
     protected PageManager pageManager;
 
     @Inject
     public DefaultPageFactory(PageManager pageManager) {
         this.pageManager = pageManager;
     }
-
-
-//    @Override
-//    public void create() {
-//        driverManagerFactory.getDriverManager();
-//    }
 
     @Override
     public <TPage extends BasePage, TBinder extends PageBinder> TPage create(Class<TPage> page, TBinder pageBinder) {
