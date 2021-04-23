@@ -2,6 +2,7 @@ package tandt.cucumber.test;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.Singleton;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileDriver;
 import io.cucumber.guice.ScenarioScoped;
@@ -15,6 +16,7 @@ import tandt.cucumber.test.exception.TakeScreenshotException;
 import java.io.File;
 import java.io.IOException;
 
+@Singleton
 public class DriverHooks {
 
     @Inject

@@ -2,6 +2,7 @@ package tandt.web.element;
 
 import tandt.common.Log;
 import tandt.web.annotations.Clocking;
+import ui.element.Element;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
@@ -10,8 +11,8 @@ import java.time.Duration;
 import java.time.Instant;
 
 public class ElementInvocationHandler implements InvocationHandler {
-    private BaseWebElement baseWebElement;
-    Log log = new Log(BaseWebElement.class);
+    private Element baseWebElement;
+    Log log = new Log(ElementInvocationHandler.class);
 
     public ElementInvocationHandler(WebElementInfo webElementInfo) {
         baseWebElement = new BaseWebElementImpl(webElementInfo);

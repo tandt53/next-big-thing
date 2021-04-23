@@ -5,14 +5,14 @@ import org.openqa.selenium.support.FindBy;
 import tandt.web.BaseWebPage;
 import tandt.web.ElementFactory;
 import tandt.web.annotations.FindElement;
-import tandt.web.element.BaseWebElement;
 import tandt.web.element.WebLocatorType;
+import ui.element.Element;
 import ui.element.WaitStrategy;
 
 public class HomePage extends BaseWebPage<HomePage> {
 
     @FindElement(type = WebLocatorType.XPATH, value = "//*[@class='gLFyf gsfi']", waitUntil = WaitStrategy.VISIBILITY)
-    private BaseWebElement searchField;
+    private Element searchField;
 
     @FindBy(id = "_fZl")
     private org.openqa.selenium.WebElement searchButton;

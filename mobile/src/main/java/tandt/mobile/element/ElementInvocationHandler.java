@@ -1,7 +1,8 @@
 package tandt.mobile.element;
 
 import tandt.common.Log;
-import tandt.mobile.annotations.Clocking;
+import ui.annotations.Clocking;
+import ui.element.Element;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
@@ -13,11 +14,11 @@ public class ElementInvocationHandler implements InvocationHandler {
     // ******************************
     // Fields
     // ******************************
-    private BaseMobileElement baseMobileElement;
-    Log log = new Log(BaseMobileElement.class);
+    private Element element;
+    Log log = new Log(Element.class);
 
     public ElementInvocationHandler(MobileElementInfo mobileElementInfo) {
-        baseMobileElement = new BaseMobileElementImpl(mobileElementInfo);
+        element = new BaseMobileElementImpl(mobileElementInfo);
     }
 
     // ******************************
@@ -31,15 +32,15 @@ public class ElementInvocationHandler implements InvocationHandler {
             // If the annotation is not present, just redirect the method call to its
             // origin...
             if (!method.isAnnotationPresent(Clocking.class)) {
-                return method.invoke(baseMobileElement, args);
+                return method.invoke(element, args);
             }
 
             // ... otherwise log the execution time of it.
             Instant start = Instant.now();
-            returnObj = method.invoke(baseMobileElement, args);
+            returnObj = method.invoke(element, args);
             Instant end = Instant.now();
 
-            log.info("Method " + method.getName() + " on element " + ((BaseMobileElementImpl) baseMobileElement).getElementInfo().getName()
+            log.info("Method " + method.getName() + " on element " + ((BaseMobileElementImpl) element).getElementInfo().getName()
                     + " executed in " + Duration.between(start, end).toMillis() + " ms.");
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			e.printStackTrace();

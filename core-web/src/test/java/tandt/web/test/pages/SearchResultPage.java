@@ -3,8 +3,8 @@ package tandt.web.test.pages;
 import tandt.web.BaseWebPage;
 import tandt.web.ElementFactory;
 import tandt.web.annotations.FindElement;
-import tandt.web.element.BaseWebElement;
 import tandt.web.element.WebLocatorType;
+import ui.element.Element;
 
 /**
  * Created by thetan.do on 12/28/2016.
@@ -12,7 +12,7 @@ import tandt.web.element.WebLocatorType;
 public class SearchResultPage extends BaseWebPage<SearchResultPage> {
 
     @FindElement(type = WebLocatorType.ID, value = "result-stats")
-    private BaseWebElement result;
+    private Element result;
 
     public SearchResultPage() {
         ElementFactory.initElements(this);

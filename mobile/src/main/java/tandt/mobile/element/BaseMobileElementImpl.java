@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tandt.mobile.Conditions;
 import tandt.mobile.drivermanager.DriverManager;
+import ui.element.Element;
 import ui.element.WaitStrategy;
 
 import java.time.Duration;
@@ -15,7 +16,7 @@ import java.util.function.Function;
 
 import static org.openqa.selenium.By.*;
 
-public class BaseMobileElementImpl implements BaseMobileElement {
+public class BaseMobileElementImpl implements Element {
 
     private By locator;
     private MobileElementInfo mobileElementInfo;
@@ -205,7 +206,7 @@ public class BaseMobileElementImpl implements BaseMobileElement {
     }
 
     @Override
-    public BaseMobileElement formatLocatorValue(String... eventName) {
+    public Element formatLocatorValue(String... eventName) {
         this.mobileElementInfo.setLocatorValue(String.format(this.mobileElementInfo.getLocatorValue(), eventName));
         initLocator();
         return this;
@@ -222,16 +223,12 @@ public class BaseMobileElementImpl implements BaseMobileElement {
     }
 
     @Override
-    public WebElement getWebElement() {
-        return null;
+    public boolean isPresent(int timeout) {
+        return waitUntil(this.waitForElement.apply(getLocator())).isEnabled();
     }
 
     @Override
-    public boolean isPresent(int i) {
-        return false;
-    }
-
-    private WebElement getElement() {
+    public WebElement getElement() {
         return waitUntil(this.waitForElement.apply(getLocator()));
     }
 

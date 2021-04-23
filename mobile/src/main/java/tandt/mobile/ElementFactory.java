@@ -1,7 +1,7 @@
 package tandt.mobile;
 
 import tandt.mobile.annotations.FindElement;
-import tandt.mobile.element.BaseMobileElement;
+import ui.element.Element;
 import tandt.mobile.element.ElementInvocationHandler;
 import tandt.mobile.element.MobileElementInfo;
 import tandt.mobile.element.MobileLocatorType;
@@ -32,8 +32,8 @@ public class ElementFactory {
                         mobileElementInfo.setLocatorValue(value);
                         mobileElementInfo.setStrategy(waitUntil);
 
-                        BaseMobileElement baseElement = (BaseMobileElement) Proxy.newProxyInstance(BaseMobileElement.class.getClassLoader(),
-                                new Class[]{BaseMobileElement.class}, new ElementInvocationHandler(mobileElementInfo));
+                        Element baseElement = (Element) Proxy.newProxyInstance(Element.class.getClassLoader(),
+                                new Class[]{Element.class}, new ElementInvocationHandler(mobileElementInfo));
                         field.set(page, baseElement);
                     }
                 }

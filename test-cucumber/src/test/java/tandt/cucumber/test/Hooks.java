@@ -3,6 +3,7 @@ package tandt.cucumber.test;
 import com.google.inject.Inject;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 
 public class Hooks {
     @Inject
@@ -14,23 +15,25 @@ public class Hooks {
         driverHooks.iOpenApplication();
     }
 
-    @After(value = "@Mobile", order = 999999)
-    public void afterMobileScenario() {
+    @After(value = "@Mobile", order = 9999)
+    public void afterMobileScenario(Scenario scenario) {
         System.out.println("after mobile scenario 999");
-        driverHooks.takeScreenshotMobile("");
+        if (scenario.isFailed())
+            driverHooks.takeScreenshotMobile(scenario.getName());
         driverHooks.closeMobileDriver();
     }
 
     @Before(value = "@Web", order = 0)
     public void beforeWebScenario() {
         System.out.println("before web scenario");
-//        driverHooks.iOpenBrowser();
+        driverHooks.iOpenBrowser();
     }
 
-    @After(value = "@Web", order = 999999)
-    public void afterWebScenario() {
+    @After(value = "@Web", order = 9999)
+    public void afterWebScenario(Scenario scenario) {
         System.out.println("after web scenario");
-        driverHooks.takeScreenshotWeb("");
+        if (scenario.isFailed())
+            driverHooks.takeScreenshotWeb(scenario.getName());
         driverHooks.closeWebDriver();
     }
 }
