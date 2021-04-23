@@ -1,5 +1,6 @@
 package tandt.web.element;
 
+
 public enum WebLocatorType {
     ID,
     XPATH,

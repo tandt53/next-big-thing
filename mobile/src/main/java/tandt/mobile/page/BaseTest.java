@@ -11,9 +11,6 @@ public class BaseTest {
     @Inject
     private PageFactory pageFactory;
 
-//    @Inject
-//    protected PageManager pageManager;
-
     protected <TPage extends BasePage, TBinder extends PageBinder> TPage page(Class<TPage> page, TBinder pageBinder) {
        return pageFactory.create(page, pageBinder);
     }

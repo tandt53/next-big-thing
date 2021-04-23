@@ -1,11 +1,11 @@
 package tandt.mobile;
 
 import tandt.mobile.annotations.FindElement;
-import ui.element.Element;
 import tandt.mobile.element.ElementInvocationHandler;
 import tandt.mobile.element.MobileElementInfo;
 import tandt.mobile.element.MobileLocatorType;
 import tandt.mobile.page.BasePage;
+import ui.element.Element;
 import ui.element.WaitStrategy;
 
 import java.lang.reflect.Field;
