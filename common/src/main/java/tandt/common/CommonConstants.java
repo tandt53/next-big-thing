@@ -2,6 +2,8 @@ package tandt.common;
 
 public class CommonConstants {
 
+    private CommonConstants(){}
+
     // input
     public static final String INPUT_DIR = "input/";
     public static final String INPUT_DIR_DATA = "data/";

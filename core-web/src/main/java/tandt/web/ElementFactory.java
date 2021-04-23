@@ -1,7 +1,6 @@
 package tandt.web;
 
 import tandt.web.annotations.FindElement;
-//import tandt.web.element.BaseWebElement;
 import tandt.web.element.ElementInvocationHandler;
 import tandt.web.element.WebElementInfo;
 import tandt.web.element.WebLocatorType;

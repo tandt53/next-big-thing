@@ -5,7 +5,6 @@ import com.google.inject.Injector;
 import com.google.inject.Singleton;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileDriver;
-import io.cucumber.guice.ScenarioScoped;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
