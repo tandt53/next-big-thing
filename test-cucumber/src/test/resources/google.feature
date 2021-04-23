@@ -1,11 +1,11 @@
 Feature: Search google
 
-#  @Web_S1
-#  Scenario: search google demo
-#    Given I open browser
-#    When I go to "http://google.com.vn"
-#    And I type and search keyword "VinId"
-#    When I check state in anther step definition class is equals to "http://google.com.vn"
+  @Web_S1
+  Scenario: search google demo
+    Given I open browser
+    When I go to "http://google.com.vn"
+    And I type and search keyword "VinId"
+    When I check state in anther step definition class is equals to "http://google.com.vn"
 #
 #  @State_S1 @Mobile
 #  Scenario: search state
