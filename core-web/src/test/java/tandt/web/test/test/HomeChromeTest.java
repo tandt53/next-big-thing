@@ -27,7 +27,7 @@ public class HomeChromeTest extends BaseTest {
     @Named("web")
     CapabilityService capabilityService;
 
-    Capability cap;
+    private Capability cap;
 
     @BeforeTest
     public void setup() {
