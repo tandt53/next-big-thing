@@ -1,10 +1,11 @@
 package tandt.web;
 
 import tandt.web.annotations.FindElement;
-import tandt.web.element.BaseWebElement;
+//import tandt.web.element.BaseWebElement;
 import tandt.web.element.ElementInvocationHandler;
 import tandt.web.element.WebElementInfo;
 import tandt.web.element.WebLocatorType;
+import ui.element.Element;
 import ui.element.WaitStrategy;
 
 import java.lang.reflect.Field;
@@ -29,8 +30,8 @@ public class ElementFactory {
                         webElementInfo.setLocatorValue(value);
                         webElementInfo.setStrategy(waitUntil);
 
-                        BaseWebElement baseElement = (BaseWebElement) Proxy.newProxyInstance(BaseWebElement.class.getClassLoader(),
-                                new Class[]{BaseWebElement.class}, new ElementInvocationHandler(webElementInfo));
+                        Element baseElement = (Element) Proxy.newProxyInstance(Element.class.getClassLoader(),
+                                new Class[]{Element.class}, new ElementInvocationHandler(webElementInfo));
                         field.set(page, baseElement);
                     }
                 }

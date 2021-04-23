@@ -13,7 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import tandt.common.Log;
 import tandt.mobile.ElementFactory;
-import tandt.mobile.element.BaseMobileElement;
+import ui.element.Element;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -110,9 +110,9 @@ public abstract class BasePage<TPage extends BasePage> {
                 .moveTo(point(anchor, endPoint)).release().perform();
     }
 
-    public void goToTop(BaseMobileElement baseMobileElement) {
-        int xElementPoint = baseMobileElement.getLocation().x;
-        int yElementPoint = baseMobileElement.getLocation().y;
+    public void goToTop(Element Element) {
+        int xElementPoint = Element.getLocation().x;
+        int yElementPoint = Element.getLocation().y;
         int yDestination = (int) (driver.manage().window().getSize().height * 0.05);
 
 
@@ -120,9 +120,9 @@ public abstract class BasePage<TPage extends BasePage> {
                 .moveTo(point(xElementPoint, yDestination)).release().perform();
     }
 
-    public void swipeElementUp(BaseMobileElement baseMobileElement, int length, long timeout) {
-        Point elementPoint = baseMobileElement.getLocation();
-        Dimension elementDimension = baseMobileElement.getSize();
+    public void swipeElementUp(Element Element, int length, long timeout) {
+        Point elementPoint = Element.getLocation();
+        Dimension elementDimension = Element.getSize();
         System.out.println(elementPoint.x + "; " + elementPoint.y);
         System.out.println(elementDimension.width + "; " + elementDimension.height);
 
@@ -134,9 +134,9 @@ public abstract class BasePage<TPage extends BasePage> {
                 .moveTo(point(endX, endY)).release().perform();
     }
 
-    public void swipeElementDown(BaseMobileElement baseMobileElement, int length, long timeout) {
-        Point elementPoint = baseMobileElement.getLocation();
-        Dimension elementDimension = baseMobileElement.getSize();
+    public void swipeElementDown(Element Element, int length, long timeout) {
+        Point elementPoint = Element.getLocation();
+        Dimension elementDimension = Element.getSize();
         System.out.println(elementPoint.x + "; " + elementPoint.y);
         System.out.println(elementDimension.width + "; " + elementDimension.height);
 
@@ -148,13 +148,13 @@ public abstract class BasePage<TPage extends BasePage> {
                 .moveTo(point(endX, endY)).release().perform();
     }
 
-    public boolean scrollDownToElement(BaseMobileElement baseMobileElement, long timeout) {
+    public boolean scrollDownToElement(Element Element, long timeout) {
         long startTime = System.currentTimeMillis();
         long duration = 0;
         int times = 0;
         boolean isDisplayed = false;
         while (timeout > duration) {
-            if (baseMobileElement.isDisplayed(10)) {
+            if (Element.isDisplayed(10)) {
                 isDisplayed = true;
                 break;
             }
@@ -166,13 +166,13 @@ public abstract class BasePage<TPage extends BasePage> {
         return isDisplayed;
     }
 
-    public boolean scrollUpToElement(BaseMobileElement baseMobileElement, long timeout) {
+    public boolean scrollUpToElement(Element Element, long timeout) {
         long startTime = System.currentTimeMillis();
         long duration = 0;
         int times = 0;
         boolean isDisplayed = false;
         while (timeout > duration) {
-            if (baseMobileElement.isDisplayed()) {
+            if (Element.isDisplayed()) {
                 isDisplayed = true;
                 break;
             }
@@ -184,13 +184,13 @@ public abstract class BasePage<TPage extends BasePage> {
         return isDisplayed;
     }
 
-    public boolean scrollUpToElement(BaseMobileElement baseMobileElement, long timeout, double startPercentage, double endPercentage) {
+    public boolean scrollUpToElement(Element Element, long timeout, double startPercentage, double endPercentage) {
         long startTime = System.currentTimeMillis();
         long duration = 0;
         int times = 0;
         boolean isDisplayed = false;
         while (timeout > duration) {
-            if (baseMobileElement.isDisplayed()) {
+            if (Element.isDisplayed()) {
                 isDisplayed = true;
                 break;
             }
@@ -276,9 +276,9 @@ public abstract class BasePage<TPage extends BasePage> {
         driver.navigate().back();
     }
 
-    public void swipeRight(BaseMobileElement baseMobileElement, long timeout) {
-        Point elementPoint = baseMobileElement.getLocation();
-        Dimension size = baseMobileElement.getSize();
+    public void swipeRight(Element Element, long timeout) {
+        Point elementPoint = Element.getLocation();
+        Dimension size = Element.getSize();
 
         int startX = (int) (elementPoint.x + (size.width * 0.80));
         int endX = (int) ((size.width * 0.10));
@@ -293,9 +293,9 @@ public abstract class BasePage<TPage extends BasePage> {
         }
     }
 
-    public void swipeLeft(BaseMobileElement baseMobileElement, long timeout) {
-        Point elementPoint = baseMobileElement.getLocation();
-        Dimension size = baseMobileElement.getSize();
+    public void swipeLeft(Element Element, long timeout) {
+        Point elementPoint = Element.getLocation();
+        Dimension size = Element.getSize();
 
         int startX = (int) (elementPoint.x + (size.width * 0.05));
         int endX = (int) ((size.width * 0.90));
@@ -344,8 +344,8 @@ public abstract class BasePage<TPage extends BasePage> {
                 .waitAction(waitOptions(ofSeconds(1))).release().perform();
     }
 
-    protected void longPressToElement(BaseMobileElement baseMobileElement) throws InterruptedException {
-        new Actions(driver).clickAndHold(baseMobileElement.getWebElement()).perform();
+    protected void longPressToElement(Element Element) throws InterruptedException {
+        new Actions(driver).clickAndHold(Element.getElement()).perform();
         Thread.sleep(3000);
 
     }
@@ -373,13 +373,13 @@ public abstract class BasePage<TPage extends BasePage> {
      * argument of how many percent of screen height will be scrolled per time.
      */
 
-    public boolean scrollDownToElement(BaseMobileElement baseMobileElement, double percentage, long timeout) {
+    public boolean scrollDownToElement(Element Element, double percentage, long timeout) {
         long startTime = System.currentTimeMillis();
         long duration = 0;
         int times = 0;
         boolean isDisplayed = false;
         while (timeout > duration) {
-            if (baseMobileElement.isDisplayed(10)) {
+            if (Element.isDisplayed(10)) {
                 isDisplayed = true;
                 break;
             }
@@ -403,14 +403,14 @@ public abstract class BasePage<TPage extends BasePage> {
      * Arg3 - double type: Add an argument of how many percent of screen height will
      * be scrolled per time. (0.1 -> 0.9)
      */
-    public boolean scrollDownToPresentElement(BaseMobileElement baseMobileElement, boolean isScrollDown, double percentage,
+    public boolean scrollDownToPresentElement(Element Element, boolean isScrollDown, double percentage,
                                               long timeout) {
         long startTime = System.currentTimeMillis();
         long duration = 0;
         int times = 0;
         boolean isPresent = false;
         while (timeout > duration) {
-            if (baseMobileElement.isPresent(10)) {
+            if (Element.isPresent(10)) {
                 isPresent = true;
                 break;
             }

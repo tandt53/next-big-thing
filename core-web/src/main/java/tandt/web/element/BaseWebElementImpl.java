@@ -1,20 +1,18 @@
 package tandt.web.element;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.Rectangle;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tandt.web.Conditions;
 import tandt.web.drivermanager.DriverManager;
+import ui.element.Element;
 import ui.element.WaitStrategy;
 
 import java.util.List;
 import java.util.function.Function;
 
-public class BaseWebElementImpl implements BaseWebElement {
+public class BaseWebElementImpl implements Element {
 
     private By locator;
     private WebElementInfo webElementInfo;
@@ -93,23 +91,28 @@ public class BaseWebElementImpl implements BaseWebElement {
         }
     }
 
-    public org.openqa.selenium.WebElement waitUntil(final Function<By, ExpectedCondition<org.openqa.selenium.WebElement>> condition)  {
+    public WebElement waitUntil(final Function<By, ExpectedCondition<org.openqa.selenium.WebElement>> condition)  {
         return waitUntil(condition, timeout);
     }
 
 
-    public org.openqa.selenium.WebElement getWebElement() {
+    public WebElement getElement() {
         return waitUntil(waitForElement);
     }
 
     @Override
-    public List<org.openqa.selenium.WebElement> getElements() {
+    public List<WebElement> getElements() {
         return waitUntilAll(waitForListElement);
     }
 
     @Override
-    public List<org.openqa.selenium.WebElement> getElements(long timeout) {
+    public List<WebElement> getElements(long timeout) {
         return waitUntilAll(waitForListElement, timeout);
+    }
+
+    @Override
+    public boolean isPresent(int timeout) {
+        return false;
     }
 
     private <V> V waitUntil(final Function<By, ExpectedCondition<V>> condition, long timeout){
@@ -166,6 +169,7 @@ public class BaseWebElementImpl implements BaseWebElement {
     }
 
 
+    @Override
     public void clearText() {
         waitUntil(waitForElement).clear();
     }
@@ -224,7 +228,7 @@ public class BaseWebElementImpl implements BaseWebElement {
     }
 
     @Override
-    public BaseWebElement formatLocatorValue(String... eventName) {
+    public Element formatLocatorValue(String... eventName) {
         String newLocator = String.format(this.webElementInfo.getLocatorValue(), eventName);
         initLocator(this.webElementInfo.getLocatorType(), newLocator);
         return this;

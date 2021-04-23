@@ -1,6 +1,6 @@
 Feature: Search google
 
-  @Web_S1
+  @Web_S1 @Web
   Scenario: search google demo
     Given I open browser
     When I go to "http://google.com.vn"

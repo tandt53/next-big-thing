@@ -2,25 +2,25 @@ package tandt.mobile.test.pages;
 
 import tandt.mobile.ElementFactory;
 import tandt.mobile.annotations.FindElement;
-import tandt.mobile.element.BaseMobileElement;
+import ui.element.Element;
 import tandt.mobile.element.MobileLocatorType;
 
 public class AndroidPage extends HomePage {
 
     @FindElement(type = MobileLocatorType.ID, value="edtUsername")
-    private BaseMobileElement edtUsername;
+    private Element edtUsername;
 
     @FindElement(type = MobileLocatorType.ID, value="edtPassword")
-    private BaseMobileElement edtPassword;
+    private Element edtPassword;
 
     @FindElement(type = MobileLocatorType.ID, value="chbRememberMe")
-    private BaseMobileElement chbRememberMe;
+    private Element chbRememberMe;
 
     @FindElement(type = MobileLocatorType.ID, value="btnLogin")
-    private BaseMobileElement btnLogin;
+    private Element btnLogin;
 
     @FindElement(type = MobileLocatorType.ID, value="txtErrorMessage")
-    private BaseMobileElement txtErrorMessage;
+    private Element txtErrorMessage;
 
     public AndroidPage(){
         System.out.println("============ android page ===========");
