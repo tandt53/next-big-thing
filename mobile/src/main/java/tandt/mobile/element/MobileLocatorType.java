@@ -15,11 +15,6 @@ public enum MobileLocatorType {
 
 // not supported yet
 //    IMAGE,
-//    CUSTOM,
+//    CUSTOM
 
-// not supported by appium
-//    PARTIAL_LINK_TEXT
-//    LINK_TEXT,
-//    CSS_SELECTOR,
-//    TAG_NAME,
 }

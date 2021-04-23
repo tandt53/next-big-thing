@@ -15,7 +15,6 @@ import tandt.cucumber.test.exception.TakeScreenshotException;
 import java.io.File;
 import java.io.IOException;
 
-@ScenarioScoped
 public class DriverHooks {
 
     @Inject

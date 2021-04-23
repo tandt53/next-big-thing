@@ -11,7 +11,7 @@ public class Hooks {
     @Before(value = "@Mobile", order = 0)
     public void beforeMobileScenario() {
         System.out.println("before mobile scenario");
-//        driverHooks.iOpenApplication();
+        driverHooks.iOpenApplication();
     }
 
     @After(value = "@Mobile", order = 999999)
