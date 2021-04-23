@@ -9,7 +9,6 @@ public class PageObject extends BaseWebPage<PageObject> {
     @Inject
     private KeywordState state;
 
-
     public void openPage(String url){
         open(url);
         state.setState(url);

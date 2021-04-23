@@ -12,6 +12,9 @@ public class WebInjector implements InjectorSource {
 
     @Override
     public Injector getInjector() {
-        return Guice.createInjector(Stage.DEVELOPMENT, CucumberModules.createScenarioModule(), new WebModule(), new MobileModule());
+        return Guice.createInjector(Stage.DEVELOPMENT,
+                CucumberModules.createScenarioModule(),
+                new WebModule(),
+                new MobileModule());
     }
 }
