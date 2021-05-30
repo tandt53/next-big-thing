@@ -3,6 +3,7 @@ package tandt.mobile.drivermanager;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Key;
+import com.google.inject.name.Named;
 import com.google.inject.name.Names;
 import ui.driverselector.DriverSelector;
 
@@ -13,7 +14,7 @@ public class DriverManagerFactory {
     @Inject
     Injector injector;
 
-    @Inject
+    @Inject @Named("mobile")
     DriverSelector selector;
 
     /**

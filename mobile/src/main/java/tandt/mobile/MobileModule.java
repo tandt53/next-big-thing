@@ -30,11 +30,11 @@ public class MobileModule extends AbstractModule {
 
         bind(CapabilityService.class).annotatedWith(Names.named("mobile")).to(MobileCapabilityService.class).in(Scopes.SINGLETON);
         bind(DriverSelector.class).annotatedWith(Names.named("mobile")).to(MobileDriverSelector.class);
-        bind(PageFactory.class).to(DefaultPageFactory.class);
+        bind(PageFactory.class).to(DefaultPageFactory.class).in(Scopes.SINGLETON);
         bind(MobileDriver.class).toProvider(DriverProvider.class).in(Scopes.SINGLETON);
 
-        bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_ANDROID)).to(AndroidDriverManager.class);
-        bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_IOS)).to(IosDriverManager.class);
+        bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_ANDROID)).to(AndroidDriverManager.class).in(Scopes.SINGLETON);
+        bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_IOS)).to(IosDriverManager.class).in(Scopes.SINGLETON);
         bind(String.class).annotatedWith(Names.named(Constants.CAPABILITY_PLATFORM_NAME)).toInstance(getProperties());
     }
 

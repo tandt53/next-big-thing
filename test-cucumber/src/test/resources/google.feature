@@ -17,8 +17,15 @@ Feature: Search google
 #    Given I set variable value is "variable"
 #    When I check variable in anther step definition class is equals to "variable"
 
-    @Mobile_S1
-    Scenario: mobile demo
-      Given I open application
-      And I login with email "admin" and password "admin"
-      Then I verify message "Login success"
+  @Mobile_S1 @Mobile
+  Scenario: mobile demo
+    Given I open application
+    And I login with email "admin" and password "admin"
+    Then I verify message "Login success"
+
+
+  @Mobile_S2 @Mobile
+  Scenario: mobile demo 2
+    Given I open application
+    And I login with email "admin" and password "admin"
+    Then I verify message "Login success"
