@@ -8,7 +8,11 @@ public abstract class DriverManager {
     public static ThreadLocal<AppiumDriver<WebElement>> driver = new ThreadLocal<>();
 
     public AppiumDriver<WebElement> getDriver() {
+//        if(driver.get() !=null && driver.get().getSessionId().toString().isEmpty()){
+//            initDriver();
+//        }
         return driver.get();
+
     }
 
     public abstract AppiumDriver<WebElement> initDriver() ;

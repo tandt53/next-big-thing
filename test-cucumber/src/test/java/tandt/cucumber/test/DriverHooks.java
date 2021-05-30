@@ -1,8 +1,10 @@
 package tandt.cucumber.test;
 
+import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Singleton;
+import com.google.inject.name.Named;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileDriver;
 import org.apache.commons.io.FileUtils;
@@ -11,6 +13,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import tandt.cucumber.test.exception.TakeScreenshotException;
+import tandt.mobile.MobileModule;
+import tandt.mobile.page.PageFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,12 +28,17 @@ public class DriverHooks {
     private WebDriver webDriver;
     private AppiumDriver<WebElement> mobileDriver;
 
+    private PageFactory factory;
+
     public void iOpenBrowser() {
-        webDriver = injector.getInstance(WebDriver.class);
+//        webDriver = injector.getInstance(WebDriver.class);
     }
 
     public void iOpenApplication() {
-        mobileDriver = (AppiumDriver<WebElement>) injector.getInstance(MobileDriver.class);
+        Injector injector1 = Guice.createInjector(new MobileModule());
+        mobileDriver = (AppiumDriver<WebElement>) injector1.getInstance(MobileDriver.class);
+        factory = injector1.getInstance(PageFactory.class);
+        System.out.println(mobileDriver);
     }
 
     public void takeScreenshotMobile(String image) {
