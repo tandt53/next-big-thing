@@ -9,12 +9,12 @@ import tandt.common.event.type.EventType;
 
 public class Event {
     private EventType type;
-    private EventDispatcher<?> source;
+//    private EventDispatcher<?> source;
     private Object[] eventData;
 
-    public Event(EventType type, EventDispatcher<?> source, Object... eventData) {
+    public Event(EventType type, /*EventDispatcher<?> source,*/ Object... eventData) {
         this.type = type;
-        this.source = source;
+//        this.source = source;
         this.eventData = eventData;
     }
 
@@ -26,13 +26,13 @@ public class Event {
         this.type = type;
     }
 
-    public EventDispatcher<?> getSource() {
-        return source;
-    }
-
-    public void setSource(EventDispatcher<?> source) {
-        this.source = source;
-    }
+//    public EventDispatcher<?> getSource() {
+//        return source;
+//    }
+//
+//    public void setSource(EventDispatcher<?> source) {
+//        this.source = source;
+//    }
 
     public Object[] getEventData() {
         return eventData;
