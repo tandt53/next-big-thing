@@ -9,13 +9,13 @@ public class LoggerEvent extends Event {
     private String message;
     private Optional<Exception> exception;
 
-    public LoggerEvent(EventType eventType, EventDispatcher source, String message, Exception exception) {
+    public LoggerEvent(EventType eventType, EventDispatcher<?> source, String message, Exception exception) {
         super(eventType, source, message, exception);
         this.message = message;
         this.exception = Optional.of(exception);
     }
 
-    public LoggerEvent(EventType eventType, EventDispatcher source, String message) {
+    public LoggerEvent(EventType eventType, EventDispatcher<?> source, String message) {
         super(eventType, source, message);
         this.message = message;
         this.exception = Optional.empty();
