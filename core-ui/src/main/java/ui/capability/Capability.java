@@ -4,20 +4,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Capability {
-    protected Map<String, String> caps = new HashMap<>();
+    protected Map<String, Object> caps = new HashMap<>();
 
     public abstract Capability load();
 
-    public Map<String, String> getCapabilities() {
+    public Map<String, Object> getCapabilities() {
         return caps;
     }
 
-    public Capability add(String key, String value) {
+    public Capability add(String key, Object value) {
         caps.put(key, value);
         return this;
     }
 
-    public Capability add(Map<String, String> capability) {
+    public Capability add(Map<String, Object> capability) {
         caps.putAll(capability);
         return this;
     }
@@ -32,7 +32,7 @@ public abstract class Capability {
         return this;
     }
 
-    public  String get(String key){
+    public Object get(String key) {
         return caps.get(key);
     }
 }

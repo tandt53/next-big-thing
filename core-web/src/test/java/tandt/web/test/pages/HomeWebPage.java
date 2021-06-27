@@ -1,6 +1,8 @@
 package tandt.web.test.pages;
 
+import com.google.inject.Inject;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import tandt.web.BaseWebPage;
 import tandt.web.ElementFactory;
@@ -15,8 +17,9 @@ import ui.element.WaitStrategy;
  */
 public class HomeWebPage extends BaseWebPage<HomeWebPage> {
 
-    public HomeWebPage() {
-        ElementFactory.initElements(this);
+    @Inject
+    public HomeWebPage(WebDriver driver) {
+        ElementFactory.initElements(driver,this);
         url = "http://google.com.vn";
     }
 

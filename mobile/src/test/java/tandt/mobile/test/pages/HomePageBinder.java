@@ -1,9 +1,9 @@
 package tandt.mobile.test.pages;
 
+import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
-import tandt.mobile.page.pagemanager.PageBinder;
 
-public class HomePageBinder extends PageBinder<HomePageBinder> {
+public class HomePageBinder extends AbstractModule {
     @Override
     protected void configure() {
         bind(HomePage.class).annotatedWith(Names.named("android")).to(AndroidPage.class);

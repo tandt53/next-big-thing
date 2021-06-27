@@ -19,7 +19,7 @@ public class FirefoxDriverManager extends DriverManager {
     @Override
     public WebDriver initDriver() {
         Capability caps = service.getCapability();
-        System.setProperty(KEY_FIREFOX, caps.get(Constants.CAPABILITY_DRIVER_PATH));
+        System.setProperty(KEY_FIREFOX, (String) caps.get(Constants.CAPABILITY_DRIVER_PATH));
         driver.set(new FirefoxDriver(new MutableCapabilities(caps.getCapabilities())));
         return getDriver();
     }

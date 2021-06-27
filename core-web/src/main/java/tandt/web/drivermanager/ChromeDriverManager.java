@@ -19,7 +19,7 @@ public class ChromeDriverManager extends DriverManager {
     @Override
     public WebDriver initDriver()  {
         Capability caps = service.getCapability();
-        System.setProperty(KEY_CHROME, caps.get(Constants.CAPABILITY_DRIVER_PATH));
+        System.setProperty(KEY_CHROME, (String) caps.get(Constants.CAPABILITY_DRIVER_PATH));
         driver.set(new ChromeDriver(new MutableCapabilities(caps.getCapabilities())));
         return getDriver();
     }

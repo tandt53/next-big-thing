@@ -1,6 +1,5 @@
 package tandt.web;
 
-import com.google.inject.Inject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +16,6 @@ public abstract class BaseWebPage<TPage extends BaseWebPage> {
      */
     public String url;
 
-    @Inject
     protected WebDriver driver; // DriverManager must be injected and initialized first
 
     public WebElement findElement(By by) {

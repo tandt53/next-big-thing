@@ -19,7 +19,7 @@ public class EdgeDriverManager extends DriverManager{
     @Override
     public WebDriver initDriver() {
         Capability caps = service.getCapability();
-        System.setProperty(KEY_EDGE, caps.get(Constants.CAPABILITY_DRIVER_PATH));
+        System.setProperty(KEY_EDGE, (String) caps.get(Constants.CAPABILITY_DRIVER_PATH));
         driver.set(new EdgeDriver(new MutableCapabilities(caps.getCapabilities())));
         return getDriver();
     }

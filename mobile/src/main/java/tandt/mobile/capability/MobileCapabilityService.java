@@ -18,13 +18,12 @@ public class MobileCapabilityService implements CapabilityService {
     private boolean isLoaded = false;
 
     /**
-     * load capability from config file or command line
+     * load capability from config file and command line
      */
     private void loadCapabilities() {
         cliCapability.load();
         properties.load().add(cliCapability);
         isLoaded = true;
-
     }
 
     @Override
