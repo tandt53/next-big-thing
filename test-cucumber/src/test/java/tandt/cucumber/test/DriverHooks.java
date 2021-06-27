@@ -1,23 +1,25 @@
 package tandt.cucumber.test;
 
-import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.Key;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
+import com.google.inject.name.Names;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileDriver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import tandt.cucumber.test.exception.TakeScreenshotException;
-import tandt.mobile.MobileModule;
-import tandt.mobile.page.PageFactory;
+import tandt.mobile.drivermanager.DriverManager;
 
 import java.io.File;
 import java.io.IOException;
+
+
+
 
 @Singleton
 public class DriverHooks {
@@ -25,20 +27,20 @@ public class DriverHooks {
     @Inject
     private Injector injector;
 
+    @Inject
+    @Named("platformName")
+    private String platform;
+
     private WebDriver webDriver;
     private AppiumDriver<WebElement> mobileDriver;
 
-    private PageFactory factory;
-
-    public void iOpenBrowser() {
-//        webDriver = injector.getInstance(WebDriver.class);
+    public void initWeb() {
+        webDriver = injector.getInstance(WebDriver.class);
     }
 
-    public void iOpenApplication() {
-        Injector injector1 = Guice.createInjector(new MobileModule());
-        mobileDriver = (AppiumDriver<WebElement>) injector1.getInstance(MobileDriver.class);
-        factory = injector1.getInstance(PageFactory.class);
-        System.out.println(mobileDriver);
+    public void initMobile() {
+        DriverManager manager = injector.getInstance(Key.get(DriverManager.class, Names.named(platform)));
+        mobileDriver = manager.initDriver();
     }
 
     public void takeScreenshotMobile(String image) {

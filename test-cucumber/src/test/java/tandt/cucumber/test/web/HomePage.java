@@ -1,6 +1,7 @@
 package tandt.cucumber.test.web;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import tandt.web.BaseWebPage;
 import tandt.web.ElementFactory;
@@ -17,8 +18,8 @@ public class HomePage extends BaseWebPage<HomePage> {
     @FindBy(id = "_fZl")
     private org.openqa.selenium.WebElement searchButton;
 
-    public HomePage(){
-        ElementFactory.initElements(this);
+    public HomePage(WebDriver driver){
+        ElementFactory.initElements(driver, this);
     }
 
     public void search(String keyword) {

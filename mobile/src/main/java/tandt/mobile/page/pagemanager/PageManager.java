@@ -18,8 +18,7 @@ public class PageManager {
     @Inject
     private Injector injector;
 
-    public <TPage extends BasePage, TBinder extends PageBinder> TPage getPage(Class<TPage> page, TBinder binder) {
-        Injector childInjector = injector.createChildInjector(binder);
-        return (TPage) childInjector.getInstance((Key.get(page, Names.named(platform))));
+    public <TPage extends BasePage<?>> TPage getPage(Class<TPage> page) {
+        return injector.getInstance((Key.get(page, Names.named(platform))));
     }
 }

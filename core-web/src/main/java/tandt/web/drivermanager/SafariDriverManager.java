@@ -19,7 +19,7 @@ public class SafariDriverManager extends DriverManager {
     @Override
     public WebDriver initDriver() {
         Capability caps = service.getCapability();
-        System.setProperty(KEY_SAFARI, caps.get(Constants.CAPABILITY_DRIVER_PATH));
+        System.setProperty(KEY_SAFARI, (String) caps.get(Constants.CAPABILITY_DRIVER_PATH));
         driver.set(new SafariDriver(new MutableCapabilities(caps.getCapabilities())));
         return getDriver();
     }

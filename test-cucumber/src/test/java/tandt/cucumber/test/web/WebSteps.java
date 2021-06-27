@@ -31,7 +31,7 @@ public class WebSteps extends PageFactory {
 
     @Given("I open browser")
     public void iOpenBrowser()  {
-        driver.iOpenBrowser();
+        driver.initWeb();
     }
 
 

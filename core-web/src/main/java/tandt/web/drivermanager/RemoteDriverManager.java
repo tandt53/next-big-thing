@@ -26,7 +26,7 @@ public class RemoteDriverManager extends DriverManager {
         Capability caps = service.getCapability();
         String url = null;
         try {
-            url = Utils.parseVariables(caps.get(Constants.CAPABILITY_REMOTE_HOST));
+            url = Utils.parseVariables((String) caps.get(Constants.CAPABILITY_REMOTE_HOST));
             driver.set(new RemoteWebDriver(new URL(url),new MutableCapabilities(caps.getCapabilities())));
             return getDriver();
         } catch (CommonException | MalformedURLException e) {

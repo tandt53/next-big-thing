@@ -23,7 +23,7 @@ public class AndroidDriverManager extends DriverManager {
         Capability caps = service.getCapability();
         URL url = null;
         try {
-            url = new URL(caps.get(Constants.CAPABILITY_SERVER_URL));
+            url = new URL((String) caps.get(Constants.CAPABILITY_SERVER_URL));
             caps.remove(Constants.CAPABILITY_SERVER_URL);
             driver.set(new AndroidDriver<>(url, new DesiredCapabilities(caps.getCapabilities())));
             return getDriver();

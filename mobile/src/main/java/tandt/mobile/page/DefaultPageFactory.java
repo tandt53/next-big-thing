@@ -1,7 +1,6 @@
 package tandt.mobile.page;
 
 import com.google.inject.Inject;
-import tandt.mobile.page.pagemanager.PageBinder;
 import tandt.mobile.page.pagemanager.PageManager;
 
 public class DefaultPageFactory implements PageFactory {
@@ -14,7 +13,7 @@ public class DefaultPageFactory implements PageFactory {
     }
 
     @Override
-    public <TPage extends BasePage, TBinder extends PageBinder> TPage create(Class<TPage> page, TBinder pageBinder) {
-        return pageManager.getPage(page, pageBinder);
+    public <TPage extends BasePage> TPage create(Class<TPage> page) {
+        return pageManager.getPage(page);
     }
 }

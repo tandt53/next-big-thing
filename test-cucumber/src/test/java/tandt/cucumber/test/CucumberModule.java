@@ -8,7 +8,7 @@ import io.cucumber.guice.InjectorSource;
 import tandt.mobile.MobileModule;
 import tandt.web.WebModule;
 
-public class WebInjector implements InjectorSource {
+public class CucumberModule implements InjectorSource {
 
     @Override
     public Injector getInjector() {

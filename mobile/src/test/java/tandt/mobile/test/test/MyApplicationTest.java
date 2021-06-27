@@ -24,7 +24,7 @@
 //    }
 //
 //    @BeforeClass
-//    public void setupClass() throws PropertiesException, CommonException, MalformedURLException {
+//    public void setupClass() , CommonException, MalformedURLException {
 //        page = new MyApplicationPage(driverManager.initDriver());
 //    }
 //

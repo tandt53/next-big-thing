@@ -1,5 +1,6 @@
 package tandt.web;
 
+import org.openqa.selenium.WebDriver;
 import tandt.web.annotations.FindElement;
 import tandt.web.element.ElementInvocationHandler;
 import tandt.web.element.WebElementInfo;
@@ -12,7 +13,7 @@ import java.lang.reflect.Proxy;
 
 public class ElementFactory {
 
-    public static <T extends BaseWebPage<?>> void initElements(final T page) {
+    public static <T extends BaseWebPage<?>> void initElements(WebDriver driver, T page) {
         try {
             Class<?> objectClass = page.getClass();
             for (Field field : objectClass.getDeclaredFields()) {
@@ -30,7 +31,7 @@ public class ElementFactory {
                         webElementInfo.setStrategy(waitUntil);
 
                         Element baseElement = (Element) Proxy.newProxyInstance(Element.class.getClassLoader(),
-                                new Class[]{Element.class}, new ElementInvocationHandler(webElementInfo));
+                                new Class[]{Element.class}, new ElementInvocationHandler(driver, webElementInfo));
                         field.set(page, baseElement);
                     }
                 }

@@ -10,19 +10,21 @@ import java.io.IOException;
 
 public abstract class DriverManager {
 
-    public static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    public ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public WebDriver getDriver() {
+        if (driver.get() == null)
+            return initDriver();
         return driver.get();
     }
 
-    public abstract WebDriver initDriver() ;
+    public abstract WebDriver initDriver();
 
     /**
      * This function will take screenshot
      *
      * @param imageName
-     * @exception IOException
+     * @throws IOException
      */
     public void takeSnapShot(String imageName) throws IOException {
         TakesScreenshot scrShot = (TakesScreenshot) driver.get();

@@ -6,13 +6,14 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
 public class Hooks {
+
     @Inject
     private DriverHooks driverHooks;
 
     @Before(value = "@Mobile", order = 0)
     public void beforeMobileScenario() {
         System.out.println("before mobile scenario");
-        driverHooks.iOpenApplication();
+        driverHooks.initMobile();
     }
 
     @After(value = "@Mobile", order = 9999)
@@ -26,7 +27,7 @@ public class Hooks {
     @Before(value = "@Web", order = 0)
     public void beforeWebScenario() {
         System.out.println("before web scenario");
-        driverHooks.iOpenBrowser();
+        driverHooks.initWeb();
     }
 
     @After(value = "@Web", order = 9999)

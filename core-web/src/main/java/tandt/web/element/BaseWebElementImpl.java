@@ -5,7 +5,6 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tandt.web.Conditions;
-import tandt.web.drivermanager.DriverManager;
 import ui.element.Element;
 import ui.element.WaitStrategy;
 
@@ -14,14 +13,12 @@ import java.util.function.Function;
 
 public class BaseWebElementImpl implements Element {
 
+    private WebDriver driver;
     private By locator;
     private WebElementInfo webElementInfo;
-    private Function<By, ExpectedCondition<org.openqa.selenium.WebElement>> waitForElement = Conditions.PRESENCE; //  wait strategy
+    private Function<By, ExpectedCondition<WebElement>> waitForElement = Conditions.PRESENCE; //  wait strategy
     private Function<By, ExpectedCondition<List<org.openqa.selenium.WebElement>>> waitForListElement = Conditions.PRESENCE_ALL; //  wait strategy
     private long timeout = 5;
-
-    BaseWebElementImpl() {
-    }
 
     public void setElementInfo(WebElementInfo webElementInfo) {
         this.webElementInfo = webElementInfo;
@@ -31,7 +28,8 @@ public class BaseWebElementImpl implements Element {
         return webElementInfo;
     }
 
-    public BaseWebElementImpl(WebElementInfo webElementInfo) {
+    public BaseWebElementImpl(WebDriver driver, WebElementInfo webElementInfo) {
+        this.driver = driver;
         this.webElementInfo = webElementInfo;
         initLocator(this.webElementInfo.getLocatorType(), this.webElementInfo.getLocatorValue());
         initWaitStrategy();
@@ -128,7 +126,7 @@ public class BaseWebElementImpl implements Element {
     }
 
     private WebDriverWait getWait(long timeout) {
-        return new WebDriverWait(DriverManager.driver.get(), timeout);
+        return new WebDriverWait(driver, timeout);
     }
 
 
