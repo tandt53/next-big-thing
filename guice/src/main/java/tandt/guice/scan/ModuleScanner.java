@@ -11,11 +11,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * Scan all classes that matches:
- * - in package vinid
- * - class has annotation {@link Binder}
- */
 public class ModuleScanner extends AbstractModule {
 
 
@@ -36,7 +31,7 @@ public class ModuleScanner extends AbstractModule {
 
         try {
             GuiceScanProperties properties = new GuiceScanProperties();
-            String packageName = properties.getProperty("guice.scan.module.platform");
+            String packageName = properties.getProperty("guice.scan.module.package");
 
             Reflections packageReflections = new Reflections(packageName);
             List<Class<?>> cs = installAnnotations.stream()
