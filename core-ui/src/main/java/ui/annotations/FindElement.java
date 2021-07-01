@@ -13,7 +13,7 @@ import static ui.element.LocatorType.ID;
 
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD, ElementType.TYPE})
+@Target({ElementType.FIELD})
 public @interface FindElement {
     LocatorType type()  default ID;
 

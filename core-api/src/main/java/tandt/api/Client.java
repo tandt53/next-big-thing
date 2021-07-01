@@ -15,17 +15,17 @@ import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 public class Client {
-    private static final int _TIMEOUT = -1;
-    private static final int _CALL_TIMEOUT = 30000;
+    private static final int TIMEOUT = -1;
+    private static final int CALL_TIMEOUT = 30000;
     private final TimeUnit TIME_UNIT = TimeUnit.MILLISECONDS;
 
     private OkHttpClient.Builder builder;
 
     private boolean isFollowRedirects = true;
     private boolean isAllowInsecure = false;
-    public int connectTimeout = _TIMEOUT;
-    private int readTimeout = _TIMEOUT;
-    private long callTimeout = _CALL_TIMEOUT;
+    public int connectTimeout = TIMEOUT;
+    private int readTimeout = TIMEOUT;
+    private long callTimeout = CALL_TIMEOUT;
 
     public Client() {
         this.builder = new OkHttpClient.Builder();
@@ -35,11 +35,11 @@ public class Client {
     public OkHttpClient createClient() throws NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
 
         builder.followRedirects(isFollowRedirects);
-        if (connectTimeout != _TIMEOUT) {
+        if (connectTimeout != TIMEOUT) {
             builder.connectTimeout(connectTimeout, TIME_UNIT);
         }
 
-        if (readTimeout != _TIMEOUT) {
+        if (readTimeout != TIMEOUT) {
             builder.readTimeout(readTimeout, TIME_UNIT);
         }
 

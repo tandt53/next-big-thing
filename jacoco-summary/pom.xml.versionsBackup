@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>automation</artifactId>
+        <groupId>tandt</groupId>
+        <version>${tandt.modules.version}</version>
+        <relativePath>..</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>jacoco-summary</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+
+        <build.directory.common>../common/target</build.directory.common>
+        <build.directory.core-api>../core-api/target</build.directory.core-api>
+        <build.directory.core-db>../core-db/target</build.directory.core-db>
+        <build.directory.mobile>../mobile/target</build.directory.mobile>
+        <build.directory.core-web>../core-web/target</build.directory.core-web>
+        <build.directory.data-provider>../data-provider/target</build.directory.data-provider>
+
+        <classes.directory.common>../common/target/classes</classes.directory.common>
+        <classes.directory.core-api>../core-api/target/classes</classes.directory.core-api>
+        <classes.directory.core-db>../core-db/target/classes</classes.directory.core-db>
+        <classes.directory.mobile>../mobile/target/classes</classes.directory.mobile>
+        <classes.directory.core-web>../core-web/target/classes</classes.directory.core-web>
+        <classes.directory.data-provider>../data-provider/target/classes</classes.directory.data-provider>
+
+        <sources.directory.common>../common/src/main/java</sources.directory.common>
+        <sources.directory.core-api>../core-api/src/main/java</sources.directory.core-api>
+        <sources.directory.core-db>../core-db/src/main/java</sources.directory.core-db>
+        <sources.directory.mobile>../mobile/src/main/java</sources.directory.mobile>
+        <sources.directory.core-web>../core-web/src/main/java</sources.directory.core-web>
+        <sources.directory.data-provider>../data-provider/src/main/java</sources.directory.data-provider>
+
+        <generated-sources.directory.common>../common/target/generated-sources/annotations</generated-sources.directory.common>
+        <generated-sources.directory.core-api>../core-api/target/generated-sources/annotations</generated-sources.directory.core-api>
+        <generated-sources.directory.core-db>../core-db/target/generated-sources/annotations</generated-sources.directory.core-db>
+        <generated-sources.directory.mobile>../mobile/target/generated-sources/annotations</generated-sources.directory.mobile>
+        <generated-sources.directory.core-web>../core-web/target/generated-sources/annotations</generated-sources.directory.core-web>
+        <generated-sources.directory.data-provider>../data-provider/target/generated-sources/annotations</generated-sources.directory.data-provider>
+    </properties>
+
+    <build>
+        <plugins>
+            <!-- Dependencies -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <!-- Copy the ant tasks jar. Needed for ts.jacoco.report-ant . -->
+                    <execution>
+                        <id>jacoco-dependency-ant</id>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <phase>process-test-resources</phase>
+                        <inherited>false</inherited>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.jacoco</groupId>
+                                    <artifactId>org.jacoco.ant</artifactId>
+                                    <version>${jacoco.version}</version>
+                                </artifactItem>
+                            </artifactItems>
+                            <stripVersion>true</stripVersion>
+                            <outputDirectory>${basedir}/target/jacoco-jars</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <!-- Ant plugin. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <!-- Execute an ant task within maven -->
+                                <echo message="Generating JaCoCo Reports" />
+                                <taskdef name="report" classname="org.jacoco.ant.ReportTask">
+                                    <classpath path="${basedir}/target/jacoco-jars/org.jacoco.ant.jar" />
+                                </taskdef>
+                                <mkdir dir="${basedir}/target/coverage-report" />
+                                <report>
+                                    <executiondata>
+                                        <fileset dir="${build.directory.common}">
+                                            <include name="jacoco.exec" />
+                                        </fileset>
+                                        <fileset dir="${build.directory.core-api}">
+                                            <include name="jacoco.exec" />
+                                        </fileset>
+                                    </executiondata>
+                                    <structure name="jacoco-multi Coverage Project">
+                                        <group name="jacoco-multi">
+                                            <classfiles>
+                                                <fileset dir="${classes.directory.common}" />
+                                                <fileset dir="${classes.directory.core-api}" />
+                                                <fileset dir="${classes.directory.core-db}" />
+                                                <fileset dir="${classes.directory.mobile}" />
+                                                <fileset dir="${classes.directory.core-web}" />
+                                                <fileset dir="${classes.directory.data-provider}" />
+                                            </classfiles>
+                                            <sourcefiles encoding="UTF-8">
+                                                <fileset dir="${sources.directory.common}" />
+                                                <fileset dir="${sources.directory.core-api}"></fileset>
+                                                <fileset dir="${sources.directory.core-db}"></fileset>
+                                                <fileset dir="${sources.directory.mobile}"></fileset>
+                                                <fileset dir="${sources.directory.core-web}"></fileset>
+                                                <fileset dir="${sources.directory.data-provider}"></fileset>
+
+                                                <!-- <fileset dir="${generated-sources.directory.projecta}"></fileset>
+                                                <fileset
+                                                    dir="${generated-sources.directory.projectb}"></fileset> -->
+                                            </sourcefiles>
+                                        </group>
+                                    </structure>
+                                    <html destdir="${basedir}/target/coverage-report/html" />
+                                    <xml destfile="${basedir}/target/coverage-report/coverage-report.xml" />
+                                    <csv destfile="${basedir}/target/coverage-report/coverage-report.csv" />
+                                </report>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>org.jacoco.ant</artifactId>
+                        <version>${jacoco.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

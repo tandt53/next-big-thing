@@ -5,7 +5,6 @@ import io.cucumber.plugin.ConcurrentEventListener;
 import io.cucumber.plugin.event.*;
 import tandt.common.Log;
 
-
 public class TestListener implements ConcurrentEventListener {
     public Log log = new Log(TestListener.class);
 
