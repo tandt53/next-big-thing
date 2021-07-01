@@ -20,8 +20,8 @@
         <module>test-cucumber</module>
         <module>test-junit</module>
         <module>test-testng</module>
+        <module>guice</module>
         <module>jacoco-summary</module>
-        <module>guice-utils</module>
     </modules>
 
     <properties>

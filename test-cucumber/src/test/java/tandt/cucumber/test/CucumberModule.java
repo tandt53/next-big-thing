@@ -8,6 +8,9 @@ import io.cucumber.guice.InjectorSource;
 import tandt.mobile.MobileModule;
 import tandt.web.WebModule;
 
+/**
+ * CucumberModule includes all needed modules for Guice.injector by cucumber-guice
+ */
 public class CucumberModule implements InjectorSource {
 
     @Override
