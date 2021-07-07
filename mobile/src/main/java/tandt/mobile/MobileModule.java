@@ -25,6 +25,9 @@ public class MobileModule extends AbstractModule {
 
     @Override
     protected void configure() {
+        String platform = getProperties();
+        bind(String.class).annotatedWith(Names.named(Constants.CAPABILITY_PLATFORM_NAME)).toInstance(platform);
+
         bind(Capability.class).annotatedWith(Names.named("mobile.cli-args")).to(CliArgumentsCapability.class).in(Scopes.SINGLETON);
         bind(Capability.class).annotatedWith(Names.named("mobile.properties")).to(PropertiesFileCapability.class).in(Scopes.SINGLETON);
 
@@ -33,9 +36,10 @@ public class MobileModule extends AbstractModule {
         bind(PageFactory.class).to(DefaultPageFactory.class).in(Scopes.SINGLETON);
         bind(MobileDriver.class).toProvider(DriverProvider.class).in(Scopes.SINGLETON);
 
-        bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_ANDROID)).to(AndroidDriverManager.class).in(Scopes.SINGLETON);
-        bind(DriverManager.class).annotatedWith(Names.named(Constants.DRIVER_TYPE_IOS)).to(IosDriverManager.class).in(Scopes.SINGLETON);
-        bind(String.class).annotatedWith(Names.named(Constants.CAPABILITY_PLATFORM_NAME)).toInstance(getProperties());
+        if (platform.equalsIgnoreCase(Constants.DRIVER_TYPE_ANDROID))
+            bind(DriverManager.class).to(AndroidDriverManager.class).in(Scopes.SINGLETON);
+        else if (platform.equalsIgnoreCase(Constants.DRIVER_TYPE_IOS))
+            bind(DriverManager.class).to(IosDriverManager.class).in(Scopes.SINGLETON);
     }
 
     private String getProperties() {

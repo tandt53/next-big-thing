@@ -22,11 +22,6 @@ public class AndroidComponent extends HomeComponent {
     @FindElement(type = MobileLocatorType.ID, value="txtErrorMessage")
     private Element txtErrorMessage;
 
-    public AndroidComponent(){
-        System.out.println("============ android page ===========");
-        ElementFactory.initElements(this);
-    }
-
     public void login(String username, String password, boolean isCheck){
         edtUsername.setText(username);
         edtPassword.setText(password);

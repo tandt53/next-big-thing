@@ -46,34 +46,32 @@ public class SimpleScanner extends Scanner {
         List<String> values = Arrays.asList(value.replaceAll("\\s", "").split(","));
 
         for (Class<?> c : cs) {
-            BindingInfo info = null;
             Annotation annotation = c.getAnnotation(SimpleBinder.class);
 
             String v = ((SimpleBinder) annotation).value();
             Class bindClass = ((SimpleBinder) annotation).bind();
 
             if (v.isEmpty() && bindClass.equals(Class.class)) {
-                info = new BindingInfo(c.getSuperclass(), c);
+                bindingInfos.add(new BindingInfo(c.getSuperclass(), c));
             }
 
             if (v.isEmpty() && !bindClass.equals(Class.class)) {
                 if (!c.isAssignableFrom(bindClass))
                     throw new GuiceScannerException("Bind class must be super class or interface of " + c);
-                info = new BindingInfo(bindClass, c);
+                bindingInfos.add(new BindingInfo(bindClass, c));
             }
 
             if (!v.isEmpty() && values.contains(v)) {
                 if (!bindClass.equals(Class.class)) {
                     if (!c.isAssignableFrom(bindClass))
                         throw new GuiceScannerException("Bind class must be super class or interface of " + c);
-                    info = new BindingInfo(bindClass, c);
+                    bindingInfos.add(new BindingInfo(bindClass, c));
                 } else
-                    info = new BindingInfo(c.getSuperclass(), c);
+                    bindingInfos.add(new BindingInfo(c.getSuperclass(), c));
             } else {
                 throw new GuiceScannerException("The attribute " + v + " in annotation SimpleBinder of class " + c + " is not contained in " + KEY_SIMPLE_VALUE);
             }
 
-            bindingInfos.add(info);
         }
         return bindingInfos;
     }

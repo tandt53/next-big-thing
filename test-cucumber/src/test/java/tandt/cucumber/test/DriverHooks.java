@@ -39,7 +39,7 @@ public class DriverHooks {
     }
 
     public void initMobile() {
-        DriverManager manager = injector.getInstance(Key.get(DriverManager.class, Names.named(platform)));
+        DriverManager manager = injector.getInstance(DriverManager.class);
         mobileDriver = manager.initDriver();
     }
 

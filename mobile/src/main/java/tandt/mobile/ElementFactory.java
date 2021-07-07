@@ -1,5 +1,7 @@
 package tandt.mobile;
 
+import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.WebElement;
 import tandt.mobile.annotations.FindElement;
 import tandt.mobile.element.ElementInvocationHandler;
 import tandt.mobile.element.MobileElementInfo;
@@ -15,7 +17,7 @@ public class ElementFactory {
 
     private ElementFactory(){}
 
-    public static <T extends BasePage<?>> void initElements(final T page) {
+    public static <T extends BasePage<?>> void initElements(AppiumDriver<WebElement> driver, T page) {
         try {
             Class<?> objectClass = page.getClass();
             for (Field field : objectClass.getDeclaredFields()) {
@@ -33,7 +35,7 @@ public class ElementFactory {
                         mobileElementInfo.setStrategy(waitUntil);
 
                         Element baseElement = (Element) Proxy.newProxyInstance(Element.class.getClassLoader(),
-                                new Class[]{Element.class}, new ElementInvocationHandler(mobileElementInfo));
+                                new Class[]{Element.class}, new ElementInvocationHandler(driver, mobileElementInfo));
                         field.set(page, baseElement);
                     }
                 }

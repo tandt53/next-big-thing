@@ -34,10 +34,10 @@ public class NamedScanner extends Scanner {
 
         List<BindingInfo> bindingInfos = new ArrayList<>();
 
-        for (Class c : cs) {
+        for (Class<?> c : cs) {
             Annotation anno = c.getAnnotation(annotation);
             String named = ((NamedBinder) anno).named();
-            Class superClass = ((NamedBinder) anno).bind();
+            Class<?> superClass = ((NamedBinder) anno).bind();
             if (named.isEmpty()) {
                 throw new GuiceScannerException("Require named attribute in BasedBinder annotation of class " + c);
             } else {

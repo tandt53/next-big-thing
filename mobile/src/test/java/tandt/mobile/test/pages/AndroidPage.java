@@ -2,6 +2,7 @@ package tandt.mobile.test.pages;
 
 import tandt.mobile.ElementFactory;
 import tandt.mobile.annotations.FindElement;
+import tandt.mobile.drivermanager.DriverManager;
 import tandt.mobile.element.MobileLocatorType;
 import ui.element.Element;
 
@@ -23,8 +24,6 @@ public class AndroidPage extends HomePage {
     private Element txtErrorMessage;
 
     public AndroidPage(){
-        System.out.println("============ android page ===========");
-        ElementFactory.initElements(this);
     }
 
     public void login(String username, String password, boolean isCheck){

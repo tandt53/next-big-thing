@@ -23,8 +23,6 @@ public class IosPage extends HomePage {
     private Element txtErrorMessage;
 
     public IosPage(){
-        System.out.println("============ ios page ===========");
-        ElementFactory.initElements(this);
     }
 
     public void login(String username, String password, boolean isCheck){

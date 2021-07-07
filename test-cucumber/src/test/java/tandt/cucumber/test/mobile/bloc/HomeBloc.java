@@ -8,6 +8,4 @@ public class HomeBloc {
     @Inject
     private HomePage homePage;
 
-
-
 }

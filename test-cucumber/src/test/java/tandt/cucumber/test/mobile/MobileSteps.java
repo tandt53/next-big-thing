@@ -18,9 +18,6 @@ public class MobileSteps {
     @Inject
     HomeBloc homeBloc;
 
-    @Inject
-    PageObject pageObject;
-
     @Given("I open application")
     public void iOpenApplication() {
     }
