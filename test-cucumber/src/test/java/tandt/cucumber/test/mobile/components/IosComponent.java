@@ -22,10 +22,6 @@ public class IosComponent extends HomeComponent {
     @FindElement(type = MobileLocatorType.ID, value="txtErrorMessage")
     private Element txtErrorMessage;
 
-    public IosComponent(){
-        System.out.println("============ ios page ===========");
-        ElementFactory.initElements(this);
-    }
 
     public void login(String username, String password, boolean isCheck){
         edtUsername.setText(username);

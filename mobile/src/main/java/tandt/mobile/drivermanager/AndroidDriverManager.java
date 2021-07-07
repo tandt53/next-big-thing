@@ -24,7 +24,6 @@ public class AndroidDriverManager extends DriverManager {
         URL url = null;
         try {
             url = new URL((String) caps.get(Constants.CAPABILITY_SERVER_URL));
-            caps.remove(Constants.CAPABILITY_SERVER_URL);
             driver.set(new AndroidDriver<>(url, new DesiredCapabilities(caps.getCapabilities())));
             return getDriver();
         } catch (MalformedURLException e) {

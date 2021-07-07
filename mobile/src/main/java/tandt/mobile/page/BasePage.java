@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import tandt.common.Log;
 import tandt.mobile.ElementFactory;
+import tandt.mobile.drivermanager.DriverManager;
 import ui.element.Element;
 
 import java.util.HashMap;
@@ -34,18 +35,10 @@ public abstract class BasePage<TPage extends BasePage> {
      */
     public String url;
 
-    @Inject
-    protected MobileDriver mobileDriver;
-
     protected AppiumDriver<WebElement> driver;
 
     @SuppressWarnings("unchecked")
     public Log PLog = new Log(((TPage) BasePage.this).getClass());
-
-    protected BasePage() {
-        ElementFactory.initElements(this);
-        driver = (AppiumDriver<WebElement>) mobileDriver;
-    }
 
     /**
      * open  page with url is not null
@@ -81,125 +74,6 @@ public abstract class BasePage<TPage extends BasePage> {
      */
     public String getPageTitle() {
         return driver.getTitle();
-    }
-
-    /**
-     * Control issue setText for App Flutter
-     *
-     * @param text
-     */
-    public void setTextElementFlutter(String text) {
-        driver.getKeyboard().sendKeys(text);
-    }
-
-    public String getURL() {
-        return driver.getCurrentUrl();
-    }
-
-    public String refreshScreen() {
-        return driver.getPageSource();
-    }
-
-    public void scrollByPercentages(double startPercentage, double endPercentage, double anchorPercentage) {
-        Dimension size = driver.manage().window().getSize();
-        int anchor = (int) (size.width / anchorPercentage);
-        int startPoint = (int) (size.height * startPercentage);
-        int endPoint = (int) (size.height * endPercentage);
-
-        new TouchAction(driver).press(point(anchor, startPoint)).waitAction(waitOptions(ofMillis(1000)))
-                .moveTo(point(anchor, endPoint)).release().perform();
-    }
-
-    public void goToTop(Element Element) {
-        int xElementPoint = Element.getLocation().x;
-        int yElementPoint = Element.getLocation().y;
-        int yDestination = (int) (driver.manage().window().getSize().height * 0.05);
-
-
-        new TouchAction(driver).press(point(xElementPoint, yElementPoint)).waitAction(waitOptions(ofMillis(2000)))
-                .moveTo(point(xElementPoint, yDestination)).release().perform();
-    }
-
-    public void swipeElementUp(Element Element, int length, long timeout) {
-        Point elementPoint = Element.getLocation();
-        Dimension elementDimension = Element.getSize();
-        System.out.println(elementPoint.x + "; " + elementPoint.y);
-        System.out.println(elementDimension.width + "; " + elementDimension.height);
-
-        int startX = elementPoint.x + elementDimension.width / 2;
-        int startY = elementPoint.y + elementDimension.height / 2;
-        int endX = startX;
-        int endY = startY - length;
-        new TouchAction(driver).press(point(startX, startY)).waitAction(waitOptions(ofMillis(timeout)))
-                .moveTo(point(endX, endY)).release().perform();
-    }
-
-    public void swipeElementDown(Element Element, int length, long timeout) {
-        Point elementPoint = Element.getLocation();
-        Dimension elementDimension = Element.getSize();
-        System.out.println(elementPoint.x + "; " + elementPoint.y);
-        System.out.println(elementDimension.width + "; " + elementDimension.height);
-
-        int startX = elementPoint.x + elementDimension.width / 2;
-        int startY = elementPoint.y + elementDimension.height / 2;
-        int endX = startX;
-        int endY = startY + length;
-        new TouchAction(driver).press(point(startX, startY)).waitAction(waitOptions(ofMillis(timeout)))
-                .moveTo(point(endX, endY)).release().perform();
-    }
-
-    public boolean scrollDownToElement(Element Element, long timeout) {
-        long startTime = System.currentTimeMillis();
-        long duration = 0;
-        int times = 0;
-        boolean isDisplayed = false;
-        while (timeout > duration) {
-            if (Element.isDisplayed(10)) {
-                isDisplayed = true;
-                break;
-            }
-            scrollByPercentages(0.80, 0.40, 2);
-            duration = System.currentTimeMillis() - startTime;
-            times++;
-            System.out.println("duration: " + duration + "Scroll: " + times);
-        }
-        return isDisplayed;
-    }
-
-    public boolean scrollUpToElement(Element Element, long timeout) {
-        long startTime = System.currentTimeMillis();
-        long duration = 0;
-        int times = 0;
-        boolean isDisplayed = false;
-        while (timeout > duration) {
-            if (Element.isDisplayed()) {
-                isDisplayed = true;
-                break;
-            }
-            scrollByPercentages(0.20, 0.80, 2);
-            duration = System.currentTimeMillis() - startTime;
-            times++;
-            System.out.println("duration: " + duration + "Scroll: " + times);
-        }
-        return isDisplayed;
-    }
-
-    public boolean scrollUpToElement(Element Element, long timeout, double startPercentage, double endPercentage) {
-        long startTime = System.currentTimeMillis();
-        long duration = 0;
-        int times = 0;
-        boolean isDisplayed = false;
-        while (timeout > duration) {
-            if (Element.isDisplayed()) {
-                isDisplayed = true;
-                break;
-            }
-            scrollByPercentages(startPercentage, endPercentage, 2);
-            duration = System.currentTimeMillis() - startTime;
-            times++;
-            System.out.println("duration: " + duration + "Scroll: " + times);
-        }
-        return isDisplayed;
     }
 
 
@@ -276,161 +150,11 @@ public abstract class BasePage<TPage extends BasePage> {
         driver.navigate().back();
     }
 
-    public void swipeRight(Element Element, long timeout) {
-        Point elementPoint = Element.getLocation();
-        Dimension size = Element.getSize();
 
-        int startX = (int) (elementPoint.x + (size.width * 0.80));
-        int endX = (int) ((size.width * 0.10));
-        int startY = elementPoint.y + size.height / 2;
+    @Inject
+    private void setManager(DriverManager driverManager) {
+        driver = driverManager.getDriver();
+        ElementFactory.initElements(driver, this);
 
-        new TouchAction<>(driver).press(point(startX, startY)).waitAction(waitOptions(ofMillis(timeout)))
-                .moveTo(point(endX, startY)).release().perform();
-        try {
-            Thread.sleep(20);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void swipeLeft(Element Element, long timeout) {
-        Point elementPoint = Element.getLocation();
-        Dimension size = Element.getSize();
-
-        int startX = (int) (elementPoint.x + (size.width * 0.05));
-        int endX = (int) ((size.width * 0.90));
-        int startY = elementPoint.y + size.height / 2;
-
-        new TouchAction(driver).press(point(startX, startY)).waitAction(waitOptions(ofMillis(timeout)))
-                .moveTo(point(endX, startY)).release().perform();
-
-    }
-
-    /**
-     * @param_direction : name of action want to scroll: down, up,
-     */
-
-    public void swipeRightWithElementLocation(Point elementLocation, Dimension elementSize, long timeout) {
-        int screenWidth = driver.manage().window().getSize().getWidth();
-
-        int startX = (int) (screenWidth * 0.95);
-        int endX = (int) ((screenWidth * 0.1));
-        int startY = elementLocation.y + elementSize.height / 2;
-
-        new TouchAction(driver).press(point(startX, startY)).waitAction(waitOptions(ofMillis(timeout)))
-                .moveTo(point(endX, startY)).release().perform();
-    }
-
-    public void swipeLeftWithElementLocation(Point elementLocation, Dimension elementSize, long timeout) {
-        int screenWidth = driver.manage().window().getSize().getWidth();
-
-        int startX = (int) (screenWidth * 0.1);
-        int endX = (int) ((screenWidth * 0.7));
-        int startY = elementLocation.y + elementSize.height / 2;
-        new TouchAction(driver).press(point(startX, startY)).waitAction(waitOptions(ofMillis(timeout)))
-                .moveTo(point(endX, startY)).release().perform();
-    }
-
-    /**
-     * @param _direction : name of action want to scroll: down, up,
-     */
-    public void scrollIos(String _direction) {
-        driver.executeScript("mobile: scroll", ImmutableMap.of("direction", _direction));
-    }
-
-    protected void clickToPointOffElement(Point elementLocation) {
-        TouchAction action = new TouchAction(driver);
-        action.press(point(elementLocation.getX(), elementLocation.getY()))
-                .waitAction(waitOptions(ofSeconds(1))).release().perform();
-    }
-
-    protected void longPressToElement(Element Element) throws InterruptedException {
-        new Actions(driver).clickAndHold(Element.getElement()).perform();
-        Thread.sleep(3000);
-
-    }
-
-    protected void touchAndHoldForiOS(WebElement element) {
-        Map<String, Object> args = new HashMap<>();
-        args.put("element", ((io.appium.java_client.MobileElement) element).getId());
-        args.put("duration", 1.5);
-        driver.executeScript("mobile: touchAndHold", args);
-    }
-
-    protected void tapToPointByPercent(AppiumDriver<WebElement> driver, int percentX, int percentY) {
-        int getWidth = driver.manage().window().getSize().getWidth();
-        int getHeight = driver.manage().window().getSize().getHeight();
-        int x = (int) (getWidth * percentX) / 100;
-        int y = (int) (getHeight * percentY) / 100;
-        System.out.println("Width is " + getWidth + "   ------   " + "Height is " + getHeight);
-        System.out.println("point of action is: (" + x + "," + y + ")");
-        TouchAction touchAction = new TouchAction(driver);
-        touchAction.tap(point(x, y)).perform();
-    }
-
-    /*
-     * An overloading of Scroll down to element function Arg2 - double type: Add an
-     * argument of how many percent of screen height will be scrolled per time.
-     */
-
-    public boolean scrollDownToElement(Element Element, double percentage, long timeout) {
-        long startTime = System.currentTimeMillis();
-        long duration = 0;
-        int times = 0;
-        boolean isDisplayed = false;
-        while (timeout > duration) {
-            if (Element.isDisplayed(10)) {
-                isDisplayed = true;
-                break;
-            }
-            if (percentage >= 0.80)
-                scrollByPercentages(0.90, 0.15, 2);
-            else
-                scrollByPercentages(0.90, 0.90 - percentage, 2);
-
-            duration = System.currentTimeMillis() - startTime;
-            times++;
-            System.out.println("duration: " + duration + "Scroll: " + times);
-        }
-        return isDisplayed;
-    }
-
-    /*
-     * iOS elements on GUI sometimes has visible=false attribute.
-     *
-     * Arg2 - isScrollDown: if true: it will scroll down, if false: scroll up to find element.
-     *
-     * Arg3 - double type: Add an argument of how many percent of screen height will
-     * be scrolled per time. (0.1 -> 0.9)
-     */
-    public boolean scrollDownToPresentElement(Element Element, boolean isScrollDown, double percentage,
-                                              long timeout) {
-        long startTime = System.currentTimeMillis();
-        long duration = 0;
-        int times = 0;
-        boolean isPresent = false;
-        while (timeout > duration) {
-            if (Element.isPresent(10)) {
-                isPresent = true;
-                break;
-            }
-
-            if (isScrollDown) {
-                if (percentage >= 0.80)
-                    scrollByPercentages(0.90, 0.15, 2);
-                else
-                    scrollByPercentages(0.90, 0.90 - percentage, 2);
-            } else {
-                if (percentage >= 0.80)
-                    scrollByPercentages(0.15, 0.90, 2);
-                else
-                    scrollByPercentages(0.90 - percentage, 0.90, 2);
-            }
-
-            duration = System.currentTimeMillis() - startTime;
-            times++;
-            System.out.println("duration: " + duration + "Scroll: " + times);
-        }
-        return isPresent;
     }
 }

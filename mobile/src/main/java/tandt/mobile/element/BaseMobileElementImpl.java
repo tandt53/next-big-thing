@@ -1,5 +1,6 @@
 package tandt.mobile.element;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -24,9 +25,7 @@ public class BaseMobileElementImpl implements Element {
     private Function<By, ExpectedCondition<WebElement>> waitForElement = Conditions.PRESENCE; //  wait strategy
     private Function<By, ExpectedCondition<List<WebElement>>> waitForListElement = Conditions.PRESENCE_ALL; //  wait strategy
     private WebDriverWait wait;
-
-    BaseMobileElementImpl() {
-    }
+    private AppiumDriver<WebElement> driver;
 
     public void setElementInfo(MobileElementInfo mobileElementInfo) {
         this.mobileElementInfo = mobileElementInfo;
@@ -36,8 +35,9 @@ public class BaseMobileElementImpl implements Element {
         return mobileElementInfo;
     }
 
-    public BaseMobileElementImpl(MobileElementInfo mobileElementInfo) {
+    public BaseMobileElementImpl(AppiumDriver<WebElement> driver, MobileElementInfo mobileElementInfo) {
         this.mobileElementInfo = mobileElementInfo;
+        this.driver = driver;
         initLocator();
         initWaitStrategy();
     }
@@ -107,7 +107,7 @@ public class BaseMobileElementImpl implements Element {
     }
 
     private WebDriverWait getWait(long timeout) {
-        wait = new WebDriverWait(DriverManager.driver.get(), timeout);
+        wait = new WebDriverWait(driver, timeout);
         return wait;
     }
 

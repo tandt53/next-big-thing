@@ -5,6 +5,7 @@ import com.google.inject.Injector;
 import com.google.inject.Stage;
 import io.cucumber.guice.CucumberModules;
 import io.cucumber.guice.InjectorSource;
+import tandt.cucumber.test.mobile.HomePageBinder;
 import tandt.mobile.MobileModule;
 import tandt.web.WebModule;
 
@@ -18,6 +19,7 @@ public class CucumberModule implements InjectorSource {
         return Guice.createInjector(Stage.DEVELOPMENT,
                 CucumberModules.createScenarioModule(),
                 new WebModule(),
-                new MobileModule());
+                new MobileModule(),
+                new HomePageBinder());
     }
 }
