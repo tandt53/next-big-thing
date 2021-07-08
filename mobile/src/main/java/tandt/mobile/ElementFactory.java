@@ -9,6 +9,7 @@ import tandt.mobile.element.MobileLocatorType;
 import tandt.mobile.page.BasePage;
 import ui.element.Element;
 import ui.element.WaitStrategy;
+import ui.exception.ElementActionException;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Proxy;
@@ -41,7 +42,7 @@ public class ElementFactory {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new ElementActionException("Element does not work as expected.", e);
         }
     }
 

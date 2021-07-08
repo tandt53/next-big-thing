@@ -6,10 +6,9 @@ import com.google.inject.Key;
 import com.google.inject.Provider;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
-import org.openqa.selenium.WebDriver;
 import ui.driverselector.DriverSelector;
 
-public class WebDriverProvider implements Provider<WebDriver> {
+public class WebDriverProvider implements Provider<DriverManager> {
 
     @Inject
     @Named("web")
@@ -19,7 +18,7 @@ public class WebDriverProvider implements Provider<WebDriver> {
     private Injector injector;
 
     @Override
-    public WebDriver get() {
-        return injector.getInstance(Key.get(DriverManager.class, Names.named(selector.get()))).initDriver();
+    public DriverManager get() {
+        return injector.getInstance(Key.get(DriverManager.class, Names.named(selector.get())));
     }
 }

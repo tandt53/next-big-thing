@@ -31,9 +31,10 @@ public class HomeChromeTest extends BaseTest {
 
     @BeforeTest
     public void setup() {
-        cap  = new ExtraCaps();
+        cap = new ExtraCaps();
         cap.add("extra", "extra");
         capabilityService.addCapability(cap);
+
         homePage = page(HomeWebPage.class);
         searchResultPage = page(SearchResultPage.class);
     }

@@ -4,10 +4,10 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.name.Names;
-import tandt.guice.test.abstracts.BasePage;
-import tandt.guice.test.interfaces.Log;
 import tandt.guice.scan.NamedScanner;
 import tandt.guice.scan.SimpleScanner;
+import tandt.guice.test.abstracts.BasePage;
+import tandt.guice.test.interfaces.Log;
 
 public class ExampleApplication {
 

@@ -1,15 +1,17 @@
-package tandt.web.actions;//package com.tandt.automation.example.actions;
-
+package tandt.web.actions;
+import com.google.inject.Inject;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import tandt.web.drivermanager.DriverManager;
 
 public class JsActions {
 
     private WebDriver driver;
 
-    public JsActions(WebDriver driver) {
-        this.driver = driver;
+    @Inject
+    public JsActions(DriverManager manager) {
+        this.driver = manager.getDriver();
     }
 
     /**
@@ -59,7 +61,7 @@ public class JsActions {
      */
     public boolean isPageReady() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        return (Boolean) js.executeScript("return document.readyState").equals("complete");
+        return js.executeScript("return document.readyState").equals("complete");
     }
 
     /**
@@ -119,15 +121,12 @@ public class JsActions {
     }
 
 
+    /**
+     * Highlight element in actions
+     * @param element
+     */
     public void highlight(WebElement element) {
         execute("arguments[0].style.border='3px solid red'", element);
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
     }
 
 }
