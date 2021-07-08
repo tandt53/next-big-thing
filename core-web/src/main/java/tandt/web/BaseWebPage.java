@@ -1,8 +1,10 @@
 package tandt.web;
 
+import com.google.inject.Inject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import tandt.web.drivermanager.DriverManager;
 
 import java.util.List;
 
@@ -18,6 +20,11 @@ public abstract class BaseWebPage<TPage extends BaseWebPage> {
 
     protected WebDriver driver; // DriverManager must be injected and initialized first
 
+    @Inject
+    public void setDriver(DriverManager manager){
+        driver = manager.getDriver();
+        ElementFactory.initElements(driver, this);
+    }
     public WebElement findElement(By by) {
         return driver.findElement(by);
     }

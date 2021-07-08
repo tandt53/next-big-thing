@@ -8,7 +8,7 @@ public class DefaultPageFactory implements PageFactory {
     private Injector injector;
 
     @Inject
-    public DefaultPageFactory( Injector injector) {
+    public DefaultPageFactory(Injector injector) {
         this.injector = injector;
     }
 

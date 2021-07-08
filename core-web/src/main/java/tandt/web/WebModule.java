@@ -4,7 +4,6 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 import com.google.inject.Singleton;
 import com.google.inject.name.Names;
-import org.openqa.selenium.WebDriver;
 import tandt.web.capability.CliArgumentsCapability;
 import tandt.web.capability.PropertiesFileCapability;
 import tandt.web.capability.WebCapabilityService;
@@ -26,7 +25,7 @@ public class WebModule extends AbstractModule {
         bind(Capability.class).annotatedWith(Names.named("web.properties")).to(PropertiesFileCapability.class).in(Scopes.SINGLETON);
         bind(CapabilityService.class).annotatedWith(Names.named("web")).to(WebCapabilityService.class).in(Scopes.SINGLETON);
         bind(PageFactory.class).to(DefaultPageFactory.class);
-        bind(WebDriver.class).toProvider(WebDriverProvider.class).in(Scopes.SINGLETON);
+        bind(DriverManager.class).toProvider(WebDriverProvider.class).in(Scopes.SINGLETON);
         bind(DriverSelector.class).annotatedWith(Names.named("web")).to(WebDriverSelector.class).in(Scopes.SINGLETON);
 
         bind(DriverManager.class).annotatedWith(Names.named(DRIVER_TYPE_CHROME)).to(ChromeDriverManager.class).in(Scopes.SINGLETON);

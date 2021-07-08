@@ -1,6 +1,5 @@
 package tandt.cucumber.test.mobile.components;
 
-import tandt.mobile.ElementFactory;
 import tandt.mobile.annotations.FindElement;
 import tandt.mobile.element.MobileLocatorType;
 import ui.element.Element;

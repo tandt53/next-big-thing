@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tandt.mobile.Conditions;
-import tandt.mobile.drivermanager.DriverManager;
 import ui.element.Element;
 import ui.element.WaitStrategy;
 
