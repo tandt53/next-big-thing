@@ -92,7 +92,6 @@ public class FromJsonFileToObjectWithJsonPath {
             file.delete();
     }
 
-
     @Test
     public void filePathNull() {
         try {
@@ -104,12 +103,22 @@ public class FromJsonFileToObjectWithJsonPath {
     }
 
     @Test
-    public void convertEmptyString() {
+    public void filePathEmpty() {
         try {
             parser.fromJsonFileToObject("", "id", Person.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
             Assert.assertEquals("File path must not be null or empty", e.getMessage());
+        }
+    }
+
+    @Test
+    public void filePathInvalid(){
+        try {
+            parser.fromJsonFileToObject("invalidPath.json", "id", Person.class);
+            Assert.fail("Exception should be thrown");
+        } catch (JsonParserException e) {
+            Assert.assertEquals("Unable to find the file at given path 'invalidPath.json'", e.getMessage());
         }
     }
 
@@ -134,7 +143,27 @@ public class FromJsonFileToObjectWithJsonPath {
     }
 
     @Test
-    public void convertToNull() {
+    public void invalidPath(){
+        try {
+            parser.fromJsonFileToObject(jsonFile, "invalid.json.path", Person.class);
+            Assert.fail("Exception should be thrown");
+        } catch (JsonParserException e) {
+            Assert.assertEquals("Fail to parse json at node 'invalid'", e.getMessage());
+        }
+    }
+
+    @Test
+    public void jsonPathInvalidIndex(){
+        try {
+            parser.fromJsonFileToObject(jsonFile, "phoneNumbers[3]", Person.class);
+            Assert.fail("Exception should be thrown");
+        } catch (JsonParserException e) {
+            Assert.assertEquals("Fail to parse json at node 'phoneNumbers[3]'", e.getMessage());
+        }
+    }
+
+    @Test
+    public void typeNull() {
         try {
             parser.fromJsonFileToObject(jsonFile, "id", null);
             Assert.fail("Exception should be thrown");
@@ -144,7 +173,7 @@ public class FromJsonFileToObjectWithJsonPath {
     }
 
     @Test
-    public void convertToInvalidType() {
+    public void invalidType() {
         try {
             parser.fromJsonFileToObject(jsonFile, "id", Properties.class);
             Assert.fail("Exception should be thrown");
@@ -152,7 +181,6 @@ public class FromJsonFileToObjectWithJsonPath {
             Assert.assertEquals("Unable to parse json file to given type", e.getMessage());
         }
     }
-
 
     @Test
     public void convertNotJsonString() {
@@ -190,5 +218,17 @@ public class FromJsonFileToObjectWithJsonPath {
     public void convertToCustomObject() {
         Person convertedPerson = parser.fromJsonFileToObject(jsonFile, Person.class);
         Assert.assertEquals(person.getId(), convertedPerson.getId());
+    }
+
+    @Test
+    public void convertAFieldToInteger() {
+        Integer convertedInt = parser.fromJsonFileToObject(jsonFile, "id", Integer.class);
+        Assert.assertEquals(Integer.valueOf(person.getId()), convertedInt);
+    }
+
+    @Test
+    public void convertAFieldToString() {
+        String convertedName = parser.fromJsonFileToObject(jsonFile, "name", String.class);
+        Assert.assertEquals(person.getName(), convertedName);
     }
 }

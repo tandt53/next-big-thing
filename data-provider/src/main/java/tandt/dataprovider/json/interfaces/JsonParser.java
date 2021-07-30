@@ -3,6 +3,9 @@ package tandt.dataprovider.json.interfaces;
 
 public abstract class JsonParser {
 
+    public abstract <T> String fromObjectToJsonString(T object);
+
+
     /**
      * Convert an instance of type T to a file with a path
      *

@@ -1,23 +1,19 @@
-package tandt.dataprovider.json.jackson;
+package tandt.dataprovider.json.gson;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import tandt.dataprovider.exceptions.JsonParserException;
 import tandt.dataprovider.json.interfaces.JsonParser;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Paths;
+import java.io.*;
 
-public class JacksonParser extends JsonParser {
+public class GsonParser extends JsonParser {
 
-    private ObjectMapper mapper;
+    private Gson gson;
 
-    public JacksonParser() {
-        mapper = new ObjectMapper();
+    public GsonParser() {
+        gson = new Gson();
     }
 
     @Override
@@ -25,16 +21,12 @@ public class JacksonParser extends JsonParser {
         if (object == null) {
             throw new JsonParserException("Object must not be null");
         }
-        try {
-            return mapper.writeValueAsString(object);
-        } catch (JsonProcessingException e) {
-            throw new JsonParserException("Unable to convert object to string");
-        }
-
+        return gson.toJson(object);
     }
 
     @Override
     public <T> T fromJsonFileToObject(String filePath, Class<T> T) {
+
         if (filePath == null || filePath.isEmpty()) {
             throw new JsonParserException("File path must not be null or empty");
         }
@@ -48,9 +40,8 @@ public class JacksonParser extends JsonParser {
         }
 
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(Paths.get(filePath).toFile(), T);
-        } catch (IOException e) {
+            return gson.fromJson(new FileReader(filePath), T);
+        } catch (FileNotFoundException e) {
             throw new JsonParserException("Unable to read json file", e);
         }
     }
@@ -74,17 +65,16 @@ public class JacksonParser extends JsonParser {
         }
 
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode jsonNode = mapper.readTree(Paths.get(jsonFile).toFile());
-            return mapper.convertValue(getObject(jsonNode, jsonPath), T);
-        } catch (IOException | IllegalArgumentException e) {
+            JsonObject jObject = gson.fromJson(new FileReader(jsonFile), JsonObject.class);
+            return getObject(jObject, jsonPath, T);
+        } catch (FileNotFoundException e) {
             throw new JsonParserException("Unable to parse json file to given type", e);
         }
-
     }
 
     @Override
     public <T> T fromJsonStringToObject(String jsonString, Class<T> T) {
+
         if (jsonString == null || jsonString.isEmpty()) {
             throw new JsonParserException("Json string must be not null or not empty");
         }
@@ -93,12 +83,7 @@ public class JacksonParser extends JsonParser {
             throw new JsonParserException("Object type must not be null or String.class");
         }
 
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(jsonString, T);
-        } catch (JsonProcessingException e) {
-            throw new JsonParserException("Unable to convert string to object", e);
-        }
+        return gson.fromJson(jsonString, T);
     }
 
     @Override
@@ -115,14 +100,8 @@ public class JacksonParser extends JsonParser {
             throw new JsonParserException("Object type must not be null");
         }
 
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode jsonNode = mapper.readTree(jsonString);
-            JsonNode atJsonPath = getObject(jsonNode, jsonPath);
-            return mapper.convertValue(atJsonPath, T);
-        } catch (JsonProcessingException | IllegalArgumentException e) {
-            throw new JsonParserException("Unable to convert string to given type", e);
-        }
+        JsonElement jObject = gson.fromJson(jsonString, JsonElement.class);
+        return getObject(jObject, jsonPath, T);
     }
 
     @Override
@@ -136,37 +115,34 @@ public class JacksonParser extends JsonParser {
         }
 
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
-            writer.writeValue(Paths.get(filePath).toFile(), object);
+            Writer writer = new FileWriter(filePath);
+            gson.toJson(object, writer);
+            writer.flush();
+            writer.close();
         } catch (IOException e) {
             throw new JsonParserException("Unable to write to json file", e);
         }
     }
 
-    private JsonNode getObject(JsonNode jsonNode, String jsonPath) {
+    private <T> T getObject(JsonElement jObject, String jsonPath, Class<T> t) {
         String key;
-        int idx = -1;
+        Integer idx;
         String[] pathChildren = jsonPath.split("\\.");
 
         for (String k : pathChildren) {
-            if (jsonNode != null) {
+            if (jObject != null) {
                 key = getNode(k);
                 idx = getIndex(k);
                 if (idx == -1) {
-                    jsonNode = jsonNode.get(key);
+                    jObject = jObject.getAsJsonObject().get(key);
                 } else {
-                    jsonNode = jsonNode.get(key).get(idx);
+                    jObject = jObject.getAsJsonObject().get(key).getAsJsonArray().get(idx);
                 }
             }
-            if (jsonNode == null)
-                throw new JsonParserException("Fail to parse json at node '" + k + "'");
         }
 
-        return jsonNode;
-
+        return gson.fromJson(jObject, t);
     }
-
 
 
 }
