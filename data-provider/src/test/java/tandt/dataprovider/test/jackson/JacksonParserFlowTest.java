@@ -9,7 +9,7 @@ import tandt.dataprovider.test.jackson.model.Person;
 
 import java.io.File;
 
-public class JsonParserTest {
+public class JacksonParserFlowTest {
     private static final String jsonString = "{\n" +
             "  \"id\": 123,\n" +
             "  \"name\": \"Pankaj\",\n" +

@@ -92,27 +92,7 @@ public class FromJsonStringToObjectWithJsonPath {
     }
 
     @Test
-    public void convertToNull() {
-        try {
-            parser.fromJsonStringToObject(jsonString, "id", null);
-            Assert.fail("Exception should be thrown");
-        } catch (JsonParserException e) {
-            Assert.assertEquals("Object type must not be null", e.getMessage());
-        }
-    }
-
-    @Test
-    public void convertNullString() {
-        try {
-            parser.fromJsonStringToObject(null, "id", Person.class);
-            Assert.fail("Exception should be thrown");
-        } catch (JsonParserException e) {
-            Assert.assertEquals("Json string must be not null or not empty", e.getMessage());
-        }
-    }
-
-    @Test
-    public void convertEmptyString() {
+    public void stringEmpty() {
         try {
             parser.fromJsonStringToObject("", "id", Person.class);
             Assert.fail("Exception should be thrown");
@@ -122,22 +102,82 @@ public class FromJsonStringToObjectWithJsonPath {
     }
 
     @Test
-    public void convertNotJsonString() {
+    public void stringNull() {
         try {
-            parser.fromJsonStringToObject("id: 123", "id", Person.class);
+            parser.fromJsonStringToObject(null, "id", Person.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
-            Assert.assertEquals("Unable to convert string to object", e.getMessage());
+            Assert.assertEquals("Json string must be not null or not empty", e.getMessage());
         }
     }
 
     @Test
-    public void convertJsonWithInvalidPath() {
+    public void jsonPathNull(){
+        try {
+            parser.fromJsonStringToObject(jsonString, null, Person.class);
+            Assert.fail("Exception should be thrown");
+        } catch (JsonParserException e) {
+            Assert.assertEquals("Json path must be not null or not empty", e.getMessage());
+        }
+    }
+
+    @Test
+    public void jsonPathEmpty(){
+        try {
+            parser.fromJsonStringToObject(jsonString, "", Person.class);
+            Assert.fail("Exception should be thrown");
+        } catch (JsonParserException e) {
+            Assert.assertEquals("Json path must be not null or not empty", e.getMessage());
+        }
+    }
+
+    @Test
+    public void invalidPath() {
         try {
             parser.fromJsonStringToObject(jsonString, "invalid.json.path", Person.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
             Assert.assertEquals("Fail to parse json at node 'invalid'", e.getMessage());
+        }
+    }
+
+    @Test
+    public void jsonPathInvalidIndex(){
+        try {
+            parser.fromJsonStringToObject(jsonString, "phoneNumbers[3]", Person.class);
+            Assert.fail("Exception should be thrown");
+        } catch (JsonParserException e) {
+            Assert.assertEquals("Fail to parse json at node 'phoneNumbers[3]'", e.getMessage());
+        }
+    }
+
+    @Test
+    public void typeNull() {
+        try {
+            parser.fromJsonStringToObject(jsonString, "id", null);
+            Assert.fail("Exception should be thrown");
+        } catch (JsonParserException e) {
+            Assert.assertEquals("Object type must not be null", e.getMessage());
+        }
+    }
+
+    @Test
+    public void invalidType(){
+        try {
+            parser.fromJsonStringToObject(jsonString, "id", Properties.class);
+            Assert.fail("Exception should be thrown");
+        } catch (JsonParserException e) {
+            Assert.assertEquals("Unable to convert string to given type", e.getMessage());
+        }
+    }
+
+    @Test
+    public void convertNotJsonString() {
+        try {
+            parser.fromJsonStringToObject("id: 123", "id", Person.class);
+            Assert.fail("Exception should be thrown");
+        } catch (JsonParserException e) {
+            Assert.assertEquals("Unable to convert string to given type", e.getMessage());
         }
     }
 

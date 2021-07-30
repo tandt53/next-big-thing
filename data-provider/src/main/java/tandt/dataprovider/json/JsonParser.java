@@ -59,7 +59,7 @@ public class JsonParser {
         return gson.fromJson(jObject, t);
     }
 
-    private static Integer getIndex(String node) {
+    private static int getIndex(String node) {
         return (node.contains("[") && node.contains("]"))
                 ? Integer.parseInt(node.substring(node.indexOf("[") + 1, node.indexOf("]")))
                 : -1;

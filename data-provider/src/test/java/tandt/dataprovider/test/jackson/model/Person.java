@@ -4,7 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tandt.dataprovider.test.jackson.JsonParserTest;
 
 import java.util.List;
 
