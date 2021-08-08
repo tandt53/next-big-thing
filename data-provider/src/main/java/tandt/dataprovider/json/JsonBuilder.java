@@ -46,6 +46,10 @@ public class JsonBuilder {
         }
     }
 
+    private JsonElement add(JsonObject jsonObject, String key, Object value) {
+        return addProperty(jsonObject, key, value);
+    }
+
     /**
      * This method is for adding/updating JsonObject with parentKey into root
      * JsonObject
@@ -66,6 +70,19 @@ public class JsonBuilder {
             addMap(jsonElement.getAsJsonObject(), parentKey, key, value);
     }
 
+    private void addMap(JsonObject jsonObject, String parentKey, String key, Object value)
+            throws JsonElementNotFoundException {
+        if (parentKey.contains(".") || key.contains(".")) {
+            throw new JsonElementNotFoundException("Parent key should not contain \".\"");
+        }
+        JsonObject jo = jsonObject.getAsJsonObject(parentKey);
+        if (jo == null)
+            jo = new JsonObject();
+
+        addProperty(jo, key, value);
+        addJsonElement(jsonObject, parentKey, jo);
+    }
+
     /**
      * This method is for adding/updating a JsonArray of values into root JsonObject
      * <p>
@@ -80,6 +97,20 @@ public class JsonBuilder {
      */
     public void addArrayValue(String key, Object value) throws JsonElementNotFoundException {
         addArrayValue(jsonElement.getAsJsonObject(), key, value);
+    }
+
+    private void addArrayValue(JsonObject jsonObject, String parentKey, Object value)
+            throws JsonElementNotFoundException {
+        if (parentKey.contains(".")) {
+            throw new JsonElementNotFoundException("Parent key should not contain \".\" ");
+        }
+        JsonArray ja = jsonObject.getAsJsonArray(parentKey);
+        if (ja == null) {
+            ja = new JsonArray();
+        }
+
+        addPrimitive(ja, value);
+        addJsonElement(jsonObject, parentKey, ja);
     }
 
     /**
@@ -116,6 +147,47 @@ public class JsonBuilder {
      */
     public void addArrayMap(String parentKey, String key, Object value) throws JsonElementNotFoundException {
         addArrayMap(jsonElement.getAsJsonObject(), parentKey, key, value);
+    }
+
+    private void addArrayMap(JsonObject jsonObject, String parentKey, String key, Object value)
+            throws JsonElementNotFoundException {
+        if (parentKey.contains(".")) {
+            throw new JsonElementNotFoundException("Parent key should not contain \".\"");
+        }
+        int index = 0;
+        if (parentKey.contains("[") && parentKey.contains("]")) {
+            index = Integer.parseInt(parentKey.substring(parentKey.indexOf("[") + 1, parentKey.indexOf("]")));
+            parentKey = parentKey.substring(0, parentKey.indexOf("["));
+        }
+
+        if (index < 0) {
+            throw new JsonElementNotFoundException("Index must be equals or greater than 0.");
+        }
+
+        JsonObject jo = null;
+        JsonArray ja = jsonObject.getAsJsonArray(parentKey);
+        if (ja == null) {
+            ja = new JsonArray();
+        }
+
+        if (ja.size() < index) {
+            throw new JsonElementNotFoundException("Index should be equals or less than array's size.");
+        }
+
+        if ( ja.size() != 0 && index < ja.size()) {
+            jo = ja.get(index).getAsJsonObject();
+        }
+
+        if (jo == null)
+            jo = new JsonObject();
+        addProperty(jo, key, value);
+
+        if ((ja.size() == 0) || (index > ja.size() - 1))
+            ja.add(jo);
+        else if (index < ja.size())
+            ja.set(index, jo);
+
+        addJsonElement(jsonObject, parentKey, ja);
     }
 
     public void deleteArrayMap(String key, Integer index) {
@@ -381,77 +453,5 @@ public class JsonBuilder {
         } else if (value instanceof Boolean) {
             ja.add(new JsonPrimitive((Boolean) value));
         }
-    }
-
-    private JsonElement add(JsonObject jsonObject, String key, Object value) {
-        return addProperty(jsonObject, key, value);
-    }
-
-    private void addMap(JsonObject jsonObject, String parentKey, String key, Object value)
-            throws JsonElementNotFoundException {
-        if (parentKey.contains(".") || key.contains(".")) {
-            throw new JsonElementNotFoundException("Parent key should not contain \".\"");
-        }
-        JsonObject jo = jsonObject.getAsJsonObject(parentKey);
-        if (jo == null)
-            jo = new JsonObject();
-
-        addProperty(jo, key, value);
-        addJsonElement(jsonObject, parentKey, jo);
-    }
-
-    private void addArrayValue(JsonObject jsonObject, String parentKey, Object value)
-            throws JsonElementNotFoundException {
-        if (parentKey.contains(".")) {
-            throw new JsonElementNotFoundException("Parent key should not contain \".\" ");
-        }
-        JsonArray ja = jsonObject.getAsJsonArray(parentKey);
-        if (ja == null) {
-            ja = new JsonArray();
-        }
-
-        addPrimitive(ja, value);
-        addJsonElement(jsonObject, parentKey, ja);
-    }
-
-    private void addArrayMap(JsonObject jsonObject, String parentKey, String key, Object value)
-            throws JsonElementNotFoundException {
-        if (parentKey.contains(".")) {
-            throw new JsonElementNotFoundException("Parent key should not contain \".\"");
-        }
-        int index = 0;
-        if (parentKey.contains("[") && parentKey.contains("]")) {
-            index = Integer.parseInt(parentKey.substring(parentKey.indexOf("[") + 1, parentKey.indexOf("]")));
-            parentKey = parentKey.substring(0, parentKey.indexOf("["));
-        }
-
-        if (index < 0) {
-            throw new JsonElementNotFoundException("Index must be equals or greater than 0.");
-        }
-
-        JsonObject jo = null;
-        JsonArray ja = jsonObject.getAsJsonArray(parentKey);
-        if (ja == null) {
-            ja = new JsonArray();
-        }
-
-        if (ja.size() < index) {
-            throw new JsonElementNotFoundException("Index should be equals or less than array's size.");
-        }
-
-        if ( ja.size() != 0 && index < ja.size()) {
-            jo = ja.get(index).getAsJsonObject();
-        }
-
-        if (jo == null)
-            jo = new JsonObject();
-        addProperty(jo, key, value);
-
-        if ((ja.size() == 0) || (index > ja.size() - 1))
-            ja.add(jo);
-        else if (index < ja.size())
-            ja.set(index, jo);
-
-        addJsonElement(jsonObject, parentKey, ja);
     }
 }
