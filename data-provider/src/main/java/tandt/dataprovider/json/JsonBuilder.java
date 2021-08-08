@@ -27,7 +27,6 @@ public class JsonBuilder {
         return new GsonBuilder().serializeNulls().setPrettyPrinting().create().toJson(jsonElement);
     }
 
-
     /**
      * This method is for adding/updating property into root JsonObject
      *
@@ -123,12 +122,34 @@ public class JsonBuilder {
         deleteArrayMap(jsonElement.getAsJsonObject(), key, index);
     }
 
+    private void deleteArrayMap(JsonObject jsonObject, String parentKey, Integer index) {
+        JsonElement je = jsonObject.get(parentKey);
+        if (je != null && je.isJsonArray()) {
+            JsonElement jeChild = je.getAsJsonArray().get(index);
+            if (jeChild != null)
+                jeChild.getAsJsonArray().remove(index);
+        }
+    }
+
     public void delete(String key) {
         delete(jsonElement.getAsJsonObject(), key);
     }
 
+    private void delete(JsonObject jsonObject, String key) {
+        if (jsonObject.get(key) != null) {
+            jsonObject.remove(key);
+        }
+    }
+
     public void deleteArrayValue(String key, Integer index) {
         deleteArrayValue(jsonElement.getAsJsonObject(), key, index);
+    }
+
+    private void deleteArrayValue(JsonObject jsonObject, String parentKey, Integer index) {
+        JsonElement je = jsonObject.get(parentKey);
+        if (je != null && je.isJsonArray()) {
+            je.getAsJsonArray().remove(index);
+        }
     }
 
     public void createJson(String parentKey, String key, Object value) throws JsonElementNotFoundException {
@@ -327,28 +348,6 @@ public class JsonBuilder {
 
     private String getNode(String node) {
         return node.contains("[") ? node.substring(0, node.indexOf("[")) : node;
-    }
-
-    private void deleteArrayValue(JsonObject jsonObject, String parentKey, Integer index) {
-        JsonElement je = jsonObject.get(parentKey);
-        if (je != null && je.isJsonArray()) {
-            je.getAsJsonArray().remove(index);
-        }
-    }
-
-    private void delete(JsonObject jsonObject, String key) {
-        if (jsonObject.get(key) != null) {
-            jsonObject.remove(key);
-        }
-    }
-
-    private void deleteArrayMap(JsonObject jsonObject, String parentKey, Integer index) {
-        JsonElement je = jsonObject.get(parentKey);
-        if (je != null && je.isJsonArray()) {
-            JsonElement jeChild = je.getAsJsonArray().get(index);
-            if (jeChild != null)
-                jeChild.getAsJsonArray().remove(index);
-        }
     }
 
     private JsonObject addProperty(JsonObject jo, String key, Object value) {
