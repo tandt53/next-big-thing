@@ -19,6 +19,7 @@ public class JsonBuilder2 {
                 isRootTypeJsonObject = false;
                 break;
             case ROOT_TYPE_JSON_OBJECT:
+            default:
                 jsonElement = new JsonObject();
         }
     }
@@ -76,7 +77,7 @@ public class JsonBuilder2 {
         jsonElement.getAsJsonObject().add(node, createJsonElement(jsonElement.getAsJsonObject().get(node), index, path, 1, key, value));
     }
 
-    public void addJson(String parentKey, JsonElement element){
+    public void addJson(String parentKey, JsonElement element) {
         // implement code here
     }
 
@@ -104,7 +105,7 @@ public class JsonBuilder2 {
                         curChildNodeIndex, path, curIndex, key, value));
                 return jsonElement.getAsJsonObject();
             }
-        } else if ( jsonElement.isJsonArray()) {
+        } else if (jsonElement.isJsonArray()) {
             JsonArray ja = jsonElement.getAsJsonArray();
 
             // if current node is the last node
