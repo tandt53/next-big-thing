@@ -40,24 +40,21 @@ public class BaseWebElementImpl implements Element {
         if (waitStrategy != null)
 
             switch (waitStrategy) {
-                case VISIBILITY:
-                    this.waitForElement = Conditions.VISIBILITY;
-                    this.waitForListElement = Conditions.VISIBILITY_ALL;
-                    break;
-
                 case PRESENCE:
                     this.waitForElement = Conditions.PRESENCE;
                     this.waitForListElement = Conditions.PRESENCE_ALL;
+                    break;
+
+                case VISIBILITY:
+                default:
+                    this.waitForElement = Conditions.VISIBILITY;
+                    this.waitForListElement = Conditions.VISIBILITY_ALL;
                     break;
             }
     }
 
     private void initLocator(WebLocatorType webLocatorType, String locatorValue) {
         switch (webLocatorType) {
-            case ID:
-                locator = By.id(locatorValue);
-                break;
-
             case CSS_SELECTOR:
                 locator = By.cssSelector(locatorValue);
                 break;
@@ -86,10 +83,15 @@ public class BaseWebElementImpl implements Element {
                 locator = By.name(locatorValue);
                 break;
 
+            case ID:
+            default:
+                locator = By.id(locatorValue);
+                break;
+
         }
     }
 
-    public WebElement waitUntil(final Function<By, ExpectedCondition<org.openqa.selenium.WebElement>> condition)  {
+    public WebElement waitUntil(final Function<By, ExpectedCondition<org.openqa.selenium.WebElement>> condition) {
         return waitUntil(condition, timeout);
     }
 
@@ -113,7 +115,7 @@ public class BaseWebElementImpl implements Element {
         return false;
     }
 
-    private <V> V waitUntil(final Function<By, ExpectedCondition<V>> condition, long timeout){
+    private <V> V waitUntil(final Function<By, ExpectedCondition<V>> condition, long timeout) {
         return getWait(timeout).until(condition.apply(getLocator()));
     }
 
@@ -121,7 +123,7 @@ public class BaseWebElementImpl implements Element {
         return waitUntilAll(condition, timeout);
     }
 
-    private List<org.openqa.selenium.WebElement> waitUntilAll(final Function<By, ExpectedCondition<List<org.openqa.selenium.WebElement>>> condition, long timeout)   {
+    private List<org.openqa.selenium.WebElement> waitUntilAll(final Function<By, ExpectedCondition<List<org.openqa.selenium.WebElement>>> condition, long timeout) {
         return getWait(timeout).until(condition.apply(getLocator()));
     }
 
@@ -231,6 +233,7 @@ public class BaseWebElementImpl implements Element {
         initLocator(this.webElementInfo.getLocatorType(), newLocator);
         return this;
     }
+
     private class WaitFor {
 
         private ExpectedCondition<Boolean> state;
