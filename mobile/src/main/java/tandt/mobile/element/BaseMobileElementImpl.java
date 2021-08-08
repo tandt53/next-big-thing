@@ -46,14 +46,15 @@ public class BaseMobileElementImpl implements Element {
         if (waitStrategy != null)
 
             switch (waitStrategy) {
-                case VISIBILITY:
-                    this.waitForElement = Conditions.VISIBILITY;
-                    this.waitForListElement = Conditions.VISIBILITY_ALL;
-                    break;
-
                 case PRESENCE:
                     this.waitForElement = Conditions.PRESENCE;
                     this.waitForListElement = Conditions.PRESENCE_ALL;
+                    break;
+
+                case VISIBILITY:
+                default:
+                    this.waitForElement = Conditions.VISIBILITY;
+                    this.waitForListElement = Conditions.VISIBILITY_ALL;
                     break;
             }
     }
@@ -62,10 +63,6 @@ public class BaseMobileElementImpl implements Element {
         switch (this.mobileElementInfo.getLocatorType()) {
             case CLASS_NAME:
                 locator = className(this.mobileElementInfo.getLocatorValue());
-                break;
-
-            case ID:
-                locator = id(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case NAME:
@@ -101,6 +98,11 @@ public class BaseMobileElementImpl implements Element {
                 break;
             case ANDROID_VIEW_TAG:
                 locator = MobileBy.AndroidViewTag(this.mobileElementInfo.getLocatorValue());
+                break;
+
+            case ID:
+            default:
+                locator = id(this.mobileElementInfo.getLocatorValue());
                 break;
         }
     }
