@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +14,7 @@ public abstract class DriverManager {
     public ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public WebDriver getDriver() {
-        if (driver.get() == null)
+        if (driver.get() == null || ((RemoteWebDriver) driver.get()).getSessionId()==null)
             return initDriver();
         return driver.get();
     }
