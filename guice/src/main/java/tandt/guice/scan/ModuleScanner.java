@@ -30,16 +30,17 @@ public class ModuleScanner extends AbstractModule {
         try {
             GuiceScanProperties properties = new GuiceScanProperties();
             String packageName = properties.getProperty("guice.scan.module.package");
+            if(packageName != null){
+                Reflections packageReflections = new Reflections(packageName);
+                List<Class<?>> cs = installAnnotations.stream()
+                        .map(packageReflections::getTypesAnnotatedWith)
+                        .flatMap(Set::stream)
+                        .filter(com.google.inject.Module.class::isAssignableFrom)
+                        .collect(Collectors.toList());
 
-            Reflections packageReflections = new Reflections(packageName);
-            List<Class<?>> cs = installAnnotations.stream()
-                    .map(packageReflections::getTypesAnnotatedWith)
-                    .flatMap(Set::stream)
-                    .filter(com.google.inject.Module.class::isAssignableFrom)
-                    .collect(Collectors.toList());
-
-            for (Class<?> c : cs) {
-                this.install((com.google.inject.Module) c.getDeclaredConstructor().newInstance());
+                for (Class<?> c : cs) {
+                    this.install((com.google.inject.Module) c.getDeclaredConstructor().newInstance());
+                }
             }
         } catch (Exception e) {
             throw new IllegalStateException("Failed to install module", e);
