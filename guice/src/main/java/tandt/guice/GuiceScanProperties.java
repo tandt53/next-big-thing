@@ -7,14 +7,14 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class GuiceScanProperties {
-
+    private final String AUTOMATION_PROPERTIES = "automation.properties";
     public String getProperty(String key) {
 
         try {
             String value = System.getProperty(key);
             if(value == null || value.isEmpty()) {
                 Properties properties = new Properties();
-                InputStream inputStream = getClass().getClassLoader().getResourceAsStream("automation.properties");
+                InputStream inputStream = getClass().getClassLoader().getResourceAsStream(AUTOMATION_PROPERTIES);
                 if (inputStream == null) {
                     throw new GuiceLoaderException("Unable to load automation.properties");
                 }

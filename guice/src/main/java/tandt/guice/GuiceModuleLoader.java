@@ -17,18 +17,15 @@ public class GuiceModuleLoader {
      * Load guice modules from properties file
      */
     public List<Module> loadModules() {
+        List<Module> modules = new ArrayList<>();
         Properties gProps = new Properties();
+        String className = null;
         try (InputStream ip = getClass().getClassLoader().getResourceAsStream(GUICE_MODULES_PROPERTIES)) {
             if (ip != null) {
                 gProps.load(ip);
             }
-        } catch (IOException e) {
-            log.debug("Unable to find file guice-modules.properties in resources.");
-        }
-        Set<String> keys = gProps.stringPropertyNames();
-        List<Module> modules = new ArrayList<>();
-        String className = null;
-        try {
+            Set<String> keys = gProps.stringPropertyNames();
+
             if (keys != null) {
                 Iterator<String> it = keys.iterator();
                 while (it.hasNext()) {
@@ -37,6 +34,8 @@ public class GuiceModuleLoader {
                     modules.add(m);
                 }
             }
+        } catch (IOException e) {
+            log.debug("Unable to find file guice-modules.properties in resources.");
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException e) {
             throw new GuiceLoaderException("Unable to load class " + className, e);
         }
