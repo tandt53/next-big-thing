@@ -5,6 +5,7 @@ import com.google.inject.Injector;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 import io.appium.java_client.AppiumDriver;
+import io.cucumber.guice.ScenarioScoped;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -16,10 +17,7 @@ import tandt.mobile.drivermanager.DriverManager;
 import java.io.File;
 import java.io.IOException;
 
-
-
-
-@Singleton
+@ScenarioScoped
 public class DriverHooks {
 
     @Inject
@@ -33,7 +31,8 @@ public class DriverHooks {
     private AppiumDriver<WebElement> mobileDriver;
 
     public void initWeb() {
-        webDriver = injector.getInstance(WebDriver.class);
+        tandt.web.drivermanager.DriverManager manager = injector.getInstance(tandt.web.drivermanager.DriverManager.class);
+        webDriver = manager.getDriver();
     }
 
     public void initMobile() {

@@ -18,7 +18,6 @@ import static tandt.web.drivermanager.Constants.*;
 @Singleton
 public class WebModule extends AbstractModule {
 
-
     @Override
     protected void configure() {
         bind(Capability.class).annotatedWith(Names.named("web.cli-args")).to(CliArgumentsCapability.class).in(Scopes.SINGLETON);
@@ -42,6 +41,8 @@ public class WebModule extends AbstractModule {
         bind(DriverManager.class).annotatedWith(Names.named(ENV_REMOTE + DOT + DRIVER_TYPE_FIREFOX)).to(RemoteDriverManager.class).in(Scopes.SINGLETON);
         bind(DriverManager.class).annotatedWith(Names.named(ENV_REMOTE + DOT + DRIVER_TYPE_SAFARI)).to(RemoteDriverManager.class).in(Scopes.SINGLETON);
         bind(DriverManager.class).annotatedWith(Names.named(ENV_REMOTE + DOT + DRIVER_TYPE_EDGE)).to(RemoteDriverManager.class).in(Scopes.SINGLETON);
+
+
     }
 
 }

@@ -4,7 +4,7 @@ Feature: Search google
   Scenario: search google demo
     Given I open browser
     When I go to "http://google.com.vn"
-    And I type and search keyword "VinId"
+    And I type and search keyword "tandt53"
     When I check state in anther step definition class is equals to "http://google.com.vn"
 #
 #  @State_S1 @Mobile

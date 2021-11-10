@@ -1,8 +1,10 @@
 package tandt.cucumber.test.vars;
 
 import com.google.inject.Inject;
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.en.Given;
 
+@ScenarioScoped
 public class SetVarsSteps {
 
     @Inject
