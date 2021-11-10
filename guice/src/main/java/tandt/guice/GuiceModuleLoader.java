@@ -11,7 +11,7 @@ import java.util.*;
 
 public class GuiceModuleLoader {
     private final String GUICE_MODULES_PROPERTIES = "guice-modules.properties";
-    private Log log = new Log(GuiceModuleLoader.class);
+    private final Log log = new Log(GuiceModuleLoader.class);
 
     /**
      * Load guice modules from properties file

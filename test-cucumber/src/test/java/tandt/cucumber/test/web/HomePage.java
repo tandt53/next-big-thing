@@ -18,12 +18,8 @@ public class HomePage extends BaseWebPage<HomePage> {
     @FindBy(id = "_fZl")
     private org.openqa.selenium.WebElement searchButton;
 
-    public HomePage(WebDriver driver){
-        ElementFactory.initElements(driver, this);
-    }
-
     public void search(String keyword) {
-        searchField.setText(Keys.SHIFT, keyword);
+        searchField.setText(keyword);
         searchField.submit();
     }
 }

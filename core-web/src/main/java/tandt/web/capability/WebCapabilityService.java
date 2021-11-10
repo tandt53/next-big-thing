@@ -24,7 +24,6 @@ public class WebCapabilityService implements CapabilityService {
         cliCapability.load();
         properties.load().add(cliCapability);
         isLoaded = true;
-
     }
 
     @Override

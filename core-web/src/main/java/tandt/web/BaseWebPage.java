@@ -13,12 +13,10 @@ import java.util.List;
  */
 public abstract class BaseWebPage<TPage extends BaseWebPage> {
 
-    /**
-     * url
-     */
+
     public String url;
 
-    protected WebDriver driver; // DriverManager must be injected and initialized first
+    protected WebDriver driver;
 
     @Inject
     public void initElements(DriverManager manager){
