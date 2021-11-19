@@ -8,16 +8,17 @@ import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 import tandt.web.BaseTest;
 import tandt.web.WebModule;
+import tandt.web.customguice.PropsModule;
 import tandt.web.test.pages.HomeWebPage;
 import tandt.web.test.pages.SearchResultPage;
-import ui.capability.Capability;
-import ui.capability.CapabilityService;
+import tandt.common.configurations.capability.Capability;
+import tandt.common.configurations.capability.CapabilityService;
 
 /**
  * Created by thetan.do on 12/28/2016.
  */
 
-@Guice(modules = WebModule.class)
+@Guice(modules = {WebModule.class, PropsModule.class})
 public class HomeChromeTest extends BaseTest {
 
     private HomeWebPage homePage;
@@ -33,6 +34,7 @@ public class HomeChromeTest extends BaseTest {
     public void setup() {
         cap = new ExtraCaps();
         cap.add("extra", "extra");
+//        capabilityService = WebCapabilityService.getInstance();
         capabilityService.addCapability(cap);
 
         homePage = page(HomeWebPage.class);

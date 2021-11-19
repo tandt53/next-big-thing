@@ -12,8 +12,8 @@ import tandt.mobile.drivermanager.*;
 import tandt.mobile.drivermanager.selector.MobileDriverSelector;
 import tandt.mobile.page.DefaultPageFactory;
 import tandt.mobile.page.PageFactory;
-import ui.capability.Capability;
-import ui.capability.CapabilityService;
+import tandt.common.configurations.capability.Capability;
+import tandt.common.configurations.capability.CapabilityService;
 import ui.driverselector.DriverSelector;
 
 import java.io.FileInputStream;

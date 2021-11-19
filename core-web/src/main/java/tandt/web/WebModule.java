@@ -9,8 +9,8 @@ import tandt.web.capability.PropertiesFileCapability;
 import tandt.web.capability.WebCapabilityService;
 import tandt.web.drivermanager.*;
 import tandt.web.drivermanager.selector.WebDriverSelector;
-import ui.capability.Capability;
-import ui.capability.CapabilityService;
+import tandt.common.configurations.capability.Capability;
+import tandt.common.configurations.capability.CapabilityService;
 import ui.driverselector.DriverSelector;
 
 import static tandt.web.drivermanager.Constants.*;

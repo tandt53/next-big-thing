@@ -4,6 +4,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.FindBy;
 import tandt.web.BaseWebPage;
 import tandt.web.annotations.FindElement;
+import tandt.web.customguice.Prop;
 import tandt.web.element.WebLocatorType;
 import ui.element.Element;
 import ui.element.WaitStrategy;
@@ -24,7 +25,11 @@ public class HomeWebPage extends BaseWebPage<HomeWebPage> {
     @FindBy(id = "_fZl")
     private org.openqa.selenium.WebElement searchButton;
 
+    @Prop("browser")
+    private String browser;
+
     public void search(String text) {
+        System.out.println("browser: " + browser);
         searchField.setText(Keys.SHIFT, text);
         searchField.submit();
     }

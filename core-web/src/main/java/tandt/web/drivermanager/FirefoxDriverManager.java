@@ -5,8 +5,8 @@ import com.google.inject.name.Named;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import ui.capability.Capability;
-import ui.capability.CapabilityService;
+import tandt.common.configurations.capability.Capability;
+import tandt.common.configurations.capability.CapabilityService;
 
 public class FirefoxDriverManager extends DriverManager {
 
@@ -18,6 +18,7 @@ public class FirefoxDriverManager extends DriverManager {
 
     @Override
     public WebDriver initDriver() {
+//        service = WebCapabilityService.getInstance();
         Capability caps = service.getCapability();
         System.setProperty(KEY_FIREFOX, (String) caps.get(Constants.CAPABILITY_DRIVER_PATH));
         driver.set(new FirefoxDriver(new MutableCapabilities(caps.getCapabilities())));

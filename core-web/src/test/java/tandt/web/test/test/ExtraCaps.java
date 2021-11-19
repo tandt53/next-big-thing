@@ -1,7 +1,7 @@
 package tandt.web.test.test;
 
 
-import ui.capability.Capability;
+import tandt.common.configurations.capability.Capability;
 
 public class ExtraCaps extends Capability {
 

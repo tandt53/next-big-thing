@@ -1,7 +1,7 @@
 package tandt.web.capability;
 
 import tandt.web.drivermanager.Constants;
-import ui.capability.Capability;
+import tandt.common.configurations.capability.Capability;
 
 import java.util.List;
 
