@@ -1,7 +1,7 @@
 package tandt.mobile.capability;
 
 import tandt.mobile.drivermanager.Constants;
-import ui.capability.Capability;
+import tandt.common.configurations.capability.Capability;
 
 import java.util.List;
 

@@ -5,8 +5,8 @@ import com.google.inject.name.Named;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import ui.capability.Capability;
-import ui.capability.CapabilityService;
+import tandt.common.configurations.capability.Capability;
+import tandt.common.configurations.capability.CapabilityService;
 
 public class EdgeDriverManager extends DriverManager{
 

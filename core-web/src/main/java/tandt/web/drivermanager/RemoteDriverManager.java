@@ -7,8 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import tandt.common.Utils;
 import tandt.common.exceptions.CommonException;
-import ui.capability.Capability;
-import ui.capability.CapabilityService;
+import tandt.common.configurations.capability.Capability;
+import tandt.common.configurations.capability.CapabilityService;
 import ui.exception.DriverInitException;
 
 import java.net.MalformedURLException;
@@ -23,6 +23,7 @@ public class RemoteDriverManager extends DriverManager {
 
     @Override
     public WebDriver initDriver() {
+//        service = WebCapabilityService.getInstance();
         Capability caps = service.getCapability();
         String url = null;
         try {

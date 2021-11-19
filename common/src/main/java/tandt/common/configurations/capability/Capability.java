@@ -1,4 +1,4 @@
-package ui.capability;
+package tandt.common.configurations.capability;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +29,11 @@ public abstract class Capability {
 
     public Capability remove(String key) {
         caps.remove(key);
+        return this;
+    }
+
+    public Capability removeAll(){
+        caps.clear();
         return this;
     }
 

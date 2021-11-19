@@ -17,7 +17,7 @@ public class Constants {
     public static final String DOT = ".";
 
 
-    public static final String WEB_CONFIG_FILE = "input/configs/web.properties";
+    public static final String WEB_CONFIG_FILE = "web.properties";
     public static final String CLI_PARAM_CONFIG_WEB = "config.web"; // property define web config file from command line
 
     /**

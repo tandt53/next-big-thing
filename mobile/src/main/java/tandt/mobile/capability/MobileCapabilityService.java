@@ -2,8 +2,8 @@ package tandt.mobile.capability;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import ui.capability.Capability;
-import ui.capability.CapabilityService;
+import tandt.common.configurations.capability.Capability;
+import tandt.common.configurations.capability.CapabilityService;
 
 public class MobileCapabilityService implements CapabilityService {
 

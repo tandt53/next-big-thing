@@ -11,7 +11,7 @@ public class Constants {
 
 
     // config files
-    public static final String MOBILE_CONFIG_FILE = "input/configs/mobile.properties";
+    public static final String MOBILE_CONFIG_FILE = "mobile.properties";
     public static final String CLI_PARAM_CONFIG_MOBILE = "config.mobile"; // Value of this param is the path of mobile.properties file
 
     /**

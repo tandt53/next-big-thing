@@ -1,4 +1,4 @@
-package ui.capability;
+package tandt.common.configurations.capability;
 
 public interface CapabilityService {
 
