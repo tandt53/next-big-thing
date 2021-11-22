@@ -4,21 +4,20 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.Provider;
-import com.google.inject.name.Named;
 import com.google.inject.name.Names;
-import ui.driverselector.DriverSelector;
+import tandt.common.configurations.Prop;
 
 public class WebDriverProvider implements Provider<DriverManager> {
 
     @Inject
-    @Named("web")
-    private DriverSelector selector;
+    private Injector injector;
 
     @Inject
-    private Injector injector;
+    @Prop("browser")
+    private String browser;
 
     @Override
     public DriverManager get() {
-        return injector.getInstance(Key.get(DriverManager.class, Names.named(selector.get())));
+        return injector.getInstance(Key.get(DriverManager.class, Names.named(browser)));
     }
 }

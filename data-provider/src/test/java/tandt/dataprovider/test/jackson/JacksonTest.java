@@ -1,13 +1,10 @@
 package tandt.dataprovider.test.jackson;
 
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.util.Iterator;
 
 public class JacksonTest {
     public static void main(String args[]) {

@@ -6,20 +6,18 @@ import com.google.inject.Key;
 import com.google.inject.Provider;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
-import io.appium.java_client.MobileDriver;
-import ui.driverselector.DriverSelector;
 
-public class DriverProvider implements Provider<MobileDriver> {
+public class DriverProvider implements Provider<DriverManager> {
 
     @Inject
-    @Named("mobile")
-    DriverSelector selector;
+    @Named("platformName")
+    private String platformName;
 
     @Inject
     Injector injector;
 
     @Override
-    public MobileDriver get() {
-        return injector.getInstance(Key.get(DriverManager.class, Names.named(selector.get()))).initDriver();
+    public DriverManager get() {
+        return injector.getInstance(Key.get(DriverManager.class, Names.named(platformName)));
     }
 }

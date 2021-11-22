@@ -2,9 +2,9 @@ package tandt.web.test.pages;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.FindBy;
+import tandt.common.configurations.Prop;
 import tandt.web.BaseWebPage;
 import tandt.web.annotations.FindElement;
-import tandt.web.customguice.Prop;
 import tandt.web.element.WebLocatorType;
 import ui.element.Element;
 import ui.element.WaitStrategy;

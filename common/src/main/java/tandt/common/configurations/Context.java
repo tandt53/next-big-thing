@@ -6,7 +6,6 @@ public interface Context {
 
     Capability getCapability();
 
-
     void add(String key, Object value);
 
     void add(Capability capability);
