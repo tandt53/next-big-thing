@@ -2,7 +2,6 @@ package tandt.cucumber.test;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 import io.appium.java_client.AppiumDriver;
 import io.cucumber.guice.ScenarioScoped;

@@ -1,7 +1,7 @@
 package tandt.mobile.capability;
 
-import tandt.dataprovider.properties.PropertiesLoader;
 import tandt.common.configurations.capability.Capability;
+import tandt.dataprovider.properties.PropertiesLoader;
 
 import static tandt.mobile.drivermanager.Constants.MOBILE_CONFIG_FILE;
 

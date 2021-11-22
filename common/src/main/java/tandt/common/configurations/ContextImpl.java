@@ -8,7 +8,12 @@ public class ContextImpl implements Context {
     private Capability capability;
 
     private ContextImpl() {
-
+        capability = new Capability() {
+            @Override
+            public Capability load() {
+                return this;
+            }
+        };
     }
 
     public static Context createInstance() {

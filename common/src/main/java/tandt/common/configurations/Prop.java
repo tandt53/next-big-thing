@@ -1,4 +1,4 @@
-package tandt.web.customguice;
+package tandt.common.configurations;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
