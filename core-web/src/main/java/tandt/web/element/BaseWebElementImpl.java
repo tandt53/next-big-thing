@@ -8,6 +8,7 @@ import tandt.web.Conditions;
 import ui.element.Element;
 import ui.element.WaitStrategy;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.function.Function;
 
@@ -128,7 +129,7 @@ public class BaseWebElementImpl implements Element {
     }
 
     private WebDriverWait getWait(long timeout) {
-        return new WebDriverWait(driver, timeout);
+        return new WebDriverWait(driver, Duration.ofSeconds(timeout));
     }
 
 

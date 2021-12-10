@@ -57,14 +57,14 @@ public class SimpleScanner extends Scanner {
 
             if (v.isEmpty() && !bindClass.equals(Class.class)) {
                 if (!c.isAssignableFrom(bindClass))
-                    throw new GuiceScannerException("Bind class must be super class or interface of " + c);
+                    throw new GuiceScannerException("Bind class must be a super class or interface of " + c);
                 bindingInfos.add(new BindingInfo(bindClass, c));
             }
 
             if (!v.isEmpty() && values.contains(v)) {
                 if (!bindClass.equals(Class.class)) {
-                    if (!c.isAssignableFrom(bindClass))
-                        throw new GuiceScannerException("Bind class must be super class or interface of " + c);
+                    if (!bindClass.isAssignableFrom(c))
+                        throw new GuiceScannerException("Bind class must be a super class or interface of " + c);
                     bindingInfos.add(new BindingInfo(bindClass, c));
                 } else
                     bindingInfos.add(new BindingInfo(c.getSuperclass(), c));

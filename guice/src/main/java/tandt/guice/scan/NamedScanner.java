@@ -18,25 +18,23 @@ import java.util.Set;
 public class NamedScanner extends Scanner {
     private final String KEY_NAMED_BINDER_PACKAGE = "guice.scan.binder.named.package";
 
-    private Set<Class<?>> cs;
-    private String packageName;
     private final Class annotation = NamedBinder.class;
 
     @Override
     protected List<BindingInfo> builder() {
         GuiceScanProperties properties = new GuiceScanProperties();
-        packageName = properties.getProperty(KEY_NAMED_BINDER_PACKAGE);
+        String packageName = properties.getProperty(KEY_NAMED_BINDER_PACKAGE);
 
         if (packageName == null || packageName.isEmpty())
             throw new GuiceScannerException("package name is not defined.");
 
-        cs = new Reflections(packageName).getTypesAnnotatedWith(annotation);
+        Set<Class<?>> cs = new Reflections(packageName).getTypesAnnotatedWith(annotation);
 
         List<BindingInfo> bindingInfos = new ArrayList<>();
 
         for (Class<?> c : cs) {
             Annotation anno = c.getAnnotation(annotation);
-            String named = ((NamedBinder) anno).named();
+            String named = ((NamedBinder) anno).name();
             Class<?> superClass = ((NamedBinder) anno).bind();
             if (named.isEmpty()) {
                 throw new GuiceScannerException("Require named attribute in BasedBinder annotation of class " + c);
