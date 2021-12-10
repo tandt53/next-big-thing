@@ -16,7 +16,7 @@ import static tandt.web.drivermanager.Constants.*;
 public class WebModule extends AbstractModule {
     private Capability cli;
     private Capability propertyFile;
-
+    
     public WebModule() {
         cli = new CliArgumentsCapability();
         propertyFile = new PropertiesFileCapability();
@@ -25,6 +25,7 @@ public class WebModule extends AbstractModule {
     @Override
     protected void configure() {
         ContextImpl.createInstance().add(propertyFile.load().add(cli.load()));
+
         bind(PageFactory.class).to(DefaultPageFactory.class);
         bind(DriverManager.class).toProvider(WebDriverProvider.class).in(Scopes.SINGLETON);
 

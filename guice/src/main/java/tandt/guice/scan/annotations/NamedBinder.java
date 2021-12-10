@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface NamedBinder {
 
-    String named();
+    String name();
 
     Class<?> bind();
 

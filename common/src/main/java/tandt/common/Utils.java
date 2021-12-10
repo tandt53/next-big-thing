@@ -11,7 +11,7 @@ public class Utils {
     private Utils(){}
 
     /**
-     * This method is
+     * This method is to
      * - Check string contain System environment (pattern ${varName})
      * - Get value from System Variables
      * - Replace pattern String by that value
