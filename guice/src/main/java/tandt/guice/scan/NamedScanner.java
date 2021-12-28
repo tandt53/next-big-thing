@@ -2,7 +2,7 @@ package tandt.guice.scan;
 
 import com.google.inject.name.Names;
 import org.reflections.Reflections;
-import tandt.guice.GuiceScanProperties;
+import tandt.guice.GuiceScanPropertiesLoader;
 import tandt.guice.exception.GuiceScannerException;
 import tandt.guice.scan.annotations.NamedBinder;
 import tandt.guice.scan.model.BindingInfo;
@@ -22,7 +22,7 @@ public class NamedScanner extends Scanner {
 
     @Override
     protected List<BindingInfo> builder() {
-        GuiceScanProperties properties = new GuiceScanProperties();
+        GuiceScanPropertiesLoader properties = new GuiceScanPropertiesLoader();
         String packageName = properties.getProperty(KEY_NAMED_BINDER_PACKAGE);
 
         if (packageName == null || packageName.isEmpty())

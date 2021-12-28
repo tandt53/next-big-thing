@@ -1,7 +1,7 @@
 package tandt.guice.scan;
 
 import org.reflections.Reflections;
-import tandt.guice.GuiceScanProperties;
+import tandt.guice.GuiceScanPropertiesLoader;
 import tandt.guice.exception.GuiceScannerException;
 import tandt.guice.scan.annotations.SimpleBinder;
 import tandt.guice.scan.model.BindingInfo;
@@ -22,7 +22,7 @@ public class SimpleScanner extends Scanner {
 
     @Override
     protected List<BindingInfo> builder() {
-        GuiceScanProperties properties = new GuiceScanProperties();
+        GuiceScanPropertiesLoader properties = new GuiceScanPropertiesLoader();
         value = properties.getProperty(KEY_SIMPLE_VALUE);
         packageName = properties.getProperty(KEY_SIMPLE_PACKAGE);
 
