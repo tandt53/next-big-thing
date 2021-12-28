@@ -3,7 +3,7 @@ package tandt.guice.scan;
 import com.google.common.collect.Sets;
 import com.google.inject.AbstractModule;
 import org.reflections.Reflections;
-import tandt.guice.GuiceScanProperties;
+import tandt.guice.GuiceScanPropertiesLoader;
 import tandt.guice.scan.annotations.Module;
 
 import java.lang.annotation.Annotation;
@@ -28,7 +28,7 @@ public class ModuleScanner extends AbstractModule {
     @Override
     public void configure() {
         try {
-            GuiceScanProperties properties = new GuiceScanProperties();
+            GuiceScanPropertiesLoader properties = new GuiceScanPropertiesLoader();
             String packageName = properties.getProperty("guice.scan.module.package");
             if(packageName != null){
                 Reflections packageReflections = new Reflections(packageName);

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class GuiceScanProperties {
+public class GuiceScanPropertiesLoader {
     private final String AUTOMATION_PROPERTIES = "automation.properties";
     public String getProperty(String key) {
 
