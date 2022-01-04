@@ -23,11 +23,11 @@ public class ModelModule extends AbstractModule {
         if (className != null) {
             try {
                 Class<?> clazz = Class.forName(className);
-                List<Class<?>> modelObjects = (List<Class<?>>) clazz.getMethod("getModels").invoke(null);
+                List<Class<?>> modelObjects = (List<Class<?>>) clazz.getMethod("getModels").invoke(clazz.getDeclaredConstructor().newInstance());
                 for (Class<?> modelObject : modelObjects) {
                     bind(modelObject).in(ScenarioScoped.class);
                 }
-            } catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException | NoSuchMethodException e) {
+            } catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException | NoSuchMethodException | InstantiationException e) {
                 throw new ScenarioScopeModelException(e);
             }
         }
