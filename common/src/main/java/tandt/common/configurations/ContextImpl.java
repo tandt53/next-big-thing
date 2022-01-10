@@ -28,22 +28,27 @@ public class ContextImpl implements Context {
     }
 
     @Override
-    public void add(String key, Object value) {
+    public Context add(String key, Object value) {
         capability.add(key, value);
+        return this;
     }
 
     @Override
-    public void add(Capability capability) {
+    public Context add(Capability capability) {
         this.capability.add(capability);
+        return this;
     }
 
     @Override
-    public void remove(String key) {
+    public Context remove(String key) {
         this.capability.remove(key);
+        return this;
     }
 
     @Override
-    public void removeAll() {
+    public Context removeAll() {
         this.capability.removeAll();
+        return this;
     }
+
 }
