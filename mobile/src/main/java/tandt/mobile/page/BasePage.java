@@ -1,12 +1,13 @@
 package tandt.mobile.page;
 
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebElement;
 import tandt.common.Log;
 import tandt.mobile.ElementFactory;
 import tandt.mobile.drivermanager.DriverManager;
@@ -27,9 +28,13 @@ public abstract class BasePage<TPage extends BasePage> {
      */
     public String url;
 
-    protected AppiumDriver<WebElement> driver;
+    protected AppiumDriver driver;
 
     public Log PLog = new Log(this.getClass());
+
+    @Inject
+    @Named("platformName")
+    public String platformName;
 
     /**
      * open  page with url is not null
@@ -86,13 +91,13 @@ public abstract class BasePage<TPage extends BasePage> {
     }
 
     public void scrollDown() {
-        new TouchAction<>(driver).press(getOffset().get("start")).waitAction().moveTo(getOffset().get("end")).release()
-                .perform();
+//        new TouchAction<>(driver).press(getOffset().get("start")).waitAction().moveTo(getOffset().get("end")).release()
+//                .perform();
     }
 
     public void scrollUp() {
-        new TouchAction<>(driver).press(getOffset().get("end")).waitAction().moveTo(getOffset().get("start")).release()
-                .perform();
+//        new TouchAction(driver).press(getOffset().get("end")).waitAction().moveTo(getOffset().get("start")).release()
+//                .perform();
     }
 
     private Map<String, PointOption> getOffset() {
@@ -114,24 +119,29 @@ public abstract class BasePage<TPage extends BasePage> {
     }
 
     public void switchContextToWebView() {
-        if (!driver.getContext().contains("WEBVIEW")) {
-            switchToContext("WEBVIEW");
-        }
+        switchToContext("WEBVIEW");
     }
 
     public void switchContextToNative() {
-        if (!driver.getContext().contains("NATIVE_APP")) {
-            switchToContext("NATIVE_APP");
-        }
+        switchToContext("NATIVE_APP");
     }
 
     private void switchToContext(String contextName) {
-        Set<String> contextNames = driver.getContextHandles();
-        for (String context : contextNames) {
-            System.out.println("context=" + context);
-            if (context.contains(contextName)) {
-                driver.context(context);
-                break;
+        if (platformName.equalsIgnoreCase("android")) {
+            Set<String> contextNames = ((AndroidDriver) driver).getContextHandles();
+            for (String context : contextNames) {
+                if (context.contains(contextName)) {
+                    ((AndroidDriver) driver).context(context);
+                    break;
+                }
+            }
+        } else if (platformName.equalsIgnoreCase("ios")) {
+            Set<String> contextNames = ((IOSDriver) driver).getContextHandles();
+            for (String context : contextNames) {
+                if (context.contains(contextName)) {
+                    ((IOSDriver) driver).context(context);
+                    break;
+                }
             }
         }
 

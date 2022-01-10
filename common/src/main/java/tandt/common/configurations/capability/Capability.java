@@ -40,4 +40,8 @@ public abstract class Capability {
     public Object get(String key) {
         return caps.get(key);
     }
+
+    public void addSubCapability(String key, Capability capability){
+        caps.put(key, capability);
+    }
 }
