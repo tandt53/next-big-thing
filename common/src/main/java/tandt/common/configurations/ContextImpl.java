@@ -28,13 +28,13 @@ public class ContextImpl implements Context {
     }
 
     @Override
-    public Context add(String key, Object value) {
+    public Context addValue(String key, Object value) {
         capability.add(key, value);
         return this;
     }
 
     @Override
-    public Context add(Capability capability) {
+    public Context addValue(Capability capability) {
         this.capability.add(capability);
         return this;
     }

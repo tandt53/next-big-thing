@@ -4,15 +4,21 @@ import io.appium.java_client.AppiumDriver;
 
 public abstract class DriverManager {
 
-    public ThreadLocal<AppiumDriver> driver = new ThreadLocal<>();
+    protected AppiumDriver driver;
 
     public AppiumDriver getDriver() {
-        if(driver.get() ==null || driver.get().getSessionId().toString().isEmpty()){
+        if (driver == null || driver.getSessionId() == null) {
             initDriver();
         }
-        return driver.get();
+        return driver;
     }
 
-    public abstract AppiumDriver initDriver() ;
+    public abstract AppiumDriver initDriver();
+
+    public void quit() {
+        if (driver != null || driver != null) {
+            driver.quit();
+        }
+    }
 
 }

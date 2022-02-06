@@ -24,7 +24,7 @@ public class WebModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        ContextImpl.createInstance().add(propertyFile.load().add(cli.load()));
+        ContextImpl.createInstance().addValue(propertyFile.load().add(cli.load()));
 
         bind(PageFactory.class).to(DefaultPageFactory.class);
         bind(DriverManager.class).toProvider(WebDriverProvider.class).in(Scopes.SINGLETON);
@@ -43,7 +43,6 @@ public class WebModule extends AbstractModule {
         bind(DriverManager.class).annotatedWith(Names.named(ENV_REMOTE + DOT + DRIVER_TYPE_FIREFOX)).to(RemoteDriverManager.class).in(Scopes.SINGLETON);
         bind(DriverManager.class).annotatedWith(Names.named(ENV_REMOTE + DOT + DRIVER_TYPE_SAFARI)).to(RemoteDriverManager.class).in(Scopes.SINGLETON);
         bind(DriverManager.class).annotatedWith(Names.named(ENV_REMOTE + DOT + DRIVER_TYPE_EDGE)).to(RemoteDriverManager.class).in(Scopes.SINGLETON);
-
 
     }
 

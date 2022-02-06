@@ -7,9 +7,9 @@ public interface Context {
 
     Capability getCapability();
 
-    Context add(String key, Object value);
+    Context addValue(String key, Object value);
 
-    Context add(Capability capability);
+    Context addValue(Capability capability);
 
     Context remove(String key);
 

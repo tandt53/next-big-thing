@@ -22,13 +22,17 @@ public class HomeWebPage extends BaseWebPage<HomeWebPage> {
     @FindElement(type = WebLocatorType.XPATH, value = "//*[@class='gLFyf gsfi']", waitUntil = WaitStrategy.VISIBILITY)
     private Element searchField;
 
-    @FindBy(id = "_fZl")
-    private org.openqa.selenium.WebElement searchButton;
+    @FindElement(type = WebLocatorType.XPATH, value = "_fZl")
+    private Element searchButton;
 
     @Prop("browser")
     private String browser;
 
+    @Prop("extra")
+    private String extra;
+
     public void search(String text) {
+        System.out.println("extra: " + extra);
         System.out.println("browser: " + browser);
         searchField.setText(Keys.SHIFT, text);
         searchField.submit();
