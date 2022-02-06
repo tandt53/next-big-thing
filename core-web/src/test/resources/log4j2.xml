@@ -52,32 +52,32 @@
 
     <Loggers>
 
-        <Logger name="tandt53.keyword.steps.base" level="info">
+        <Logger name="tandt.keyword.steps.base" level="info">
             <AppenderRef ref="infoLog"/>
             <AppenderRef ref="Console"/>
         </Logger>
 
-        <Logger name="tandt53.common" level="debug">
+        <Logger name="tandt.common" level="debug">
             <AppenderRef ref="debugLog"/>
         </Logger>
 
-        <Logger name="tandt53.api" level="debug">
+        <Logger name="tandt.api" level="debug">
             <AppenderRef ref="debugLog"/>
         </Logger>
 
-        <Logger name="tandt53.web" level="debug">
+        <Logger name="tandt.web" level="debug">
             <AppenderRef ref="debugLog"/>
         </Logger>
 
-        <Logger name="tandt53.mobile" level="debug">
+        <Logger name="tandt.mobile" level="debug">
             <AppenderRef ref="debugLog"/>
         </Logger>
 
-        <Logger name="tandt53.db" level="debug">
+        <Logger name="tandt.db" level="debug">
             <AppenderRef ref="debugLog"/>
         </Logger>
 
-        <Logger name="tandt53.support" level="debug">
+        <Logger name="tandt.support" level="debug">
             <AppenderRef ref="debugLog"/>
         </Logger>
 

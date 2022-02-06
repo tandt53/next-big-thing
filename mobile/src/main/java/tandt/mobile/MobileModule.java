@@ -30,7 +30,7 @@ public class MobileModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        Context context = ContextImpl.createInstance().add(propertyFile.load().add(cli.load()));
+        Context context = ContextImpl.createInstance().addValue(propertyFile.load().add(cli.load()));
         bindContext(context);
         bind(PageFactory.class).to(DefaultPageFactory.class).in(Scopes.SINGLETON);
         bind(DriverManager.class).toProvider(DriverProvider.class).in(Scopes.SINGLETON);
@@ -42,7 +42,6 @@ public class MobileModule extends AbstractModule {
         Map<String, Object> capabilities = context.getCapability().getCapabilities();
         for (Map.Entry<String, Object> entry : capabilities.entrySet()) {
             bind(String.class).annotatedWith(Names.named(entry.getKey())).toInstance(String.valueOf(entry.getValue()));
-
         }
     }
 

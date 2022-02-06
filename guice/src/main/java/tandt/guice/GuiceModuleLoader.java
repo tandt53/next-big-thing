@@ -23,15 +23,15 @@ public class GuiceModuleLoader {
         try (InputStream ip = getClass().getClassLoader().getResourceAsStream(GUICE_MODULES_PROPERTIES)) {
             if (ip != null) {
                 gProps.load(ip);
-            }
-            Set<String> keys = gProps.stringPropertyNames();
+                Set<String> keys = gProps.stringPropertyNames();
 
-            if (keys != null) {
-                Iterator<String> it = keys.iterator();
-                while (it.hasNext()) {
-                    className = gProps.getProperty(it.next());
-                    Module m = (Module) Class.forName(className).getDeclaredConstructor().newInstance();
-                    modules.add(m);
+                if (keys != null) {
+                    Iterator<String> it = keys.iterator();
+                    while (it.hasNext()) {
+                        className = gProps.getProperty(it.next());
+                        Module m = (Module) Class.forName(className).getDeclaredConstructor().newInstance();
+                        modules.add(m);
+                    }
                 }
             }
         } catch (IOException e) {

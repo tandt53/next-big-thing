@@ -4,6 +4,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
+import tandt.common.configurations.ContextImpl;
 import tandt.common.configurations.PropsModule;
 import tandt.common.configurations.capability.Capability;
 import tandt.common.configurations.capability.CapabilityService;
@@ -23,18 +24,13 @@ public class HomeChromeTest extends BaseTest {
     private HomeWebPage homePage;
     private SearchResultPage searchResultPage;
 
-//    @Inject
-//    @Named("web")
-    CapabilityService capabilityService;
-
     private Capability cap;
 
     @BeforeTest
     public void setup() {
         cap = new ExtraCaps();
         cap.add("extra", "extra");
-        capabilityService = WebCapabilityService.getInstance();
-        capabilityService.addCapability(cap);
+        ContextImpl.createInstance().addValue(cap);
 
         homePage = page(HomeWebPage.class);
         searchResultPage = page(SearchResultPage.class);

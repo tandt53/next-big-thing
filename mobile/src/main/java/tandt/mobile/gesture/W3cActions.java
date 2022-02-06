@@ -1,7 +1,6 @@
 package tandt.mobile.gesture;
 
 import com.google.inject.Inject;
-import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.WebElement;
@@ -16,16 +15,13 @@ import java.util.Arrays;
 
 public class W3cActions {
 
-    private AppiumDriver driver;
     private Duration STEP_DURATION = Duration.ofMillis(500);
     private Duration ZERO_SECOND = Duration.ofMillis(0);
     private Duration TWO_SECONDS = Duration.ofMillis(100);
     private PointerInput.Origin VIEW = PointerInput.Origin.viewport();
 
     @Inject
-    public W3cActions(DriverManager driverManager) {
-        this.driver = driverManager.getDriver();
-    }
+    private DriverManager driverManager;
 
     /**
      * Scroll on whole screen
@@ -34,7 +30,7 @@ public class W3cActions {
      * @param direction - scroll direction ${@link Direction}
      */
     public void scroll(Direction direction) {
-        Dimension di = driver.manage().window().getSize(); // with pixel 4XL: 1440, 3080
+        Dimension di = driverManager.getDriver().manage().window().getSize(); // with pixel 4XL: 1440, 3080
         // Getting start and end points
 
         int startX = 0;
@@ -123,7 +119,7 @@ public class W3cActions {
         sequence.addAction(finger1.createPointerMove(STEP_DURATION, VIEW, endX, endY));
         sequence.addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
-        driver.perform(Arrays.asList(sequence));
+        driverManager.getDriver().perform(Arrays.asList(sequence));
     }
 
     /**
@@ -143,7 +139,7 @@ public class W3cActions {
         sequence.addAction(finger1.createPointerMove(STEP_DURATION, VIEW, endX, endY));
         sequence.addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
-        driver.perform(Arrays.asList(sequence));
+        driverManager.getDriver().perform(Arrays.asList(sequence));
     }
 
     /**

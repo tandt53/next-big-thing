@@ -18,7 +18,12 @@ public class CliArgumentsCapability extends Capability {
         Set<String> keys = properties.stringPropertyNames();
         for (String key : keys) {
             if (key.startsWith(prefix)) {
-                caps.put(key.replaceFirst(prefix, ""), Utils.parseVariables(properties.getProperty(key)));
+                String value = properties.getProperty(key);
+                if (value.equalsIgnoreCase("true") || value.equalsIgnoreCase("false")) {
+                    caps.put(key.replaceFirst(prefix, ""), Boolean.parseBoolean(value));
+                } else {
+                    caps.put(key.replaceFirst(prefix, ""), Utils.parseVariables(properties.getProperty(key)));
+                }
             }
         }
         return this;

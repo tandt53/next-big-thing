@@ -6,14 +6,19 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
+import tandt.common.configurations.Context;
+import tandt.common.configurations.ContextImpl;
 import tandt.mobile.MobileModule;
 import tandt.mobile.drivermanager.DriverManager;
 import tandt.mobile.gesture.Direction;
 import tandt.mobile.gesture.W3cActions;
+import tandt.mobile.test.test.TestUtils;
 
+import java.lang.reflect.Method;
 import java.time.Duration;
 
 @Guice(modules = {MobileModule.class })
@@ -27,16 +32,18 @@ public class W3cActionsAndroidTest {
 
     private AppiumDriver driver;
 
-    @BeforeTest
-    public void setUp() {
+    @BeforeMethod
+    public void setUp(Method method) {
+        String name = method.getName();
+        ContextImpl.createInstance().addValue("name", name);
         driver = driverManager.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(10000));
     }
 
-//    @Test
-    public void testMoveToElement() {
+    @Test
+    public void testScroll() {
         driver.findElement(AppiumBy.androidUIAutomator("text(\"Views\")")).click();
-        delay(2000);
+        TestUtils.delay(2000);
         w3cActions.scroll(Direction.DOWN);
     }
 
@@ -64,12 +71,9 @@ public class W3cActionsAndroidTest {
         return element.getLocation().getY() + element.getRect().getHeight()/2;
     }
 
-    private void delay(long timeout){
-        try {
-            Thread.sleep(timeout);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    @AfterMethod
+    public void tearDown() {
+        driverManager.quit();
     }
 
 }

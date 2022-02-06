@@ -22,7 +22,7 @@ public class Constants {
 
     // These properties are keys in config file
     // Common appium capability
-    public static final String CAPABILITY_SERVER_URL = "server_url";
+    public static final String CAPABILITY_SERVER_URL = "remote_url";
     public static final String CAPABILITY_APP_PATH = "app";
     public static final String CAPABILITY_AUTOMATION_NAME = "automationName";
     public static final String CAPABILITY_BROWSER_NAME = "browserName";

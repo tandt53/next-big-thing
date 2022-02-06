@@ -26,7 +26,7 @@ public class Constants {
      */
     public static final String CLI_PARAMETER_PREFIX_WEB = "web.";
     // capabilities
-    public static final String CAPABILITY_ENV = "env";
+    public static final String CAPABILITY_ENV = "server";
     public static final String CAPABILITY_OS = "os";
     public static final String CAPABILITY_OS_VERSION = "os_version";
     public static final String CAPABILITY_REMOTE_HOST = "remote_url";
