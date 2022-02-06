@@ -30,7 +30,7 @@ public class WebTestngListener extends TestListenerAdapter {
 
         testCase = new TestCase();
         testCase.setName(testName);
-        testCase.setDes(description);
+        testCase.setDescription(description);
         testCase.setStart(System.currentTimeMillis());
 
         startTestCase(testName, description, params);

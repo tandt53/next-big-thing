@@ -1,14 +1,14 @@
 package tandt.commontest;
 
 import tandt.commontest.configuration.Configuration;
-import tandt.commontest.configuration.manager.ConfigurationManagerFactory;
+import tandt.commontest.configuration.ConfigurationFactory;
 
 public class TestContext {
 
     private static TestContext instance;
 
     private TestContext() {
-        configuration = ConfigurationManagerFactory.getConfigurationManager();
+        configuration = ConfigurationFactory.getConfiguration();
     }
 
     public static TestContext getInstance() {
@@ -23,6 +23,10 @@ public class TestContext {
 
     private void addConfiguration(Configuration configuration) {
         this.configuration = configuration.add(this.configuration);
+    }
+
+    public Configuration getConfiguration(){
+        return configuration;
     }
 
 //    private TestScenarioManager testScenarioManager;

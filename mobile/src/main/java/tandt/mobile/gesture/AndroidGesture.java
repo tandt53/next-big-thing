@@ -1,11 +1,8 @@
 package tandt.mobile.gesture;
 
-import com.google.common.collect.ImmutableMap;
 import com.google.inject.Inject;
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Point;
 import tandt.mobile.drivermanager.DriverManager;
 
 import java.util.HashMap;
