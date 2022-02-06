@@ -13,7 +13,7 @@ public class TestSuite {
 
     private final long id = System.currentTimeMillis();
     private String name;
-    private String des;
+    private String description;
     private List<TestCase> testcases = new ArrayList<>();
 
     public void addCase(TestCase testCase) throws TestException {

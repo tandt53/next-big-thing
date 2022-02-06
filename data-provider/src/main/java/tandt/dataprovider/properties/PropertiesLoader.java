@@ -80,7 +80,7 @@ public class PropertiesLoader {
 
     public static Map<String, Object> getMap(InputStream fs) {
         if (fs == null) {
-            throw new PropertiesException("InputString should not be null");
+            throw new PropertiesException("InputStream should not be null");
         }
 
         try {

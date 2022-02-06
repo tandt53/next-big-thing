@@ -12,3 +12,15 @@
 - staging 
 
 => create profile to manage properties
+
+
+load config:
+- Manager:
+    - using ServiceLoader to get WebManager, MobileManager to load capability
+- WebManager, MobileManager: ~ service
+    - FileConfig
+        - properties/xml
+        - get properties config.web, config.mobile to select file to load
+        - if not, get properties "runner" and "env" to find suitable properties files: web-runner-env.properties
+    - CliConfig
+    - RuntimeConfig

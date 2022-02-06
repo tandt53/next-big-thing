@@ -14,7 +14,7 @@ public class TestCase {
 
     private final long id = System.currentTimeMillis();
     private String name;
-    private String des;
+    private String description;
     private long duration;
     private long start;
     private long end;

@@ -7,10 +7,8 @@ import org.testng.annotations.Test;
 import tandt.common.configurations.ContextImpl;
 import tandt.common.configurations.PropsModule;
 import tandt.common.configurations.capability.Capability;
-import tandt.common.configurations.capability.CapabilityService;
 import tandt.web.BaseTest;
 import tandt.web.WebModule;
-import tandt.web.capability.WebCapabilityService;
 import tandt.web.test.pages.HomeWebPage;
 import tandt.web.test.pages.SearchResultPage;
 
