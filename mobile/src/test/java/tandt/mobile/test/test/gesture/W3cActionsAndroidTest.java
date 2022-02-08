@@ -10,7 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
-import tandt.common.configurations.ContextImpl;
+import tandt.commontest.TestContext;
 import tandt.mobile.MobileModule;
 import tandt.mobile.drivermanager.DriverManager;
 import tandt.mobile.gesture.Direction;
@@ -34,7 +34,7 @@ public class W3cActionsAndroidTest {
     @BeforeMethod
     public void setUp(Method method) {
         String name = method.getName();
-        ContextImpl.createInstance().addValue("name", name);
+        TestContext.getInstance().getConfiguration().add("name", name);
         driver = driverManager.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(10000));
     }

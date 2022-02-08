@@ -8,7 +8,7 @@ public abstract class Configuration {
 
     public abstract Configuration load();
 
-    public Map<String, Object> getCapabilities() {
+    public Map<String, Object> getConfigs() {
         return caps;
     }
 
@@ -17,13 +17,13 @@ public abstract class Configuration {
         return this;
     }
 
-    public Configuration add(Map<String, Object> capability) {
-        caps.putAll(capability);
+    public Configuration add(Map<String, Object> configs) {
+        caps.putAll(configs);
         return this;
     }
 
-    public Configuration add(Configuration capability) {
-        add(capability.getCapabilities());
+    public Configuration add(Configuration config) {
+        add(config.getConfigs());
         return this;
     }
 

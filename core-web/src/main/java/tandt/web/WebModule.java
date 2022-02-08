@@ -4,27 +4,15 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 import com.google.inject.Singleton;
 import com.google.inject.name.Names;
-import tandt.common.configurations.ContextImpl;
-import tandt.common.configurations.capability.Capability;
-import tandt.web.capability.CliArgumentsCapability;
-import tandt.web.capability.PropertiesFileCapability;
 import tandt.web.drivermanager.*;
 
 import static tandt.web.drivermanager.Constants.*;
 
 @Singleton
 public class WebModule extends AbstractModule {
-    private Capability cli;
-    private Capability propertyFile;
-    
-    public WebModule() {
-        cli = new CliArgumentsCapability();
-        propertyFile = new PropertiesFileCapability();
-    }
 
     @Override
     protected void configure() {
-        ContextImpl.createInstance().addValue(propertyFile.load().add(cli.load()));
 
         bind(PageFactory.class).to(DefaultPageFactory.class);
         bind(DriverManager.class).toProvider(WebDriverProvider.class).in(Scopes.SINGLETON);

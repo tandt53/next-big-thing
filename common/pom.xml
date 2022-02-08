@@ -10,29 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>common</artifactId>
-    <profiles>
 
-        <profile>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <id>local-uat</id>
-            <properties>
-                <runner>local</runner>
-                <env>uat</env>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>ci</id>
-            <properties>
-                <runner>ci</runner>
-                <env>uat</env>
-            </properties>
-        </profile>
-
-    </profiles>
     <dependencies>
+
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>

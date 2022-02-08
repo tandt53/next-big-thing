@@ -7,7 +7,7 @@ public class PropertiesConfiguration extends Configuration {
     private final String RUNNER = "runner";
     private final String ENV = "env";
     private final String CONFIG_FILE = "configFile";
-    private final String CONFIG_FILE_NAME_FORMAT = "config-%s-%s.properties";
+    private final String CONFIG_FILE_NAME_FORMAT = "automation-%s-%s.properties";
     private final String DEFAULT_RUNNER = "local";
     private final String DEFAULT_ENV = "uat";
 

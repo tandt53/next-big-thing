@@ -1,7 +1,7 @@
 package tandt.web.test.pages;
 
 import org.openqa.selenium.Keys;
-import tandt.common.configurations.Prop;
+import tandt.commontest.Prop;
 import tandt.web.BaseWebPage;
 import tandt.web.annotations.FindElement;
 import tandt.web.element.WebLocatorType;

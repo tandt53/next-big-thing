@@ -4,13 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
+import tandt.commontest.TestModule;
 import tandt.mobile.MobileModule;
 import tandt.mobile.page.BaseTest;
 import tandt.mobile.test.pages.HomePage;
 import tandt.mobile.test.pages.HomePageBinder;
 
 
-@Guice(modules = {MobileModule.class, HomePageBinder.class})
+@Guice(modules = {MobileModule.class, HomePageBinder.class, TestModule.class})
 public class MyApplicationTest2 extends BaseTest {
 
     private HomePage page;
