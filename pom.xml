@@ -59,6 +59,29 @@
         <jackson.version>2.12.4</jackson.version>
     </properties>
 
+    <profiles>
+
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>local-uat</id>
+            <properties>
+                <runner>local</runner>
+                <env>uat</env>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>ci</id>
+            <properties>
+                <runner>ci</runner>
+                <env>uat</env>
+            </properties>
+        </profile>
+
+    </profiles>
+
     <dependencyManagement>
         <dependencies>
 

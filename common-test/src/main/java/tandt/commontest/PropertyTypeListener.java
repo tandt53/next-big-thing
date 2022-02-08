@@ -5,7 +5,6 @@ import com.google.inject.TypeLiteral;
 import com.google.inject.spi.TypeEncounter;
 import com.google.inject.spi.TypeListener;
 import tandt.commontest.configuration.Configuration;
-//import tandt.common.configurations.capability.Capability;
 
 import java.lang.reflect.Field;
 

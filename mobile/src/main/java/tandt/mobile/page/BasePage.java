@@ -9,6 +9,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Dimension;
 import tandt.common.Log;
+import tandt.commontest.Prop;
 import tandt.mobile.ElementFactory;
 import tandt.mobile.drivermanager.DriverManager;
 
@@ -33,7 +34,7 @@ public abstract class BasePage<TPage extends BasePage> {
     public Log PLog = new Log(this.getClass());
 
     @Inject
-    @Named("platformName")
+    @Prop("platformName")
     public String platformName;
 
     /**

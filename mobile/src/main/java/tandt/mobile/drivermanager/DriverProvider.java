@@ -6,11 +6,12 @@ import com.google.inject.Key;
 import com.google.inject.Provider;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
+import tandt.commontest.Prop;
 
 public class DriverProvider implements Provider<DriverManager> {
 
     @Inject
-    @Named("platformName")
+    @Prop("platformName")
     private String platformName;
 
     @Inject

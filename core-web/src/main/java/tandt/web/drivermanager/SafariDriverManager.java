@@ -4,8 +4,8 @@ import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
-import tandt.common.configurations.ContextImpl;
-import tandt.common.configurations.capability.Capability;
+import tandt.commontest.TestContext;
+import tandt.commontest.configuration.Configuration;
 
 public class SafariDriverManager extends DriverManager {
 
@@ -13,10 +13,9 @@ public class SafariDriverManager extends DriverManager {
 
     @Override
     public WebDriver initDriver() {
-        Capability caps = ContextImpl.createInstance().getCapability();
-        System.setProperty(KEY_SAFARI, (String) caps.get(Constants.CAPABILITY_DRIVER_PATH));
+        Configuration caps = TestContext.getInstance().getConfiguration();        System.setProperty(KEY_SAFARI, (String) caps.get(Constants.CONFIGURATION_DRIVER_PATH));
         SafariOptions options = new SafariOptions();
-        options.merge(new MutableCapabilities(caps.getCapabilities()));
+        options.merge(new MutableCapabilities(caps.getConfigs()));
         driver.set(new SafariDriver(options));
         return getDriver();
     }

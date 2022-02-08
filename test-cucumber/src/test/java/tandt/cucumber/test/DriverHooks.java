@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import tandt.commontest.Prop;
 import tandt.cucumber.test.exception.TakeScreenshotException;
 import tandt.mobile.drivermanager.DriverManager;
 
@@ -22,7 +23,7 @@ public class DriverHooks {
     private Injector injector;
 
     @Inject
-    @Named("platformName")
+    @Prop("platformName")
     private String platform;
 
     private WebDriver webDriver;

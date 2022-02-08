@@ -1,12 +1,12 @@
 package tandt.web.test.test;
 
 
-import tandt.common.configurations.capability.Capability;
+import tandt.commontest.configuration.Configuration;
 
-public class ExtraCaps extends Capability {
+public class ExtraCaps extends Configuration {
 
     @Override
-    public Capability load() {
+    public Configuration load() {
         caps.put("app", "com.android.chrome");
         return this;
     }
