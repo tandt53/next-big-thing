@@ -17,8 +17,8 @@ public class EdgeDriverManager extends DriverManager{
         System.setProperty(KEY_EDGE, (String) caps.get(Constants.CONFIGURATION_DRIVER_PATH));
         EdgeOptions options = new EdgeOptions();
         options.merge(new MutableCapabilities(caps.getConfigs()));
-        driver.set(new EdgeDriver(options));
-        return getDriver();
+        driver = new EdgeDriver(options);
+        return driver;
     }
 
 }

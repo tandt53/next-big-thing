@@ -5,6 +5,8 @@ import com.google.inject.Scopes;
 import com.google.inject.Singleton;
 import com.google.inject.name.Names;
 import tandt.web.drivermanager.*;
+import tandt.web.drivermanager.option.DriverOptionFilter;
+import tandt.web.drivermanager.option.SeleniumDriverOptionFilter;
 
 import static tandt.web.drivermanager.Constants.*;
 
@@ -13,7 +15,7 @@ public class WebModule extends AbstractModule {
 
     @Override
     protected void configure() {
-
+        bind(DriverOptionFilter.class).to(SeleniumDriverOptionFilter.class).in(Scopes.SINGLETON);
         bind(PageFactory.class).to(DefaultPageFactory.class);
         bind(DriverManager.class).toProvider(WebDriverProvider.class).in(Scopes.SINGLETON);
 

@@ -1,7 +1,6 @@
 package tandt.mobile.page;
 
 import com.google.inject.Inject;
-import com.google.inject.name.Named;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
@@ -34,7 +33,7 @@ public abstract class BasePage<TPage extends BasePage> {
     public Log PLog = new Log(this.getClass());
 
     @Inject
-    @Prop("platformName")
+    @Prop("nbt.appium.platformName")
     public String platformName;
 
     /**

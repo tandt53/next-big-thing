@@ -1,7 +1,8 @@
 package tandt.guice.scan;
 
 import org.reflections.Reflections;
-import tandt.guice.GuiceScanPropertiesLoader;
+import tandt.commontest.TestContext;
+import tandt.commontest.configuration.Configuration;
 import tandt.guice.exception.GuiceScannerException;
 import tandt.guice.scan.annotations.SimpleBinder;
 import tandt.guice.scan.model.BindingInfo;
@@ -14,17 +15,17 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class SimpleScanner extends Scanner {
-    private final String KEY_SIMPLE_VALUE = "guice.scan.binder.simple.value";
-    private final String KEY_SIMPLE_PACKAGE = "guice.scan.binder.simple.package";
+    private final String KEY_SIMPLE_VALUE = "nbt.guice.scan.binder.simple.value";
+    private final String KEY_SIMPLE_PACKAGE = "nbt.guice.scan.binder.simple.package";
     private String value;
     private String packageName;
     private Set<Class<?>> cs;
 
     @Override
     protected List<BindingInfo> builder() {
-        GuiceScanPropertiesLoader properties = new GuiceScanPropertiesLoader();
-        value = properties.getProperty(KEY_SIMPLE_VALUE);
-        packageName = properties.getProperty(KEY_SIMPLE_PACKAGE);
+        Configuration configuration = TestContext.getInstance().getConfiguration();
+        value = (String) configuration.get(KEY_SIMPLE_VALUE);
+        packageName = (String) configuration.get(KEY_SIMPLE_PACKAGE);
 
         if (value == null || value.isEmpty())
             throw new GuiceScannerException("The value of " + KEY_SIMPLE_VALUE + " is not defined.");

@@ -2,7 +2,6 @@ package tandt.cucumber.test;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.google.inject.name.Named;
 import io.appium.java_client.AppiumDriver;
 import io.cucumber.guice.ScenarioScoped;
 import org.apache.commons.io.FileUtils;
@@ -23,7 +22,7 @@ public class DriverHooks {
     private Injector injector;
 
     @Inject
-    @Prop("platformName")
+    @Prop("nbt.appium.platformName")
     private String platform;
 
     private WebDriver webDriver;

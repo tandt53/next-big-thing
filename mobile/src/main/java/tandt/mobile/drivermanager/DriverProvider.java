@@ -4,14 +4,13 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.Provider;
-import com.google.inject.name.Named;
 import com.google.inject.name.Names;
 import tandt.commontest.Prop;
 
 public class DriverProvider implements Provider<DriverManager> {
 
     @Inject
-    @Prop("platformName")
+    @Prop("nbt.appium.platformName")
     private String platformName;
 
     @Inject

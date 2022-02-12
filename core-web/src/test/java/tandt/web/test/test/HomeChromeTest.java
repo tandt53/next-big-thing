@@ -26,9 +26,7 @@ public class HomeChromeTest extends BaseTest {
 
     @BeforeTest
     public void setup() {
-        cap = new ExtraCaps();
-        cap.add("extra", "extra");
-        TestContext.getInstance().getConfiguration().add(cap);
+        TestContext.getInstance().getConfiguration().add("extra", "extra cap");
 
         homePage = page(HomeWebPage.class);
         searchResultPage = page(SearchResultPage.class);
