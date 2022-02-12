@@ -14,7 +14,7 @@ public class WebDriverProvider implements Provider<DriverManager> {
     private Injector injector;
 
     @Inject
-    @Prop("nbt.selenium.browser")
+    @Prop("nbt.selenium.browserName")
     private String browser;
 
     @Inject
@@ -34,7 +34,7 @@ public class WebDriverProvider implements Provider<DriverManager> {
             throw new SeleniumDriverConfigException("No browser specified");
         }
 
-        return server + "." + browser;
+        return server.split("\\.")[0] + "." + browser.toLowerCase();
 
     }
 }

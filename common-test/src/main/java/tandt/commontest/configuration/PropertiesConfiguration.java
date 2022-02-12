@@ -9,7 +9,7 @@ public class PropertiesConfiguration extends Configuration {
     private final String CONFIG_FILE = "configFile";
     private final String CONFIG_FILE_NAME_FORMAT = "automation-%s-%s.properties";
     private final String DEFAULT_RUNNER = "local";
-    private final String DEFAULT_ENV = "uat";
+    private final String DEFAULT_ENV = "qc";
 
     @Override
     public Configuration load() {

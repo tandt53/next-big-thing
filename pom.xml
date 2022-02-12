@@ -65,10 +65,10 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <id>local-uat</id>
+            <id>local-qc</id>
             <properties>
                 <runner>local</runner>
-                <env>uat</env>
+                <env>qc</env>
             </properties>
         </profile>
 
@@ -76,7 +76,7 @@
             <id>ci</id>
             <properties>
                 <runner>ci</runner>
-                <env>uat</env>
+                <env>qc</env>
             </properties>
         </profile>
 

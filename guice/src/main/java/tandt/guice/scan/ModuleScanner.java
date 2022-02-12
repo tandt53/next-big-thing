@@ -3,10 +3,12 @@ package tandt.guice.scan;
 import com.google.common.collect.Sets;
 import com.google.inject.AbstractModule;
 import org.reflections.Reflections;
-import tandt.guice.GuiceScanPropertiesLoader;
+import tandt.commontest.TestContext;
+import tandt.commontest.configuration.Configuration;
 import tandt.guice.scan.annotations.Module;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -28,8 +30,8 @@ public class ModuleScanner extends AbstractModule {
     @Override
     public void configure() {
         try {
-            GuiceScanPropertiesLoader properties = new GuiceScanPropertiesLoader();
-            String packageName = properties.getProperty("guice.scan.module.package");
+            Configuration configuration = TestContext.getInstance().getConfiguration();
+            String packageName = (String) configuration.get("nbt.guice.scan.module.package");
             if(packageName != null){
                 Reflections packageReflections = new Reflections(packageName);
                 List<Class<?>> cs = installAnnotations.stream()
@@ -42,7 +44,7 @@ public class ModuleScanner extends AbstractModule {
                     this.install((com.google.inject.Module) c.getDeclaredConstructor().newInstance());
                 }
             }
-        } catch (Exception e) {
+        } catch (InvocationTargetException | InstantiationException | IllegalAccessException | NoSuchMethodException e) {
             throw new IllegalStateException("Failed to install module", e);
         }
     }

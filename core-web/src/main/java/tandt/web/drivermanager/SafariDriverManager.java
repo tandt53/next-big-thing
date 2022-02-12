@@ -9,15 +9,14 @@ import tandt.commontest.configuration.Configuration;
 
 public class SafariDriverManager extends DriverManager {
 
-    protected static final String KEY_SAFARI = "please add safari driver here";
 
     @Override
     public WebDriver initDriver() {
-        Configuration caps = TestContext.getInstance().getConfiguration();        System.setProperty(KEY_SAFARI, (String) caps.get(Constants.CONFIGURATION_DRIVER_PATH));
+        Configuration caps = TestContext.getInstance().getConfiguration();
         SafariOptions options = new SafariOptions();
         options.merge(new MutableCapabilities(caps.getConfigs()));
-        driver.set(new SafariDriver(options));
-        return getDriver();
+        driver = new SafariDriver(options);
+        return driver;
     }
 
 }

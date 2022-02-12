@@ -11,12 +11,12 @@ import java.io.IOException;
 
 public abstract class DriverManager {
 
-    public ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    public WebDriver driver;
 
     public WebDriver getDriver() {
-        if (driver.get() == null || ((RemoteWebDriver) driver.get()).getSessionId()==null)
+        if (driver == null || ((RemoteWebDriver) driver).getSessionId()==null)
             return initDriver();
-        return driver.get();
+        return driver;
     }
 
     public abstract WebDriver initDriver();
@@ -28,7 +28,7 @@ public abstract class DriverManager {
      * @throws IOException
      */
     public void takeSnapShot(String imageName) throws IOException {
-        TakesScreenshot scrShot = (TakesScreenshot) driver.get();
+        TakesScreenshot scrShot = (TakesScreenshot) driver;
         File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
         File destFile = new File(Constants.SCREENSHOT_PATH + "/" + imageName);
         FileUtils.copyFile(srcFile, destFile);

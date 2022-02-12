@@ -17,8 +17,8 @@ public class FirefoxDriverManager extends DriverManager {
         System.setProperty(KEY_FIREFOX, (String) caps.get(Constants.CONFIGURATION_DRIVER_PATH));
         FirefoxOptions options = new FirefoxOptions();
         options.merge(new MutableCapabilities(caps.getConfigs()));
-        driver.set(new FirefoxDriver(options));
-        return getDriver();
+        driver = new FirefoxDriver(options);
+        return driver;
     }
 
 }

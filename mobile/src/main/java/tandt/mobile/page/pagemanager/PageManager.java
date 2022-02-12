@@ -12,7 +12,7 @@ import tandt.mobile.page.BasePage;
 public class PageManager {
 
     @Inject
-    @Prop("platformName")
+    @Prop("nbt.appium.platformName")
     private String platform;
 
     @Inject
