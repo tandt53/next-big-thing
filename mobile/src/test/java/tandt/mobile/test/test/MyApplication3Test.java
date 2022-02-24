@@ -12,7 +12,7 @@ import tandt.mobile.test.pages.HomePageBinder;
 
 
 @Guice(modules = {MobileModule.class, HomePageBinder.class, TestModule.class})
-public class MyApplicationTest2 extends BaseTest {
+public class MyApplication3Test extends BaseTest {
 
     private HomePage page;
 

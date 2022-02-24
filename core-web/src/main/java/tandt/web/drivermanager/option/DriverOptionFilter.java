@@ -2,7 +2,6 @@ package tandt.web.drivermanager.option;
 
 import org.openqa.selenium.MutableCapabilities;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public interface DriverOptionFilter {

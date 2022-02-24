@@ -5,8 +5,6 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import tandt.commontest.Prop;
-import tandt.commontest.TestContext;
-import tandt.commontest.configuration.Configuration;
 import tandt.mobile.drivermanager.option.DriverOptionFilter;
 import ui.exception.DriverInitException;
 

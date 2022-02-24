@@ -3,17 +3,15 @@ package tandt.mobile.drivermanager;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Key;
-import com.google.inject.name.Named;
 import com.google.inject.name.Names;
 import tandt.commontest.Prop;
-import ui.driverselector.DriverSelector;
 
 public class DriverManagerFactory {
 
     private static DriverManager manager;
 
     @Inject
-    Injector injector;
+    private Injector injector;
 
     @Inject
     @Prop("nbt.appium.platformName")

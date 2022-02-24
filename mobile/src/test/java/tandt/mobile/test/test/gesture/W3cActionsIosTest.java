@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
+import tandt.commontest.TestContext;
+import tandt.commontest.TestModule;
 import tandt.mobile.MobileModule;
 import tandt.mobile.drivermanager.DriverManager;
 import tandt.mobile.gesture.Direction;
@@ -14,7 +16,7 @@ import tandt.mobile.gesture.W3cActions;
 
 import java.time.Duration;
 
-@Guice(modules = {MobileModule.class })
+@Guice(modules = {TestModule.class, MobileModule.class })
 public class W3cActionsIosTest {
 
     @Inject
@@ -27,6 +29,8 @@ public class W3cActionsIosTest {
 
     @BeforeTest
     public void setUp() {
+        // config ios UICatalog and iOS configuration for appium
+        TestContext.getInstance().getConfiguration().add("nbt.appium.app", "/Users/tandt1/projects/next-big-thing/mobile/input/apps/UICatalog.app");
         driver = driverManager.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(10000));
     }
