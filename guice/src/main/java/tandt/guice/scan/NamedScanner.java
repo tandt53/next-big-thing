@@ -2,7 +2,8 @@ package tandt.guice.scan;
 
 import com.google.inject.name.Names;
 import org.reflections.Reflections;
-import tandt.guice.GuiceScanPropertiesLoader;
+import tandt.commontest.TestContext;
+import tandt.commontest.configuration.Configuration;
 import tandt.guice.exception.GuiceScannerException;
 import tandt.guice.scan.annotations.NamedBinder;
 import tandt.guice.scan.model.BindingInfo;
@@ -16,14 +17,14 @@ import java.util.Set;
  * Scanner for {@link NamedBinder}
  */
 public class NamedScanner extends Scanner {
-    private final String KEY_NAMED_BINDER_PACKAGE = "guice.scan.binder.named.package";
+    private final String KEY_NAMED_BINDER_PACKAGE = "nbt.guice.scan.binder.named.package";
 
     private final Class annotation = NamedBinder.class;
 
     @Override
     protected List<BindingInfo> builder() {
-        GuiceScanPropertiesLoader properties = new GuiceScanPropertiesLoader();
-        String packageName = properties.getProperty(KEY_NAMED_BINDER_PACKAGE);
+        Configuration configuration = TestContext.getInstance().getConfiguration();
+        String packageName = (String) configuration.get(KEY_NAMED_BINDER_PACKAGE);
 
         if (packageName == null || packageName.isEmpty())
             throw new GuiceScannerException("package name is not defined.");

@@ -1,13 +1,12 @@
 package tandt.cucumber.test.mobile;
 
 import com.google.inject.Inject;
+import io.cucumber.guice.ScenarioScoped;
 import tandt.cucumber.test.mobile.components.HomeComponent;
 import tandt.mobile.page.BasePage;
 import tandt.mobile.page.PageFactory;
 
-import javax.inject.Singleton;
-
-@Singleton
+@ScenarioScoped
 public class HomePage extends BasePage<HomePage> {
 
     private HomeComponent homeComponent;

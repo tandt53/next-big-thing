@@ -20,7 +20,7 @@ public class RequestHeader {
         builder.add(line);
     }
 
-    public void addAll(Map<String, String> headers){
+    public void add(Map<String, String> headers){
         builder.addAll(Headers.of(headers));
     }
 

@@ -1,8 +1,7 @@
 package tandt.web.test.pages;
 
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.FindBy;
-import tandt.common.configurations.Prop;
+import tandt.commontest.Prop;
 import tandt.web.BaseWebPage;
 import tandt.web.annotations.FindElement;
 import tandt.web.element.WebLocatorType;
@@ -22,13 +21,17 @@ public class HomeWebPage extends BaseWebPage<HomeWebPage> {
     @FindElement(type = WebLocatorType.XPATH, value = "//*[@class='gLFyf gsfi']", waitUntil = WaitStrategy.VISIBILITY)
     private Element searchField;
 
-    @FindBy(id = "_fZl")
-    private org.openqa.selenium.WebElement searchButton;
+    @FindElement(type = WebLocatorType.XPATH, value = "_fZl")
+    private Element searchButton;
 
-    @Prop("browser")
+    @Prop("nbt.selenium.browserName")
     private String browser;
 
+    @Prop("extra")
+    private String extra;
+
     public void search(String text) {
+        System.out.println("extra: " + extra);
         System.out.println("browser: " + browser);
         searchField.setText(Keys.SHIFT, text);
         searchField.submit();

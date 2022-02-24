@@ -4,28 +4,18 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 import com.google.inject.Singleton;
 import com.google.inject.name.Names;
-import tandt.common.configurations.ContextImpl;
-import tandt.common.configurations.capability.Capability;
-import tandt.web.capability.CliArgumentsCapability;
-import tandt.web.capability.PropertiesFileCapability;
 import tandt.web.drivermanager.*;
+import tandt.web.drivermanager.option.DriverOptionFilter;
+import tandt.web.drivermanager.option.SeleniumDriverOptionFilter;
 
 import static tandt.web.drivermanager.Constants.*;
 
 @Singleton
 public class WebModule extends AbstractModule {
-    private Capability cli;
-    private Capability propertyFile;
-    
-    public WebModule() {
-        cli = new CliArgumentsCapability();
-        propertyFile = new PropertiesFileCapability();
-    }
 
     @Override
     protected void configure() {
-        ContextImpl.createInstance().add(propertyFile.load().add(cli.load()));
-
+        bind(DriverOptionFilter.class).to(SeleniumDriverOptionFilter.class).in(Scopes.SINGLETON);
         bind(PageFactory.class).to(DefaultPageFactory.class);
         bind(DriverManager.class).toProvider(WebDriverProvider.class).in(Scopes.SINGLETON);
 
@@ -43,7 +33,6 @@ public class WebModule extends AbstractModule {
         bind(DriverManager.class).annotatedWith(Names.named(ENV_REMOTE + DOT + DRIVER_TYPE_FIREFOX)).to(RemoteDriverManager.class).in(Scopes.SINGLETON);
         bind(DriverManager.class).annotatedWith(Names.named(ENV_REMOTE + DOT + DRIVER_TYPE_SAFARI)).to(RemoteDriverManager.class).in(Scopes.SINGLETON);
         bind(DriverManager.class).annotatedWith(Names.named(ENV_REMOTE + DOT + DRIVER_TYPE_EDGE)).to(RemoteDriverManager.class).in(Scopes.SINGLETON);
-
 
     }
 

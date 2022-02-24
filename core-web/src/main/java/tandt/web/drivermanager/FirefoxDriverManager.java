@@ -4,8 +4,8 @@ import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import tandt.common.configurations.ContextImpl;
-import tandt.common.configurations.capability.Capability;
+import tandt.commontest.TestContext;
+import tandt.commontest.configuration.Configuration;
 
 public class FirefoxDriverManager extends DriverManager {
 
@@ -13,12 +13,12 @@ public class FirefoxDriverManager extends DriverManager {
 
     @Override
     public WebDriver initDriver() {
-        Capability caps = ContextImpl.createInstance().getCapability();
-        System.setProperty(KEY_FIREFOX, (String) caps.get(Constants.CAPABILITY_DRIVER_PATH));
+        Configuration caps = TestContext.getInstance().getConfiguration();
+        System.setProperty(KEY_FIREFOX, (String) caps.get(Constants.CONFIGURATION_DRIVER_PATH));
         FirefoxOptions options = new FirefoxOptions();
-        options.merge(new MutableCapabilities(caps.getCapabilities()));
-        driver.set(new FirefoxDriver(options));
-        return getDriver();
+        options.merge(new MutableCapabilities(caps.getConfigs()));
+        driver = new FirefoxDriver(options);
+        return driver;
     }
 
 }
