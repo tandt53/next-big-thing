@@ -51,13 +51,36 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <log4j.version>2.17.0</log4j.version>
+        <log4j.version>[2.17.1,)</log4j.version>
         <cucumber.version>6.9.0</cucumber.version>
         <selenium.version>4.0.0</selenium.version>
         <skipTest>false</skipTest>
         <jacoco.version>0.8.6</jacoco.version>
         <jackson.version>2.12.4</jackson.version>
     </properties>
+
+    <profiles>
+
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>local-qc</id>
+            <properties>
+                <runner>local</runner>
+                <env>qc</env>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>ci</id>
+            <properties>
+                <runner>ci</runner>
+                <env>qc</env>
+            </properties>
+        </profile>
+
+    </profiles>
 
     <dependencyManagement>
         <dependencies>
@@ -77,6 +100,12 @@
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-api</artifactId>
+                <version>${selenium.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-support</artifactId>
                 <version>${selenium.version}</version>
             </dependency>
 
@@ -162,7 +191,7 @@
             <dependency>
                 <groupId>io.appium</groupId>
                 <artifactId>java-client</artifactId>
-                <version>7.6.0</version>
+                <version>8.0.0-beta</version>
             </dependency>
 
             <dependency>

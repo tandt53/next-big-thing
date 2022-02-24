@@ -1,6 +1,7 @@
 package tandt.web.element;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -99,6 +100,11 @@ public class BaseWebElementImpl implements Element {
 
     public WebElement getElement() {
         return waitUntil(waitForElement);
+    }
+
+    @Override
+    public String getId() {
+        return ((RemoteWebElement) getElement()).getId();
     }
 
     @Override

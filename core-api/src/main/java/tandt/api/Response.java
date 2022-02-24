@@ -24,7 +24,7 @@ public class Response {
         return JsonParser.fromJsonStringToObject(responseBody.string(), jsonPath, t);
     }
 
-    // save response body into a file
+    // save response body into a file when downloading file
     public void save(String filePath){
 
     }

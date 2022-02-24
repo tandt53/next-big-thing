@@ -1,6 +1,6 @@
 package tandt.common.exceptions;
 
-public class CommonException extends Exception{
+public class CommonException extends RuntimeException{
 
     public CommonException() {
     }

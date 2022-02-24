@@ -1,5 +1,6 @@
 package tandt.dataprovider.properties;
 
+import tandt.common.Utils;
 import tandt.dataprovider.exceptions.PropertiesException;
 
 import java.io.FileInputStream;
@@ -64,7 +65,8 @@ public class PropertiesLoader {
 
             for (String name : props.stringPropertyNames()) {
                 Object value = props.getProperty(name);
-                if (((String) value).equalsIgnoreCase("true") || ((String) value).equalsIgnoreCase("false"))
+                if (((String) value).equalsIgnoreCase("true")
+                        || ((String) value).equalsIgnoreCase("false"))
                     value = getBoolean((String) value);
                 map.put(name, value);
             }
@@ -78,7 +80,7 @@ public class PropertiesLoader {
 
     public static Map<String, Object> getMap(InputStream fs) {
         if (fs == null) {
-            throw new PropertiesException("InputString should not be null");
+            throw new PropertiesException("InputStream should not be null");
         }
 
         try {
@@ -89,8 +91,12 @@ public class PropertiesLoader {
 
             for (String name : props.stringPropertyNames()) {
                 Object value = props.getProperty(name);
-                if (((String) value).equalsIgnoreCase("true") || ((String) value).equalsIgnoreCase("false"))
+
+                if (((String) value).equalsIgnoreCase("true")
+                        || ((String) value).equalsIgnoreCase("false"))
                     value = getBoolean((String) value);
+                else
+                    value = Utils.parseVariables((String) value);
                 map.put(name, value);
             }
 

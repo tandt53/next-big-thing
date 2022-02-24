@@ -8,6 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(features = "src/test/resources/google.feature",
         glue = "tandt.cucumber.test",
         tags = "@Mobile_S1",
-        plugin = {"tandt.cucumber.TestListener"})
+        plugin = {"tandt.cucumber.listener.TestListener"})
 public class RunCucumberTest {
 }

@@ -1,19 +1,25 @@
 package tandt.mobile.drivermanager;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.WebElement;
 
 public abstract class DriverManager {
 
-    public ThreadLocal<AppiumDriver<WebElement>> driver = new ThreadLocal<>();
+    protected AppiumDriver driver;
 
-    public AppiumDriver<WebElement> getDriver() {
-        if(driver.get() ==null || driver.get().getSessionId().toString().isEmpty()){
+    public AppiumDriver getDriver() {
+        if (driver == null || driver.getSessionId() == null) {
             initDriver();
         }
-        return driver.get();
+        return driver;
     }
 
-    public abstract AppiumDriver<WebElement> initDriver() ;
+    public abstract AppiumDriver initDriver();
+
+    public void quit() {
+        if (driver != null || driver != null) {
+            driver.quit();
+            driver = null;
+        }
+    }
 
 }

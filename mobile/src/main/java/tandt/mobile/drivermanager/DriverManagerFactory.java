@@ -3,19 +3,19 @@ package tandt.mobile.drivermanager;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Key;
-import com.google.inject.name.Named;
 import com.google.inject.name.Names;
-import ui.driverselector.DriverSelector;
+import tandt.commontest.Prop;
 
 public class DriverManagerFactory {
 
-    private static ThreadLocal<DriverManager> manager = new ThreadLocal<>();
+    private static DriverManager manager;
 
     @Inject
-    Injector injector;
+    private Injector injector;
 
-    @Inject @Named("mobile")
-    DriverSelector selector;
+    @Inject
+    @Prop("nbt.appium.platformName")
+    private String platformName;
 
     /**
      * Init driver manager based on expected browser type: chrome, firefox, safari
@@ -24,16 +24,14 @@ public class DriverManagerFactory {
      * @return
      */
     public DriverManager getDriverManager(String driverType) {
-        DriverManager m = injector.getInstance((Key.get(DriverManager.class, Names.named(driverType))));
-        manager.set(m);
-        m.initDriver();
-        return m;
+        manager = injector.getInstance((Key.get(DriverManager.class, Names.named(driverType))));
+        manager.initDriver();
+        return manager;
     }
 
     public DriverManager getDriverManager() {
-        DriverManager m = injector.getInstance((Key.get(DriverManager.class, Names.named(selector.get()))));
-        manager.set(m);
+        DriverManager m = injector.getInstance((Key.get(DriverManager.class, Names.named(platformName))));
         m.initDriver();
-        return m;
+        return manager;
     }
 }

@@ -2,8 +2,9 @@ package tandt.cucumber.guice;
 
 import com.google.inject.AbstractModule;
 import io.cucumber.guice.ScenarioScoped;
+import tandt.commontest.TestContext;
+import tandt.commontest.configuration.Configuration;
 import tandt.cucumber.exceptions.ScenarioScopeModelException;
-import tandt.guice.GuiceScanPropertiesLoader;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -18,8 +19,8 @@ public class ModelModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        GuiceScanPropertiesLoader scanner = new GuiceScanPropertiesLoader();
-        String className = scanner.getProperty(KEY);
+        Configuration configuration = TestContext.getInstance().getConfiguration();
+        String className = (String) configuration.get(KEY);
         if (className != null) {
             try {
                 Class<?> clazz = Class.forName(className);

@@ -74,4 +74,6 @@ public interface Element {
     boolean isPresent(int timeout);
 
     WebElement getElement();
+
+    String getId();
 }

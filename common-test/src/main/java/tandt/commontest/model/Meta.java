@@ -9,14 +9,14 @@ import java.util.Map;
 @Getter
 public class Meta<T extends Meta<?>> {
 
-    private Map<String, T> metas;
+    private Map<String, T> meta;
 
     public void add(String key, T value) {
-        metas.put(key, value);
+        meta.put(key, value);
     }
 
     public T get(String key){
-        return metas.get(key);
+        return meta.get(key);
     }
 
 }
