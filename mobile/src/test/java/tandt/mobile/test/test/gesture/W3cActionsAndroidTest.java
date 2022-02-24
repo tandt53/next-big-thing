@@ -11,16 +11,17 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 import tandt.commontest.TestContext;
+import tandt.commontest.TestModule;
 import tandt.mobile.MobileModule;
 import tandt.mobile.drivermanager.DriverManager;
 import tandt.mobile.gesture.Direction;
 import tandt.mobile.gesture.W3cActions;
-import tandt.mobile.test.test.TestUtils;
+import tandt.mobile.test.test.Utils;
 
 import java.lang.reflect.Method;
 import java.time.Duration;
 
-@Guice(modules = {MobileModule.class })
+@Guice(modules = {TestModule.class, MobileModule.class })
 public class W3cActionsAndroidTest {
 
     @Inject
@@ -33,6 +34,7 @@ public class W3cActionsAndroidTest {
 
     @BeforeMethod
     public void setUp(Method method) {
+        TestContext.getInstance().getConfiguration().add("nbt.appium.app", "/Users/tandt1/projects/next-big-thing/mobile/input/apps/ApiDemos-debug.apk");
         String name = method.getName();
         TestContext.getInstance().getConfiguration().add("name", name);
         driver = driverManager.getDriver();
@@ -42,7 +44,7 @@ public class W3cActionsAndroidTest {
     @Test
     public void testScroll() {
         driver.findElement(AppiumBy.androidUIAutomator("text(\"Views\")")).click();
-        TestUtils.delay(2000);
+        Utils.delay(2000);
         w3cActions.scroll(Direction.DOWN);
     }
 

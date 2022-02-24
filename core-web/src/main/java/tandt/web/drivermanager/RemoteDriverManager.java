@@ -1,10 +1,8 @@
 package tandt.web.drivermanager;
 
 import com.google.inject.Inject;
-import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import tandt.common.Utils;
 import tandt.common.exceptions.CommonException;
 import tandt.commontest.TestContext;
 import tandt.commontest.configuration.Configuration;

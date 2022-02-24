@@ -6,8 +6,6 @@ import tandt.cucumber.test.mobile.components.HomeComponent;
 import tandt.mobile.page.BasePage;
 import tandt.mobile.page.PageFactory;
 
-import javax.inject.Singleton;
-
 @ScenarioScoped
 public class HomePage extends BasePage<HomePage> {
 

@@ -1,8 +1,8 @@
 package tandt.mobile.test.test;
 
-public class TestUtils {
+public class Utils {
 
-    public static void delay(long timeout){
+    public static void delay(long timeout) {
         try {
             Thread.sleep(timeout);
         } catch (InterruptedException e) {
