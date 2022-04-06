@@ -1,0 +1,50 @@
+{
+  "data": [
+    {
+      "des": "scope includes get:invoices get:clients ",
+      "input": {
+        "grant_type": "client_credentials",
+        "client_id": "KRpatygJ3C5xvWxy4UuLkdm5qXMhCvc5",
+        "client_secret": "wo-gIcYoQjn-dmGgRe_-pYIZTvgWsA_3tDUOqFLwJpIJdD-wHeDuiQrxrXQor3_X",
+        "audience": "https://test-data-api.com"
+      },
+      "output": [
+        {
+          "jsonpath": "iss",
+          "expected": "https://dev-5twd4ss9.auth0.com/"
+        },
+        {
+          "jsonpath": "aud",
+          "expected": "https://test-data-api.com"
+        },
+        {
+          "jsonpath": "scope",
+          "expected": "get:invoices get:clients"
+        }
+      ]
+    },
+    {
+      "des": "scope includes get:clients only",
+      "input": {
+        "grant_type": "client_credentials",
+        "client_id": "663uIPmEUmVw2T8JVK3S9zoIgmTU4RT4",
+        "client_secret": "lsyjKKZDmAOKM39m2ry-4DsdF1jQMsdOh6fUInkyiy7NrL-e2tp1WIByFu72wWkm",
+        "audience": "https://test-data-api.com"
+      },
+      "output": [
+        {
+          "jsonpath": "iss",
+          "expected": "https://dev-5twd4ss9.auth0.com/"
+        },
+        {
+          "jsonpath": "aud",
+          "expected": "https://test-data-api.com"
+        },
+        {
+          "jsonpath": "scope",
+          "expected": "get:clients"
+        }
+      ]
+    }
+  ]
+}

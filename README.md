@@ -1,6 +1,6 @@
 # NEXT-BIG-THING
 
-[![CodeFactor](https://www.codefactor.io/repository/github/tandt53/next-big-thing/badge)](https://www.codefactor.io/repository/github/tandt53/next-big-thing)
+[![Made in Vietnam](https://raw.githubusercontent.com/webuild-community/badge/master/svg/made.svg)](https://webuild.community) [![CodeFactor](https://www.codefactor.io/repository/github/tandt53/next-big-thing/badge)](https://www.codefactor.io/repository/github/tandt53/next-big-thing)
 
 The project is a collection of modules that allows every Automation Test Engineer (ATE) to create/maintain automated test cases.
 
