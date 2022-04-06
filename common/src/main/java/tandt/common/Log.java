@@ -18,6 +18,10 @@ public class Log {
 		Log.info(message);
 	}
 
+	public void info(String message, String extra){
+		Log.info(message, extra);
+	}
+
 	public void warn(String message) {
 		Log.warn(message);
 	}
