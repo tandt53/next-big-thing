@@ -58,7 +58,7 @@
         <appium.version>8.0.0</appium.version>
         <skipTest>false</skipTest>
         <jacoco.version>0.8.6</jacoco.version>
-        <jackson.version>2.12.4</jackson.version>
+        <jackson.version>2.12.6.1</jackson.version>
     </properties>
 
     <profiles>
