@@ -21,8 +21,7 @@
         <module>test-junit</module>
         <module>test-testng</module>
         <module>guice</module>
-        <module>jacoco-summary</module>
-        <module>ascenda-interview</module>
+<!--         <module>jacoco-summary</module> -->
     </modules>
 
     <name>Next Big Thing</name>
@@ -58,7 +57,8 @@
         <appium.version>8.0.0</appium.version>
         <skipTest>false</skipTest>
         <jacoco.version>0.8.6</jacoco.version>
-        <jackson.version>2.12.6.1</jackson.version>
+        <jackson.version>2.13.2</jackson.version>
+        <jackson-databind.version>2.13.2.2</jackson-databind.version>
     </properties>
 
     <profiles>
@@ -231,7 +231,7 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>${jackson.version}</version>
+                <version>${jackson-databind.version}</version>
             </dependency>
 
             <dependency>

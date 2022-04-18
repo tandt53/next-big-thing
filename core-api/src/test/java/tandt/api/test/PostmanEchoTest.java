@@ -10,10 +10,12 @@ import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import org.junit.Test;
 
-public class PostmanEcho {
+public class PostmanEchoTest {
 
-    public static void main(String[] args) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+  @Test
+    public void sampleTest() throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         okhttp3.Request.Builder requestBuilder = new okhttp3.Request.Builder();
         HttpUrl.Builder urlBuilder = new HttpUrl.Builder();
