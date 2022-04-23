@@ -11,7 +11,7 @@ public class RebrandFilterImpl extends RequestFilter {
     private static final Log log = new Log(RebrandFilterImpl.class);
 
     private String result = "";
-    private static final String VINID = "vinid";
+    private static final String LIGHT = "LIGHT";
 
     @Override
     public boolean condition() {
@@ -30,7 +30,7 @@ public class RebrandFilterImpl extends RequestFilter {
     private boolean verifyResponseHeader() {
         List<Header> headers = response.getHeaders().asList();
         for(Header h : headers){
-            if(h.getName().contains(VINID) || h.getValue().toLowerCase().contains(VINID)){
+            if(h.getName().contains(LIGHT) || h.getValue().toLowerCase().contains(LIGHT)){
                 result += "RESPONSE HEADER, ";
                 return false;
             }
@@ -40,7 +40,7 @@ public class RebrandFilterImpl extends RequestFilter {
 
     private boolean verifyResponseBody() {
         String responseBody = response.getBody().asString();
-        if(responseBody.toLowerCase().contains(VINID)){
+        if(responseBody.toLowerCase().contains(LIGHT)){
             result += "RESPONSE BODY, ";
             return false;
         }
@@ -52,7 +52,7 @@ public class RebrandFilterImpl extends RequestFilter {
         Set<String> keys = formParams.keySet();
 
         for (String k : keys) {
-            if (k.toLowerCase().contains(VINID) || formParams.get(k).toLowerCase().contains(VINID)) {
+            if (k.toLowerCase().contains(LIGHT) || formParams.get(k).toLowerCase().contains(LIGHT)) {
                 result += "FORM PARAMS, ";
                 return false;
             }
@@ -63,7 +63,7 @@ public class RebrandFilterImpl extends RequestFilter {
     private boolean verifyHeader() {
         List<Header> headers = requestSpec.getHeaders().asList();
         for (Header h : headers) {
-            if (h.getName().toLowerCase().contains(VINID) || h.getValue().toLowerCase().contains(VINID)) {
+            if (h.getName().toLowerCase().contains(LIGHT) || h.getValue().toLowerCase().contains(LIGHT)) {
                 result += "REQUEST HEADER, ";
                 return false;
             }
@@ -76,7 +76,7 @@ public class RebrandFilterImpl extends RequestFilter {
         Map<String, String> requestParams = requestSpec.getRequestParams();
         Set<String> keys = requestParams.keySet();
         for (String k : keys) {
-            if (k.toLowerCase().contains(VINID) || requestParams.get(k).toLowerCase().contains(VINID)) {
+            if (k.toLowerCase().contains(LIGHT) || requestParams.get(k).toLowerCase().contains(LIGHT)) {
                 result += "PARAMETERS, ";
                 return false;
             }
@@ -86,7 +86,7 @@ public class RebrandFilterImpl extends RequestFilter {
 
     private boolean verifyBaseUri() {
         String baseUri = requestSpec.getBaseUri();
-        if (baseUri.toLowerCase().contains(VINID)) {
+        if (baseUri.toLowerCase().contains(LIGHT)) {
             result += "REQUEST URI, ";
             return false;
         }
@@ -96,7 +96,7 @@ public class RebrandFilterImpl extends RequestFilter {
 
     @Override
     public void action() {
-        log.error("Rebrand '" + VINID + "' was failed in: " + result);
+        log.error("Rebrand '" + LIGHT + "' was failed in: " + result);
     }
 
 }

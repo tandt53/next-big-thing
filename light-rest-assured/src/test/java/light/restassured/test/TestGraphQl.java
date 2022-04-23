@@ -1,9 +1,11 @@
 package light.restassured.test;
 
+import light.common.Log;
 import light.restassured.rest.GraphqlBody;
 import light.restassured.rest.RestHeaders;
 import light.restassured.rest.RestMethod;
 import light.restassured.rest.RestRequest;
+import org.testng.annotations.Test;
 
 public class TestGraphQl {
     private Log log= new Log(RestBodyTest.class);
