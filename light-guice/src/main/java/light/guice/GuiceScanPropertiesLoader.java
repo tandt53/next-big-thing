@@ -1,6 +1,6 @@
-//package tandt.guice;
+//package light.guice;
 //
-//import tandt.guice.exception.GuiceLoaderException;
+//import light.guice.exception.GuiceLoaderException;
 //
 //import java.io.IOException;
 //import java.io.InputStream;

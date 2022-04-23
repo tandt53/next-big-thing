@@ -30,7 +30,7 @@ public class W3cActionsIosTest {
     @BeforeTest
     public void setUp() {
         // config ios UICatalog and iOS configuration for appium
-        TestContext.getInstance().getConfiguration().add("nbt.appium.app", "/Users/tandt1/projects/next-big-thing/mobile/input/apps/UICatalog.app");
+        TestContext.getInstance().getConfiguration().add("light.appium.app", "/Users/tandt1/projects/next-big-thing/mobile/input/apps/UICatalog.app");
         driver = driverManager.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(10000));
     }

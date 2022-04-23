@@ -16,7 +16,7 @@ public class IosDriverManager extends DriverManager {
     private DriverOptionFilter optionFilter;
 
     @Inject
-    @Prop("nbt.appium.remote.url")
+    @Prop("light.appium.remote.url")
     private String remoteUrl;
 
     @Override

@@ -15,9 +15,9 @@ public class Constants {
     public static final String DOT = ".";
 
     // capabilities
-    public static final String PREFIX_SELENIUM = "nbt.selenium.";
-    public static final String CONFIGURATION_REMOTE_HOST = "nbt.selenium.remote.url";
-    public static final String CONFIGURATION_DRIVER_PATH = "nbt.selenium.driver.path";
+    public static final String PREFIX_SELENIUM = "light.selenium.";
+    public static final String CONFIGURATION_REMOTE_HOST = "light.selenium.remote.url";
+    public static final String CONFIGURATION_DRIVER_PATH = "light.selenium.driver.path";
 
     public static final String TEST_OUTPUT_DIR = "TestResults";
     public static final String LOGFILE_PATH = TEST_OUTPUT_DIR + "/Logs";

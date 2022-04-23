@@ -1,4 +1,4 @@
-//package tandt.mobile.test.test.gesture;
+//package light.mobile.test.test.gesture;
 //
 //import com.google.inject.Inject;
 //import io.appium.java_client.AppiumBy;
@@ -7,12 +7,12 @@
 //import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.Guice;
 //import org.testng.annotations.Test;
-//import tandt.commontest.TestContext;
-//import tandt.commontest.TestModule;
-//import tandt.mobile.MobileModule;
-//import tandt.mobile.drivermanager.DriverManager;
-//import tandt.mobile.gesture.AndroidGesture;
-//import tandt.mobile.test.test.Utils;
+//import light.commontest.TestContext;
+//import light.commontest.TestModule;
+//import light.mobile.MobileModule;
+//import light.mobile.drivermanager.DriverManager;
+//import light.mobile.gesture.AndroidGesture;
+//import light.mobile.test.test.Utils;
 //
 //import java.time.Duration;
 //
@@ -29,7 +29,7 @@
 //
 //    @BeforeMethod
 //    public void setUp() {
-//        TestContext.getInstance().getConfiguration().add("nbt.appium.app", "/Users/tandt1/projects/next-big-thing/mobile/input/apps/ApiDemos-debug.apk");
+//        TestContext.getInstance().getConfiguration().add("light.appium.app", "/Users/tandt1/projects/next-big-thing/mobile/input/apps/ApiDemos-debug.apk");
 //        driver = driverManager.getDriver();
 //        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(10000));
 //    }

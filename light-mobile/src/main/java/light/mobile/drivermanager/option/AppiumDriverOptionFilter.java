@@ -14,7 +14,7 @@ import static light.mobile.drivermanager.Constants.PREFIX_APPIUM;
 public class AppiumDriverOptionFilter implements DriverOptionFilter {
 
     @Inject
-    @Prop("nbt.appium.server")
+    @Prop("light.appium.server")
     private String server;
 
     @Override

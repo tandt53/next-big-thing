@@ -12,7 +12,7 @@ import light.mobile.page.BasePage;
 public class PageManager {
 
     @Inject
-    @Prop("nbt.appium.platformName")
+    @Prop("light.appium.platformName")
     private String platform;
 
     @Inject

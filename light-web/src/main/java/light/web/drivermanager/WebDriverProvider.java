@@ -14,11 +14,11 @@ public class WebDriverProvider implements Provider<DriverManager> {
     private Injector injector;
 
     @Inject
-    @Prop("nbt.selenium.browserName")
+    @Prop("light.selenium.browserName")
     private String browser;
 
     @Inject
-    @Prop("nbt.selenium.server")
+    @Prop("light.selenium.server")
     private String server;
 
     @Override

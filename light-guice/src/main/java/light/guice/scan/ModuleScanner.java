@@ -31,7 +31,7 @@ public class ModuleScanner extends AbstractModule {
     public void configure() {
         try {
             Configuration configuration = TestContext.getInstance().getConfiguration();
-            String packageName = (String) configuration.get("nbt.guice.scan.module.package");
+            String packageName = (String) configuration.get("light.guice.scan.module.package");
             if(packageName != null){
                 Reflections packageReflections = new Reflections(packageName);
                 List<Class<?>> cs = installAnnotations.stream()

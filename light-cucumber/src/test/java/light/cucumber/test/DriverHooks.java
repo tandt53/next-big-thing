@@ -22,7 +22,7 @@ public class DriverHooks {
     private Injector injector;
 
     @Inject
-    @Prop("nbt.appium.platformName")
+    @Prop("light.appium.platformName")
     private String platform;
 
     private WebDriver webDriver;

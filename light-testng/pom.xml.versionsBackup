@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.light</groupId>
         <groupId>com.light</groupId>
-        <version>${tandt.modules.version}</version>
+        <version>${light.modules.version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -21,13 +21,13 @@
         <dependency>
             <groupId>com.light</groupId>
             <artifactId>light-common</artifactId>
-            <version>${tandt.modules.version}</version>
+            <version>${light.modules.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.light</groupId>
             <artifactId>light-common-test</artifactId>
-            <version>${tandt.modules.version}</version>
+            <version>${light.modules.version}</version>
         </dependency>
 
         <dependency>

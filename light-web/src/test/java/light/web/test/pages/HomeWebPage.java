@@ -24,7 +24,7 @@ public class HomeWebPage extends BaseWebPage<HomeWebPage> {
     @FindElement(type = WebLocatorType.XPATH, value = "_fZl")
     private Element searchButton;
 
-    @Prop("nbt.selenium.browserName")
+    @Prop("light.selenium.browserName")
     private String browser;
 
     @Prop("extra")

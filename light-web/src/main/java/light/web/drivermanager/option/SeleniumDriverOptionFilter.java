@@ -14,7 +14,7 @@ import static light.web.drivermanager.Constants.PREFIX_SELENIUM;
 public class SeleniumDriverOptionFilter implements DriverOptionFilter {
 
     @Inject
-    @Prop("nbt.selenium.server")
+    @Prop("light.selenium.server")
     private String server;
 
     @Override
