@@ -4,7 +4,7 @@ import java.util.Properties;
 import java.util.Set;
 
 public class CliConfiguration extends Configuration {
-    private String prefix = "nbt.";
+    private String prefix = "light.";
 
     @Override
     public Configuration load() {

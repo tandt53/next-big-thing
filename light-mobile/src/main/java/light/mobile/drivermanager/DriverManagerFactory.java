@@ -14,7 +14,7 @@ public class DriverManagerFactory {
     private Injector injector;
 
     @Inject
-    @Prop("nbt.appium.platformName")
+    @Prop("light.appium.platformName")
     private String platformName;
 
     /**

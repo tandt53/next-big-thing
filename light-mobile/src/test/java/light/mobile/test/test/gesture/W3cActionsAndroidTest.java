@@ -34,7 +34,7 @@ public class W3cActionsAndroidTest {
 
     @BeforeMethod
     public void setUp(Method method) {
-        TestContext.getInstance().getConfiguration().add("nbt.appium.app", "/Users/tandt1/projects/next-big-thing/mobile/input/apps/ApiDemos-debug.apk");
+        TestContext.getInstance().getConfiguration().add("light.appium.app", "/Users/tandt1/projects/next-big-thing/mobile/input/apps/ApiDemos-debug.apk");
         String name = method.getName();
         TestContext.getInstance().getConfiguration().add("name", name);
         driver = driverManager.getDriver();

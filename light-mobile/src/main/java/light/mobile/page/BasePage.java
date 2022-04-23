@@ -33,7 +33,7 @@ public abstract class BasePage<TPage extends BasePage> {
     public Log PLog = new Log(this.getClass());
 
     @Inject
-    @Prop("nbt.appium.platformName")
+    @Prop("light.appium.platformName")
     public String platformName;
 
     /**

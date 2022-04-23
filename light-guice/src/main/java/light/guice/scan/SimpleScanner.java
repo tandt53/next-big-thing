@@ -15,8 +15,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class SimpleScanner extends Scanner {
-    private final String KEY_SIMPLE_VALUE = "nbt.guice.scan.binder.simple.value";
-    private final String KEY_SIMPLE_PACKAGE = "nbt.guice.scan.binder.simple.package";
+    private final String KEY_SIMPLE_VALUE = "light.guice.scan.binder.simple.value";
+    private final String KEY_SIMPLE_PACKAGE = "light.guice.scan.binder.simple.package";
     private String value;
     private String packageName;
     private Set<Class<?>> cs;

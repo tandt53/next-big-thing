@@ -10,7 +10,7 @@ import light.commontest.Prop;
 public class DriverProvider implements Provider<DriverManager> {
 
     @Inject
-    @Prop("nbt.appium.platformName")
+    @Prop("light.appium.platformName")
     private String platformName;
 
     @Inject

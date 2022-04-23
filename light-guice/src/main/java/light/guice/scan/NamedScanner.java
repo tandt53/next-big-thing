@@ -17,7 +17,7 @@ import java.util.Set;
  * Scanner for {@link NamedBinder}
  */
 public class NamedScanner extends Scanner {
-    private final String KEY_NAMED_BINDER_PACKAGE = "nbt.guice.scan.binder.named.package";
+    private final String KEY_NAMED_BINDER_PACKAGE = "light.guice.scan.binder.named.package";
 
     private final Class annotation = NamedBinder.class;
 

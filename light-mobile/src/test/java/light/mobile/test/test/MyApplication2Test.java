@@ -19,7 +19,7 @@ public class MyApplication2Test extends BaseTest {
 
     @BeforeClass
     public void setupClass() {
-        TestContext.getInstance().getConfiguration().add("nbt.appium.app", "/Users/tandt1/projects/next-big-thing/mobile/input/apps/app-debug.apk");
+        TestContext.getInstance().getConfiguration().add("light.appium.app", "/Users/tandt1/projects/next-big-thing/mobile/input/apps/app-debug.apk");
         page = page(HomePage.class);
     }
 

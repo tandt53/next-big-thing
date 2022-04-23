@@ -17,12 +17,12 @@ If you want to change configuration file, there are two options:
 ## Content of configuration file 
 
 ### Prefix 
-Every property must have prefixed with `nbt.` to determine the property is for automation test using Next-Big-Thing framework.
+Every property must have prefixed with `light.` to determine the property is for automation test using Next-Big-Thing framework.
 
 ### Selenium
-Every property for Selenium will add `nbt.selenium` for setting selenium webdriver. 
+Every property for Selenium will add `light.selenium` for setting selenium webdriver. 
 
 ### Appium
-Every property for Appium will add `nbt.appium` for setting appium driver. 
+Every property for Appium will add `light.appium` for setting appium driver. 
 
 ### Device farm 

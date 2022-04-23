@@ -1,12 +1,12 @@
-//package tandt.dataprovider.test;
+//package light.dataprovider.test;
 //
 //import org.testng.Assert;
 //import org.testng.annotations.BeforeClass;
 //import org.testng.annotations.Test;
-//import tandt.common.Log;
-//import tandt.dataprovider.exceptions.*;
-//import tandt.dataprovider.xlsx.Conditions;
-//import tandt.dataprovider.xlsx.ExcelParser;
+//import light.common.Log;
+//import light.dataprovider.exceptions.*;
+//import light.dataprovider.xlsx.Conditions;
+//import light.dataprovider.xlsx.ExcelParser;
 //
 //public class ExcelParserTest {
 //
