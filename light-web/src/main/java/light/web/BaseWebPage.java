@@ -13,7 +13,6 @@ import java.util.List;
  */
 public abstract class BaseWebPage<TPage extends BaseWebPage> {
 
-
     public String url;
 
     protected WebDriver driver;

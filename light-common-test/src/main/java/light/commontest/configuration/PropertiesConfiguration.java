@@ -2,7 +2,6 @@ package light.commontest.configuration;
 
 import light.dataprovider.properties.PropertiesLoader;
 
-
 public class PropertiesConfiguration extends Configuration {
     private final String RUNNER = "runner";
     private final String ENV = "env";

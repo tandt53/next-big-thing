@@ -4,7 +4,6 @@ import io.cucumber.guice.ScenarioScoped;
 
 @ScenarioScoped
 public class KeywordState {
-
     private String state;
 
     public String getState() {

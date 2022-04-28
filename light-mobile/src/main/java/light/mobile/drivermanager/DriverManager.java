@@ -16,7 +16,7 @@ public abstract class DriverManager {
     public abstract AppiumDriver initDriver();
 
     public void quit() {
-        if (driver != null || driver != null) {
+        if (driver != null ) {
             driver.quit();
             driver = null;
         }
