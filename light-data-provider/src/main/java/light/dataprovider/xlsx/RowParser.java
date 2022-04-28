@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 
 public class RowParser {
 
-    Row row;
+    private Row row;
 
     public RowParser(Row row) {
         this.row = row;

@@ -9,7 +9,7 @@ import java.nio.charset.Charset;
 
 public class CellParser {
 
-    Cell cell;
+    private Cell cell;
 
     public CellParser(Cell cell) {
         this.cell = cell;

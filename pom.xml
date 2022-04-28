@@ -53,7 +53,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <log4j.version>[2.17.1,)</log4j.version>
-        <cucumber.version>6.9.0</cucumber.version>
+        <cucumber.version>7.2.3</cucumber.version>
         <selenium.version>4.0.0</selenium.version>
         <appium.version>8.0.0</appium.version>
         <skipTest>false</skipTest>

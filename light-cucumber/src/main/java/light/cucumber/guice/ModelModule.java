@@ -14,9 +14,7 @@ import java.util.List;
  * The subclass must implement the method getModelObjects() to return the list of model classes.
  */
 public class ModelModule extends AbstractModule {
-
-    private final String KEY = "cucumber.guice.scenario.scope.model";
-
+    private final String KEY = "light.cucumber.guice.scenario.scope.model";
     @Override
     protected void configure() {
         Configuration configuration = TestContext.getInstance().getConfiguration();

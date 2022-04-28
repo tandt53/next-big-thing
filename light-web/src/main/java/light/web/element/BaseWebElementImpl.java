@@ -19,7 +19,7 @@ public class BaseWebElementImpl implements Element {
     private By locator;
     private WebElementInfo webElementInfo;
     private Function<By, ExpectedCondition<WebElement>> waitForElement = Conditions.PRESENCE; //  wait strategy
-    private Function<By, ExpectedCondition<List<org.openqa.selenium.WebElement>>> waitForListElement = Conditions.PRESENCE_ALL; //  wait strategy
+    private Function<By, ExpectedCondition<List<WebElement>>> waitForListElement = Conditions.PRESENCE_ALL; //  wait strategy
     private long timeout = 5;
 
     public void setElementInfo(WebElementInfo webElementInfo) {
@@ -194,7 +194,6 @@ public class BaseWebElementImpl implements Element {
         return locator;
     }
 
-
     @Override
     public String getAttributeValue(String attribute) {
         return waitUntil(waitForElement).getAttribute(attribute);
@@ -207,7 +206,6 @@ public class BaseWebElementImpl implements Element {
     public boolean isEnabled() {
         return waitUntil(waitForElement).isEnabled();
     }
-
 
     @Override
     public boolean isSelected() {
