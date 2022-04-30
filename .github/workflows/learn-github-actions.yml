@@ -13,4 +13,4 @@ jobs:
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots compile
       - name: Run tests
-        run: mvn --batch-mode --update-snapshots test
+        run: mvn --batch-mode --update-snapshots test -p ci
