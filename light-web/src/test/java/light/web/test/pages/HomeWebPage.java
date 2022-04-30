@@ -33,7 +33,7 @@ public class HomeWebPage extends BaseWebPage<HomeWebPage> {
     public void search(String text) {
         System.out.println("extra: " + extra);
         System.out.println("browser: " + browser);
-        searchField.setText(Keys.SHIFT, text);
+        searchField.setText(text);
         searchField.submit();
     }
 
