@@ -39,7 +39,7 @@ public class HomeChromeTest extends BaseTest {
 
     @Test
     public void checkSearch() {
-        homePage.open().search("Checking");
+        homePage.open().search("tandt53");
         System.out.println(searchResultPage.getResultCount());
     }
 

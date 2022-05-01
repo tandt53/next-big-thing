@@ -68,9 +68,9 @@
     <profiles>
 
         <profile>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+<!--            <activation>-->
+<!--                <activeByDefault>true</activeByDefault>-->
+<!--            </activation>-->
             <id>local-qc</id>
             <properties>
                 <runner>local</runner>
@@ -79,7 +79,7 @@
         </profile>
 
         <profile>
-            <id>ci</id>
+            <id>ci-qc</id>
             <properties>
                 <runner>ci</runner>
                 <env>qc</env>

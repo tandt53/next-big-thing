@@ -1,6 +1,7 @@
 package light.restassured.test;
 
 import light.common.Log;
+import light.restassured.exceptions.JsonCreationException;
 import light.restassured.rest.RestBody;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -8,7 +9,7 @@ import org.testng.annotations.Test;
 import light.restassured.exceptions.JsonElementNotFoundException;
 
 public class RestBodyTest {
-    private Log log= new Log(TestGraphQl.class);
+    private Log log= new Log(RestBodyTest.class);
 
     /**
      * String json = "{" +
@@ -105,14 +106,14 @@ public class RestBodyTest {
 
         try {
             body.addMap("parentKey", "a.b", "value");
-        } catch (JsonElementNotFoundException e) {
-            Assert.assertEquals("{\"parentKey\":{\"key\":\"value\"}}", body.print());
+        } catch (JsonCreationException e) {
+            Assert.assertEquals("{\"parentKey\":{\"key\":\"value\"},\"a.b\":{\"key\":\"value\"}}", body.print());
         }
         log.info("Started %s", "body3: " + body.print());
 
         try {
             body.addMap("parentKey", "key2", "value2");
-            Assert.assertEquals("{\"parentKey\":{\"key\":\"value\",\"key2\":\"value2\"}}", body.print());
+            Assert.assertEquals("{\"parentKey\":{\"key\":\"value\",\"key2\":\"value2\"},\"a.b\":{\"key\":\"value\"}}", body.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
             Assert.assertTrue(false);
@@ -121,7 +122,7 @@ public class RestBodyTest {
 
         try {
             body.addMap("parentKey2", "key1", "value1");
-            Assert.assertEquals("{\"parentKey\":{\"key\":\"value\",\"key2\":\"value2\"},\"parentKey2\":{\"key1\":\"value1\"}}", body.print());
+            Assert.assertEquals("{\"parentKey\":{\"key\":\"value\",\"key2\":\"value2\"},\"a.b\":{\"key\":\"value\"},\"parentKey2\":{\"key1\":\"value1\"}}", body.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
             Assert.assertTrue(false);
@@ -130,7 +131,7 @@ public class RestBodyTest {
 
         try {
             body.addMap("parentKey", "key", "valueChange");
-            Assert.assertEquals("{\"parentKey\":{\"key\":\"valueChange\",\"key2\":\"value2\"},\"parentKey2\":{\"key1\":\"value1\"}}", body.print());
+            Assert.assertEquals("{\"parentKey\":{\"key\":\"valueChange\",\"key2\":\"value2\"},\"a.b\":{\"key\":\"value\"},\"parentKey2\":{\"key1\":\"value1\"}}", body.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
             Assert.assertTrue(false);
@@ -204,14 +205,14 @@ public class RestBodyTest {
 
         try {
             body.addMapToArray("Name[-2]", "FirstName", "Kai");
-        } catch (JsonElementNotFoundException e) {
+        } catch (JsonCreationException e) {
             Assert.assertTrue(true);
         }
         log.info("Started %s", "body3: " + body.print());
 
         try {
             body.addMapToArray("Name[-1]", "FirstName", "Kai");
-        } catch (JsonElementNotFoundException e) {
+        } catch (JsonCreationException e) {
             Assert.assertTrue(true);
         }
         log.info("Started %s", "body4: " + body.print());
@@ -230,46 +231,32 @@ public class RestBodyTest {
     @Test
     public void testaddMapWithJsonPath() throws JsonElementNotFoundException {
         body.addMapWithJsonPath("mapsArray[0]", "key1", "value1");
-        log.info("Started %s", body.print());
+        System.out.println(body.print());
         body.addMapWithJsonPath("mapsArray[0]", "key2", "value2");
-        log.info("Started %s", body.print());
         body.addMapWithJsonPath("mapsArray[1]", "key3", "value3");
-        log.info("Started %s", body.print());
         body.addMapWithJsonPath("mapsArray[1]", "key4", "value4");
-        log.info("Started %s", body.print());
         body.addMapWithJsonPath("mapsArray[1].parent[0]", "key5", "value5");
-        log.info("Started %s", body.print());
         body.addMapWithJsonPath("mapsArray[1].parent[0]", "key5", "value51");
-        log.info("Started %s", body.print());
         body.addMapWithJsonPath("mapsArray[1].parent[1]", "key5", "value5");
-        log.info("Started %s", body.print());
         body.addMapWithJsonPath("object", "a", "b");
-        log.info("Started %s", body.print());
         body.addMapWithJsonPath("object", "c", "d");
-        log.info("Started %s", body.print());
+        System.out.println(body.print());
+
     }
 
     @Test
     public void testaddMapWithJsonPath2() throws JsonElementNotFoundException {
-        body.addMap("mapsArray[0]", "key1", "value1");
-        Assert.assertEquals(body.print(), "");
-        log.info("Started %s", body.print());
+        body.addMapWithJsonPath("mapsArray[0]", "key1", "value1");
+        Assert.assertEquals(body.print(), "{\"mapsArray\":[{\"key1\":\"value1\"}]}");
         body.addMapWithJsonPath("mapsArray[0]", "key2", "value2");
-        log.info("Started %s", body.print());
         body.addMapWithJsonPath("mapsArray[1]", "key3", "value3");
-        log.info("Started %s", body.print());
         body.addMapWithJsonPath("mapsArray[1]", "key4", "value4");
-        log.info("Started %s", body.print());
         body.addMapWithJsonPath("mapsArray[1].parent[0]", "key5", "value5");
-        log.info("Started %s", body.print());
         body.addMapWithJsonPath("mapsArray[1].parent[0]", "key5", "value51");
-        log.info("Started %s", body.print());
         body.addMapWithJsonPath("mapsArray[1].parent[1]", "key5", "value5");
-        log.info("Started %s", body.print());
         body.addMapWithJsonPath("object", "a", "b");
-        log.info("Started %s", body.print());
         body.addMapWithJsonPath("object", "c", "d");
-        log.info("Started %s", body.print());
+        Assert.assertEquals("{\"mapsArray\":[{\"key1\":\"value1\",\"key2\":\"value2\"},{\"key3\":\"value3\",\"key4\":\"value4\",\"parent\":[{\"key5\":\"value51\"},{\"key5\":\"value5\"}]}],\"object\":{\"a\":\"b\",\"c\":\"d\"}}", body.print());
     }
 
     @Test
