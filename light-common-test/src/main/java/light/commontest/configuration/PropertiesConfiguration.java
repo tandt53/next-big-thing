@@ -15,8 +15,14 @@ public class PropertiesConfiguration extends Configuration {
         String runner = getProperty(System.getProperty(RUNNER), DEFAULT_RUNNER);
         String env = getProperty(System.getProperty(ENV), DEFAULT_ENV);
         String configFile = System.getProperty(CONFIG_FILE);
+        System.out.println("runner: " + runner);
+        System.out.println("env: " + env);
+        System.out.println("configFile: " + configFile);
+
         if (configFile == null || configFile.isEmpty()) {
-            caps = PropertiesLoader.getMap(PropertiesConfiguration.class.getResourceAsStream("/" + String.format(CONFIG_FILE_NAME_FORMAT, runner, env)));
+            String propertiesFileName = String.format(CONFIG_FILE_NAME_FORMAT, runner, env);
+            System.out.println("propertiesFileName: " + propertiesFileName);
+            caps = PropertiesLoader.getMap(PropertiesConfiguration.class.getResourceAsStream("/" + propertiesFileName));
         } else {
             caps = PropertiesLoader.getMap(configFile);
         }
