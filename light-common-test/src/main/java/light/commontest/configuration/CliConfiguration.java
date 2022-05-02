@@ -11,7 +11,6 @@ public class CliConfiguration extends Configuration {
         Properties properties = System.getProperties();
         Set<String> keys = properties.stringPropertyNames();
         for (String key : keys) {
-            System.out.println(key + "=" + properties.getProperty(key));
             if (key.startsWith(prefix)) {
                 caps.put(key, properties.getProperty(key));
             }
