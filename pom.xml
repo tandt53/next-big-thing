@@ -246,18 +246,6 @@
                 <version>${jackson-databind.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>io.rest-assured</groupId>
-                <artifactId>rest-assured</artifactId>
-                <version>4.5.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.github.dzieciou.testing</groupId>
-                <artifactId>curl-logger</artifactId>
-                <version>1.0.4</version>
-            </dependency>
-
         </dependencies>
 
 
