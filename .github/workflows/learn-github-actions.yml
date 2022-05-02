@@ -20,8 +20,8 @@ jobs:
         run: mvn --batch-mode --update-snapshots compile
       - name: Run tests
         #        run: mvn --batch-mode --update-snapshots test -P ci-qc -DBS_ACCESS_KEY=${{ env.BS_ACCESS_KEY }} -DBS_USERNAME=${{ env.BS_USERNAME }} -DBS_APP=${{ env.BS_APP }}
-        run: echo "BS_USERNAME = ${BS_USERNAME}"
+        run: echo "BS_USERNAME = ${{ secrets.BS_USERNAME }}"
       - name: check BS_ACCESS_KEY
-        run: echo "BS_ACCESS_KEY = ${BS_ACCESS_KEY}"
+        run: echo "BS_ACCESS_KEY = ${{ secrets.BS_ACCESS_KEY }}"
       - name: check BS_APP
-        run: echo "BS_APP = ${BS_APP}"
+        run: echo "BS_APP = ${{ secrets.BS_APP }}"
