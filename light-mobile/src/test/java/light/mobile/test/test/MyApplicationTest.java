@@ -1,36 +1,30 @@
-//package light.mobile.test.test;
-//
-//import org.testng.Assert;
-//import org.testng.annotations.BeforeClass;
-//import org.testng.annotations.Test;
-//import light.common.exceptions.CommonException;
-//import light.dataprovider.exceptions.PropertiesException;
-//import light.mobile.BaseTest;
-//import light.mobile.annotations.Android;
-//import light.mobile.drivermanager.MobileDriverManager;
-//import light.mobile.test.pages.MyApplicationPage;
-//
-//import java.net.MalformedURLException;
-//
-//public class MyApplicationTest extends BaseTest<MyApplicationTest> {
-//
-//    @Android
-//    private MobileDriverManager driverManager;
-//
-//    private MyApplicationPage page;
-//
-//    public MyApplicationTest() throws IllegalAccessException {
-//
-//    }
-//
-//    @BeforeClass
-//    public void setupClass() , CommonException, MalformedURLException {
-//        page = new MyApplicationPage(driverManager.initDriver());
-//    }
-//
-//    @Test
-//    public void loginTest(){
-//        page.login("admin", "admin", true);
-//        Assert.assertEquals("Login success", page.getMessage());
-//    }
-//}
+package light.mobile.test.test;
+
+import light.mobile.test.pages.HomePageBinder;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Guice;
+import org.testng.annotations.Test;
+import light.commontest.TestModule;
+import light.mobile.MobileModule;
+import light.mobile.page.BaseTest;
+import light.mobile.test.pages.HomePage;
+
+
+@Guice(modules = {MobileModule.class, HomePageBinder.class, TestModule.class})
+public class MyApplicationTest extends BaseTest {
+
+    private HomePage page;
+
+    @BeforeClass
+    public void setupClass() {
+//        TestContext.getInstance().getConfiguration().add("light.appium.app", "/Users/tandt1/projects/next-big-thing/mobile/input/apps/app-debug.apk");
+        page = page(HomePage.class);
+    }
+
+    @Test
+    public void loginTest() {
+        page.login("admin", "admin", true);
+        Assert.assertEquals(page.getMessage(), "Login success");
+    }
+}
