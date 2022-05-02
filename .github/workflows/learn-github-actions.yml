@@ -1,10 +1,10 @@
 name: Java CI
 on: [ push ]
+
 env:
   BS_ACCESS_KEY: ${{ secrets.BS_ACCESS_KEY }}
   BS_USERNAME: ${{ secrets.BS_USERNAME }}
   BS_APP: ${{ secrets.BS_APP }}
-
 
 jobs:
   build:
@@ -19,4 +19,4 @@ jobs:
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots compile
       - name: Run tests
-        run: mvn --batch-mode --update-snapshots test -P ci-qc
+        run: mvn --batch-mode --update-snapshots test -P ci-qc -DBS_ACCESS_KEY=${BS_ACCESS_KEY} -DBS_USERNAME=${BS_USERNAME} -DBS_APP=${BS_APP}
