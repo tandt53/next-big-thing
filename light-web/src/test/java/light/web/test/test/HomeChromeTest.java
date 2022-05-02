@@ -30,6 +30,9 @@ public class HomeChromeTest extends BaseTest {
 
         homePage = page(HomeWebPage.class);
         searchResultPage = page(SearchResultPage.class);
+        System.out.println("BS_USERNAME: " + System.getProperty("BS_USERNAME"));
+        System.out.println("BS_ACCESS_KEY: " + System.getProperty("BS_ACCESS_KEY"));
+        System.out.println("BS_APP: " + System.getProperty("BS_APP"));
     }
 
     @AfterTest

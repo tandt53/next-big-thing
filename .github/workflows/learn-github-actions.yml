@@ -16,7 +16,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Build with Maven
+      - name: Compile with Maven
         run: mvn --batch-mode --update-snapshots compile
       - name: Run tests
         run: mvn --batch-mode --update-snapshots test -P ci-qc -DBS_ACCESS_KEY=${{ env.BS_ACCESS_KEY }} -DBS_USERNAME=${{ env.BS_USERNAME }} -DBS_APP=${{ env.BS_APP }}
