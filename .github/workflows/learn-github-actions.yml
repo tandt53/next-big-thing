@@ -1,5 +1,11 @@
 name: Java CI
 on: [ push ]
+env:
+  BS_ACCESS_KEY: ${{ secrets.BS_ACCESS_KEY }}
+  BS_USERNAME: ${{ secrets.BS_USERNAME }}
+  BS_APP: ${{ secrets.BS_APP }}
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
