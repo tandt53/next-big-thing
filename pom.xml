@@ -68,9 +68,6 @@
     <profiles>
 
         <profile>
-<!--            <activation>-->
-<!--                <activeByDefault>true</activeByDefault>-->
-<!--            </activation>-->
             <id>local-qc</id>
             <properties>
                 <runner>local</runner>
@@ -289,6 +286,10 @@
                 <configuration>
                     <skipTests>${skipTest}</skipTests>
                     <useSystemClassLoader>false</useSystemClassLoader>
+                    <systemPropertyVariables>
+                        <runner>${runner}</runner>
+                        <env>${env}</env>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
 
