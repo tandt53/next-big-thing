@@ -7,3 +7,5 @@
 */target/
 target/
 api-rest-assured/
+.idea/
+!.github/
