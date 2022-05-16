@@ -1,9 +1,9 @@
 package light.web.test.pages;
 
-import light.web.BaseWebPage;
-import light.web.element.WebLocatorType;
-import light.web.annotations.FindElement;
 import light.ui.element.Element;
+import light.web.BaseWebPage;
+import light.web.annotations.FindElement;
+import light.web.element.WebLocatorType;
 
 /**
  * Created by thetan.do on 12/28/2016.

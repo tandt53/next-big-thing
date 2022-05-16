@@ -4,8 +4,8 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.support.PageFactory;
 import light.cucumber.test.DriverHooks;
+import org.openqa.selenium.support.PageFactory;
 
 @Singleton
 public class WebSteps extends PageFactory {

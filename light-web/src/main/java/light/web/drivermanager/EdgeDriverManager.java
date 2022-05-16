@@ -1,11 +1,11 @@
 package light.web.drivermanager;
 
+import light.commontest.TestContext;
+import light.commontest.configuration.Configuration;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
-import light.commontest.TestContext;
-import light.commontest.configuration.Configuration;
 
 public class EdgeDriverManager extends DriverManager{
 

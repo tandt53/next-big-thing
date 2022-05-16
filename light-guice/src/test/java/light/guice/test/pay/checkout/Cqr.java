@@ -2,8 +2,8 @@ package light.guice.test.pay.checkout;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import light.guice.test.pay.signature.Signature;
 import light.guice.test.pay.model.CheckoutInfo;
+import light.guice.test.pay.signature.Signature;
 
 public class Cqr {
 

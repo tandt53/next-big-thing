@@ -1,11 +1,11 @@
 package light.dataprovider.test.json;
 
+import light.dataprovider.exceptions.JsonElementNotFoundException;
+import light.dataprovider.json.JsonBuilder;
 import light.dataprovider.json.JsonBuilder2;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import light.dataprovider.exceptions.JsonElementNotFoundException;
-import light.dataprovider.json.JsonBuilder;
 
 public class JsonBuilderTest {
     /**

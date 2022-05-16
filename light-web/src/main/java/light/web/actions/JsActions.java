@@ -1,9 +1,10 @@
 package light.web.actions;
+
 import com.google.inject.Inject;
+import light.web.drivermanager.DriverManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import light.web.drivermanager.DriverManager;
 
 public class JsActions {
 

@@ -1,7 +1,7 @@
 package light.api;
 
-import okhttp3.HttpUrl;
 import light.api.exceptions.UrlException;
+import okhttp3.HttpUrl;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

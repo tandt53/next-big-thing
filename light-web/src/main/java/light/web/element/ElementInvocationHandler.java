@@ -1,9 +1,9 @@
 package light.web.element;
 
-import org.openqa.selenium.WebDriver;
 import light.common.Log;
 import light.ui.annotations.Clocking;
 import light.ui.element.Element;
+import org.openqa.selenium.WebDriver;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;

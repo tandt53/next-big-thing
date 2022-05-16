@@ -1,14 +1,14 @@
 package light.mobile.test.test;
 
+import light.commontest.TestModule;
+import light.mobile.MobileModule;
+import light.mobile.page.BaseTest;
+import light.mobile.test.pages.HomePage;
 import light.mobile.test.pages.HomePageBinder;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
-import light.commontest.TestModule;
-import light.mobile.MobileModule;
-import light.mobile.page.BaseTest;
-import light.mobile.test.pages.HomePage;
 
 
 @Guice(modules = {MobileModule.class, HomePageBinder.class, TestModule.class})

@@ -1,11 +1,11 @@
 package light.web.drivermanager;
 
+import light.commontest.TestContext;
+import light.commontest.configuration.Configuration;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import light.commontest.TestContext;
-import light.commontest.configuration.Configuration;
 
 public class FirefoxDriverManager extends DriverManager {
 

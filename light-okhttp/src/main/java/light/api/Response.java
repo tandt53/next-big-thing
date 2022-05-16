@@ -1,8 +1,8 @@
 package light.api;
 
-import okhttp3.ResponseBody;
 import light.api.path.JsonPath;
 import light.dataprovider.json.JsonParser;
+import okhttp3.ResponseBody;
 
 import java.io.IOException;
 

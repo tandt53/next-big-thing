@@ -1,12 +1,12 @@
 package light.web.drivermanager;
 
 import com.google.inject.Inject;
+import light.commontest.TestContext;
+import light.commontest.configuration.Configuration;
 import light.web.drivermanager.option.DriverOptionFilter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import light.commontest.TestContext;
-import light.commontest.configuration.Configuration;
 
 public class ChromeDriverManager extends DriverManager {
 

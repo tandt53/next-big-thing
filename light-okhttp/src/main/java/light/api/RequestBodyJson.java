@@ -1,10 +1,10 @@
 package light.api;
 
 import com.google.gson.JsonObject;
-import okhttp3.MediaType;
 import light.dataprovider.exceptions.JsonElementNotFoundException;
 import light.dataprovider.json.JsonBuilder2;
 import light.dataprovider.json.JsonRootType;
+import okhttp3.MediaType;
 
 public class RequestBodyJson extends RequestBody {
 

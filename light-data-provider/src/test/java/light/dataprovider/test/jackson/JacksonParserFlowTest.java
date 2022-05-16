@@ -1,11 +1,11 @@
 package light.dataprovider.test.jackson;
 
+import light.dataprovider.json.interfaces.JsonParser;
+import light.dataprovider.json.jackson.JacksonParser;
 import light.dataprovider.test.jackson.model.Address;
 import light.dataprovider.test.jackson.model.Person;
 import org.junit.Assert;
 import org.junit.Test;
-import light.dataprovider.json.interfaces.JsonParser;
-import light.dataprovider.json.jackson.JacksonParser;
 
 import java.io.File;
 

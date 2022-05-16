@@ -1,11 +1,11 @@
 package light.cucumber.test.web;
 
-import org.openqa.selenium.support.FindBy;
+import light.ui.element.Element;
+import light.ui.element.WaitStrategy;
 import light.web.BaseWebPage;
 import light.web.annotations.FindElement;
 import light.web.element.WebLocatorType;
-import light.ui.element.Element;
-import light.ui.element.WaitStrategy;
+import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BaseWebPage<HomePage> {
 

@@ -1,8 +1,8 @@
 package light.web.annotations;
 
 
-import light.web.element.WebLocatorType;
 import light.ui.element.WaitStrategy;
+import light.web.element.WebLocatorType;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

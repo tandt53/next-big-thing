@@ -5,12 +5,12 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.touch.offset.PointOption;
-import light.mobile.drivermanager.DriverManager;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.Dimension;
 import light.common.Log;
 import light.commontest.Prop;
 import light.mobile.ElementFactory;
+import light.mobile.drivermanager.DriverManager;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.Dimension;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -4,13 +4,13 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import io.appium.java_client.AppiumDriver;
 import io.cucumber.guice.ScenarioScoped;
+import light.commontest.Prop;
 import light.cucumber.test.exception.TakeScreenshotException;
+import light.mobile.drivermanager.DriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import light.commontest.Prop;
-import light.mobile.drivermanager.DriverManager;
 
 import java.io.File;
 import java.io.IOException;

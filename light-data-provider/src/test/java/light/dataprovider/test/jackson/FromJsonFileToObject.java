@@ -1,5 +1,8 @@
 package light.dataprovider.test.jackson;
 
+import light.dataprovider.exceptions.JsonParserException;
+import light.dataprovider.json.interfaces.JsonParser;
+import light.dataprovider.json.jackson.JacksonParser;
 import light.dataprovider.test.jackson.model.Address;
 import light.dataprovider.test.jackson.model.Person;
 import light.dataprovider.test.jackson.model.Properties;
@@ -7,9 +10,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.testng.Assert;
-import light.dataprovider.exceptions.JsonParserException;
-import light.dataprovider.json.interfaces.JsonParser;
-import light.dataprovider.json.jackson.JacksonParser;
 
 import java.io.File;
 import java.util.ArrayList;

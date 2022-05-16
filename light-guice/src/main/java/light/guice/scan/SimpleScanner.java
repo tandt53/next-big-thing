@@ -1,11 +1,11 @@
 package light.guice.scan;
 
+import light.commontest.TestContext;
+import light.commontest.configuration.Configuration;
 import light.guice.exception.GuiceScannerException;
 import light.guice.scan.annotations.SimpleBinder;
 import light.guice.scan.model.BindingInfo;
 import org.reflections.Reflections;
-import light.commontest.TestContext;
-import light.commontest.configuration.Configuration;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
