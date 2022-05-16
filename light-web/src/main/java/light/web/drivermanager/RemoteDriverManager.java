@@ -1,13 +1,13 @@
 package light.web.drivermanager;
 
 import com.google.inject.Inject;
-import light.web.drivermanager.option.DriverOptionFilter;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import light.common.exceptions.CommonException;
 import light.commontest.TestContext;
 import light.commontest.configuration.Configuration;
 import light.ui.exception.DriverInitException;
+import light.web.drivermanager.option.DriverOptionFilter;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;

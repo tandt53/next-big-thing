@@ -1,12 +1,11 @@
 package light.web.test.pages;
 
-import light.web.BaseWebPage;
-import light.web.element.WebLocatorType;
-import org.openqa.selenium.Keys;
 import light.commontest.Prop;
-import light.web.annotations.FindElement;
 import light.ui.element.Element;
 import light.ui.element.WaitStrategy;
+import light.web.BaseWebPage;
+import light.web.annotations.FindElement;
+import light.web.element.WebLocatorType;
 
 
 /**

@@ -5,12 +5,12 @@ import light.api.Request;
 import light.api.RequestUrl;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
-import org.junit.Test;
 
 public class PostmanEchoTest {
 

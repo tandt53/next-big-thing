@@ -1,8 +1,8 @@
 package light.guice.test.pay.model;
 
+import light.guice.scan.annotations.NamedBinder;
 import lombok.Getter;
 import lombok.Setter;
-import light.guice.scan.annotations.NamedBinder;
 
 @Setter
 @Getter

@@ -1,5 +1,8 @@
 package light.web.test.test;
 
+import light.commontest.TestContext;
+import light.commontest.TestModule;
+import light.commontest.configuration.Configuration;
 import light.web.BaseTest;
 import light.web.WebModule;
 import light.web.test.pages.HomeWebPage;
@@ -8,9 +11,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
-import light.commontest.TestContext;
-import light.commontest.TestModule;
-import light.commontest.configuration.Configuration;
 
 /**
  * Created by thetan.do on 12/28/2016.

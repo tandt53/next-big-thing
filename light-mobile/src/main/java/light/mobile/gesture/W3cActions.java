@@ -2,13 +2,13 @@ package light.mobile.gesture;
 
 import com.google.inject.Inject;
 import light.mobile.drivermanager.DriverManager;
+import light.ui.element.Element;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
-import light.ui.element.Element;
 
 import java.time.Duration;
 import java.util.Arrays;

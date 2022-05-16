@@ -2,10 +2,10 @@ package light.guice.scan;
 
 import com.google.common.collect.Sets;
 import com.google.inject.AbstractModule;
-import light.guice.scan.annotations.Module;
-import org.reflections.Reflections;
 import light.commontest.TestContext;
 import light.commontest.configuration.Configuration;
+import light.guice.scan.annotations.Module;
+import org.reflections.Reflections;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;

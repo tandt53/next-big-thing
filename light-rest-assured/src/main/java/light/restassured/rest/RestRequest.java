@@ -10,10 +10,10 @@ import io.restassured.http.Cookies;
 import io.restassured.path.json.config.JsonPathConfig;
 import io.restassured.specification.RequestSpecification;
 import light.common.Log;
-import org.apache.http.params.CoreConnectionPNames;
 import light.restassured.rest.auth.RestAuth;
 import light.restassured.rest.filter.RebrandFilterImpl;
 import light.restassured.rest.filter.RequestFilter;
+import org.apache.http.params.CoreConnectionPNames;
 
 import java.io.File;
 import java.util.List;

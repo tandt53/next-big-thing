@@ -4,10 +4,10 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.name.Names;
-import light.guice.test.abstracts.BasePage;
-import light.guice.test.interfaces.Log;
 import light.guice.scan.NamedScanner;
 import light.guice.scan.SimpleScanner;
+import light.guice.test.abstracts.BasePage;
+import light.guice.test.interfaces.Log;
 
 public class ExampleApplication {
 

@@ -1,10 +1,10 @@
 package light.web.drivermanager.option;
 
 import com.google.inject.Inject;
-import org.openqa.selenium.MutableCapabilities;
 import light.commontest.Prop;
 import light.commontest.TestContext;
 import light.commontest.configuration.Configuration;
+import org.openqa.selenium.MutableCapabilities;
 
 import java.util.HashMap;
 import java.util.Map;

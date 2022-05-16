@@ -1,13 +1,13 @@
 package light.testng;
 
-import org.testng.ITestContext;
-import org.testng.ITestResult;
-import org.testng.TestListenerAdapter;
 import light.common.Log;
 import light.commontest.model.ResultType;
 import light.commontest.model.TestCase;
 import light.commontest.model.TestResult;
 import light.commontest.model.TestSuite;
+import org.testng.ITestContext;
+import org.testng.ITestResult;
+import org.testng.TestListenerAdapter;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

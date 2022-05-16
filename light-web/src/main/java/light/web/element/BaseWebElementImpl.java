@@ -1,13 +1,13 @@
 package light.web.element;
 
+import light.ui.element.Element;
+import light.ui.element.WaitStrategy;
+import light.web.Conditions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import light.web.Conditions;
-import light.ui.element.Element;
-import light.ui.element.WaitStrategy;
 
 import java.time.Duration;
 import java.util.List;

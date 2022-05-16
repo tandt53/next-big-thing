@@ -1,13 +1,13 @@
 package light.web;
 
+import light.ui.element.Element;
+import light.ui.element.WaitStrategy;
+import light.ui.exception.ElementActionException;
+import light.web.annotations.FindElement;
 import light.web.element.ElementInvocationHandler;
 import light.web.element.WebElementInfo;
 import light.web.element.WebLocatorType;
 import org.openqa.selenium.WebDriver;
-import light.web.annotations.FindElement;
-import light.ui.element.Element;
-import light.ui.element.WaitStrategy;
-import light.ui.exception.ElementActionException;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Proxy;

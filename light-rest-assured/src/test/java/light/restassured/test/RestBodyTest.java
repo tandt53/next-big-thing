@@ -2,11 +2,11 @@ package light.restassured.test;
 
 import light.common.Log;
 import light.restassured.exceptions.JsonCreationException;
+import light.restassured.exceptions.JsonElementNotFoundException;
 import light.restassured.rest.RestBody;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import light.restassured.exceptions.JsonElementNotFoundException;
 
 public class RestBodyTest {
     private Log log= new Log(RestBodyTest.class);

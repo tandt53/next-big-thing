@@ -2,14 +2,14 @@ package light.mobile.element;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import light.mobile.Conditions;
+import light.ui.element.Element;
+import light.ui.element.WaitStrategy;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import light.mobile.Conditions;
-import light.ui.element.Element;
-import light.ui.element.WaitStrategy;
 
 import java.time.Duration;
 import java.util.List;
