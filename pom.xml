@@ -57,8 +57,8 @@
 
         <log4j.version>[2.17.1,)</log4j.version>
         <cucumber.version>7.2.3</cucumber.version>
-        <selenium.version>4.0.0</selenium.version>
-        <appium.version>8.0.0</appium.version>
+        <selenium.version>4.2.2</selenium.version>
+        <appium.version>8.1.1</appium.version>
         <skipTest>false</skipTest>
         <jacoco.version>0.8.6</jacoco.version>
         <jackson.version>2.13.2</jackson.version>

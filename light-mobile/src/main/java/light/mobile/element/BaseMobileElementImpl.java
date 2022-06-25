@@ -109,7 +109,7 @@ public class BaseMobileElementImpl implements Element {
     }
 
     private WebDriverWait getWait(long timeout) {
-        wait = new WebDriverWait(driver, timeout);
+        wait = new WebDriverWait(driver, Duration.ofMillis(timeout));
         return wait;
     }
 
@@ -217,6 +217,7 @@ public class BaseMobileElementImpl implements Element {
     @Override
     public List<WebElement> getElements() {
         return waitUntil(this.waitForListElement.apply(getLocator()));
+
     }
 
     @Override
