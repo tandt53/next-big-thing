@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public abstract class DriverManager {
 
-    public WebDriver driver;
+    protected static WebDriver driver;
 
     public WebDriver getDriver() {
         if (driver == null || ((RemoteWebDriver) driver).getSessionId()==null)
