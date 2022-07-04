@@ -10,7 +10,7 @@
 
 	<listeners>
 		<listener
-			class-name="com.light.automation.TestReportListener"></listener>
+			class-name="com.onboarding.automation.TestReportListener"></listener>
 	</listeners>
 
 	<!--this is for testing on CHROME -->

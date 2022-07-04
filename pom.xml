@@ -5,23 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>automation</artifactId>
-    <groupId>com.light</groupId>
+    <groupId>com.tandt53</groupId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>light-common</module>
-        <module>light-common-test</module>
-        <module>light-okhttp</module>
-        <module>light-rest-assured</module>
-        <module>light-db</module>
-        <module>light-ui</module>
-        <module>light-web</module>
-        <module>light-data-provider</module>
-        <module>light-mobile</module>
-        <module>light-cucumber</module>
-        <module>light-junit</module>
-        <module>light-testng</module>
-        <module>light-guice</module>
+        <module>onboarding-common</module>
+        <module>onboarding-common-test</module>
+        <module>onboarding-okhttp</module>
+        <module>onboarding-rest-assured</module>
+        <module>onboarding-db</module>
+        <module>onboarding-ui</module>
+        <module>onboarding-web</module>
+        <module>onboarding-data-provider</module>
+        <module>onboarding-mobile</module>
+        <module>onboarding-cucumber</module>
+        <module>onboarding-junit</module>
+        <module>onboarding-testng</module>
+        <module>onboarding-guice</module>
 <!--         <module>jacoco-summary</module> -->
     </modules>
 
