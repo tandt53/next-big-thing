@@ -5,17 +5,17 @@
 The project is a collection of modules that allows every Automation Test Engineer (ATE) to create/maintain automated test cases.
 
 Modules:
-- common
-- core-ui
-- core-web
-- mobile
-- core-api
-- core-db
-- common-test
-- data-provider
-- test-cucumber
-- test-junit
-- test-testng
+- onboarding-common
+- onboarding-ui
+- onboarding-web
+- onboarding
+- onboarding-api
+- onboarding-db
+- onboarding-test
+- onboarding-provider
+- onboarding-cucumber
+- onboarding-junit
+- onboarding-testng
 
 
 ## License
