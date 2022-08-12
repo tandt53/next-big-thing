@@ -119,6 +119,7 @@ public class BaseMobileElementImpl implements Element {
 
     @Override
     public void setText(CharSequence... text) {
+
         getElement().sendKeys(text);
     }
 

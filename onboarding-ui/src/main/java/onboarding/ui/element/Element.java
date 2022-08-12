@@ -11,7 +11,7 @@ import java.util.List;
 public interface Element {
     @Clocking
     void setText(CharSequence... text);
-
+    
     @Clocking
     String getText();
 
