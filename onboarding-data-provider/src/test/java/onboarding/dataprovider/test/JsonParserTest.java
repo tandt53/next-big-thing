@@ -27,7 +27,6 @@ public class JsonParserTest {
         LeadGeneral leadGeneral;
         try {
             leadGeneral = JsonParser.fromJsonFileToObject(jsonFile, jsonPath, LeadGeneral.class);
-            System.out.println(leadGeneral.toString());
             JsonParser.fromObjectToJsonFile(leadGeneral, "test.json");
             new Gson().toJson(leadGeneral, Files.newBufferedWriter(Paths.get("test1.json")));
 
@@ -49,9 +48,6 @@ public class JsonParserTest {
 
     @Test
     public void sampleTest() throws IOException {
-//        System.out.println(JsonParser.fromJsonFileToObject(filePath, jsonPath, String.class));
-//
-//        System.out.println(JsonParser.fromJsonStringToObject(jsonString, jsonPath, String.class));
     }
 }
 

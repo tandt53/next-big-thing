@@ -30,8 +30,6 @@ public class HomeWebPage extends BaseWebPage<HomeWebPage> {
     private String extra;
 
     public void search(String text) {
-        System.out.println("extra: " + extra);
-        System.out.println("browser: " + browser);
         searchField.setText(text);
         searchField.submit();
     }

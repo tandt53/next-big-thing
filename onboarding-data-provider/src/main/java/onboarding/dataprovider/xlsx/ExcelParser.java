@@ -246,7 +246,7 @@ public class ExcelParser {
         // check the size of column index and column name are equals each other or not
         // add more code for define more cases and expected output
         if (columnIndexes.size() != columnNames.size()) {
-            System.out.println("columnNames do not appear in the first row");
+            log.info("columnNames do not appear in the first row");
         }
 
         // get the number of rows in the table

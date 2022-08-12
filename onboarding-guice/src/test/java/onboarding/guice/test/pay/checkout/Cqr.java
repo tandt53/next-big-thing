@@ -18,7 +18,6 @@ public class Cqr {
 
     public void init(){
         signature.sign(checkoutInfo.toString());
-        System.out.println("Cqr init");
     }
 
 }

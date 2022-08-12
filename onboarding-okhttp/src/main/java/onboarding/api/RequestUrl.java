@@ -1,7 +1,7 @@
 package onboarding.api;
 
-import onboarding.api.exceptions.UrlException;
 import okhttp3.HttpUrl;
+import onboarding.api.exceptions.UrlException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

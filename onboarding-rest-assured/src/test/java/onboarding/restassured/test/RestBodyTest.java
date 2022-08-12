@@ -231,7 +231,6 @@ public class RestBodyTest {
     @Test
     public void testaddMapWithJsonPath() throws JsonElementNotFoundException {
         body.addMapWithJsonPath("mapsArray[0]", "key1", "value1");
-        System.out.println(body.print());
         body.addMapWithJsonPath("mapsArray[0]", "key2", "value2");
         body.addMapWithJsonPath("mapsArray[1]", "key3", "value3");
         body.addMapWithJsonPath("mapsArray[1]", "key4", "value4");
@@ -240,7 +239,6 @@ public class RestBodyTest {
         body.addMapWithJsonPath("mapsArray[1].parent[1]", "key5", "value5");
         body.addMapWithJsonPath("object", "a", "b");
         body.addMapWithJsonPath("object", "c", "d");
-        System.out.println(body.print());
 
     }
 

@@ -71,14 +71,12 @@ public class JsonBuilderTest {
             e.printStackTrace();
             Assert.assertTrue(false);
         }
-        System.out.println("body1: " + body.print());
 
         try {
             body.add("b.c", true);
         } catch (JsonElementNotFoundException e) {
         }
 
-        System.out.println("body2: " + body.print());
 
     }
 
@@ -92,21 +90,18 @@ public class JsonBuilderTest {
             e.printStackTrace();
             Assert.assertTrue(false);
         }
-        System.out.println("body1: " + body.print());
 
         try {
             body.addMap("a.b", "key", "value");
         } catch (JsonElementNotFoundException e) {
             Assert.assertEquals("{\"parentKey\":{\"key\":\"value\"}}", body.print());
         }
-        System.out.println("body2: " + body.print());
 
         try {
             body.addMap("parentKey", "a.b", "value");
         } catch (JsonElementNotFoundException e) {
             Assert.assertEquals("{\"parentKey\":{\"key\":\"value\"}}", body.print());
         }
-        System.out.println("body3: " + body.print());
 
         try {
             body.addMap("parentKey", "key2", "value2");
@@ -115,7 +110,6 @@ public class JsonBuilderTest {
             e.printStackTrace();
             Assert.assertTrue(false);
         }
-        System.out.println("body4: " + body.print());
 
         try {
             body.addMap("parentKey2", "key1", "value1");
@@ -124,7 +118,6 @@ public class JsonBuilderTest {
             e.printStackTrace();
             Assert.assertTrue(false);
         }
-        System.out.println("body5: " + body.print());
 
         try {
             body.addMap("parentKey", "key", "valueChange");
@@ -133,7 +126,6 @@ public class JsonBuilderTest {
             e.printStackTrace();
             Assert.assertTrue(false);
         }
-        System.out.println("body5: " + body.print());
     }
 
     @Test
@@ -145,7 +137,6 @@ public class JsonBuilderTest {
             e.printStackTrace();
             Assert.assertTrue(false);
         }
-        System.out.println("body1: " + body.print());
 
         try {
             body.addArrayValue("Numbers", 2);
@@ -153,7 +144,6 @@ public class JsonBuilderTest {
         } catch (JsonElementNotFoundException e) {
             Assert.assertTrue(false);
         }
-        System.out.println("body2: " + body.print());
 
         try {
             body.addArrayValue("Numbers", "3");
@@ -161,7 +151,6 @@ public class JsonBuilderTest {
         } catch (JsonElementNotFoundException e) {
             Assert.assertTrue(false);
         }
-        System.out.println("body3: " + body.print());
 
         try {
             body.addArrayValue("Number", "1");
@@ -169,20 +158,10 @@ public class JsonBuilderTest {
         } catch (JsonElementNotFoundException e) {
             Assert.assertTrue(false);
         }
-        System.out.println("body4: " + body.print());
     }
 
     @Test
     public void testAddMapArray() {
-//        try {
-//            body.addArrayMap("Name", "Firstname", "Jason");
-//            body2.addMap("Name[0]", "Firstname", "Jason");
-//            Assert.assertEquals(body.print(), body2.print());
-//        } catch (JsonElementNotFoundException e) {
-//            e.printStackTrace();
-//            Assert.assertTrue(false);
-//        }
-//        System.out.println("body1: " + body.print());
 
         try {
             body.addArrayMap("Name[0]", "Lastname", "Kai");
@@ -192,7 +171,6 @@ public class JsonBuilderTest {
             e.printStackTrace();
             Assert.assertTrue(false);
         }
-        System.out.println("body2: " + body.print());
 
         try {
             body.addArrayMap("Name[1]", "FirstName", "Kai");
@@ -202,7 +180,6 @@ public class JsonBuilderTest {
             e.printStackTrace();
             Assert.assertTrue(false);
         }
-        System.out.println("body3: " + body.print());
 
         try {
             body.addArrayMap("Name[-2]", "FirstName", "Kai");
@@ -211,7 +188,6 @@ public class JsonBuilderTest {
         } catch (JsonElementNotFoundException e) {
             Assert.assertTrue(true);
         }
-        System.out.println("body3: " + body.print());
 
         try {
             body.addArrayMap("Name[-1]", "FirstName", "Kai");
@@ -220,7 +196,6 @@ public class JsonBuilderTest {
         } catch (JsonElementNotFoundException e) {
             Assert.assertTrue(true);
         }
-        System.out.println("body4: " + body.print());
     }
 
     @Test
@@ -231,7 +206,6 @@ public class JsonBuilderTest {
             e.printStackTrace();
             Assert.assertTrue(false);
         }
-        System.out.println("body1: " + body2.print());
 
         try {
             body2.addMap("Name[0]", "Lastname", "Kai");
@@ -239,7 +213,6 @@ public class JsonBuilderTest {
             e.printStackTrace();
             Assert.assertTrue(false);
         }
-        System.out.println("body2: " + body2.print());
 
         try {
             body2.addMap("Name[1]", "FirstName", "Kai");
@@ -247,21 +220,18 @@ public class JsonBuilderTest {
             e.printStackTrace();
             Assert.assertTrue(false);
         }
-        System.out.println("body3: " + body2.print());
 
         try {
             body2.addMap("Name[-2]", "FirstName", "Kai");
         } catch (JsonElementNotFoundException e) {
             Assert.assertTrue(true);
         }
-        System.out.println("body3: " + body2.print());
 
         try {
             body2.addMap("Name[-1]", "FirstName", "Kai");
         } catch (JsonElementNotFoundException e) {
             Assert.assertTrue(true);
         }
-        System.out.println("body4: " + body2.print());
     }
 
     @Test
@@ -269,15 +239,12 @@ public class JsonBuilderTest {
         body.createJson("level0[0].level1.level2[0]", "key1", "value1");
         body2.addMap("level0[0].level1.level2[0]", "key1", "value1");
         Assert.assertEquals(body.print(), body2.print());
-        System.out.println(body.print());
         body.createJson("level0[0].level1.level2[0].level3[1]", "key2", "value2");
         body2.addMap("level0[0].level1.level2[0].level3[1]", "key2", "value2");
         Assert.assertEquals(body.print(), body2.print());
-        System.out.println(body.print());
         body.createJson("level0[0].level1.level2[0].level3[2]", "key3", "value3");
         body2.addMap("level0[0].level1.level2[0].level3[2]", "key3", "value3");
         Assert.assertEquals(body.print(), body2.print());
-        System.out.println(body.print());
     }
 
     @Test

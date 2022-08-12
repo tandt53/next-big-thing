@@ -13,14 +13,11 @@
         <module>onboarding-common-test</module>
         <module>onboarding-okhttp</module>
         <module>onboarding-rest-assured</module>
-        <module>onboarding-db</module>
         <module>onboarding-ui</module>
         <module>onboarding-web</module>
         <module>onboarding-data-provider</module>
         <module>onboarding-mobile</module>
         <module>onboarding-cucumber</module>
-        <module>onboarding-junit</module>
-        <module>onboarding-testng</module>
         <module>onboarding-guice</module>
 <!--         <module>jacoco-summary</module> -->
     </modules>

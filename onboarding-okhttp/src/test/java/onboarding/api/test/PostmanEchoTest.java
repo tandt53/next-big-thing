@@ -1,10 +1,10 @@
 package onboarding.api.test;
 
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
 import onboarding.api.Client;
 import onboarding.api.Request;
 import onboarding.api.RequestUrl;
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -26,7 +26,6 @@ public class PostmanEchoTest {
         urlBuilder.addQueryParameter("foo2", "bar");
 
         requestBuilder.url(urlBuilder.build());
-        System.out.println(builder.build().newCall(requestBuilder.build()).execute().body().string());
 
         Client client = new Client();
         RequestUrl url = new RequestUrl("https", "postman-echo.com", RequestUrl.EMPTY_PORT);
@@ -35,7 +34,6 @@ public class PostmanEchoTest {
         url.addQueryParameter("foo2", "bar2");
 
         Request request = new Request(url);
-        System.out.println(client.send(request).body());
 
     }
 

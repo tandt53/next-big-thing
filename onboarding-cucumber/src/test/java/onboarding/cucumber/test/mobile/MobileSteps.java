@@ -24,7 +24,6 @@ public class MobileSteps {
 
     @And("I login with email {string} and password {string}")
     public void iLoginWithEmailAndPassword(String arg0, String arg1) {
-        System.out.println("I login with email " + arg0 + " and password " + arg1);
         homePage.login(arg0, arg1);
     }
 
