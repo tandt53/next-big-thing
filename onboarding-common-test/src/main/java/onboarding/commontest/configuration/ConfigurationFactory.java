@@ -3,7 +3,6 @@ package onboarding.commontest.configuration;
 public class ConfigurationFactory {
 
     public static Configuration getConfiguration() {
-        System.out.println("get configuration");
         Configuration cliConfiguration = new CliConfiguration();
         cliConfiguration.load();
 

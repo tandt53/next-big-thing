@@ -37,7 +37,6 @@ public class JacksonTest {
             JsonNode rootNode = mapper.readTree(jsonString);
 
             JsonNode nameNode = rootNode.path("address.street");
-            System.out.println("Name: " + nameNode.textValue());
 
         } catch (IOException e) {
             e.printStackTrace();

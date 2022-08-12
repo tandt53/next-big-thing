@@ -1,8 +1,8 @@
 package onboarding.guice.test.pay.model;
 
-import onboarding.guice.scan.annotations.NamedBinder;
 import lombok.Getter;
 import lombok.Setter;
+import onboarding.guice.scan.annotations.NamedBinder;
 
 @Setter
 @Getter

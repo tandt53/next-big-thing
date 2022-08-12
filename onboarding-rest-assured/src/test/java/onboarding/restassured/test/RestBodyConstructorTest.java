@@ -15,6 +15,5 @@ public class RestBodyConstructorTest {
         accountInfo.setMarried(false);
 
         RestBody body = new RestBody(accountInfo);
-        System.out.println(body.prettyPrint());
     }
 }

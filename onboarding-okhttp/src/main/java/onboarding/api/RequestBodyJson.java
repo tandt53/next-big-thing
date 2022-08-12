@@ -1,10 +1,10 @@
 package onboarding.api;
 
 import com.google.gson.JsonObject;
+import okhttp3.MediaType;
 import onboarding.dataprovider.exceptions.JsonElementNotFoundException;
 import onboarding.dataprovider.json.JsonBuilder2;
 import onboarding.dataprovider.json.JsonRootType;
-import okhttp3.MediaType;
 
 public class RequestBodyJson extends RequestBody {
 

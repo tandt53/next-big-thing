@@ -1,8 +1,8 @@
 package onboarding.api;
 
+import okhttp3.ResponseBody;
 import onboarding.api.path.JsonPath;
 import onboarding.dataprovider.json.JsonParser;
-import okhttp3.ResponseBody;
 
 import java.io.IOException;
 
