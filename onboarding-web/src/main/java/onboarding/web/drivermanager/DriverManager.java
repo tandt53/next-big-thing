@@ -14,7 +14,7 @@ public abstract class DriverManager {
     protected static WebDriver driver;
 
     public WebDriver getDriver() {
-        if (driver == null || ((RemoteWebDriver) driver).getSessionId()==null)
+        if (driver == null || ((RemoteWebDriver) driver).getSessionId() == null)
             return initDriver();
         return driver;
     }
