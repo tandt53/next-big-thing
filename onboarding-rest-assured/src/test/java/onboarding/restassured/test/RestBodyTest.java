@@ -72,7 +72,7 @@ public class RestBodyTest {
             body.add("a", true); // key could be "a.b.c"
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
         log.info("Started %s", "body1: " + body.print());
 
@@ -93,7 +93,7 @@ public class RestBodyTest {
             Assert.assertEquals("{\"parentKey\":{\"key\":\"value\"}}", body.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
         log.info("Started %s", "body1: " + body.print());
 
@@ -116,7 +116,7 @@ public class RestBodyTest {
             Assert.assertEquals("{\"parentKey\":{\"key\":\"value\",\"key2\":\"value2\"},\"a.b\":{\"key\":\"value\"}}", body.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
         log.info("Started %s", "body4: " + body.print());
 
@@ -125,7 +125,7 @@ public class RestBodyTest {
             Assert.assertEquals("{\"parentKey\":{\"key\":\"value\",\"key2\":\"value2\"},\"a.b\":{\"key\":\"value\"},\"parentKey2\":{\"key1\":\"value1\"}}", body.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
         log.info("Started %s", "body5: " + body.print());
 
@@ -134,7 +134,7 @@ public class RestBodyTest {
             Assert.assertEquals("{\"parentKey\":{\"key\":\"valueChange\",\"key2\":\"value2\"},\"a.b\":{\"key\":\"value\"},\"parentKey2\":{\"key1\":\"value1\"}}", body.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
         log.info("Started %s", "body5: " + body.print());
 
@@ -148,7 +148,7 @@ public class RestBodyTest {
             Assert.assertEquals("{\"Numbers\":[1]}", body.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
         log.info("Started %s", "body1: " + body.print());
 
@@ -156,7 +156,7 @@ public class RestBodyTest {
             body.addValueToArray("Numbers", 2);
             Assert.assertEquals("{\"Numbers\":[1,2]}", body.print());
         } catch (JsonElementNotFoundException e) {
-            Assert.assertTrue(false);
+            Assert.fail();
         }
         log.info("Started %s", "body2: " + body.print());
 
@@ -164,7 +164,7 @@ public class RestBodyTest {
             body.addValueToArray("Numbers", "3");
             Assert.assertEquals("{\"Numbers\":[1,2,\"3\"]}", body.print());
         } catch (JsonElementNotFoundException e) {
-            Assert.assertTrue(false);
+            Assert.fail();
         }
         log.info("Started %s", "body3: " + body.print());
 
@@ -172,7 +172,7 @@ public class RestBodyTest {
             body.addValueToArray("Number", "1");
             Assert.assertEquals("{\"Numbers\":[1,2,\"3\"],\"Number\":[\"1\"]}", body.print());
         } catch (JsonElementNotFoundException e) {
-            Assert.assertTrue(false);
+            Assert.fail();
         }
         log.info("Started %s", "body4: " + body.print());
     }
@@ -183,7 +183,7 @@ public class RestBodyTest {
             body.addMapToArray("Name", "Firstname", "Jason");
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
         log.info("Started %s", "body1: " + body.print());
 
@@ -191,7 +191,7 @@ public class RestBodyTest {
             body.addMapToArray("Name[0]", "Lastname", "Kai");
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
         log.info("Started %s", "body2: " + body.print());
 
@@ -199,7 +199,7 @@ public class RestBodyTest {
             body.addMapToArray("Name[1]", "FirstName", "Kai");
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
         log.info("Started %s", "body3: " + body.print());
 

@@ -14,6 +14,7 @@ public enum RestMethod {
 
     /**
      * Get method
+     *
      * @param method method string
      * @return RestMethod
      */
@@ -21,8 +22,6 @@ public enum RestMethod {
         switch (method) {
             case "POST":
                 return POST;
-            case "GET":
-                return GET;
             case "PUT":
                 return PUT;
             case "DELETE":
@@ -33,8 +32,10 @@ public enum RestMethod {
                 return PATCH;
             case "HEAD":
                 return HEAD;
+            case "GET":
             default:
-                return null;
+                return GET;
+
         }
     }
 

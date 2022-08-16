@@ -9,7 +9,7 @@ public class RestBodyConstructorTest {
     @Test
     public void constructorObject(){
         AccountInfo accountInfo = new AccountInfo();
-//        accountInfo.setPhoneNumber("0117000050");
+        accountInfo.setPhoneNumber("0117000050");
         accountInfo.setName("John");
         accountInfo.setAge(18);
         accountInfo.setMarried(false);

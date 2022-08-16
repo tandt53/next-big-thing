@@ -22,7 +22,6 @@ public abstract class RequestFilter implements Filter {
         this.responseSpec = responseSpec;
         this.ctx = ctx;
         response = ctx.next(requestSpec, responseSpec);
-//        response.body().prettyPrint();
         if (condition()) {
             action();
         }

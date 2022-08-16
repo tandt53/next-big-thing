@@ -24,6 +24,7 @@ public class CurlCommand {
 
     /**
      * Set URL
+     *
      * @param url url
      * @return
      */
@@ -224,7 +225,7 @@ public class CurlCommand {
                     : SHORT_PARAMETER_NAMES.get(longParameterName)) : longParameterName;
         }
 
-        private  List<String> line(boolean useShortForm, String longParameterName, String... arguments) {
+        private List<String> line(boolean useShortForm, String longParameterName, String... arguments) {
             List<String> line = new ArrayList<>(Arrays.asList(arguments));
             line.add(0, parameterName(longParameterName, useShortForm));
             return line;
@@ -244,10 +245,11 @@ public class CurlCommand {
          * Replace new line outside of quotes since cmd.exe doesn't let to do it inside.
          */
         private String escapeStringWin(String s) {
-            return "\'" + s.replace("$&:", "") + "\'";
+            return "/'" + s.replace("$&:", "") + "\\'";
         }
+
         private static String escapeStringPosix(String s) {
-         String regexText = "'^.*([^\\x20-\\x7E\\x{00C0}-\\x{00FF}\\x{1EA0}-\\x{1EFF}]|\').*$'";
+            String regexText = "'^.*([^\\x20-\\x7E\\x{00C0}-\\x{00FF}\\x{1EA0}-\\x{1EFF}]|\').*$'";
             if (s.matches(regexText)) {
                 String escaped = s
 
@@ -307,8 +309,9 @@ public class CurlCommand {
                 command.add(line(useShortForm, "--verbose"));
             }
 
-            return command.stream().map(line -> line.stream().collect(Collectors.joining(" ")))
-                    .collect(Collectors.joining(chooseJoiningString(printMultiliner)));
+            return command.stream().map(line -> line.stream()
+                            .collect(Collectors.joining(" ")))
+                            .collect(Collectors.joining(chooseJoiningString(printMultiliner)));
         }
 
         private CharSequence chooseJoiningString(boolean printMultiliner) {

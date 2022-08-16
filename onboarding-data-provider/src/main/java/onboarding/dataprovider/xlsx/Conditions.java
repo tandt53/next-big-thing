@@ -24,12 +24,8 @@ public class Conditions {
     }
 
     public ArrayList<String> getKeys() {
-        ArrayList<String> keys = new ArrayList<String>();
         Set<String> keyset = this.conditions.keySet();
-        for(String s: keyset){
-            keys.add(s);
-        }
-        return keys;
+        return new ArrayList<String>(keyset);
     }
 
     public ArrayList<String> getValues() {
