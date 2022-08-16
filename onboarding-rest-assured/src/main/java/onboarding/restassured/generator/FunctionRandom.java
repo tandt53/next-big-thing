@@ -53,12 +53,12 @@ public class FunctionRandom {
      */
     public String generateCharacter(int lengthChar) {
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
-        String s = "";
+        StringBuilder s = new StringBuilder();
         for (int i = 0; i < lengthChar; i++) {
             char c = alphabet.charAt(random.nextInt(26));
-            s += c;
+            s.append(c);
         }
-        return s;
+        return s.toString();
 
     }
 
@@ -70,12 +70,12 @@ public class FunctionRandom {
      */
     public String generateIdNumber(int length) {
         String alphabet = "0123456789";
-        String s = "";
+        StringBuilder s = new StringBuilder();
         for (int i = 0; i < length; i++) {
             char c = alphabet.charAt(random.nextInt(9));
-            s += c;
+            s.append(c);
         }
-        return s;
+        return s.toString();
 
     }
 

@@ -51,76 +51,76 @@
 //
 //        try {
 //            excelParser.setValue(null, conditions, 0, targetColumn, valueToSet);
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            // do nothing here
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //
 //        try {
 //            excelParser.setValue(invalidSheetName, conditions, 0, targetColumn, valueToSet);
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            // do nothing here
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //
 //        try {
 //            excelParser.setValue(validSheetName, null, 0, targetColumn, valueToSet);
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (ConditionsException e) {
 //            // do nothing here
 //        }
 //
 //        try {
 //            excelParser.setValue(validSheetName, new Conditions(), 0, targetColumn, valueToSet);
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (ConditionsException e) {
 //            // do nothing here
 //        }
@@ -129,127 +129,127 @@
 //            excelParser.setValue(validSheetName, invalidCondition, 0, targetColumn, valueToSet);
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            //do nothing
 //        } catch (CellNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //
 //        try {
 //            excelParser.setValue(validSheetName, conditions, 100, targetColumn, valueToSet);
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            //do nothing
 //        } catch (CellNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //
 //        try {
 //            excelParser.setValue(validSheetName, conditions, 0, null, valueToSet);
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            // do nothing here
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //
 //        try {
 //            excelParser.setValue(validSheetName, conditions, 0, null, valueToSet);
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            // do nothing here
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //
 //        try {
 //            excelParser.setValue(validSheetName, conditions, 0, invalidColumnName, valueToSet);
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            // do nothing here
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //
 //        try {
 //            excelParser.setValue(validSheetName, conditions, 0, targetColumn, null);
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            // do nothing here
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //
 //        try {
 //            excelParser.setValue(validSheetName, conditions, 0, targetColumn, valueToSet);
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //
 //        conditions.addCondition("Scope", "Test");
@@ -257,19 +257,19 @@
 //            excelParser.setValue(validSheetName, conditions, 0, targetColumn, valueToSet);
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //    }
 //
@@ -297,76 +297,76 @@
 //
 //        try {
 //            excelParser.getValue(null, conditions, 0, targetColumn);
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            // do nothing here
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //
 //        try {
 //            excelParser.getValue(invalidSheetName, conditions, 0, targetColumn);
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            // do nothing here
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //
 //        try {
 //            excelParser.getValue(validSheetName, null, 0, targetColumn);
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (ConditionsException e) {
 //            // do nothing here
 //        }
 //
 //        try {
 //            excelParser.getValue(validSheetName, new Conditions(), 0, targetColumn);
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (ConditionsException e) {
 //            // do nothing here
 //        }
@@ -375,19 +375,19 @@
 //            excelParser.getValue(validSheetName, invalidCondition, 0, targetColumn);
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch(IndexOutOfBoundsException e){
 //
 //        }
@@ -396,54 +396,54 @@
 //            excelParser.getValue(validSheetName, conditions, 0, null);
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            // do nothing here
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //
 //        try {
 //            excelParser.getValue(validSheetName, conditions, 0, null);
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            // do nothing here
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //
 //        try {
 //            excelParser.getValue(validSheetName, conditions, 0, invalidColumnName);
 //        } catch (WorkbookNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (WorksheetNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (RowNotFoundException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        } catch (CellNotFoundException e) {
 //            // do nothing here
 //        } catch (ConditionsException e) {
 //            e.printStackTrace();
-//            Assert.assertTrue(false);
+//            Assert.fail();
 //        }
 //    }
 //

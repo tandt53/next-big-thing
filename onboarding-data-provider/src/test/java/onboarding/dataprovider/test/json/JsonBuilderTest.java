@@ -69,7 +69,7 @@ public class JsonBuilderTest {
             body.add("a", true); // key could be "a.b.c"
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
 
         try {
@@ -88,7 +88,7 @@ public class JsonBuilderTest {
             Assert.assertEquals("{\"parentKey\":{\"key\":\"value\"}}", body.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
 
         try {
@@ -108,7 +108,7 @@ public class JsonBuilderTest {
             Assert.assertEquals("{\"parentKey\":{\"key\":\"value\",\"key2\":\"value2\"}}", body.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
 
         try {
@@ -116,7 +116,7 @@ public class JsonBuilderTest {
             Assert.assertEquals("{\"parentKey\":{\"key\":\"value\",\"key2\":\"value2\"},\"parentKey2\":{\"key1\":\"value1\"}}", body.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
 
         try {
@@ -124,7 +124,7 @@ public class JsonBuilderTest {
             Assert.assertEquals("{\"parentKey\":{\"key\":\"valueChange\",\"key2\":\"value2\"},\"parentKey2\":{\"key1\":\"value1\"}}", body.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
     }
 
@@ -135,28 +135,28 @@ public class JsonBuilderTest {
             Assert.assertEquals("{\"Numbers\":[1]}", body.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
 
         try {
             body.addArrayValue("Numbers", 2);
             Assert.assertEquals("{\"Numbers\":[1,2]}", body.print());
         } catch (JsonElementNotFoundException e) {
-            Assert.assertTrue(false);
+            Assert.fail();
         }
 
         try {
             body.addArrayValue("Numbers", "3");
             Assert.assertEquals("{\"Numbers\":[1,2,\"3\"]}", body.print());
         } catch (JsonElementNotFoundException e) {
-            Assert.assertTrue(false);
+            Assert.fail();
         }
 
         try {
             body.addArrayValue("Number", "1");
             Assert.assertEquals("{\"Numbers\":[1,2,\"3\"],\"Number\":[\"1\"]}", body.print());
         } catch (JsonElementNotFoundException e) {
-            Assert.assertTrue(false);
+            Assert.fail();
         }
     }
 
@@ -169,7 +169,7 @@ public class JsonBuilderTest {
             Assert.assertEquals(body.print(), body2.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
 
         try {
@@ -178,7 +178,7 @@ public class JsonBuilderTest {
             Assert.assertEquals(body.print(), body2.print());
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
 
         try {
@@ -204,21 +204,21 @@ public class JsonBuilderTest {
             body2.addMap("Name", "Firstname", "Jason");
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
 
         try {
             body2.addMap("Name[0]", "Lastname", "Kai");
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
 
         try {
             body2.addMap("Name[1]", "FirstName", "Kai");
         } catch (JsonElementNotFoundException e) {
             e.printStackTrace();
-            Assert.assertTrue(false);
+            Assert.fail();
         }
 
         try {

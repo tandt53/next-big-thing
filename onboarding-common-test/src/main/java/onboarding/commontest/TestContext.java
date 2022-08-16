@@ -21,7 +21,6 @@ public class TestContext {
         return instance;
     }
 
-
     private void addConfiguration(Configuration configuration) {
         this.configuration = configuration.add(this.configuration);
     }

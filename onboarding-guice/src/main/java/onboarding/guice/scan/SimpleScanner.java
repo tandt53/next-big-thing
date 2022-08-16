@@ -50,7 +50,7 @@ public class SimpleScanner extends Scanner {
             Annotation annotation = c.getAnnotation(SimpleBinder.class);
 
             String v = ((SimpleBinder) annotation).value();
-            Class bindClass = ((SimpleBinder) annotation).bind();
+            Class<?> bindClass = ((SimpleBinder) annotation).bind();
 
             if (v.isEmpty() && bindClass.equals(Class.class)) {
                 bindingInfos.add(new BindingInfo(c.getSuperclass(), c));

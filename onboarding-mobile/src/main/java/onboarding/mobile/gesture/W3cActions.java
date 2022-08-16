@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 public class W3cActions {
 
-    private Duration STEP_DURATION = Duration.ofMillis(500);
+    private Duration STEP_DURATION = Duration.ofMillis(2000);
     private Duration ZERO_SECOND = Duration.ofMillis(0);
     private Duration TWO_SECONDS = Duration.ofMillis(100);
     private PointerInput.Origin VIEW = PointerInput.Origin.viewport();
@@ -135,7 +135,7 @@ public class W3cActions {
         Sequence sequence = new Sequence(finger1, 0);
         sequence.addAction(finger1.createPointerMove(TWO_SECONDS, VIEW, startX, startY));
         sequence.addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
-        sequence.addAction(new Pause(finger1, Duration.ofMillis(10)));
+        sequence.addAction(new Pause(finger1, Duration.ofMillis(100)));
         sequence.addAction(finger1.createPointerMove(STEP_DURATION, VIEW, endX, endY));
         sequence.addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 

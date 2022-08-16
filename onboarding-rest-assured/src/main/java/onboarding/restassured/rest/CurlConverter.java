@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * CurlConverter is to convert request info to CURL and print to log when sending
  * It collects info based on components (url, path, method, body, param, headers,etc.) whenever they are set to RestRequest.
- * Thus you should not use this manually.
+ * So you should not use this manually.
  */
 public class CurlConverter {
 
@@ -24,7 +24,7 @@ public class CurlConverter {
 	}
 
 	public void setHeaders(RestHeaders headers) {
-		Map<String, String> head = headers.getHeaders();
+		Map<String, String> head = headers.getAll();
 		Set<String> keys = head.keySet();
 
 		for (String k : keys) {
