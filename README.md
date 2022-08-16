@@ -6,16 +6,14 @@ The project is a collection of modules that allows every Automation Test Enginee
 
 Modules:
 - onboarding-common
+- onboarding-common-test
+- onboarding-cucumber
+- onboarding-data-provider
+- onboarding-guice
+- onboarding-mobile
+- onboarding-rest-assured
 - onboarding-ui
 - onboarding-web
-- onboarding
-- onboarding-api
-- onboarding-db
-- onboarding-test
-- onboarding-provider
-- onboarding-cucumber
-- onboarding-junit
-- onboarding-testng
 
 
 ## License

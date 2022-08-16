@@ -12,6 +12,7 @@
 
 - [ ] Create integration test for ModelModule
 - [ ] Review TestListener to implement needed method
+- [ ] Integrate with Allure report, extend report
 
 ## onboarding-data-provider
 
