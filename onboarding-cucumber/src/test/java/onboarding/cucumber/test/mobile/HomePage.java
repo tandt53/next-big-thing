@@ -6,7 +6,7 @@ import onboarding.cucumber.test.mobile.components.HomeComponent;
 import onboarding.mobile.page.BasePage;
 import onboarding.mobile.page.PageFactory;
 
-@ScenarioScoped
+
 public class HomePage extends BasePage<HomePage> {
 
     private HomeComponent homeComponent;

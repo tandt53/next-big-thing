@@ -8,7 +8,7 @@ public class TestModule extends AbstractModule {
     @Override
     protected void configure() {
         TestContext testContext = TestContext.getInstance();
-        bindListener(Matchers.any(), new PropertyTypeListener(testContext.getConfiguration()));
+        bindListener(Matchers.any(), new PropTypeListener(testContext.getConfiguration()));
     }
 
 }

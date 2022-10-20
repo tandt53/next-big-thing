@@ -265,6 +265,7 @@ public class RestRequest {
      * @return RestResponse
      */
     public RestResponse send() {
+
         requestSpec = requestSpecBuilder.build();
         switch (this.method) {
 
@@ -337,8 +338,7 @@ public class RestRequest {
         }
     }
 
-    @Override
-    public String toString() {
+    public String print() {
         return curlConverter.printCurl();
     }
 

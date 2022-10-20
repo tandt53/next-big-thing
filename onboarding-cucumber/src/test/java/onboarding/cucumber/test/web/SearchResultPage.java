@@ -1,23 +1,16 @@
-package onboarding.web.test.pages;
+package onboarding.cucumber.test.web;
 
 import onboarding.ui.element.Element;
 import onboarding.web.BaseWebPage;
 import onboarding.web.annotations.FindElement;
 import onboarding.web.element.WebLocatorType;
 
-/**
- * Created by tandt53 on 12/28/2016.
- */
-public class SearchResultPage extends BaseWebPage<SearchResultPage> {
+public class SearchResultPage extends BaseWebPage {
 
     @FindElement(type = WebLocatorType.ID, value = "result-stats")
     private Element result;
 
-    public SearchResultPage open(String textToSearch){
-        return this;
-    }
-
-    public String getResultCount(){
+    public String getResult() {
         return result.getText();
     }
 }

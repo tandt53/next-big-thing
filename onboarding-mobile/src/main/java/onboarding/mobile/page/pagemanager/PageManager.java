@@ -8,7 +8,6 @@ import com.google.inject.name.Names;
 import onboarding.commontest.Prop;
 import onboarding.mobile.page.BasePage;
 
-@Singleton
 public class PageManager {
 
     @Inject

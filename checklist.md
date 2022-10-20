@@ -1,12 +1,12 @@
 # Checklist for 1st release
 
 ## onboarding-common
+None
 
 ## onboarding-common-test
 
-- [ ] Review TestContext should be in this module or not
-- [ ] Remove TestManager and its related classes
-- [ ] Create unit test for TestContext if needed
+- [x] Review TestContext should be in this module or not -> decided placing here
+- [x] Remove TestManager and its related classes -> just remove TestManager class
 
 ## onboarding-cucumber
 
