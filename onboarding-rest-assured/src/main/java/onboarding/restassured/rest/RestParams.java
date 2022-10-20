@@ -26,6 +26,15 @@ public class RestParams {
 		this.params.put(key, value);
 	}
 
+
+	/**
+	 * Add all params from a map
+	 * @param params
+	 * @return
+	 */
+	public void addParam(Map<String, Object> params) {
+		this.params.putAll(params);
+	}
 	public void remove(String key){
 		this.params.remove(key);
 	}

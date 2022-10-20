@@ -9,7 +9,7 @@ import onboarding.web.element.WebLocatorType;
 
 
 /**
- * Created by thetan.do on 12/28/2016.
+ * Created by tandt53 on 12/28/2016.
  */
 public class HomeWebPage extends BaseWebPage<HomeWebPage> {
 

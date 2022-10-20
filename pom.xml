@@ -18,11 +18,13 @@
         <module>onboarding-mobile</module>
         <module>onboarding-cucumber</module>
         <module>onboarding-guice</module>
-<!--         <module>jacoco-summary</module> -->
+        <!--         <module>jacoco-summary</module> -->
     </modules>
 
     <name>Next Big Thing</name>
-    <description>The project is a collection of modules that allows every Automation Test Engineer (ATE) to create/maintain automated test cases.</description>
+    <description>The project is a collection of modules that allows every Automation Test Engineer (ATE) to
+        create/maintain automated test cases.
+    </description>
     <url>https://github.com/tandt53/next-big-thing</url>
 
     <developers>
@@ -52,7 +54,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <log4j.version>[2.17.1,)</log4j.version>
-        <cucumber.version>7.2.3</cucumber.version>
+        <cucumber.version>7.6.0</cucumber.version>
         <selenium.version>4.2.2</selenium.version>
         <appium.version>8.1.1</appium.version>
         <skipTest>false</skipTest>
@@ -253,12 +255,26 @@
                 <version>${jackson-databind.version}</version>
             </dependency>
 
-<!--            &lt;!&ndash; https://mvnrepository.com/artifact/commons-codec/commons-codec &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>commons-codec</groupId>-->
-<!--                <artifactId>commons-codec</artifactId>-->
-<!--                <version>1.15</version>-->
-<!--            </dependency>-->
+            <!--            &lt;!&ndash; https://mvnrepository.com/artifact/commons-codec/commons-codec &ndash;&gt;-->
+            <!--            <dependency>-->
+            <!--                <groupId>commons-codec</groupId>-->
+            <!--                <artifactId>commons-codec</artifactId>-->
+            <!--                <version>1.15</version>-->
+            <!--            </dependency>-->
+
+            <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber6-jvm -->
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-cucumber7-jvm</artifactId>
+                <version>2.19.0</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/io.cucumber/gherkin -->
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>gherkin</artifactId>
+                <version>24.0.0</version>
+            </dependency>
 
 
         </dependencies>
@@ -315,32 +331,32 @@
                     </execution>
                 </executions>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-source-plugin</artifactId>-->
-<!--                <version>2.2.1</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>attach-sources</id>-->
-<!--                        <goals>-->
-<!--                            <goal>jar-no-fork</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-javadoc-plugin</artifactId>-->
-<!--                <version>2.9.1</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>attach-javadocs</id>-->
-<!--                        <goals>-->
-<!--                            <goal>jar</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-source-plugin</artifactId>-->
+            <!--                <version>2.2.1</version>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <id>attach-sources</id>-->
+            <!--                        <goals>-->
+            <!--                            <goal>jar-no-fork</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-javadoc-plugin</artifactId>-->
+            <!--                <version>2.9.1</version>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <id>attach-javadocs</id>-->
+            <!--                        <goals>-->
+            <!--                            <goal>jar</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
