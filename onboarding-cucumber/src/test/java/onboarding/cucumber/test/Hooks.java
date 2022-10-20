@@ -2,8 +2,12 @@ package onboarding.cucumber.test;
 
 import com.google.inject.Inject;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.qameta.allure.Allure;
+
+import java.io.ByteArrayInputStream;
 
 public class Hooks {
 
@@ -17,8 +21,10 @@ public class Hooks {
 
     @After(value = "@Mobile", order = 9999)
     public void afterMobileScenario(Scenario scenario) {
-        if (scenario.isFailed())
-            driverHooks.takeScreenshotMobile(scenario.getName());
+        if (scenario.isFailed()) {
+            byte[] screenshot = driverHooks.takeScreenshotMobile();
+            scenario.attach(screenshot, "image/png", scenario.getName());
+        }
         driverHooks.closeMobileDriver();
     }
 
@@ -29,8 +35,12 @@ public class Hooks {
 
     @After(value = "@Web", order = 9999)
     public void afterWebScenario(Scenario scenario) {
-        if (scenario.isFailed())
-            driverHooks.takeScreenshotWeb(scenario.getName());
+        if (scenario.isFailed()) {
+            byte[] screenshot = driverHooks.takeScreenshotWeb();
+            scenario.attach(screenshot, "image/png", scenario.getName());
+        }
         driverHooks.closeWebDriver();
     }
+
+
 }

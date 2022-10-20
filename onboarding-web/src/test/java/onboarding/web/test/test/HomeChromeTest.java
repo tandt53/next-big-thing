@@ -12,7 +12,7 @@ import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 
 /**
- * Created by thetan.do on 12/28/2016.
+ * Created by tandt53 on 12/28/2016.
  */
 
 @Guice(modules = {WebModule.class, TestModule.class})
