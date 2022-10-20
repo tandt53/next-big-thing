@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/google.feature",
         glue = "onboarding.cucumber.test",
-        tags = "@Mobile_S1",
-        plugin = {"onboarding.cucumber.listener.TestListener"})
+        plugin = {"onboarding.cucumber.listener.TestListener",
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"})
 public class RunCucumberTest {
 }

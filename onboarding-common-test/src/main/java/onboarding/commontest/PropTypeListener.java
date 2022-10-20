@@ -8,10 +8,10 @@ import onboarding.commontest.configuration.Configuration;
 
 import java.lang.reflect.Field;
 
-public class PropertyTypeListener implements TypeListener {
+public class PropTypeListener implements TypeListener {
     protected Configuration configuration;
 
-    public PropertyTypeListener(Configuration configuration) {
+    public PropTypeListener(Configuration configuration) {
         this.configuration = configuration;
     }
 

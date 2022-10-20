@@ -38,28 +38,36 @@ public class DriverHooks {
         mobileDriver = manager.initDriver();
     }
 
-    public void takeScreenshotMobile(String image) {
+    public void takeScreenshotMobile(String imagePath) {
         File srcFile = ((TakesScreenshot) mobileDriver).getScreenshotAs(OutputType.FILE);
-        File destFile = new File(image);
+        File destFile = new File(imagePath);
         try {
             FileUtils.copyFile(srcFile, destFile);
         } catch (IOException e) {
             throw new TakeScreenshotException("There's a problem during take screenshot", e.getCause());
         }
+    }
+
+    public byte[] takeScreenshotMobile() {
+        return ((TakesScreenshot) mobileDriver).getScreenshotAs(OutputType.BYTES);
     }
 
     public void closeMobileDriver() {
         mobileDriver.quit();
     }
 
-    public void takeScreenshotWeb(String image) {
+    public void takeScreenshotWeb(String imagePath) {
         File srcFile = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.FILE);
-        File destFile = new File(image);
+        File destFile = new File(imagePath);
         try {
             FileUtils.copyFile(srcFile, destFile);
         } catch (IOException e) {
             throw new TakeScreenshotException("There's a problem during take screenshot", e.getCause());
         }
+    }
+
+    public byte[] takeScreenshotWeb() {
+        return ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
     }
 
     public void closeWebDriver() {

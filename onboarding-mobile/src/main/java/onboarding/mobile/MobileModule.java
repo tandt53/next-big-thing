@@ -20,7 +20,7 @@ public class MobileModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(DriverOptionFilter.class).to(AppiumDriverOptionFilter.class);
-        bind(PageFactory.class).to(DefaultPageFactory.class).in(Scopes.SINGLETON);
+        bind(PageFactory.class).to(DefaultPageFactory.class);
         bind(DriverManager.class).toProvider(DriverProvider.class).in(Scopes.SINGLETON);
         bind(DriverManager.class).annotatedWith(Names.named("android")).to(AndroidDriverManager.class).in(Scopes.SINGLETON);
         bind(DriverManager.class).annotatedWith(Names.named("ios")).to(IosDriverManager.class).in(Scopes.SINGLETON);
