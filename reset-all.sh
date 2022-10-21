@@ -31,4 +31,4 @@ git filter-branch --force --commit-filter '
                 GIT_COMMITTER_EMAIL="dothetan.040490@gmail.com";
                 GIT_AUTHOR_EMAIL="dothetan.040490@gmail.com";
                 git commit-tree "$@";
-        ' HEAD --tag-name-filter cat -- --branches --tags
+        '  --tag-name-filter cat -- --branches --tags
