@@ -5,10 +5,7 @@ import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import onboarding.cucumber.test.mobile.bloc.HomeBloc;
 import org.junit.Assert;
-
-import javax.inject.Singleton;
 
 @ScenarioScoped
 public class MobileSteps {

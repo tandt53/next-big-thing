@@ -11,15 +11,16 @@ public interface JsGesture {
      * - location: start(x,y) to end(x,y)
      * - duration: time in milliseconds
      */
-    void swipe(); // swipeGesture
+    // swipeGesture
+    default void swipe(Direction direction) {}
 
-    void swipe(int startX, int startY, int endX, int endY);
+    default void swipe(Direction direction, int top, int left, int width, int height) {}
 
-    void swipe(int startX, int startY, int endX, int endY, int duration);
+    default void swipe(Direction direction, int top, int left, int width, int height, long speed) {}
 
-    void swipe(Element element, int endX, int endY);
+    default void swipe(Element element, int width, int height){}
 
-    void swipe(int startX, int startY, int direction);
+    default void swipe(int startX, int startY, Direction direction){}
 
     /**
      * ios, android
@@ -29,38 +30,38 @@ public interface JsGesture {
      * - duration: time in milliseconds
      * - element: element to scroll
      */
-    void scroll(); // scrollGesture
+    default boolean scroll(){return false;} // scrollGesture
 
     // ios, android
-    void pinch(); // pinchOpenGesture, pinchCloseGesture
+    default void pinch(){} // pinchOpenGesture, pinchCloseGesture
 
     // ios/android
-    void doubleTap(); // double click on android
+    default void doubleTap(){} // double click on android
 
     // ios
-    void touchAndHold();
+    default void touchAndHold(){}
 
     // ios
-    void twoFinderTap();
+    default void twoFinderTap(){}
 
     // ios, android
-    void tap(); // click on android
+    default void tap(){} // click on android
 
     // ios, android
-    void dragAndDrop();
+    default void dragAndDrop(){}
 
     // ios
-    void selectPickleWheelValue();
+    default void selectPickleWheelValue(){}
 
     // ios
-    void rotateElement();
+    default void rotateElement(){}
 
     // ios
-    void tapMultipleTimes(int numberOfTaps);
+    default void tapMultipleTimes(int numberOfTaps){}
 
     // android
-    void longClick();
+    default void longClick(){}
 
     // android
-    void fling();
+    default void fling(){}
 }
