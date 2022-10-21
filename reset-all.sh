@@ -29,7 +29,7 @@ git filter-branch --force --commit-filter '
         OLD_EMAIL="correct_email"
         CORRECT_NAME="tandt53"
         CORRECT_EMAIL="dothetan.040490@gmail.com"
-        if [ "$GIT_COMMITTER_EMAIL" = "correct_email" ];
+        if [ "$GIT_AUTHOR_NAME" = "#CORRECT_NAME" ];
         then
                 GIT_COMMITTER_NAME="tandt53";
                 GIT_AUTHOR_NAME="tandt53";
