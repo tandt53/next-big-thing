@@ -33,8 +33,8 @@ git filter-branch --force --commit-filter '
         then
                 GIT_COMMITTER_NAME="$CORRECT_NAME";
                 GIT_AUTHOR_NAME="#CORRECT_NAME";
-                GIT_COMMITTER_EMAIL="CORRECT_EMAIL";
-                GIT_AUTHOR_EMAIL="CORRECT_EMAIL";
+                GIT_COMMITTER_EMAIL="$CORRECT_EMAIL";
+                GIT_AUTHOR_EMAIL="$CORRECT_EMAIL";
                 git commit-tree "$@";
         else
                 git commit-tree "$@";
