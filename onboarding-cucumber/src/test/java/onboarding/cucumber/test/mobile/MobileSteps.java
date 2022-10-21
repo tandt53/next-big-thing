@@ -1,22 +1,17 @@
 package onboarding.cucumber.test.mobile;
 
 import com.google.inject.Inject;
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import onboarding.cucumber.test.mobile.bloc.HomeBloc;
 import org.junit.Assert;
 
-import javax.inject.Singleton;
-
-@Singleton
+@ScenarioScoped
 public class MobileSteps {
 
     @Inject
     private HomePage homePage;
-
-    @Inject
-    HomeBloc homeBloc;
 
     @Given("I open application")
     public void iOpenApplication() {

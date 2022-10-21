@@ -3,6 +3,7 @@ package onboarding.restassured.test.rebrand;
 import onboarding.restassured.rest.RestMethod;
 import onboarding.restassured.rest.RestParams;
 import onboarding.restassured.rest.RestRequest;
+import onboarding.restassured.rest.RestResponse;
 
 public class PostmanEcho {
 
@@ -19,7 +20,11 @@ public class PostmanEcho {
         params.addParam("foo2", "bar2");
 
         request.setParams(params);
-        request.send().extract().jsonPath().get();
+
+        RestResponse response = request.send();
+        System.out.println(request.print());
+        response.extract().prettyPrint();
+        response.extract().jsonPath().get();
     }
 
     private static void post() {

@@ -17,8 +17,10 @@ public class Hooks {
 
     @After(value = "@Mobile", order = 9999)
     public void afterMobileScenario(Scenario scenario) {
-        if (scenario.isFailed())
-            driverHooks.takeScreenshotMobile(scenario.getName());
+        if (scenario.isFailed()) {
+            byte[] screenshot = driverHooks.takeScreenshotMobile();
+            scenario.attach(screenshot, "image/png", scenario.getName());
+        }
         driverHooks.closeMobileDriver();
     }
 
@@ -29,8 +31,12 @@ public class Hooks {
 
     @After(value = "@Web", order = 9999)
     public void afterWebScenario(Scenario scenario) {
-        if (scenario.isFailed())
-            driverHooks.takeScreenshotWeb(scenario.getName());
+        if (scenario.isFailed()) {
+            byte[] screenshot = driverHooks.takeScreenshotWeb();
+            scenario.attach(screenshot, "image/png", scenario.getName());
+        }
         driverHooks.closeWebDriver();
     }
+
+
 }

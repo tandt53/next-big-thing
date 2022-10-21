@@ -9,3 +9,4 @@ target/
 api-rest-assured/
 .idea/
 !.github/
+**/allure-results/
