@@ -1,7 +1,6 @@
 package onboarding.cucumber.test.mobile;
 
 import com.google.inject.Inject;
-import io.cucumber.guice.ScenarioScoped;
 import onboarding.cucumber.test.mobile.components.HomeComponent;
 import onboarding.mobile.page.BasePage;
 import onboarding.mobile.page.PageFactory;
