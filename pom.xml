@@ -60,7 +60,7 @@
         <skipTest>false</skipTest>
         <jacoco.version>0.8.6</jacoco.version>
         <jackson.version>2.13.2</jackson.version>
-        <jackson-databind.version>2.13.2.2</jackson-databind.version>
+        <jackson-databind.version>[2.13.4.1,)</jackson-databind.version>
     </properties>
 
     <profiles>
