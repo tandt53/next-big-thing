@@ -25,7 +25,7 @@
 #fi
 #' --tag-name-filter cat -- --branches --tags -f
 
-git filter-branch --commit-filter '
+git filter-branch --force --commit-filter '
         OLD_EMAIL="v.tandt1@vinid.net"
         CORRECT_NAME="tandt53"
         CORRECT_EMAIL="dothetan.040490@gmail.com"
