@@ -9,6 +9,7 @@ import io.restassured.http.ContentType;
 import io.restassured.http.Cookies;
 import io.restassured.path.json.config.JsonPathConfig;
 import io.restassured.specification.RequestSpecification;
+import onboarding.common.Log;
 import onboarding.restassured.rest.auth.RestAuth;
 import onboarding.restassured.rest.filter.RebrandFilterImpl;
 import onboarding.restassured.rest.filter.RequestFilter;
@@ -24,6 +25,7 @@ import static io.restassured.config.JsonConfig.jsonConfig;
  */
 public class RestRequest {
 
+    private Log log= new Log(RestRequest.class);
 
     private String url;
     private String path;
@@ -265,7 +267,7 @@ public class RestRequest {
      * @return RestResponse
      */
     public RestResponse send() {
-
+        log.debug(curlConverter.printCurl());
         requestSpec = requestSpecBuilder.build();
         switch (this.method) {
 
