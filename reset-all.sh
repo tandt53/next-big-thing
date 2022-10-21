@@ -10,7 +10,7 @@
 #  " HEAD
 
 git filter-branch --env-filter '
-OLD_EMAIL="tandt1@onemount.com"
+OLD_EMAIL="v.tandt1@vinid.net"
 CORRECT_NAME="tandt53"
 CORRECT_EMAIL="dothetan.040490@gmail.com"
 if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
