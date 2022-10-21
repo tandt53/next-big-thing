@@ -26,7 +26,7 @@
 #' --tag-name-filter cat -- --branches --tags -f
 
 git filter-branch --force --commit-filter '
-        OLD_EMAIL="v.tandt1@vinid.net"
+        OLD_EMAIL="correct_email"
         CORRECT_NAME="tandt53"
         CORRECT_EMAIL="dothetan.040490@gmail.com"
         if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ];
