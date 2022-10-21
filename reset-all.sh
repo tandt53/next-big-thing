@@ -26,13 +26,9 @@
 #' --tag-name-filter cat -- --branches --tags -f
 
 git filter-branch --force --commit-filter '
-        if [ "$GIT_AUTHOR_NAME" = "tandt1" ];
-        then
                 GIT_COMMITTER_NAME="tandt53";
                 GIT_AUTHOR_NAME="tandt53";
                 GIT_COMMITTER_EMAIL="dothetan.040490@gmail.com";
                 GIT_AUTHOR_EMAIL="dothetan.040490@gmail.com";
                 git commit-tree "$@";
-        else
-                git commit-tree "$@";
-        fi' HEAD
+        ' HEAD
