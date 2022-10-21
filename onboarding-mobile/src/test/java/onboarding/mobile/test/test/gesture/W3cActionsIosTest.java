@@ -3,16 +3,16 @@ package onboarding.mobile.test.test.gesture;
 
 import com.google.inject.Inject;
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Guice;
-import org.testng.annotations.Test;
 import onboarding.commontest.TestContext;
 import onboarding.commontest.TestModule;
 import onboarding.mobile.MobileModule;
 import onboarding.mobile.drivermanager.DriverManager;
 import onboarding.mobile.gesture.Direction;
 import onboarding.mobile.gesture.W3cActions;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Guice;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 

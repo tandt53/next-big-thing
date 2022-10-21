@@ -13,11 +13,14 @@ import org.openqa.selenium.interactions.Sequence;
 import java.time.Duration;
 import java.util.Arrays;
 
+import static onboarding.mobile.Constants.PERCENT_SCREEN_MAX;
+import static onboarding.mobile.Constants.PERCENT_SCREEN_MIN;
+
 public class W3cActions {
 
     private Duration STEP_DURATION = Duration.ofMillis(2000);
     private Duration ZERO_SECOND = Duration.ofMillis(0);
-    private Duration TWO_SECONDS = Duration.ofMillis(100);
+    private Duration TWO_SECONDS = Duration.ofMillis(2000);
     private PointerInput.Origin VIEW = PointerInput.Origin.viewport();
 
     @Inject
@@ -25,12 +28,12 @@ public class W3cActions {
 
     /**
      * Scroll on whole screen
-     * Default scroll from 85% to 15% of screen height
+     * Default scroll from 80% to 20% of screen height
      *
      * @param direction - scroll direction ${@link Direction}
      */
     public void scroll(Direction direction) {
-        Dimension di = driverManager.getDriver().manage().window().getSize(); // with pixel 4XL: 1440, 3080
+        Dimension di = driverManager.getDriver().manage().window().getSize();
         // Getting start and end points
 
         int startX = 0;
@@ -41,26 +44,26 @@ public class W3cActions {
         switch (direction) {
             case UP:
                 startX = di.width / 2;
-                startY = (int) (di.height * 0.15);
+                startY = (int) (di.height * PERCENT_SCREEN_MIN);
                 endX = startX;
-                endY = (int) (di.height * 0.85);
+                endY = (int) (di.height * PERCENT_SCREEN_MAX);
                 break;
             case DOWN:
                 startX = di.width / 2;
-                startY = (int) (di.height * 0.85);
+                startY = (int) (di.height * PERCENT_SCREEN_MAX);
                 endX = startX;
-                endY = (int) (di.height * 0.15);
+                endY = (int) (di.height * PERCENT_SCREEN_MIN);
                 break;
             case LEFT:
-                startX = (int) (di.width * 0.15);
+                startX = (int) (di.width * PERCENT_SCREEN_MIN);
                 startY = di.height / 2;
-                endX = (int) (di.width * 0.85);
+                endX = (int) (di.width * PERCENT_SCREEN_MAX);
                 endY = startY;
                 break;
             case RIGHT:
-                startX = (int) (di.width * 0.85);
+                startX = (int) (di.width * PERCENT_SCREEN_MAX);
                 startY = di.height / 2;
-                endX = (int) (di.width * 0.15);
+                endX = (int) (di.width * PERCENT_SCREEN_MIN);
                 endY = startY;
                 break;
         }
@@ -74,21 +77,20 @@ public class W3cActions {
      */
     public void swipe(Element element, Direction direction) {
         WebElement webElement = element.getElement();
-        Dimension di = webElement.getSize();
         Rectangle rect = webElement.getRect();
         int startX, startY, endX, endY;
 
         switch (direction) {
             case LEFT:
-                startX = (int) (rect.getX() + di.getWidth() * 0.85);
-                startY = (rect.getY() + di.getHeight() / 2);
-                endX = (int) (rect.getX() + di.getWidth() * 0.15);
+                startX = (int) (rect.x + rect.width * PERCENT_SCREEN_MAX);
+                startY = (rect.y + rect.height / 2);
+                endX = (int) (rect.x + rect.width * PERCENT_SCREEN_MIN);
                 endY = startY;
                 break;
             case RIGHT:
-                startX = (int) (rect.getX() + di.getWidth() * 0.15);
-                startY = (rect.getY() + di.getHeight() / 2);
-                endX = (int) (rect.getX() + di.getWidth() * 0.85);
+                startX = (int) (rect.x + rect.width * PERCENT_SCREEN_MIN);
+                startY = (rect.y + rect.height / 2);
+                endX = (int) (rect.x + rect.width * PERCENT_SCREEN_MAX);
                 endY = startY;
                 break;
             default:
@@ -150,7 +152,7 @@ public class W3cActions {
      * @param endY
      */
     public void dragAndDrop(Element element, int endX, int endY) {
-        WebElement webElement = element.getElement();
+        Rectangle webElement = element.getElement().getRect();
         int startX = getCenterX(webElement);
         int startY = getCenterY(webElement);
         dragAndDrop(startX, startY, endX, endY);
@@ -163,8 +165,8 @@ public class W3cActions {
      * @param element2
      */
     public void dragAndDrop(Element element, Element element2) {
-        WebElement webElement = element.getElement();
-        WebElement webElement2 = element2.getElement();
+        Rectangle webElement = element.getElement().getRect();
+        Rectangle webElement2 = element2.getElement().getRect();
         int startX = getCenterX(webElement);
         int startY = getCenterY(webElement);
         int endX = getCenterX(webElement2);
@@ -172,12 +174,12 @@ public class W3cActions {
         dragAndDrop(startX, startY, endX, endY);
     }
 
-    private int getCenterX(WebElement element) {
-        return element.getLocation().getX() + element.getRect().getWidth() / 2;
+    private int getCenterX(Rectangle rect) {
+        return rect.x + rect.width / 2;
     }
 
-    private int getCenterY(WebElement element) {
-        return element.getLocation().getY() + element.getRect().getHeight() / 2;
+    private int getCenterY(Rectangle rect) {
+        return rect.y + rect.height / 2;
     }
 
 }

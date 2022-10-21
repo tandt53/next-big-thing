@@ -1,11 +1,9 @@
 package onboarding.cucumber.test.web;
 
 import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import onboarding.cucumber.test.DriverHooks;
 import org.junit.Assert;
 import org.openqa.selenium.support.PageFactory;
 

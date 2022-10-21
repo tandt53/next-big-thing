@@ -23,11 +23,6 @@ import static io.appium.java_client.touch.offset.PointOption.point;
  */
 public abstract class BasePage<TPage extends BasePage> {
 
-    /**
-     * url
-     */
-    public String url;
-
     protected AppiumDriver driver;
 
     public Log PLog = new Log(this.getClass());
@@ -36,23 +31,12 @@ public abstract class BasePage<TPage extends BasePage> {
     @Prop("onboarding.appium.platformName")
     public String platformName;
 
-    /**
-     * open  page with url is not null
-     */
-    public TPage open() {
-        if (url != null)
-            return open(url);
-        return null;
-    }
-
 
     /**
      * open page with a specific url
      */
-    @SuppressWarnings("unchecked")
-    private TPage open(String url) {
+    private void open(String url) {
         driver.get(url);
-        return (TPage) this;
     }
 
     /**
@@ -144,7 +128,6 @@ public abstract class BasePage<TPage extends BasePage> {
                 }
             }
         }
-
     }
 
     public void back() {
