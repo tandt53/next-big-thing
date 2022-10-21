@@ -1,7 +1,7 @@
 package onboarding.mobile.element;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
 import onboarding.mobile.Conditions;
 import onboarding.ui.element.Element;
 import onboarding.ui.element.WaitStrategy;
@@ -75,30 +75,30 @@ public class BaseMobileElementImpl implements Element {
                 break;
 
             case ACCESSIBILITY_ID:
-                locator = MobileBy.AccessibilityId(this.mobileElementInfo.getLocatorValue());
+                locator = AppiumBy.accessibilityId(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case IOS_PREDICATE:
-                locator = MobileBy.iOSNsPredicateString(this.mobileElementInfo.getLocatorValue());
+                locator = AppiumBy.iOSNsPredicateString(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case IOS_CLASS_CHAIN:
-                locator = MobileBy.iOSClassChain(this.mobileElementInfo.getLocatorValue());
+                locator = AppiumBy.iOSClassChain(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case ANDROID_UIAUTOMATOR:
-                locator = MobileBy.AndroidUIAutomator(this.mobileElementInfo.getLocatorValue());
+                locator = AppiumBy.androidUIAutomator(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case ANDROID_DATA_MATCHER:
-                locator = MobileBy.androidDataMatcher(this.mobileElementInfo.getLocatorValue());
+                locator = AppiumBy.androidDataMatcher(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case ANDROID_VIEW_MATCHER:
-                locator = MobileBy.androidViewMatcher(this.mobileElementInfo.getLocatorValue());
+                locator = AppiumBy.androidViewMatcher(this.mobileElementInfo.getLocatorValue());
                 break;
             case ANDROID_VIEW_TAG:
-                locator = MobileBy.AndroidViewTag(this.mobileElementInfo.getLocatorValue());
+                locator = AppiumBy.androidViewTag(this.mobileElementInfo.getLocatorValue());
                 break;
 
             case ID:
