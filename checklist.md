@@ -1,4 +1,4 @@
-# Checklist for 1st release
+# Checklist for improvement
 
 ## onboarding-common
 None
@@ -12,7 +12,7 @@ None
 
 - [ ] Create integration test for ModelModule
 - [ ] Review TestListener to implement needed method
-- [ ] Integrate with Allure report, extend report
+- [ ] Integrate with Allure report
 
 ## onboarding-data-provider
 
@@ -27,7 +27,7 @@ None
 
 ## onboarding-mobile
 
-- [ ] Create method for actions/gesture and unit/integration test
+- [x] Create method for actions/gesture and unit/integration test
 - [ ] Add support classes for flutter app
 
 ## onboarding-rest-assured
