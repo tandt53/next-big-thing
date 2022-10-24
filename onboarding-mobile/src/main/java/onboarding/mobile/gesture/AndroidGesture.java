@@ -16,7 +16,6 @@ import static onboarding.mobile.Constants.*;
 /**
  * reference: https://appium.io/docs/en/writing-running-appium/android/android-mobile-gestures
  *
- * @return
  */
 public class AndroidGesture {
 

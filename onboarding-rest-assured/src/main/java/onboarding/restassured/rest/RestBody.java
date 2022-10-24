@@ -83,7 +83,6 @@ public class RestBody {
      *              replace its value by new value If JsonObject is NOT found by
      *              key, JsonObject will be created with value
      * @param value value could be Number, String, Boolean, Character
-     * @ Exception occurs when creating json element failed
      */
     public void add(String key, Object value) {
         if (jsonElement.isJsonObject())
@@ -115,7 +114,6 @@ public class RestBody {
      * @param parentKey parentKey is at level 1
      * @param key       key to add
      * @param value     value to add
-     * @ Exception occurs when creating json element failed
      */
     public void addMap(String parentKey, String key, Object value) {
         if (jsonElement.isJsonObject())
@@ -132,8 +130,7 @@ public class RestBody {
      *
      * @param key   key is at level 1
      * @param value value to add
-     * @ Exception occurs when creating json element failed
-     * @Deprecated replaced by addValueToArray method
+     * @deprecated replaced by addValueToArray method
      */
     @Deprecated
     public void addArrayValue(String key, Object value) {
@@ -150,7 +147,6 @@ public class RestBody {
      *
      * @param key   key is at level 1
      * @param value value to add
-     * @ Exception occurs when creating json element failed
      */
     public void addValueToArray(String key, Object value) {
         addArrayValue(jsonElement.getAsJsonObject(), key, value);
@@ -188,8 +184,7 @@ public class RestBody {
      *                  Example: Name - single value and index. Example: Name[2]
      * @param key       key to add
      * @param value     value to add
-     * @ Exception occurs when creating json element failed
-     * @Deprecated replaced by addMapToArray method
+     * @deprecated replaced by addMapToArray method
      */
     @Deprecated
     public void addArrayMap(String parentKey, String key, Object value) {
@@ -229,7 +224,6 @@ public class RestBody {
      *                  Example: Name - single value and index. Example: Name[2]
      * @param key       key to add
      * @param value     value to add
-     * @ Exception occurs when creating json element failed
      */
     public void addMapToArray(String parentKey, String key, Object value) {
         addArrayMap(jsonElement.getAsJsonObject(), parentKey, key, value);
@@ -271,7 +265,6 @@ public class RestBody {
      * @param parentKey String
      * @param key       String
      * @param value     Object
-     * @ Exception occurs when creating json element failed
      * @deprecated
      */
     @Deprecated
@@ -296,7 +289,6 @@ public class RestBody {
      * @param parentKey String
      * @param key       String
      * @param value     Object
-     * @ Exception occurs when creating json element failed
      */
     public void addMapWithJsonPath(String parentKey, String key, Object value) {
         if (!parentKey.contains(".") && parentKey.contains("[") && parentKey.contains("]")) {
@@ -318,7 +310,6 @@ public class RestBody {
      *
      * @param parentKey String
      * @param value     Object
-     * @ Exception occurs when creating json element failed
      * @deprecated
      */
     @Deprecated
@@ -340,7 +331,6 @@ public class RestBody {
      *
      * @param parentKey String
      * @param value     Object
-     * @ Exception occurs when creating json element failed
      */
     public void addValueWithJsonPath(String parentKey, Object value) {
         if (!parentKey.contains(".") && parentKey.contains("[") && parentKey.contains("]")) {

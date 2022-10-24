@@ -36,7 +36,7 @@ public class BodyMultiPart {
 
     /**
      * Get list of MultiPartInfo
-     * @return
+     * @return multipart information
      */
     public List<MultiPartInfo> getMultiPartInfos() {
         return multiPartInfos;

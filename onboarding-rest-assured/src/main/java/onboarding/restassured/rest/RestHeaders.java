@@ -66,37 +66,19 @@ public class RestHeaders {
         headers.remove(key);
         return this;
     }
-    /**
-     * Get key-value map
-     *
-     * @return Map<String, String>
-     * @deprecated replaced by #getAll() method
-     */
-    @Deprecated
-    public Map<String, String> getHeaders() {
-        return headers;
-    }
+
 
 
     /**
      * Get key-value map
      *
-     * @return Map<String, String>
+     * @return Map
      */
     public Map<String, String> getAll() {
         return headers;
     }
 
-    /**
-     * Add a map to header
-     *
-     * @param map headers
-     * @deprecated replaced by add method
-     */
-    @Deprecated
-    public void addHeader(Map<String, String> map) {
-        headers.putAll(map);
-    }
+
 
     /**
      * Add a map to header
