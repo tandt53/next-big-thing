@@ -26,7 +26,7 @@ public class CurlCommand {
      * Set URL
      *
      * @param url url
-     * @return
+     * @return this
      */
     public CurlCommand setUrl(String url) {
         this.url = url;

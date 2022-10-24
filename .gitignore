@@ -10,3 +10,5 @@ api-rest-assured/
 .idea/
 !.github/
 **/allure-results/
+**/java-doc/
+java-doc/

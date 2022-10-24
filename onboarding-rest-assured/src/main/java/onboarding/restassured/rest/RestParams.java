@@ -29,8 +29,6 @@ public class RestParams {
 
 	/**
 	 * Add all params from a map
-	 * @param params
-	 * @return
 	 */
 	public void addParam(Map<String, Object> params) {
 		this.params.putAll(params);
@@ -45,7 +43,7 @@ public class RestParams {
 
 	/**
 	 * Get map
-	 * @return
+	 * @return map of param
 	 */
 	public Map<String, Object> getParams() {
 		return this.params;

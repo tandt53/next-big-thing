@@ -76,7 +76,7 @@ public class RestRequest {
     /**
      * Get current connection timeout
      *
-     * @return
+     * @return connection timeout
      */
     public int getConnectionTimeout() {
         return connectionTimeout;
@@ -136,7 +136,7 @@ public class RestRequest {
     /**
      * get RestHeaders
      *
-     * @return
+     * @return headers
      */
     public RestHeaders getHeader() {
         return header;
@@ -156,7 +156,7 @@ public class RestRequest {
     /**
      * Get json body
      *
-     * @return
+     * @return body
      */
     public RestBody getBody() {
         return body;
@@ -230,7 +230,7 @@ public class RestRequest {
     /**
      * Get Parameters
      *
-     * @return
+     * @return parameters
      */
     public RestParams getParams() {
         return params;
@@ -347,7 +347,7 @@ public class RestRequest {
     /**
      * Set cookie
      *
-     * @param cookie
+     * @param cookie request cookie
      */
     public void setCookie(Cookies cookie) {
         requestSpec.cookies(cookie);
