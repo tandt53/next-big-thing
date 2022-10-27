@@ -1,0 +1,12 @@
+{
+  "name": {
+    "type": "xpath",
+    "value": "",
+    "timeout": 10
+  },
+  "name2": {
+    "type": "id",
+    "value": "",
+    "timeout": 10
+  }
+}
