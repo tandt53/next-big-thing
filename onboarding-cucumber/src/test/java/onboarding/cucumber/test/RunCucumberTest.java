@@ -5,8 +5,8 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/google.feature",
-        glue = "onboarding.cucumber.test",
+@CucumberOptions(features = "src/test/resources/basic-command.feature",
+        glue = "onboarding.cucumber",
         plugin = {"onboarding.cucumber.listener.TestListener",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"})
 public class RunCucumberTest {

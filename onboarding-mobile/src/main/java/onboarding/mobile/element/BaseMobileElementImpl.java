@@ -61,49 +61,49 @@ public class BaseMobileElementImpl implements Element {
     }
 
     private void initLocator() {
-        switch (this.mobileElementInfo.getLocatorType()) {
+        switch (this.mobileElementInfo.getType()) {
             case CLASS_NAME:
-                locator = className(this.mobileElementInfo.getLocatorValue());
+                locator = className(this.mobileElementInfo.getValue());
                 break;
 
             case NAME:
-                locator = name(this.mobileElementInfo.getLocatorValue());
+                locator = name(this.mobileElementInfo.getValue());
                 break;
 
             case XPATH:
-                locator = xpath(this.mobileElementInfo.getLocatorValue());
+                locator = xpath(this.mobileElementInfo.getValue());
                 break;
 
             case ACCESSIBILITY_ID:
-                locator = AppiumBy.accessibilityId(this.mobileElementInfo.getLocatorValue());
+                locator = AppiumBy.accessibilityId(this.mobileElementInfo.getValue());
                 break;
 
             case IOS_PREDICATE:
-                locator = AppiumBy.iOSNsPredicateString(this.mobileElementInfo.getLocatorValue());
+                locator = AppiumBy.iOSNsPredicateString(this.mobileElementInfo.getValue());
                 break;
 
             case IOS_CLASS_CHAIN:
-                locator = AppiumBy.iOSClassChain(this.mobileElementInfo.getLocatorValue());
+                locator = AppiumBy.iOSClassChain(this.mobileElementInfo.getValue());
                 break;
 
             case ANDROID_UIAUTOMATOR:
-                locator = AppiumBy.androidUIAutomator(this.mobileElementInfo.getLocatorValue());
+                locator = AppiumBy.androidUIAutomator(this.mobileElementInfo.getValue());
                 break;
 
             case ANDROID_DATA_MATCHER:
-                locator = AppiumBy.androidDataMatcher(this.mobileElementInfo.getLocatorValue());
+                locator = AppiumBy.androidDataMatcher(this.mobileElementInfo.getValue());
                 break;
 
             case ANDROID_VIEW_MATCHER:
-                locator = AppiumBy.androidViewMatcher(this.mobileElementInfo.getLocatorValue());
+                locator = AppiumBy.androidViewMatcher(this.mobileElementInfo.getValue());
                 break;
             case ANDROID_VIEW_TAG:
-                locator = AppiumBy.androidViewTag(this.mobileElementInfo.getLocatorValue());
+                locator = AppiumBy.androidViewTag(this.mobileElementInfo.getValue());
                 break;
 
             case ID:
             default:
-                locator = id(this.mobileElementInfo.getLocatorValue());
+                locator = id(this.mobileElementInfo.getValue());
                 break;
         }
     }
@@ -209,7 +209,7 @@ public class BaseMobileElementImpl implements Element {
 
     @Override
     public Element formatLocatorValue(String... eventName) {
-        this.mobileElementInfo.setLocatorValue(String.format(this.mobileElementInfo.getLocatorValue(), eventName));
+        this.mobileElementInfo.setValue(String.format(this.mobileElementInfo.getValue(), eventName));
         initLocator();
         return this;
     }

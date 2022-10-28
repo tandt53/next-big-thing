@@ -8,22 +8,19 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public interface ElementManager<T extends Element, I extends ElementInfo> {
+public class ElementManagerUtils {
 
-    Element get(String elementName);
 
-    Element initBaseElement(I elementInfo);
-
-    default String getName(String elementName) {
+    public static String getName(String elementName) {
         return isContainArgs(elementName) ? splitName(elementName).get(0) : elementName;
     }
 
-    default boolean isContainArgs(String elementName) {
+    public static boolean isContainArgs(String elementName) {
         String regex = ".+\\[.+\\]";
         return elementName.matches(regex);
     }
 
-    default List<String> splitName(String elementName) {
+    public static List<String> splitName(String elementName) {
         List<String> nameElements = new ArrayList<>();
         String regex = "(.+)\\[(.+)\\]";
 
@@ -35,7 +32,8 @@ public interface ElementManager<T extends Element, I extends ElementInfo> {
         }
         return nameElements;
     }
-    default String formatLocatorValueWithArgs(String locatorValue, String elementName) {
+
+    public static String formatLocatorValueWithArgs(String locatorValue, String elementName) {
         if (isContainArgs(elementName)) {
             String elementArgs = splitName(elementName).get(1);
             locatorValue = formatElement(locatorValue, elementArgs);
@@ -43,11 +41,13 @@ public interface ElementManager<T extends Element, I extends ElementInfo> {
         return locatorValue;
     }
 
-    default String formatElement(String name, String elementArgs) {
+    public static String formatElement(String name, String elementArgs) {
         String magicDelimiter = "ONBOARDING";
         elementArgs = elementArgs.replace("\",\"", "\"" + magicDelimiter + "\"");
         elementArgs = elementArgs.replace("\"", "");
         String[] argArray = elementArgs.split(magicDelimiter);
         return String.format(name, argArray);
     }
+
+
 }

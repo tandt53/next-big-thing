@@ -1,8 +1,10 @@
 Feature: Basic commands
 
+  @Mobile
   Scenario: List of basic commands
-    When I click on mobile element "page.name"
-    And I type "text" on mobile element "page.name2"
+    And I type "admin" on mobile element "page.edtUsername"
+    And I type "admin" on mobile element "page.edtPassword"
+    And I click on mobile element "page.btnLogin"
 #    And I get text from "element"
 #    And I should see "element" displayed
 #    And I should see "element" displaying "text"

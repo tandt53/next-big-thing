@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 public class ElementInfo {
     private String name;
-    private String locatorValue;
+    private String value;
     private WaitStrategy strategy;
+    private long timeout;
 }

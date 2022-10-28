@@ -1,4 +1,4 @@
-package onboarding.cucumber.steps;
+package onboarding.cucumber.steps.mobile;
 
 import com.google.inject.Inject;
 import io.cucumber.java.en.And;

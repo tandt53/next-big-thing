@@ -6,6 +6,7 @@ import com.google.inject.Stage;
 import io.cucumber.guice.CucumberModules;
 import io.cucumber.guice.InjectorSource;
 import onboarding.commontest.TestModule;
+import onboarding.cucumber.guice.CucumberStepModule;
 import onboarding.cucumber.test.mobile.HomePageBinder;
 import onboarding.mobile.MobileModule;
 import onboarding.web.WebModule;
@@ -22,6 +23,8 @@ public class CucumberModule implements InjectorSource {
                 new TestModule(),
                 new WebModule(),
                 new MobileModule(),
-                new HomePageBinder());
+                new CucumberStepModule(),
+                new HomePageBinder()
+        );
     }
 }

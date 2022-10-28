@@ -28,7 +28,7 @@ public class ElementFactory {
                         WebElementInfo webElementInfo = new WebElementInfo();
                         webElementInfo.setName(name);
                         webElementInfo.setLocatorType(type);
-                        webElementInfo.setLocatorValue(value);
+                        webElementInfo.setValue(value);
                         webElementInfo.setStrategy(waitUntil);
 
                         Element baseElement = (Element) Proxy.newProxyInstance(Element.class.getClassLoader(),
