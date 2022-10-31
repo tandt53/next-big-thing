@@ -23,7 +23,6 @@ public class AssertionSteps {
         Assert.assertEquals(page.getText(element), text);
     }
 
-
     @And("I should see {string} contains {string}")
     public void iShouldSeeContains(String element, String text) {
         text = vars.formatVariable(text);

@@ -54,7 +54,6 @@ public class BasicMobileSteps {
     public void iSetListVariables(DataTable dataTable) {
         Map<String, String> map = dataTable.asMap();
         vars.setVariable(map);
-
     }
 
     @And("I swipe left")
