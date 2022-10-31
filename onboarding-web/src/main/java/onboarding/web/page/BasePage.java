@@ -1,6 +1,7 @@
-package onboarding.web;
+package onboarding.web.page;
 
 import com.google.inject.Inject;
+import onboarding.web.ElementFactory;
 import onboarding.web.drivermanager.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +12,7 @@ import java.util.List;
 /**
  * The base class for all pages.
  */
-public abstract class BaseWebPage<TPage extends BaseWebPage> {
+public abstract class BasePage<TPage extends BasePage> {
 
     public String url;
 

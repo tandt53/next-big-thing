@@ -1,9 +1,14 @@
 package onboarding.cucumber.steps.mobile;
 
 import com.google.inject.Inject;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
+import onboarding.cucumber.exceptions.BaseStepException;
 import onboarding.cucumber.steps.TestVariables;
+
+import java.util.Map;
 
 public class BasicMobileSteps {
 
@@ -30,13 +35,50 @@ public class BasicMobileSteps {
         vars.setVariable(varName, text);
     }
 
-    @And("I scroll down in list view")
+    @And("I scroll down")
     public void iScrollDownInListView() {
         page.scrollDown();
     }
 
-    @And("I scroll up in list view")
+    @And("I scroll up")
     public void iScrollUpInListView() {
         page.scrollUp();
+    }
+
+    @And("I set variable with {string} and {string}")
+    public void iSetVariableWithAnd(String key, String value) {
+        vars.setVariable(key, value);
+    }
+
+    @And("I set list variables")
+    public void iSetListVariables(DataTable dataTable) {
+        Map<String, String> map = dataTable.asMap();
+        vars.setVariable(map);
+
+    }
+
+    @And("I swipe left")
+    public void iSwipeLeft() {
+        page.swipeLeft();
+    }
+
+    @And("I swipe right")
+    public void iSwipeRight() {
+        page.swipeRight();
+    }
+
+    @And("I open deep link {string}")
+    public void iOpenDeepLink(String url) {
+        page.open(url);
+    }
+
+    @And("I switch to native view")
+    public void iSwitchToNativeView() {
+        page.switchContextToNative();
+    }
+
+    @And("I switch to web view")
+    public void iSwitchToWebView() {
+        page.switchContextToWebView();
     }
 }

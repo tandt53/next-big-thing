@@ -3,7 +3,7 @@ package onboarding.web.test.pages;
 import onboarding.commontest.Prop;
 import onboarding.ui.element.Element;
 import onboarding.ui.element.WaitStrategy;
-import onboarding.web.BaseWebPage;
+import onboarding.web.page.BasePage;
 import onboarding.web.annotations.FindElement;
 import onboarding.web.element.WebLocatorType;
 
@@ -11,9 +11,9 @@ import onboarding.web.element.WebLocatorType;
 /**
  * Created by tandt53 on 12/28/2016.
  */
-public class HomeWebPage extends BaseWebPage<HomeWebPage> {
+public class HomePage extends BasePage<HomePage> {
 
-    public HomeWebPage() {
+    public HomePage() {
         url = "http://google.com.vn";
     }
 

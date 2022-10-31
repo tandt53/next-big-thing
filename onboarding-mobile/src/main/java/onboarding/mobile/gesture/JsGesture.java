@@ -1,67 +1,21 @@
 package onboarding.mobile.gesture;
 
-import onboarding.ui.element.Element;
 
 public interface JsGesture {
 
-    /**
-     * ios, android
-     * Swipe's parameters:
-     * - direction: "left", "right", "up", "down"
-     * - location: start(x,y) to end(x,y)
-     * - duration: time in milliseconds
-     */
-    // swipeGesture
-    default void swipe(Direction direction) {}
+    void swipeLeft();
 
-    default void swipe(Direction direction, int top, int left, int width, int height) {}
+    void swipeRight();
 
-    default void swipe(Direction direction, int top, int left, int width, int height, long speed) {}
+    void swipe(String elementId, Direction direction);
 
-    default void swipe(Element element, int width, int height){}
+    boolean scrollDown();
 
-    default void swipe(int startX, int startY, Direction direction){}
+    boolean scrollUp();
 
-    /**
-     * ios, android
-     * scroll's parameters:
-     * - direction:"up", "down"
-     * - location: start(x,y) to end(x,y)
-     * - duration: time in milliseconds
-     * - element: element to scroll
-     */
-    default boolean scroll(){return false;} // scrollGesture
+    void dragAndDrop(int startX, int startY, int endX, int endY);
 
-    // ios, android
-    default void pinch(){} // pinchOpenGesture, pinchCloseGesture
+    void tap(int x, int y);
 
-    // ios/android
-    default void doubleTap(){} // double click on android
-
-    // ios
-    default void touchAndHold(){}
-
-    // ios
-    default void twoFinderTap(){}
-
-    // ios, android
-    default void tap(){} // click on android
-
-    // ios, android
-    default void dragAndDrop(){}
-
-    // ios
-    default void selectPickleWheelValue(){}
-
-    // ios
-    default void rotateElement(){}
-
-    // ios
-    default void tapMultipleTimes(int numberOfTaps){}
-
-    // android
-    default void longClick(){}
-
-    // android
-    default void fling(){}
+    void tap(String elementId);
 }

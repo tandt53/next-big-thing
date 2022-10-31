@@ -6,6 +6,7 @@ import onboarding.common.exceptions.CommonException;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,14 +20,22 @@ public class TestVariables {
         vars = new HashMap<>();
     }
 
-    public void setVariable(String varName, Object value){
+    public void setVariable(String varName, Object value) {
+        String newName = formatVariable(varName);
+
+        if (value instanceof String) {
+            String newValue = formatVariable((String) value);
+            vars.put(newName, newValue);
+        } else {
+            vars.put(newName, value);
+        }
     }
 
     public Object getVariable(String key) {
         return vars.get(key);
     }
 
-    public String formatVariable(String text){
+    public String formatVariable(String text) {
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(text);
 
@@ -41,5 +50,12 @@ public class TestVariables {
             returnString = returnString.replace(replacedString, replaceValue);
         }
         return returnString;
+    }
+
+    public void setVariable(Map<String, String> variables) {
+        Set<String> variableNames = variables.keySet();
+        for (String name : variableNames) {
+            setVariable(name, variables.get(name));
+        }
     }
 }

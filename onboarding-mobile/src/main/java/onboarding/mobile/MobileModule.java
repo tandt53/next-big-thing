@@ -10,6 +10,8 @@ import onboarding.mobile.drivermanager.DriverProvider;
 import onboarding.mobile.drivermanager.IosDriverManager;
 import onboarding.mobile.drivermanager.option.AppiumDriverOptionFilter;
 import onboarding.mobile.drivermanager.option.DriverOptionFilter;
+import onboarding.mobile.gesture.AndroidGesture;
+import onboarding.mobile.gesture.JsGesture;
 import onboarding.mobile.page.DefaultPageFactory;
 import onboarding.mobile.page.PageFactory;
 
@@ -24,6 +26,7 @@ public class MobileModule extends AbstractModule {
         bind(DriverManager.class).toProvider(DriverProvider.class).in(Scopes.SINGLETON);
         bind(DriverManager.class).annotatedWith(Names.named("android")).to(AndroidDriverManager.class).in(Scopes.SINGLETON);
         bind(DriverManager.class).annotatedWith(Names.named("ios")).to(IosDriverManager.class).in(Scopes.SINGLETON);
+        bind(JsGesture.class).annotatedWith(Names.named("android")).to(AndroidGesture.class);
     }
 
 

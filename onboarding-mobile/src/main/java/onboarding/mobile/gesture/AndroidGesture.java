@@ -17,7 +17,7 @@ import static onboarding.mobile.Constants.*;
  * reference: https://appium.io/docs/en/writing-running-appium/android/android-mobile-gestures
  *
  */
-public class AndroidGesture {
+public class AndroidGesture implements JsGesture{
 
     private static final int SPEED = 1000;
 

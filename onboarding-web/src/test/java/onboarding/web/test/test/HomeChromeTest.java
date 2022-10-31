@@ -4,7 +4,7 @@ import onboarding.commontest.TestContext;
 import onboarding.commontest.TestModule;
 import onboarding.web.BaseTest;
 import onboarding.web.WebModule;
-import onboarding.web.test.pages.HomeWebPage;
+import onboarding.web.test.pages.HomePage;
 import onboarding.web.test.pages.SearchResultPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -18,14 +18,14 @@ import org.testng.annotations.Test;
 @Guice(modules = {WebModule.class, TestModule.class})
 public class HomeChromeTest extends BaseTest {
 
-    private HomeWebPage homePage;
+    private HomePage homePage;
     private SearchResultPage searchResultPage;
 
     @BeforeTest
     public void setup() {
         TestContext.getInstance().getConfiguration().add("extra", "extra cap");
 
-        homePage = page(HomeWebPage.class);
+        homePage = page(HomePage.class);
         searchResultPage = page(SearchResultPage.class);
     }
 
