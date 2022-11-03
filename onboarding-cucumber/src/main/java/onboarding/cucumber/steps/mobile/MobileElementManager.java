@@ -22,7 +22,7 @@ public class MobileElementManager {
 
     public static Element get(String element, AppiumDriver driver) {
         if (element.split("\\.").length != 2) {
-            throw new ElementSyntaxException("Element " + element + " is not valid.");
+            throw new ElementSyntaxException("Element '" + element + "' is not valid.");
         }
         String page = element.substring(0, element.indexOf('.'));
         String elementName = element.substring(element.indexOf('.') + 1);
@@ -34,7 +34,9 @@ public class MobileElementManager {
             pageLocators = new PageLoader().load(page, driver);
             locators.put(page, pageLocators);
         }
+
         String elementKey = getName(elementName);
+        long getName = System.currentTimeMillis();
 
         MobileElementInfo loadedInfo = pageLocators.get(elementKey);
         if (loadedInfo == null) {
@@ -45,7 +47,6 @@ public class MobileElementManager {
         return (Element) Proxy.newProxyInstance(Element.class.getClassLoader(),
                 new Class[]{Element.class}, new ElementInvocationHandler(driver, info));
     }
-
 
 
 }

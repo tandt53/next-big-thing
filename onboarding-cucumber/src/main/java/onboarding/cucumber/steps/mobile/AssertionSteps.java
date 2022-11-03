@@ -14,17 +14,18 @@ public class AssertionSteps {
 
     @And("I should see {string} displayed")
     public void iShouldSeeDisplayed(String element) {
-        page.isDisplayed(element);
+        page.isDisplayed(vars.formatVariable(element));
     }
 
     @And("I should see {string} displaying {string}")
     public void iShouldSeeDisplaying(String element, String text) {
         text = vars.formatVariable(text);
-        Assert.assertEquals(page.getText(element), text);
+        Assert.assertEquals(text, page.getText(element));
     }
 
     @And("I should see {string} contains {string}")
     public void iShouldSeeContains(String element, String text) {
+        element = vars.formatVariable(element);
         text = vars.formatVariable(text);
         Assert.assertTrue(page.getText(element).contains(text));
     }

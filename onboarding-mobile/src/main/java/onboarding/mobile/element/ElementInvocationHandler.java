@@ -41,7 +41,7 @@ public class ElementInvocationHandler implements InvocationHandler {
             returnObj = method.invoke(element, args);
             Instant end = Instant.now();
 
-            log.info("Method " + method.getName() + " on element " + ((BaseMobileElementImpl) element).getElementInfo().getName()
+            log.debug("Method " + method.getName() + " on element " + ((BaseMobileElementImpl) element).getElementInfo().getName()
                     + " executed in " + Duration.between(start, end).toMillis() + " ms.");
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			e.printStackTrace();

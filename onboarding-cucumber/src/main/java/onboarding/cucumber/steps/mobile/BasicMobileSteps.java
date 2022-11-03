@@ -20,7 +20,10 @@ public class BasicMobileSteps {
 
     @When("I click on mobile element {string}")
     public void iClickOn(String element) {
+        long start = System.currentTimeMillis();
         page.click(element);
+        long duration = System.currentTimeMillis() - start;
+        System.out.println("Click Step: " + duration);
     }
 
     @And("I type {string} on mobile element {string}")
@@ -29,7 +32,7 @@ public class BasicMobileSteps {
         page.type(text, element);
     }
 
-    @And("I get text from {string} and set to {string}")
+    @And("I get text from {string} and set to variable {string}")
     public void iGetTextFromAndSetTo(String element, String varName) {
         String text = page.getText(element);
         vars.setVariable(varName, text);

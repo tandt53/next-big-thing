@@ -47,16 +47,12 @@ public class PageLoader {
     }
 
     private String path(String page, AppiumDriver driver) {
-        String platformName = ((Platform) driver.getCapabilities().getCapability("platformName")).name();
+        String platformName = ((Platform) driver.getCapabilities().getCapability("platformName")).name().toLowerCase();
 
         String pathTemplate = "locators/%s/%s.json";
-        String childDir = "";
+        String childDir = platformName;
         if (platformName.isEmpty()) {
             childDir = "web";
-        } else if(platformName.equalsIgnoreCase("android")){
-            childDir = "android";
-        } else if(platformName.equalsIgnoreCase("ios")){
-            childDir = "ios";
         }
         return String.format(pathTemplate, childDir, page);
     }

@@ -2,12 +2,18 @@ package onboarding.cucumber.steps.mobile;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.Key;
+import com.google.inject.name.Names;
 import io.appium.java_client.AppiumDriver;
+import onboarding.commontest.Prop;
 import onboarding.cucumber.steps.TestVariables;
 import onboarding.mobile.drivermanager.DriverManager;
 import onboarding.mobile.gesture.JsGesture;
 import onboarding.mobile.page.BasePage;
 import onboarding.ui.element.Element;
+import org.openqa.selenium.Platform;
+
+import javax.inject.Named;
 
 import static onboarding.cucumber.steps.mobile.MobileElementManager.get;
 
@@ -15,12 +21,13 @@ public class MobilePageObject extends BasePage {
 
     private AppiumDriver driver;
 
-    @Inject
     private JsGesture gesture;
 
     @Inject
     public MobilePageObject(Injector injector) {
         driver = injector.getInstance(DriverManager.class).getDriver();
+        String platform = ((Platform) driver.getCapabilities().getCapability("platformName")).name().toLowerCase();
+        gesture = injector.getInstance(Key.get(JsGesture.class, Names.named(platform)));
     }
 
     public void click(String element) {

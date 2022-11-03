@@ -4,11 +4,11 @@ Feature: Basic commands
   Scenario: List of basic commands
     And I type "admin" on mobile element "page.edtUsername"
     And I type "admin" on mobile element "page.edtPassword"
+    And I get text from "page.txtErrorMessage" and set to variable "message"
     And I click on mobile element "page.btnLogin"
-    And I get text from "element" and set to "variable"
-    And I should see "element" displayed
-    And I should see "element" displaying "text"
-    And I should see "element" contains "text"
+    And I should see "page.txtErrorMessage" displayed
+    And I should see "page.txtErrorMessage" displaying "${message}"
+    And I should see "page.txtErrorMessage" contains "success"
     And I scroll down
     And I scroll up
     And I swipe left
@@ -21,3 +21,4 @@ Feature: Basic commands
       | key   | value   |
       | key 1 | value 1 |
       | kye 2 | value 2 |
+

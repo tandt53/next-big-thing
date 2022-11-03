@@ -45,7 +45,7 @@ public class TestVariables {
             String key = matcher.group(1);
             String replaceValue = vars.get(key).toString();
             if (replaceValue == null || replaceValue.isEmpty()) {
-                throw new CommonException("Variable variable with name " + key + " does not exist.");
+                throw new CommonException("Variable with name '" + key + "' does not exist.");
             }
             returnString = returnString.replace(replacedString, replaceValue);
         }
