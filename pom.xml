@@ -7,7 +7,7 @@
     <artifactId>automation</artifactId>
     <groupId>com.tandt53</groupId>
     <packaging>pom</packaging>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <modules>
         <module>onboarding-common</module>
         <module>onboarding-common-test</module>
