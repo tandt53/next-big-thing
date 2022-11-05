@@ -34,7 +34,6 @@ public class IosGestureTest {
 
     @BeforeMethod
     public void setUp() {
-        // TODO this path is not able run on ci runner
         String path = System.getProperty("user.dir") + "/../data/apps/UICatalog.app";
         TestContext.getInstance().getConfiguration().add("onboarding.appium.app", path);
         driver = driverManager.getDriver();
