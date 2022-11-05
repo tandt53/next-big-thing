@@ -1,11 +1,11 @@
-package onboarding.cucumber.test;
+package onboarding.cucumber.steps;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import io.appium.java_client.AppiumDriver;
 import io.cucumber.guice.ScenarioScoped;
 import onboarding.commontest.Prop;
-import onboarding.cucumber.test.exception.TakeScreenshotException;
+import onboarding.cucumber.exception.TakeScreenshotException;
 import onboarding.mobile.drivermanager.DriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;

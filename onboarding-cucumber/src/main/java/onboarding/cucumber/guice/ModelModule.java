@@ -4,7 +4,7 @@ import com.google.inject.AbstractModule;
 import io.cucumber.guice.ScenarioScoped;
 import onboarding.commontest.TestContext;
 import onboarding.commontest.configuration.Configuration;
-import onboarding.cucumber.exceptions.ScenarioScopeModelException;
+import onboarding.cucumber.exception.ScenarioScopeModelException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;

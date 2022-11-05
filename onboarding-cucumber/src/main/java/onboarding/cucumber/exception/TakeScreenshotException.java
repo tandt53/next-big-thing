@@ -1,4 +1,4 @@
-package onboarding.cucumber.test.exception;
+package onboarding.cucumber.exception;
 
 public class TakeScreenshotException extends RuntimeException{
 

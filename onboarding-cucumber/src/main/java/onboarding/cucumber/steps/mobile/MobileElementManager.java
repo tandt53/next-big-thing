@@ -2,7 +2,7 @@ package onboarding.cucumber.steps.mobile;
 
 
 import io.appium.java_client.AppiumDriver;
-import onboarding.cucumber.exceptions.ElementInPageNotFoundException;
+import onboarding.cucumber.exception.ElementInPageNotFoundException;
 import onboarding.cucumber.steps.ElementManagerUtils;
 import onboarding.cucumber.steps.PageLoader;
 import onboarding.mobile.element.ElementInvocationHandler;

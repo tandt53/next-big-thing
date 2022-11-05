@@ -1,6 +1,6 @@
 package onboarding.cucumber.steps;
 
-import onboarding.cucumber.exceptions.ElementInPageNotFoundException;
+import onboarding.cucumber.exception.ElementInPageNotFoundException;
 
 import java.util.Arrays;
 import java.util.List;

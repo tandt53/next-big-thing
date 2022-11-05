@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import io.appium.java_client.AppiumDriver;
-import onboarding.cucumber.exceptions.PageNotFoundException;
+import onboarding.cucumber.exception.PageNotFoundException;
 import onboarding.mobile.element.MobileElementInfo;
 import onboarding.mobile.element.MobileLocatorType;
 import org.openqa.selenium.Platform;
