@@ -6,7 +6,7 @@
   },
   "edtPassword": {
     "type": "id",
-    "value": "edtPassword",
+    "value": "%s",
     "timeout": 10
   },
   "chbRememberMe": {

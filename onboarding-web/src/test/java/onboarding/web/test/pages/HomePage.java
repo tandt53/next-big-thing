@@ -3,9 +3,9 @@ package onboarding.web.test.pages;
 import onboarding.commontest.Prop;
 import onboarding.ui.element.Element;
 import onboarding.ui.element.WaitStrategy;
-import onboarding.web.page.BasePage;
 import onboarding.web.annotations.FindElement;
 import onboarding.web.element.WebLocatorType;
+import onboarding.web.page.BasePage;
 
 
 /**

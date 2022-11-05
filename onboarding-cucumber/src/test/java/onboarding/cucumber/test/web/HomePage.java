@@ -2,9 +2,9 @@ package onboarding.cucumber.test.web;
 
 import onboarding.ui.element.Element;
 import onboarding.ui.element.WaitStrategy;
-import onboarding.web.page.BasePage;
 import onboarding.web.annotations.FindElement;
 import onboarding.web.element.WebLocatorType;
+import onboarding.web.page.BasePage;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage<HomePage> {

@@ -5,15 +5,11 @@ import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.name.Names;
 import io.appium.java_client.AppiumDriver;
-import onboarding.commontest.Prop;
-import onboarding.cucumber.steps.TestVariables;
 import onboarding.mobile.drivermanager.DriverManager;
 import onboarding.mobile.gesture.JsGesture;
 import onboarding.mobile.page.BasePage;
 import onboarding.ui.element.Element;
 import org.openqa.selenium.Platform;
-
-import javax.inject.Named;
 
 import static onboarding.cucumber.steps.mobile.MobileElementManager.get;
 

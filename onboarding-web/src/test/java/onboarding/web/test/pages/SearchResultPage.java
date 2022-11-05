@@ -1,9 +1,9 @@
 package onboarding.web.test.pages;
 
 import onboarding.ui.element.Element;
-import onboarding.web.page.BasePage;
 import onboarding.web.annotations.FindElement;
 import onboarding.web.element.WebLocatorType;
+import onboarding.web.page.BasePage;
 
 /**
  * Created by tandt53 on 12/28/2016.
