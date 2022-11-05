@@ -12,3 +12,6 @@ api-rest-assured/
 **/allure-results/
 **/java-doc/
 java-doc/
+
+logs/
+**/logs
