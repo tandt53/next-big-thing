@@ -7,6 +7,7 @@ import onboarding.web.annotations.FindElement;
 import onboarding.web.element.ElementInvocationHandler;
 import onboarding.web.element.WebElementInfo;
 import onboarding.web.element.WebLocatorType;
+import onboarding.web.page.BasePage;
 import org.openqa.selenium.WebDriver;
 
 import java.lang.reflect.Field;
@@ -14,7 +15,7 @@ import java.lang.reflect.Proxy;
 
 public class ElementFactory {
 
-    public static <T extends BaseWebPage<?>> void initElements(WebDriver driver, T page) {
+    public static <T extends BasePage<?>> void initElements(WebDriver driver, T page) {
         try {
             Class<?> objectClass = page.getClass();
             for (Field field : objectClass.getDeclaredFields()) {
@@ -28,7 +29,7 @@ public class ElementFactory {
                         WebElementInfo webElementInfo = new WebElementInfo();
                         webElementInfo.setName(name);
                         webElementInfo.setLocatorType(type);
-                        webElementInfo.setLocatorValue(value);
+                        webElementInfo.setValue(value);
                         webElementInfo.setStrategy(waitUntil);
 
                         Element baseElement = (Element) Proxy.newProxyInstance(Element.class.getClassLoader(),

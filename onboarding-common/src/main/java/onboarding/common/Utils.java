@@ -8,7 +8,11 @@ import java.util.regex.Pattern;
 
 public class Utils {
 
-    private Utils(){}
+    private Utils() {
+    }
+
+    private static final String REGEX = "\\$\\{([^\\\\$\\\\]+)\\}";
+
 
     /**
      * This method is to
@@ -21,8 +25,7 @@ public class Utils {
      * @throws CommonException
      */
     public static String parseVariables(String text) throws CommonException {
-        String regex = "\\$\\{([^\\\\$\\\\]+)\\}";
-        Pattern pattern = Pattern.compile(regex);
+        Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(text);
 
         String returnString = text;
@@ -38,4 +41,11 @@ public class Utils {
         return returnString;
     }
 
+    public static boolean isVariable(String text) {
+        return text.matches(REGEX);
+    }
+
+    public static boolean hasVariable(String text) {
+        return Pattern.compile(REGEX).matcher(text).find();
+    }
 }

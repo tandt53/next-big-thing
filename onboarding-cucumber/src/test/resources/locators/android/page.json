@@ -1,0 +1,27 @@
+{
+  "edtUsername": {
+    "type": "id",
+    "value": "edtUsername",
+    "timeout": 10
+  },
+  "edtPassword": {
+    "type": "id",
+    "value": "%s",
+    "timeout": 10
+  },
+  "chbRememberMe": {
+    "type": "id",
+    "value": "chbRememberMe",
+    "timeout": 10
+  },
+  "btnLogin": {
+    "type": "id",
+    "value": "btnLogin",
+    "timeout": 10
+  },
+  "txtErrorMessage": {
+    "type": "id",
+    "value": "txtErrorMessage",
+    "timeout": 10
+  }
+}

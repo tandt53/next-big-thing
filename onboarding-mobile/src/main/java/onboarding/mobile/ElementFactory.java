@@ -30,8 +30,8 @@ public class ElementFactory {
                     if (type != null && value != null) {
                         MobileElementInfo mobileElementInfo = new MobileElementInfo();
                         mobileElementInfo.setName(name);
-                        mobileElementInfo.setLocatorType(type);
-                        mobileElementInfo.setLocatorValue(value);
+                        mobileElementInfo.setType(type);
+                        mobileElementInfo.setValue(value);
                         mobileElementInfo.setStrategy(waitUntil);
 
                         Element baseElement = (Element) Proxy.newProxyInstance(Element.class.getClassLoader(),

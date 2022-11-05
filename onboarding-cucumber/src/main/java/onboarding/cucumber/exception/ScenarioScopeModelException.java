@@ -1,4 +1,4 @@
-package onboarding.cucumber.exceptions;
+package onboarding.cucumber.exception;
 
 public class ScenarioScopeModelException extends RuntimeException {
 

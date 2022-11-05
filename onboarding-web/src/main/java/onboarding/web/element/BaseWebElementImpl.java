@@ -33,7 +33,7 @@ public class BaseWebElementImpl implements Element {
     public BaseWebElementImpl(WebDriver driver, WebElementInfo webElementInfo) {
         this.driver = driver;
         this.webElementInfo = webElementInfo;
-        initLocator(this.webElementInfo.getLocatorType(), this.webElementInfo.getLocatorValue());
+        initLocator(this.webElementInfo.getLocatorType(), this.webElementInfo.getValue());
         initWaitStrategy();
     }
 
@@ -234,7 +234,7 @@ public class BaseWebElementImpl implements Element {
 
     @Override
     public Element formatLocatorValue(String... eventName) {
-        String newLocator = String.format(this.webElementInfo.getLocatorValue(), eventName);
+        String newLocator = String.format(this.webElementInfo.getValue(), eventName);
         initLocator(this.webElementInfo.getLocatorType(), newLocator);
         return this;
     }

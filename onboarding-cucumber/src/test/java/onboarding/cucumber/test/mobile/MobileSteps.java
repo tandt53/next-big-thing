@@ -26,4 +26,7 @@ public class MobileSteps {
     public void iVerifyMessage(String arg0) {
         Assert.assertEquals(arg0, homePage.getMessage());
     }
+
+
+
 }

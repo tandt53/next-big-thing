@@ -11,7 +11,7 @@ public class WebElementInfo extends ElementInfo {
 
     public WebElementInfo(WebElementInfo elementInfo) {
         this.setName(elementInfo.getName());
-        this.setLocatorValue(elementInfo.getLocatorValue());
+        this.setValue(elementInfo.getValue());
         this.setLocatorType(elementInfo.getLocatorType());
         this.setStrategy(elementInfo.getStrategy());
     }
