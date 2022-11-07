@@ -26,7 +26,7 @@ public class ActionSteps {
         page.type(text, element);
     }
 
-    @And("I get text from {string} and set to variable {string}")
+    @And("I get text from mobile element {string} and set to variable {string}")
     public void iGetTextFromAndSetTo(String element, String varName) {
         element = vars.formatVariable(element);
         String text = page.getText(element);
