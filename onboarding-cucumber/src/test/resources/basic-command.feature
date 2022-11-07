@@ -6,10 +6,10 @@ Feature: Basic commands
     And I type "admin" on mobile element "page.edtUsername"
     And I type "${password}" on mobile element "page.edtPassword[edtPassword]"
     And I click on mobile element "page.btnLogin"
-    And I get text from "page.txtErrorMessage" and set to variable "message"
-    And I should see "page.txtErrorMessage" displayed
-    And I should see "page.txtErrorMessage" displaying "${message}"
-    And I should see "page.txtErrorMessage" contains "success"
+    And I get text from mobile element "page.txtErrorMessage" and set to variable "message"
+    And I should see mobile element "page.txtErrorMessage" displayed
+    And I should see mobile element "page.txtErrorMessage" displaying "${message}"
+    And I should see mobile element "page.txtErrorMessage" contains "success"
     And I scroll down
     And I scroll up
     And I swipe left

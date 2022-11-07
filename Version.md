@@ -10,8 +10,8 @@ Example:
 
 Whenever release new version (Ex. version 1.0), it is necessary to execute commands:
 
-- Set version to all modules: `mvn versions:set -DnewVersion=1.0.1`
-- Set property for `onboarding.modules.version`: `mvn versions:set-property -Dproperty=onboarding.modules.version -DnewVersion=1.0.1`
+- Set version to all modules: `mvn versions:set -DnewVersion=1.0.2`
+- Set property for `onboarding.modules.version`: `mvn versions:set-property -Dproperty=onboarding.modules.version -DnewVersion=1.0.2`
 
 Guide from [Versions Maven Plugin][version-mvn-plugin]
 
