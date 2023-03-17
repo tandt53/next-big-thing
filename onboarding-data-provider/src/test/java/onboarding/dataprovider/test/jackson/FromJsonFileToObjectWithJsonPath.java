@@ -6,10 +6,10 @@ import onboarding.dataprovider.json.jackson.JacksonParser;
 import onboarding.dataprovider.test.jackson.model.Address;
 import onboarding.dataprovider.test.jackson.model.Person;
 import onboarding.dataprovider.test.jackson.model.Properties;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -48,7 +48,7 @@ public class FromJsonFileToObjectWithJsonPath {
             "  }\n" +
             "}";
 
-    @Before
+    @BeforeClass
     public void setup() {
         parser = new JacksonParser();
         init();
@@ -85,7 +85,7 @@ public class FromJsonFileToObjectWithJsonPath {
         person.setProperties(properties);
     }
 
-    @After
+    @AfterClass
     public void teardown() {
         File file = new File(jsonFile);
         if (file.exists())

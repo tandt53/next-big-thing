@@ -211,7 +211,6 @@ public class CurlCommand {
             SHORT_PARAMETER_NAMES.put("--cookie", "-b");
             SHORT_PARAMETER_NAMES.put("--header", "-H");
             SHORT_PARAMETER_NAMES.put("--request", "-X");
-            SHORT_PARAMETER_NAMES.put("--verbose", "-vinpay");
         }
 
         public Serializer(Platform targetPlatform, boolean useShortForm, boolean printMultiliner) {
