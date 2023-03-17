@@ -32,7 +32,7 @@ public class Utils {
         while (matcher.find()) {
             String replacedString = matcher.group(0);
             String key = matcher.group(1);
-            String replaceValue = System.getProperty(key);
+            String replaceValue = System.getenv(key);
             if (replaceValue == null || replaceValue.isEmpty()) {
                 throw new CommonException("Variable variable with name " + key + " is not passed to execute.");
             }

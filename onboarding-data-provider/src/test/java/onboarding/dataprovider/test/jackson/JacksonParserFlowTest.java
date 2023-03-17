@@ -4,8 +4,8 @@ import onboarding.dataprovider.json.interfaces.JsonParser;
 import onboarding.dataprovider.json.jackson.JacksonParser;
 import onboarding.dataprovider.test.jackson.model.Address;
 import onboarding.dataprovider.test.jackson.model.Person;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import java.io.File;
 
