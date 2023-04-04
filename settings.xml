@@ -5,8 +5,8 @@
     <servers>
         <server>
             <id>ossrh</id>
-            <username>${env.JIRA_ID}</username>
-            <password>${env.JIRA_PWD}</password>
+            <username>${env.OSSRH_USERNAME}</username>
+            <password>${env.OSSRH_TOKEN}</password>
         </server>
 
     </servers>
