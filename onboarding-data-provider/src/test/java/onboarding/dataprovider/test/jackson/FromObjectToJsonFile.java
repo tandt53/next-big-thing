@@ -6,10 +6,10 @@ import onboarding.dataprovider.json.jackson.JacksonParser;
 import onboarding.dataprovider.test.jackson.model.Address;
 import onboarding.dataprovider.test.jackson.model.Person;
 import onboarding.dataprovider.test.jackson.model.Properties;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class FromObjectToJsonFile {
     private String jsonFile = "jackson.json";
 
 
-    @Before
+    @BeforeClass
     public void setup() {
         parser = new JacksonParser();
         init();
@@ -57,7 +57,7 @@ public class FromObjectToJsonFile {
         person.setProperties(properties);
     }
 
-    @After
+    @AfterClass
     public void teardown() {
         File file = new File(jsonFile);
         if (file.exists())
@@ -69,7 +69,7 @@ public class FromObjectToJsonFile {
             parser.fromObjectToJsonFile(null, jsonFile);
             Assert.fail("Exception should be thrown!!!");
         } catch (JsonParserException e) {
-            Assert.assertEquals("Object must be not null", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "Object must be not null");
         }
     }
     @Test
@@ -78,7 +78,7 @@ public class FromObjectToJsonFile {
             parser.fromObjectToJsonFile(person, null);
             Assert.fail("Exception should be thrown!!!");
         } catch (JsonParserException e) {
-            Assert.assertEquals("File path must not be null or empty", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "File path must not be null or empty");
         }
     }
     @Test
@@ -87,7 +87,7 @@ public class FromObjectToJsonFile {
             parser.fromObjectToJsonFile(person, "");
             Assert.fail("Exception should be thrown!!!");
         } catch (JsonParserException e) {
-            Assert.assertEquals("File path must not be null or empty", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "File path must not be null or empty");
         }
     }
     @Test

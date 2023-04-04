@@ -4,10 +4,11 @@ import onboarding.dataprovider.json.interfaces.JsonParser;
 import onboarding.dataprovider.json.jackson.JacksonParser;
 import onboarding.dataprovider.test.jackson.model.Address;
 import onboarding.dataprovider.test.jackson.model.Person;
-import org.junit.Assert;
-import org.junit.Test;
 
 import java.io.File;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class JacksonParserFlowTest {
     private static final String jsonString = "{\n" +

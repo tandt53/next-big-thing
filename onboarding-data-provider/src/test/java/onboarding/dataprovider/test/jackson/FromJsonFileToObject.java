@@ -6,10 +6,10 @@ import onboarding.dataprovider.json.jackson.JacksonParser;
 import onboarding.dataprovider.test.jackson.model.Address;
 import onboarding.dataprovider.test.jackson.model.Person;
 import onboarding.dataprovider.test.jackson.model.Properties;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -49,7 +49,7 @@ public class FromJsonFileToObject {
             "  }\n" +
             "}";
 
-    @Before
+    @BeforeClass
     public void setup() {
         parser = new JacksonParser();
         init();
@@ -86,7 +86,7 @@ public class FromJsonFileToObject {
         person.setProperties(properties);
     }
 
-    @After
+    @AfterClass
     public void teardown() {
         File file = new File(jsonFile);
         if (file.exists())
@@ -109,7 +109,7 @@ public class FromJsonFileToObject {
             parser.fromJsonFileToObject(null, Person.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
-            Assert.assertEquals("File path must not be null or empty", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "File path must not be null or empty");
         }
     }
 
@@ -119,7 +119,7 @@ public class FromJsonFileToObject {
             parser.fromJsonFileToObject("", Person.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
-            Assert.assertEquals("File path must not be null or empty", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "File path must not be null or empty");
         }
     }
 
@@ -130,7 +130,7 @@ public class FromJsonFileToObject {
             parser.fromJsonFileToObject(filePath, Person.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
-            Assert.assertEquals("Unable to read json file", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "Unable to read json file");
         }
     }
 

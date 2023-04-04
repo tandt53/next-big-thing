@@ -6,10 +6,10 @@ import onboarding.dataprovider.json.jackson.JacksonParser;
 import onboarding.dataprovider.test.jackson.model.Address;
 import onboarding.dataprovider.test.jackson.model.Person;
 import onboarding.dataprovider.test.jackson.model.Properties;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -48,7 +48,7 @@ public class FromJsonFileToObjectWithJsonPath {
             "  }\n" +
             "}";
 
-    @Before
+    @BeforeClass
     public void setup() {
         parser = new JacksonParser();
         init();
@@ -85,7 +85,7 @@ public class FromJsonFileToObjectWithJsonPath {
         person.setProperties(properties);
     }
 
-    @After
+    @AfterClass
     public void teardown() {
         File file = new File(jsonFile);
         if (file.exists())
@@ -98,7 +98,7 @@ public class FromJsonFileToObjectWithJsonPath {
             parser.fromJsonFileToObject(null, "id", Person.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
-            Assert.assertEquals("File path must not be null or empty", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "File path must not be null or empty");
         }
     }
 
@@ -108,7 +108,7 @@ public class FromJsonFileToObjectWithJsonPath {
             parser.fromJsonFileToObject("", "id", Person.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
-            Assert.assertEquals("File path must not be null or empty", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "File path must not be null or empty");
         }
     }
 
@@ -118,7 +118,7 @@ public class FromJsonFileToObjectWithJsonPath {
             parser.fromJsonFileToObject("invalidPath.json", "id", Person.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
-            Assert.assertEquals("Unable to find the file at given path 'invalidPath.json'", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "Unable to find the file at given path 'invalidPath.json'");
         }
     }
 
@@ -128,7 +128,7 @@ public class FromJsonFileToObjectWithJsonPath {
             parser.fromJsonFileToObject(jsonFile, null, Person.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
-            Assert.assertEquals("Json path must be not null or not empty", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "Json path must be not null or not empty");
         }
     }
 
@@ -138,7 +138,7 @@ public class FromJsonFileToObjectWithJsonPath {
             parser.fromJsonFileToObject(jsonFile, "", Person.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
-            Assert.assertEquals("Json path must be not null or not empty", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "Json path must be not null or not empty");
         }
     }
 
@@ -148,7 +148,7 @@ public class FromJsonFileToObjectWithJsonPath {
             parser.fromJsonFileToObject(jsonFile, "invalid.json.path", Person.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
-            Assert.assertEquals("Fail to parse json at node 'invalid'", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "Fail to parse json at node 'invalid'");
         }
     }
 
@@ -158,7 +158,7 @@ public class FromJsonFileToObjectWithJsonPath {
             parser.fromJsonFileToObject(jsonFile, "phoneNumbers[3]", Person.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
-            Assert.assertEquals("Fail to parse json at node 'phoneNumbers[3]'", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "Fail to parse json at node 'phoneNumbers[3]'");
         }
     }
 
@@ -168,7 +168,7 @@ public class FromJsonFileToObjectWithJsonPath {
             parser.fromJsonFileToObject(jsonFile, "id", null);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
-            Assert.assertEquals("Object type must not be null", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "Object type must not be null");
         }
     }
 
@@ -178,7 +178,7 @@ public class FromJsonFileToObjectWithJsonPath {
             parser.fromJsonFileToObject(jsonFile, "id", Properties.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
-            Assert.assertEquals("Unable to parse json file to given type", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "Unable to parse json file to given type");
         }
     }
 
@@ -189,7 +189,7 @@ public class FromJsonFileToObjectWithJsonPath {
             parser.fromJsonFileToObject(filePath, "id", Person.class);
             Assert.fail("Exception should be thrown");
         } catch (JsonParserException e) {
-            Assert.assertEquals("Unable to parse json file to given type", e.getMessage());
+            Assert.assertEquals(e.getMessage(), "Unable to parse json file to given type");
         }
     }
 
@@ -203,15 +203,15 @@ public class FromJsonFileToObjectWithJsonPath {
     @Test
     public void convertToList() {
         List list = parser.fromJsonFileToObject(jsonFile, "phoneNumbers", List.class);
-        Assert.assertEquals(2, list.size());
-        Assert.assertEquals("123456", list.get(0));
+        Assert.assertEquals(list.size(), 2);
+        Assert.assertEquals(list.get(0), "123456");
     }
 
     @Test
     public void convertToMap() {
         Map map = parser.fromJsonFileToObject(jsonFile, "address", Map.class);
-        Assert.assertEquals(3, map.size());
-        Assert.assertEquals("San Jose", map.get("city"));
+        Assert.assertEquals(map.size(), 3);
+        Assert.assertEquals(map.get("city"), "San Jose");
     }
 
     @Test

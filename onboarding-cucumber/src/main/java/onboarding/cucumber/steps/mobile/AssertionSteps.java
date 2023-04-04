@@ -1,9 +1,10 @@
 package onboarding.cucumber.steps.mobile;
 
+import org.testng.Assert;
+
 import com.google.inject.Inject;
 import io.cucumber.java.en.And;
 import onboarding.cucumber.steps.TestVariables;
-import org.junit.Assert;
 
 public class AssertionSteps {
     @Inject

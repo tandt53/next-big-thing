@@ -2,7 +2,7 @@ package onboarding.restassured.test;
 
 import onboarding.restassured.rest.RestBody;
 import onboarding.restassured.test.model.AccountInfo;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class RestBodyConstructorTest {
 
