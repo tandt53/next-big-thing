@@ -5,12 +5,12 @@
     <parent>
         <groupId>com.tandt53</groupId>
         <artifactId>automation</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>onboarding-common</artifactId>
-
+    <name>onboarding-common</name>
     <dependencies>
 
         <dependency>

@@ -5,11 +5,12 @@
     <parent>
         <groupId>com.tandt53</groupId>
         <artifactId>automation</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>onboarding-rest-assured</artifactId>
+    <name>onboarding-rest-assured</name>
     <build>
         <plugins>
             <plugin>
@@ -27,7 +28,7 @@
         <dependency>
             <groupId>com.tandt53</groupId>
             <artifactId>onboarding-common</artifactId>
-            <version>1.0.2</version>
+            <version>1.0.3</version>
         </dependency>
 
         <dependency>

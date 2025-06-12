@@ -7,7 +7,7 @@
     <artifactId>automation</artifactId>
     <groupId>com.tandt53</groupId>
     <packaging>pom</packaging>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <modules>
         <module>onboarding-common</module>
         <module>onboarding-common-test</module>
@@ -227,7 +227,7 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.16</version>
+                <version>1.18.36</version>
             </dependency>
 
             <dependency>
@@ -362,7 +362,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
+                <version>3.2.7</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -372,6 +372,18 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <keyname>0xC177CDAC</keyname> <!-- Your GPG key ID in hex format -->
+                  </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.7.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                </configuration>
             </plugin>
         </plugins>
     </build>
