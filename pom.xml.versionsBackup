@@ -120,17 +120,6 @@
                 <version>${selenium.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-api</artifactId>
-                <version>${selenium.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-support</artifactId>
-                <version>${selenium.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>com.google.inject</groupId>

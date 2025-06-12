@@ -62,7 +62,6 @@
             <artifactId>selenium-support</artifactId>
         </dependency>
 
-
     </dependencies>
     <build>
         <plugins>

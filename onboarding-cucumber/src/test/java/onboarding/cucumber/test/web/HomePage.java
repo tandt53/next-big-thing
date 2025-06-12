@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage<HomePage> {
 
-    @FindElement(type = WebLocatorType.XPATH, value = "//*[@class='gLFyf gsfi']", waitUntil = WaitStrategy.VISIBILITY)
+    @FindElement(type = WebLocatorType.XPATH, value = "//*[@class='gLFyf']", waitUntil = WaitStrategy.VISIBILITY)
     private Element searchField;
 
     @FindBy(id = "_fZl")

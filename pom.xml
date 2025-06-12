@@ -55,8 +55,8 @@
 
         <log4j.version>2.19.0</log4j.version>
         <cucumber.version>7.8.1</cucumber.version>
-        <selenium.version>4.5.2</selenium.version>
-        <appium.version>8.2.0</appium.version>
+        <selenium.version>4.32.0</selenium.version>
+        <appium.version>9.4.0</appium.version>
         <skipTest>false</skipTest>
         <jacoco.version>0.8.6</jacoco.version>
         <jackson.version>2.13.2</jackson.version>
@@ -113,6 +113,7 @@
                 <artifactId>log4j-api</artifactId>
                 <version>${log4j.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
             <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>

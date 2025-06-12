@@ -17,11 +17,6 @@
             <version>${onboarding.modules.version}</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-api</artifactId>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
     <properties>

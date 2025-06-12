@@ -11,8 +11,6 @@
 
     <artifactId>onboarding-web</artifactId>
 
-
-
     <dependencies>
         <dependency>
             <groupId>com.tandt53</groupId>
